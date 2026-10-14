@@ -45,12 +45,21 @@ def format_results(results: dict) -> str:
         "",
         "ФАЙЛЫ ДАННЫХ",
         "-" * 80,
-        f"Готовая модель: {results.get('model_file')}",
+        f"Готовая модель: {results.get('model_file') or 'построена из constants.py и спектров'}",
     ]
     for label, key in (("SAMPLE", "sample_file"), ("GASBK", "background_file"), ("DETBK", "detector_file")):
         lines.append(f"{label}: {results.get(key) or 'вектор из NPZ'}")
     metadata = results.get("metadata", {})
+    lines.append(f"Калибровка: {metadata.get('calibration_source', 'подготовленная модель NPZ')}")
     lines.append(f"Фон b: {metadata.get('background_source', 'из NPZ')}")
+    if results.get("calibration_mode") == "constants":
+        lines.append("Исходные Rs/Rg: порядок ROI 1, 2, 3, 5, 6, 7, 8; изотопы Rn222, Xe135, Xe133, Xe131m, Xe133m.")
+        lines.append("Чувствительности ксенона: I_c = ε_SAMPLE × BR; I_g = ε_GASBK × BR.")
+        lines.append("Объём V0 = V_Xe / 0.087: V_Xe в см³, V0 в м³. Времена — в секундах.")
+        lines.append(f"Модель радона: {metadata.get('radon_mode')}; H_Rn (Бк/отсчёт): {metadata.get('radon_h')}")
+        lines.append(f"Временные параметры: {metadata.get('time_parameters')}")
+        if metadata.get("radon_mode") == "calibrated":
+            lines.append("Нулевая первая компонента I_c/I_g служебная: радон задаётся отдельными коэффициентами H_Rn.")
     for label in ("sample", "background", "detector"):
         temporal = metadata.get(f"{label}_temporal")
         if temporal:
@@ -118,6 +127,10 @@ def format_results(results: dict) -> str:
         lines.extend([name, np.array2string(value, precision=12, threshold=np.inf)])
     if model.T_c is not None:
         lines.extend(["T_c (beta→a_c)", np.array2string(model.T_c, precision=12)])
+    if results.get("calibration_matrices"):
+        lines.extend(["", "КАЛИБРОВОЧНЫЕ ПРЕОБРАЗОВАНИЯ"])
+        for name, value in results["calibration_matrices"].items():
+            lines.extend([name, np.array2string(np.asarray(value), precision=12, threshold=np.inf)])
     if solution.covariance is not None:
         lines.extend(["Ковариация theta", np.array2string(solution.covariance, precision=12)])
     if results.get("warnings"):

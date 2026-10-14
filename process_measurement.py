@@ -1,7 +1,7 @@
-"""Связь сохранённого IMS-парсера с новой совместной моделью SAMPLE/GASBK.
+"""IMS → совместная модель SAMPLE/GASBK → активности и MDC.
 
-Физические матрицы в первой версии готовят отдельно. Этот модуль никогда не
-вызывает старый calculation.py и не вычисляет H/T_c из старых констант.
+Матрицы строятся из constants.py и метаданных трёх спектров либо читаются
+из подготовленного NPZ. Старый calculation.py не вызывается.
 """
 
 from pathlib import Path
@@ -9,14 +9,16 @@ from typing import Any
 
 import numpy as np
 
-from constants import FIXED_ROI_TABLE
+from constants import FIXED_ROI_TABLE, ROI_INFO
 from ims_parser import (
     convert_roi_energy_to_channels, fit_energy_calibration,
     get_roi_counts_vector, parse_ims_spectral_file,
 )
 from xemat.activities import compute_activities
+from xemat.calibration import LEGACY_ROI_NUMBERS, build_physical_matrices
 from xemat.detection import compute_detection_limits
 from xemat.io import load_prepared_model
+from xemat.model import JointModel
 from xemat.solvers import fit
 
 
@@ -98,18 +100,19 @@ def _check_disjoint_rois(data, order, use_fixed_roi, label):
                 )
 
 
-def _spectral_input(model_file, paths, use_fixed_roi):
-    parsed = {
+def _read_spectra(paths):
+    return {
         name: parse_ims_spectral_file(str(path), is_sample=name == "sample")
         for name, path in zip(("sample", "background", "detector"), paths)
     }
+
+
+def _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi):
+    """Исходные отсчёты и фиксированный DETBK в согласованном порядке ROI."""
     counts = {
         name: get_roi_counts_vector(data, use_fixed_roi=use_fixed_roi)
         for name, data in parsed.items()
     }
-    with np.load(model_file, allow_pickle=False) as archive:
-        sample_order = _roi_order(archive, "sample_roi_numbers")
-        gasbk_order = _roi_order(archive, "gasbk_roi_numbers")
 
     for name, order in (("sample", sample_order), ("background", gasbk_order),
                         ("detector", sample_order), ("detector", gasbk_order)):
@@ -169,31 +172,88 @@ def _spectral_input(model_file, paths, use_fixed_roi):
     return x, b, metadata
 
 
+def _spectral_input(model_file, paths, use_fixed_roi):
+    parsed = _read_spectra(paths)
+    with np.load(model_file, allow_pickle=False) as archive:
+        sample_order = _roi_order(archive, "sample_roi_numbers")
+        gasbk_order = _roi_order(archive, "gasbk_roi_numbers")
+    return _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi)
+
+
+def _constants_input(paths, use_fixed_roi, radon_mode, radon_h):
+    """Привязать Rs/Rg к геометрии ROI и временам конкретного измерения."""
+    parsed = _read_spectra(paths)
+    detector_ids = {data.get("detector_id") for data in parsed.values()} - {None}
+    if len(detector_ids) > 1:
+        raise ValueError("SAMPLE, GASBK и DETBK относятся к разным детекторам.")
+    reference_rois = [ROI_INFO[name]["roi"] for name in ("Xe135", "Xe133", "Xe131m", "Xe133m")]
+    for name, data in parsed.items():
+        regions = dict(zip(data["roi_numbers"], data["roi_limits"]))
+        # Даже при фиксированных ROI нельзя использовать эффективность
+        # из файла для ДРУГОЙ опорной области. У DETBK эффективности не берём.
+        checked = (reference_rois if name != "detector" else []) if use_fixed_roi else LEGACY_ROI_NUMBERS
+        for number in checked:
+            if number not in regions or not np.allclose(
+                regions[number], FIXED_ROI_TABLE[number], rtol=0, atol=1e-6,
+            ):
+                if name != "detector" and number in reference_rois:
+                    reason = (
+                        "Эффективность из файла относится к этой опорной области; "
+                        "нужна калибровка для совпадающих границ или подготовленная модель NPZ."
+                    )
+                else:
+                    reason = "Выберите фиксированные ROI или подготовленную модель с подходящей калибровкой."
+                raise ValueError(
+                    f"{name.upper()}: границы ROI {number} не соответствуют "
+                    f"калибровке constants.py. {reason}"
+                )
+    order = list(LEGACY_ROI_NUMBERS)
+    x, b, metadata = _spectral_arrays(parsed, order, order, use_fixed_roi)
+    extras = build_physical_matrices(
+        parsed["sample"], parsed["background"],
+        radon_mode=radon_mode, radon_h=radon_h,
+    )
+    model = JointModel(extras["M"], x, b, 5, extras["T_c"], "beta_gamma")
+    metadata.update(extras.get("metadata", {}))
+    metadata["calibration_source"] = "Rs/Rg из constants.py; времена, объём и эффективности из IMS"
+    return model, extras, metadata
+
+
 def process_prepared_measurement(
-    model_file: str,
+    model_file: str | None = None,
     *,
     sample_file: str | None = None,
     background_file: str | None = None,
     detector_file: str | None = None,
     use_fixed_roi: bool = False,
     method: str = "nnls",
+    radon_mode: str = "legacy",
+    radon_h: dict | None = None,
 ) -> dict[str, Any]:
-    """Расчёт готовой модели; спектры необязательны, но выбираются втроём.
+    """Обработать три спектра с constants.py либо готовую модель NPZ.
 
     При трёх спектрах x,b из NPZ заменяются исходными ROI и нормированным
-    DETBK. M, координаты и все преобразования остаются только из NPZ.
+    DETBK. Без NPZ все преобразования строятся из калибровки и метаданных.
+    Пользовательский профиль по умолчанию сохраняет прежнюю модель радона
+    (эффективность 0.3); допущение записывается в протокол. Для отдельной
+    калибровки задаются radon_mode='calibrated' и три коэффициента radon_h.
     """
     paths = (sample_file, background_file, detector_file)
     if any(paths) and not all(paths):
         raise ValueError("Выберите все три спектра или используйте только готовую модель NPZ.")
     if method not in METHOD_NAMES:
         raise ValueError(f"Неизвестный метод: {method}.")
-    x = b = None
-    metadata = {"background_source": "Готовый фиксированный вектор b из NPZ"}
-    if all(paths):
-        x, b, metadata = _spectral_input(model_file, paths, use_fixed_roi)
-
-    model, extras = load_prepared_model(model_file, x=x, b=b)
+    if model_file is None:
+        if not all(paths):
+            raise ValueError("Для матриц constants.py выберите все три спектра: SAMPLE, GASBK и DETBK.")
+        model, extras, metadata = _constants_input(paths, use_fixed_roi, radon_mode, radon_h)
+    else:
+        x = b = None
+        metadata = {"background_source": "Готовый фиксированный вектор b из NPZ"}
+        if all(paths):
+            x, b, metadata = _spectral_input(model_file, paths, use_fixed_roi)
+        metadata["calibration_source"] = "Подготовленная модель NPZ"
+        model, extras = load_prepared_model(model_file, x=x, b=b)
     is_quadratic = method in ("wls", "nnls")
     fitting_options = (
         {"weights": extras.get("weights"), "observation_covariance": extras.get("observation_covariance")}
@@ -204,7 +264,8 @@ def process_prepared_measurement(
         raise RuntimeError(f"Решатель не сошёлся: {solution.message}")
 
     result = {
-        "model_file": str(Path(model_file).resolve()),
+        "model_file": str(Path(model_file).resolve()) if model_file is not None else None,
+        "calibration_mode": "constants" if model_file is None else "prepared",
         "sample_file": sample_file,
         "background_file": background_file,
         "detector_file": detector_file,
@@ -214,10 +275,17 @@ def process_prepared_measurement(
         "fit": solution,
         "activities": None,
         "detection": None,
-        "warnings": list(solution.warnings),
+        "warnings": list(extras.get("warnings", [])) + list(solution.warnings),
         "parameter_names": extras.get("parameter_names"),
         "isotope_names": extras.get("isotope_names"),
         "metadata": metadata,
+        "calibration_matrices": {
+            key: extras[key] for key in (
+                "R_c0", "R_g0", "R_c", "R_g1", "R_g2", "C_s_c", "C_s_g", "C_g_g", "B", "F",
+                "H_g1", "H_g2", "H", "Gamma", "G_p", "G_s", "I_c", "I_g", "V0",
+                "delta_I", "delta_V0",
+            ) if key in extras
+        },
         "weights_source": (
             "Внешняя ковариационная матрица наблюдений"
             if extras.get("observation_covariance") is not None else
@@ -310,14 +378,13 @@ def process_prepared_measurement(
 
 def parse_sample_and_background_and_detector(
     sample_file, background_file, detector_file, use_fixed_roi=False,
-    regression_method="nnls", *, model_file=None,
+    regression_method="nnls", *, model_file=None, radon_mode="legacy", radon_h=None,
 ):
-    """Совместимый вход старого GUI; готовая матрица обязательна."""
-    if model_file is None:
-        raise ValueError("Нужно выбрать NPZ с подготовленной совместной моделью M,x,b.")
+    """Совместимый вход старого GUI; без NPZ используются Rs/Rg constants.py."""
     aliases = {"ls": "wls", "mle_free": "poisson", "mle": "poisson_nonnegative"}
     return process_prepared_measurement(
         model_file, sample_file=sample_file, background_file=background_file,
         detector_file=detector_file, use_fixed_roi=use_fixed_roi,
         method=aliases.get(regression_method, regression_method),
+        radon_mode=radon_mode, radon_h=radon_h,
     )

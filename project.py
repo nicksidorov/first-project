@@ -1,7 +1,7 @@
 """XeMat: сохранённая компоновка PyQt5, новое математическое ядро.
 
-Запуск: python project.py. В первой версии обязательна подготовленная NPZ
-модель. Три спектра можно подключить для исходных ROI-отсчётов и DETBK.
+Запуск: python project.py. Для трёх спектров доступны матрицы из constants.py;
+подготовленная NPZ-модель остаётся отдельным вариантом входных данных.
 """
 
 from html import escape
@@ -11,8 +11,9 @@ import sys
 import numpy as np
 from PyQt5.QtCore import QThread, Qt, pyqtSignal
 from PyQt5.QtWidgets import (
-    QApplication, QCheckBox, QComboBox, QFileDialog, QGroupBox, QHBoxLayout,
-    QLabel, QMainWindow, QMessageBox, QProgressBar, QPushButton, QTextBrowser,
+    QApplication, QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFileDialog,
+    QFormLayout, QGroupBox, QHBoxLayout, QLabel, QLineEdit, QMainWindow,
+    QMessageBox, QProgressBar, QPushButton, QTextBrowser,
     QTextEdit, QVBoxLayout, QWidget,
 )
 
@@ -64,8 +65,74 @@ class FileSelector:
         self.layout.addWidget(self.button)
 
 
+class RadonCalibrationDialog(QDialog):
+    """Явный выбор прежнего приближения или трёх калиброванных H_Rn."""
+
+    def __init__(self, mode, coefficients, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Радоновая компонента")
+        layout = QVBoxLayout(self)
+        self.mode_combo = QComboBox()
+        self.mode_combo.addItem("Прежняя модель: эффективная ε = 0,3", "legacy")
+        self.mode_combo.addItem("Калиброванные коэффициенты H_Rn", "calibrated")
+        self.mode_combo.setCurrentIndex(self.mode_combo.findData(mode))
+        layout.addWidget(self.mode_combo)
+        note = QLabel(
+            "Прежняя модель использует приближение из старой программы. "
+            "Для калиброванной модели задайте H_Rn в Бк/отсчёт для соответствующих "
+            "интервалов измерения. Радон остаётся вспомогательной компонентой."
+        )
+        note.setWordWrap(True)
+        layout.addWidget(note)
+        self.coefficient_group = QGroupBox("H_Rn, Бк/отсчёт")
+        form = QFormLayout(self.coefficient_group)
+        self.fields = {}
+        for key, label in (
+            ("sample", "Проба SAMPLE:"),
+            ("gasbk", "Память в GASBK:"),
+            ("sample_memory", "Память в SAMPLE:"),
+        ):
+            field = QLineEdit("" if not coefficients else str(coefficients[key]))
+            field.setPlaceholderText("Например: 1.2e-4")
+            self.fields[key] = field
+            form.addRow(label, field)
+        layout.addWidget(self.coefficient_group)
+        self.mode_combo.currentIndexChanged.connect(self.update_mode)
+        self.update_mode()
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(self.accept)
+        buttons.rejected.connect(self.reject)
+        layout.addWidget(buttons)
+
+    def update_mode(self, *_):
+        self.coefficient_group.setEnabled(self.mode_combo.currentData() == "calibrated")
+
+    def values(self):
+        mode = self.mode_combo.currentData()
+        if mode == "legacy":
+            return mode, None
+        coefficients = {}
+        for key, field in self.fields.items():
+            try:
+                value = float(field.text().strip().replace(",", "."))
+            except ValueError as exc:
+                raise ValueError("Введите все три положительных коэффициента H_Rn.") from exc
+            if not np.isfinite(value) or value <= 0:
+                raise ValueError("Все коэффициенты H_Rn должны быть конечными и больше нуля.")
+            coefficients[key] = value
+        return mode, coefficients
+
+    def accept(self):
+        try:
+            self.values()
+        except ValueError as exc:
+            QMessageBox.warning(self, "Калибровка радона", str(exc))
+            return
+        super().accept()
+
+
 class MainWindow(QMainWindow):
-    """Окно прежнего проекта с четырьмя новыми методами и моделью NPZ."""
+    """Окно прежнего проекта: три спектра с константами или готовая модель NPZ."""
 
     def __init__(self):
         super().__init__()
@@ -75,6 +142,8 @@ class MainWindow(QMainWindow):
         self.detector_file = None
         self.results = None
         self.thread = None
+        self.radon_mode = "legacy"
+        self.radon_h = None
         self.init_ui()
 
     def init_ui(self):
@@ -86,28 +155,41 @@ class MainWindow(QMainWindow):
 
         self.file_group = QGroupBox("Выбор файлов")
         file_layout = QVBoxLayout()
-        self.model_path_label = QLabel("Не выбрана")
-        self.sample_path_label = QLabel("Не выбран — отсчёты из NPZ")
-        self.background_path_label = QLabel("Не выбран — отсчёты из NPZ")
-        self.detector_path_label = QLabel("Не выбран — фон из NPZ")
+        mode_layout = QHBoxLayout()
+        mode_layout.addWidget(QLabel("Источник матриц:"))
+        self.source_combo = QComboBox()
+        self.source_combo.addItem("Матрицы из constants.py", "constants")
+        self.source_combo.addItem("Готовая модель NPZ", "prepared")
+        mode_layout.addWidget(self.source_combo, 1)
+        self.radon_button = QPushButton("Калибровка радона...")
+        self.radon_button.clicked.connect(self.configure_radon)
+        mode_layout.addWidget(self.radon_button)
+        file_layout.addLayout(mode_layout)
+        self.model_path_label = QLabel("Не требуется для матриц из constants.py")
+        self.sample_path_label = QLabel("Не выбран")
+        self.background_path_label = QLabel("Не выбран")
+        self.detector_path_label = QLabel("Не выбран")
         for label, path_label, callback in (
             ("Готовая модель NPZ:", self.model_path_label, self.select_model_file),
             ("Файл пробы SAMPLE:", self.sample_path_label, self.select_sample_file),
             ("Газовый фон GASBK:", self.background_path_label, self.select_background_file),
             ("Фон детектора DETBK:", self.detector_path_label, self.select_detector_file),
         ):
-            file_layout.addLayout(FileSelector(label, path_label, callback).layout)
-        hint = QLabel(
-            "Выберите NPZ с матрицей M и координатами параметров. Для расчёта по спектрам "
-            "добавьте все три файла; порядок ROI задаётся в NPZ. Можно считать только "
-            "по готовым векторам x,b из NPZ."
-        )
-        hint.setWordWrap(True)
-        hint.setStyleSheet("color: #667788; padding: 4px;")
-        file_layout.addWidget(hint)
-        clear_spectra = QPushButton("Использовать только готовые векторы из NPZ")
-        clear_spectra.clicked.connect(self.clear_spectra)
-        file_layout.addWidget(clear_spectra)
+            selector = FileSelector(label, path_label, callback)
+            if path_label is self.model_path_label:
+                self.model_file_row = QWidget()
+                selector.layout.setContentsMargins(0, 0, 0, 0)
+                self.model_file_row.setLayout(selector.layout)
+                file_layout.addWidget(self.model_file_row)
+            else:
+                file_layout.addLayout(selector.layout)
+        self.source_hint = QLabel()
+        self.source_hint.setWordWrap(True)
+        self.source_hint.setStyleSheet("color: #667788; padding: 4px;")
+        file_layout.addWidget(self.source_hint)
+        self.clear_spectra_button = QPushButton("Использовать только готовые векторы из NPZ")
+        self.clear_spectra_button.clicked.connect(self.clear_spectra)
+        file_layout.addWidget(self.clear_spectra_button)
         self.file_group.setLayout(file_layout)
         layout.addWidget(self.file_group)
 
@@ -123,7 +205,8 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.method_group)
 
         self.checkbox_fixed_roi = QCheckBox("Использовать фиксированные ROI")
-        self.checkbox_fixed_roi.setToolTip("Границы ROI из сохранённого constants.py; матрицы всё равно берутся из NPZ.")
+        self.checkbox_fixed_roi.setChecked(True)
+        self.checkbox_fixed_roi.setToolTip("Границы ROI из FIXED_ROI_TABLE в constants.py. При отключении используются границы из спектров.")
         self.checkbox_fixed_roi.toggled.connect(self.invalidate_results)
         layout.addWidget(self.checkbox_fixed_roi)
         self.calculate_button = self.create_button("РАССЧИТАТЬ", "#3498db", self.calculate)
@@ -157,7 +240,9 @@ class MainWindow(QMainWindow):
         self.save_button = self.create_button("Сохранить результаты в файл", "#27ae60", self.save_results)
         self.save_button.setEnabled(False)
         layout.addWidget(self.save_button)
-        self.statusBar().showMessage("Выберите готовую модель NPZ")
+        self.source_combo.currentIndexChanged.connect(self.change_source)
+        self.update_source_description()
+        self.check_files_selected()
 
     def create_button(self, text, color, callback):
         button = QPushButton(text)
@@ -176,7 +261,54 @@ class MainWindow(QMainWindow):
         if path:
             self.model_file = path
             self.model_path_label.setText(path)
+            self.source_combo.setCurrentIndex(self.source_combo.findData("prepared"))
             self.invalidate_results()
+
+    def change_source(self, *_):
+        self.checkbox_fixed_roi.setChecked(self.source_combo.currentData() == "constants")
+        self.update_source_description()
+        self.invalidate_results()
+
+    def update_source_description(self):
+        constants_mode = self.source_combo.currentData() == "constants"
+        self.model_file_row.setVisible(not constants_mode)
+        self.radon_button.setVisible(constants_mode)
+        self.clear_spectra_button.setVisible(not constants_mode)
+        if constants_mode:
+            radon = (
+                "прежняя модель (ε = 0,3)" if self.radon_mode == "legacy" else
+                "калиброванные коэффициенты H_Rn"
+            )
+            self.source_hint.setText(
+                "R_s/R_g — из constants.py; времена, объём и эффективности — из файлов. "
+                "Для памяти используются эффективности GASBK. Радон: " + radon + "."
+            )
+        else:
+            self.source_hint.setText(
+                "Выберите NPZ с матрицей M и координатами параметров. Для расчёта по спектрам "
+                "добавьте все три файла; порядок ROI задаётся в NPZ. Можно считать только "
+                "по готовым векторам x,b из NPZ."
+            )
+        if self.model_file is None:
+            self.model_path_label.setText(
+                "Не требуется для матриц из constants.py" if constants_mode else "Не выбрана"
+            )
+        for attribute, label, empty_npz in (
+            ("sample_file", self.sample_path_label, "Не выбран — отсчёты из NPZ"),
+            ("background_file", self.background_path_label, "Не выбран — отсчёты из NPZ"),
+            ("detector_file", self.detector_path_label, "Не выбран — фон из NPZ"),
+        ):
+            if getattr(self, attribute) is None:
+                label.setText("Не выбран" if constants_mode else empty_npz)
+
+    def configure_radon(self):
+        dialog = RadonCalibrationDialog(self.radon_mode, self.radon_h, self)
+        if dialog.exec_() == QDialog.Accepted:
+            mode, coefficients = dialog.values()
+            if (mode, coefficients) != (self.radon_mode, self.radon_h):
+                self.radon_mode, self.radon_h = mode, coefficients
+                self.update_source_description()
+                self.invalidate_results()
 
     def _select_spectrum(self, title, attribute, path_label):
         path, _ = QFileDialog.getOpenFileName(self, title, "", "Спектры IMS (*.ims *.PHD *.phd);;Все файлы (*)")
@@ -196,9 +328,7 @@ class MainWindow(QMainWindow):
 
     def clear_spectra(self):
         self.sample_file = self.background_file = self.detector_file = None
-        self.sample_path_label.setText("Не выбран — отсчёты из NPZ")
-        self.background_path_label.setText("Не выбран — отсчёты из NPZ")
-        self.detector_path_label.setText("Не выбран — фон из NPZ")
+        self.update_source_description()
         self.invalidate_results()
 
     def invalidate_results(self, *_):
@@ -206,15 +336,21 @@ class MainWindow(QMainWindow):
         self.save_button.setEnabled(False)
         self.results_output.setVisible(False)
         self.text_output.clear()
+        self.message_label.clear()
         self.check_files_selected()
 
     def check_files_selected(self):
         spectra = (self.sample_file, self.background_file, self.detector_file)
-        complete = all(spectra) or not any(spectra)
-        paths = [path for path in (self.model_file, *spectra) if path]
-        ready = bool(self.model_file) and complete and all(Path(path).is_file() for path in paths)
+        constants_mode = self.source_combo.currentData() == "constants"
+        complete = all(spectra) if constants_mode else all(spectra) or not any(spectra)
+        model_ready = constants_mode or bool(self.model_file)
+        input_paths = spectra if constants_mode else (self.model_file, *spectra)
+        paths = [path for path in input_paths if path]
+        ready = model_ready and complete and all(Path(path).is_file() for path in paths)
         self.calculate_button.setEnabled(ready)
-        if not self.model_file:
+        if constants_mode and not complete:
+            self.statusBar().showMessage("Выберите три спектра: SAMPLE, предшествующий GASBK и DETBK")
+        elif not model_ready:
             self.statusBar().showMessage("Выберите готовую модель NPZ")
         elif not complete:
             self.statusBar().showMessage("Выберите все три спектра или используйте только векторы NPZ")
@@ -236,18 +372,22 @@ class MainWindow(QMainWindow):
     def calculate(self):
         self.check_files_selected()
         if not self.calculate_button.isEnabled():
-            QMessageBox.warning(self, "Неполные данные", "Выберите NPZ и, при необходимости, все три спектра.")
+            QMessageBox.warning(self, "Неполные данные", self.statusBar().currentMessage())
             return
         self.results = None
         self.results_output.setVisible(False)
         self.text_output.clear()
         self.progress_bar.setValue(0)
         self._set_busy(True)
-        self.thread = ProcessingThread(
-            self.model_file, sample_file=self.sample_file,
+        constants_mode = self.source_combo.currentData() == "constants"
+        options = dict(
+            sample_file=self.sample_file,
             background_file=self.background_file, detector_file=self.detector_file,
             use_fixed_roi=self.checkbox_fixed_roi.isChecked(), method=self.method_combo.currentData(),
         )
+        if constants_mode:
+            options.update(radon_mode=self.radon_mode, radon_h=self.radon_h)
+        self.thread = ProcessingThread(None if constants_mode else self.model_file, **options)
         self.thread.progress.connect(self.progress_bar.setValue)
         self.thread.message.connect(self.update_message)
         self.thread.result_ready.connect(self.on_processing_finished)
