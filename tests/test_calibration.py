@@ -230,6 +230,32 @@ def test_temporal_order_and_efficiency_identity_are_checked(measurement_metadata
         _build(sample, gasbk)
 
 
+@pytest.mark.parametrize("side", [0, 1], ids=["sample", "gasbk"])
+@pytest.mark.parametrize("identities", [
+    {2: "XE135-10_81:30", 3: "XE133-10_81:30", 5: "XE131M-10_81:30", 6: "XE133M-10_81:30"},
+    {2: "XE-135", 3: "XE-133", 5: "XE-131M", 6: "XE-133M"},
+    {2: "135-XE", 3: "133-XE", 5: "131M-XE", 6: "133M-XE"},
+], ids=["spectral_suffix", "element_first", "mass_first"])
+def test_efficiency_labels_preserve_physical_matrices(measurement_metadata, side, identities):
+    reference = _build(*measurement_metadata)
+    data = deepcopy(measurement_metadata)
+    data[side]["roi_to_isotope"] = identities
+    result = _build(*data)
+    for key in ("M", "T_c", "I_c", "I_g", "H", "H_g1", "H_g2"):
+        assert_allclose(result[key], reference[key], rtol=0, atol=0)
+
+
+@pytest.mark.parametrize("side", [0, 1], ids=["sample", "gasbk"])
+@pytest.mark.parametrize("roi,identity", [
+    (3, "XE133M-10_81:30"), (3, "XE135-10_81:30"), (6, "XE133-10_81:30"),
+])
+def test_spectral_suffix_does_not_hide_wrong_isotope(measurement_metadata, side, roi, identity):
+    data = deepcopy(measurement_metadata)
+    data[side]["roi_to_isotope"] = {roi: identity}
+    with pytest.raises(ValueError, match="ожидается"):
+        _build(*data)
+
+
 def test_short_exposure_limit_does_not_cancel_daughter_counts(measurement_metadata):
     sample, gasbk = measurement_metadata
     sample = dict(sample, real_time=1e-5, live_time=8e-6)

@@ -12,6 +12,7 @@ Xe131m, Xe133m. Функция не читает спектры и не изме
 
 from collections.abc import Mapping
 from datetime import datetime
+import re
 from typing import Any
 
 import numpy as np
@@ -92,6 +93,26 @@ def _log_decay_correction(decay_constant: float, duration: float) -> float:
     return float(np.log(decay_correction(decay_constant, duration)))
 
 
+def _isotope_identity(label: Any) -> str | None:
+    """Выделить изотоп из IMS-метки, сохраняя признак изомера M.
+
+    Например, XE133-10_81:30 содержит изотоп XE133 и числовой суффикс.
+    Удалять пунктуацию из ВСЕЙ метки нельзя:
+    цифры суффикса тогда становятся частью массового числа.
+    Поддерживаются также XE-133M и 133M-XE. Суффикс допускается только
+    после полного изотопа, с разделителем и числовым описанием.
+    """
+    match = re.fullmatch(
+        r"(?P<nuclide>XE[-_\s]*[0-9]+M?|[0-9]+M?[-_\s]*XE)"
+        r"(?:[-_:][0-9][0-9_:.,+\-]*)?",
+        str(label).strip().upper(),
+    )
+    if match is None:
+        return None
+    nuclide = re.sub(r"[-_\s]", "", match.group("nuclide"))
+    return nuclide if nuclide.startswith("XE") else "XE" + nuclide[:-2]
+
+
 def _sensitivities(data: Mapping, label: str) -> np.ndarray:
     """I_j=epsilon_j*BR_j; первые коэффициенты радона задаются через H."""
     efficiencies = data.get("efficiency")
@@ -102,11 +123,8 @@ def _sensitivities(data: Mapping, label: str) -> np.ndarray:
         roi = ROI_INFO[isotope]["roi"]
         identities = data.get("roi_to_isotope", {})
         if isinstance(identities, Mapping) and roi in identities:
-            # IMS обычно содержит XE-133M; разрешаем также 133M-XE.
-            identity = "".join(character for character in str(identities[roi]).upper()
-                               if character.isalnum())
-            expected = isotope.upper()
-            if identity not in (expected, expected[2:] + expected[:2]):
+            identity = _isotope_identity(identities[roi])
+            if identity != isotope.upper():
                 raise ValueError(
                     f"{label}: эффективность ROI {roi} подписана как {identities[roi]}, "
                     f"ожидается {isotope}."

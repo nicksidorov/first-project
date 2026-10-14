@@ -10,6 +10,7 @@ from numpy.testing import assert_allclose, assert_array_equal
 from constants import FIXED_ROI_TABLE, Rs, Rg
 from process_measurement import METHOD_NAMES, process_prepared_measurement
 from results_saver import format_results
+from ims_parser import parse_ims_spectral_file
 from xemat.io import save_json
 
 
@@ -94,6 +95,31 @@ def test_constants_requires_all_three_spectra(constant_spectra):
     paths, _, _ = constant_spectra
     with pytest.raises(ValueError):
         process_prepared_measurement(None, sample_file=paths["sample_file"], radon_mode="legacy")
+
+
+def test_ims_efficiency_spectral_suffix_preserves_counts_and_model(constant_spectra):
+    from pathlib import Path
+
+    paths, _, _ = constant_spectra
+    baseline = process_prepared_measurement(None, method="wls", radon_mode="legacy", **paths)
+    labels = {2: "XE135-10_81:30", 3: "XE133-10_81:30",
+              5: "XE131M-10_81:30", 6: "XE133M-10_81:30"}
+    names = {2: "Xe135", 3: "Xe133", 5: "Xe131m", 6: "Xe133m"}
+    for file_key in ("sample_file", "background_file"):
+        path = Path(paths[file_key])
+        contents = path.read_text(encoding="utf-8")
+        for roi, label in labels.items():
+            contents = contents.replace(f"{names[roi]} {roi} ", f"{label} {roi} ")
+        path.write_text(contents, encoding="utf-8")
+        parsed = parse_ims_spectral_file(str(path), is_sample=file_key == "sample_file")
+        # Парсер сохраняет полную исходную метку для диагностики.
+        assert parsed["roi_to_isotope"] == labels
+
+    result = process_prepared_measurement(None, method="wls", radon_mode="legacy", **paths)
+    assert result["fit"].success
+    for field in ("x", "b", "M", "T_c"):
+        assert_array_equal(getattr(result["model"], field), getattr(baseline["model"], field))
+    assert_allclose(result["fit"].theta, baseline["fit"].theta, rtol=0, atol=0)
 
 
 def test_constants_rejects_roi_geometry_changed_from_calibration(constant_spectra):
