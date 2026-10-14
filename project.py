@@ -238,6 +238,8 @@ class MainWindow(QMainWindow):
         layout.addWidget(results_group, 1)
         self.text_output = QTextEdit()
         self.text_output.setReadOnly(True)
+        self.text_output.setStyleSheet("font-family: 'Courier New', monospace; font-size: 10pt;")
+        self.text_output.setLineWrapMode(QTextEdit.NoWrap)
         self.text_output.setPlaceholderText("Подробный протокол появится после расчёта...")
         self.text_output.setMaximumHeight(160)
         layout.addWidget(self.text_output)

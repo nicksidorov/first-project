@@ -185,16 +185,17 @@ def test_t_c_only_computes_concentration_without_detector_activity(prepared, tmp
     result = process_prepared_measurement(path, method="wls")
     assert result["activities"].a is None
     assert result["activities"].a_c is not None
-    assert "a=не вычислена" in format_results(result)
+    assert "Активность в детекторе не рассчитана" in format_results(result)
     window = MainWindow()
     assert "Xe133" in window.generate_activities_html(result)
     window.close()
 
 
-def test_invalid_optional_activity_map_keeps_valid_fit_and_diagnostic(prepared, tmp_path):
+@pytest.mark.parametrize("shape", [(1, 1), (1, 2, 2)])
+def test_invalid_optional_activity_map_keeps_valid_fit_and_diagnostic(prepared, tmp_path, shape):
     with np.load(prepared) as archive:
         data = {key: archive[key] for key in archive.files}
-    data["H"] = np.ones((1, 1))
+    data["H"] = np.ones(shape)
     path = tmp_path / "invalid_activity_map.npz"
     np.savez(path, **data)
     result = process_prepared_measurement(path, method="wls")
