@@ -6,6 +6,7 @@ from textwrap import fill
 import numpy as np
 
 from process_measurement import METHOD_NAMES
+from xemat.activities import covariance_to_correlation
 
 
 def names_for_results(results):
@@ -264,12 +265,18 @@ def format_results(results: dict) -> str:
                          detection.iterations[i]])
         _table(lines, ["Изотоп", "a_c, свободная", "L_C", "MDC", "Обнаружен", "Итераций"], rows, min_width=12)
 
-    _section(lines, "6. КОРРЕЛЯЦИОННЫЕ МАТРИЦЫ АКТИВНОСТЕЙ")
-    lines.append("Коэффициенты корреляции безразмерны; «—» также означает нулевую дисперсию.")
+    _section(lines, "6. КОРРЕЛЯЦИОННЫЕ МАТРИЦЫ ПИРСОНА")
+    lines.append("Связь между оценками: r_ij = K_ij / sqrt(K_ii × K_jj). Коэффициенты безразмерны.")
+    lines.append("От +1 (прямая связь) до −1 (обратная связь); 0 — отсутствие линейной корреляции.")
+    lines.append("При нулевой дисперсии или недоступной ковариации корреляция не определена: «—».")
+    lines.append("Для активностей учтены статистическая часть и заданные систематические вклады.")
     _matrix(lines, "Активности в детекторе a", None if activity is None else activity.correlation_A,
             names, names, correlation=True)
     _matrix(lines, "Объёмные активности a_c", None if activity is None else activity.correlation_A_c,
             names, names, correlation=True)
+    _matrix(lines, f"Параметры theta={coordinates} (статистическая корреляция)",
+            None if solution.covariance is None else covariance_to_correlation(solution.covariance),
+            parameters, parameters, correlation=True)
 
     _section(lines, "7. ПРЕДУПРЕЖДЕНИЯ И ПРИНЯТЫЕ ДОПУЩЕНИЯ")
     warnings = results.get("warnings", [])
@@ -326,13 +333,6 @@ def format_results(results: dict) -> str:
             roi_key = "gasbk_roi_numbers" if key == "R_g2" else "sample_roi_numbers"
             row_names = [f"ROI {roi}" for roi in metadata.get(roi_key, [])]
         _matrix(lines, titles.get(key, key), array, row_names, names)
-    if solution.covariance is not None:
-        _matrix(lines, "Ковариация параметров theta (статистическая)", solution.covariance, parameters, parameters)
-    if activity is not None:
-        if activity.K_A is not None:
-            _matrix(lines, "K_A — ковариация активностей в детекторе (Бк²)", activity.K_A, names, names)
-        if activity.K_A_c is not None:
-            _matrix(lines, "K_A_c — ковариация объёмных активностей ((Бк/м³)²)", activity.K_A_c, names, names)
     lines.extend(["", "=" * _WIDTH,
                   "АНАЛИЗ ЗАВЕРШЁН" if solution.success else "РАСЧЁТ НЕ СОШЁЛСЯ",
                   f"Метод: {METHOD_NAMES[solution.method]}", "=" * _WIDTH])
