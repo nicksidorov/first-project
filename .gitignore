@@ -1,0 +1,14 @@
+.venv/
+.deps/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+/results.txt
+/results.json
+/analysis_results.txt
+# Материалы, предоставленные отдельно для разработки.
+/docs/XeMat_RU_MASTER_BAYES_V59.tex
+/legacy/analysis_results.txt
