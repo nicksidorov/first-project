@@ -2,6 +2,7 @@
 
 import json
 import os
+from pathlib import Path
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
@@ -14,6 +15,7 @@ from process_measurement import METHOD_NAMES, process_prepared_measurement
 from project import MainWindow, ProcessingThread
 from results_saver import format_results, save_results_to_file
 from xemat.io import save_json
+from xemat.detectors import DetectorSelectionError
 
 
 @pytest.fixture(scope="module")
@@ -111,6 +113,30 @@ def test_real_parser_three_spectra_raw_counts_fixed_background(spectral_model, s
     assert result["metadata"]["sample_roi_counts"] == {1: 0, 2: 8}
     assert result["metadata"]["detector_info"]["sample"]["id"] == 221
     assert "фиксированный фон" in result["metadata"]["background_source"]
+
+
+@pytest.mark.parametrize("file_key", ["sample_file", "background_file", "detector_file"])
+@pytest.mark.parametrize("replacement", ["MIX58_222", "MIX58_999", "UNKNOWN"],
+                         ids=["mismatch", "unknown", "missing"])
+def test_prepared_model_still_requires_consistent_spectral_detectors(
+    spectral_model, spectra, file_key, replacement,
+):
+    file = Path(spectra[file_key])
+    file.write_text(file.read_text(encoding="utf-8").replace("MIX58_221", replacement), encoding="utf-8")
+    with pytest.raises(DetectorSelectionError) as error:
+        process_prepared_measurement(spectral_model, **spectra)
+    for role in ("SAMPLE", "GASBK", "DETBK"):
+        assert role in str(error.value)
+
+
+def test_prepared_model_accepts_matching_222_spectra_without_replacing_npz_matrix(spectral_model, spectra):
+    for filename in spectra.values():
+        file = Path(filename)
+        file.write_text(file.read_text(encoding="utf-8").replace("MIX58_221", "MIX58_222"), encoding="utf-8")
+    result = process_prepared_measurement(spectral_model, **spectra)
+    assert result["fit"].success
+    np.testing.assert_array_equal(result["model"].M, np.eye(4))
+    assert result["metadata"]["detector_info"]["sample"]["id"] == 222
 
 
 def test_partial_spectra_and_ambiguous_roi_order_rejected(prepared, spectra):

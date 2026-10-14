@@ -63,7 +63,7 @@ def test_constants_worker_receives_physical_options_and_locks_settings(app, tmp_
     class Worker:
         def __init__(self, model_file, **options):
             self.model_file, self.options = model_file, options
-            self.progress = self.message = self.result_ready = self.error = SimpleNamespace(connect=lambda _: None)
+            self.progress = self.message = self.result_ready = self.error = self.warning = SimpleNamespace(connect=lambda _: None)
 
         def start(self):
             self.started = True

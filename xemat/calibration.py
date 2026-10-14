@@ -17,9 +17,12 @@ from typing import Any
 
 import numpy as np
 
-from constants import DELTA_EFF, DELTA_V_XE, ROI_INFO, Rg, Rs, XENON_ISOTOPES
+from constants import (
+    DELTA_EFF, DELTA_V_XE, DETECTOR_RESPONSE_MATRICES, ROI_INFO, XENON_ISOTOPES,
+)
 
 from .activities import compose_activity_transform
+from .detectors import validate_detector_ids
 from .model import build_joint_matrix
 
 
@@ -160,8 +163,9 @@ def build_physical_matrices(
 ) -> dict[str, Any]:
     """Построить R_F в координатах [beta;gamma] и T_c для [a_c;gamma].
 
-    ``sample``/``gasbk`` — словари неизменённого IMS-парсера. Нужны даты
-    начала, реальные и живые длительности обоих измерений, эффективности
+    ``sample``/``gasbk`` — словари IMS-парсера. Нужны одинаковые номера
+    detector_id (221 или 222) из #Header, даты начала, реальные и живые
+    длительности обоих измерений, эффективности
     четырёх изотопов ксенона; для SAMPLE дополнительно даты пробоотбора
     и xenon_volume (cm³). Эффективности GASBK интерпретируются как
     эффективности памяти и сохраняются до SAMPLE. Это условие калибровки
@@ -175,6 +179,8 @@ def build_physical_matrices(
     """
     if not isinstance(sample, Mapping) or not isinstance(gasbk, Mapping):
         raise ValueError("SAMPLE и GASBK должны быть словарями метаданных IMS.")
+    # Матрицы R зависят от детектора; общего значения по умолчанию нет.
+    detector_id = validate_detector_ids({"SAMPLE": sample, "GASBK": gasbk})
     if radon_mode not in ("calibrated", "legacy"):
         raise ValueError("radon_mode: ожидается calibrated или legacy.")
     if radon_mode == "legacy" and radon_h is not None:
@@ -210,7 +216,9 @@ def build_physical_matrices(
     chain_factor = lambda_3 / difference
     I_c = _sensitivities(sample, "SAMPLE")
     I_g = _sensitivities(gasbk, "GASBK")
-    R_c0, R_g0 = _base_response(Rs, "Rs"), _base_response(Rg, "Rg")
+    Rs, Rg = DETECTOR_RESPONSE_MATRICES[detector_id]
+    R_c0 = _base_response(Rs, f"Rs_{detector_id}")
+    R_g0 = _base_response(Rg, f"Rg_{detector_id}")
 
     def daughter_matrix(duration: float, sensitivity: np.ndarray) -> np.ndarray:
         # eq:C_decay_chain, 1-based [3,5] -> Python [2,4].
@@ -294,7 +302,10 @@ def build_physical_matrices(
         raise ValueError("DELTA_EFF/DELTA_V_XE: нужны конечные неотрицательные относительные неопределённости.")
 
     metadata = {
-        "calibration_source": "constants.py: Rs, Rg, ROI_INFO, XENON_ISOTOPES",
+        "calibration_detector_id": detector_id,
+        "calibration_source": (
+            f"constants.py: Rs_{detector_id}, Rg_{detector_id}, ROI_INFO, XENON_ISOTOPES"
+        ),
         "radon_mode": radon_mode,
         "radon_h": {"sample": float(H[0, 0]), "gasbk": float(H_g2[0, 0]),
                     "sample_memory": float(H_g1[0, 0])},

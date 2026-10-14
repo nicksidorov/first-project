@@ -17,6 +17,7 @@ from ims_parser import (
 from xemat.activities import compute_activities
 from xemat.calibration import LEGACY_ROI_NUMBERS, build_physical_matrices
 from xemat.detection import compute_detection_limits
+from xemat.detectors import validate_detector_ids
 from xemat.io import load_prepared_model
 from xemat.model import JointModel
 from xemat.solvers import fit
@@ -101,10 +102,17 @@ def _check_disjoint_rois(data, order, use_fixed_roi, label):
 
 
 def _read_spectra(paths):
-    return {
+    parsed = {
         name: parse_ims_spectral_file(str(path), is_sample=name == "sample")
         for name, path in zip(("sample", "background", "detector"), paths)
     }
+    # Проверка общая для constants.py и NPZ с тремя файлами. Нельзя
+    # применять фон одного детектора к пробе другого даже с готовой M.
+    validate_detector_ids({
+        "SAMPLE": parsed["sample"], "GASBK": parsed["background"],
+        "DETBK": parsed["detector"],
+    })
+    return parsed
 
 
 def _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi):
@@ -166,6 +174,7 @@ def _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi):
         name: {"id": data.get("detector_id"), "name": data.get("detector_name")}
         for name, data in parsed.items()
     }
+    metadata["input_detector_id"] = int(parsed["sample"]["detector_id"])
     metadata["sample_roi_numbers"] = sample_order
     metadata["gasbk_roi_numbers"] = gasbk_order
     metadata["background_source"] = "DETBK: b=[t_s/t_d·d_s; t_g/t_d·d_g], фиксированный фон"
@@ -183,9 +192,6 @@ def _spectral_input(model_file, paths, use_fixed_roi):
 def _constants_input(paths, use_fixed_roi, radon_mode, radon_h):
     """Привязать Rs/Rg к геометрии ROI и временам конкретного измерения."""
     parsed = _read_spectra(paths)
-    detector_ids = {data.get("detector_id") for data in parsed.values()} - {None}
-    if len(detector_ids) > 1:
-        raise ValueError("SAMPLE, GASBK и DETBK относятся к разным детекторам.")
     reference_rois = [ROI_INFO[name]["roi"] for name in ("Xe135", "Xe133", "Xe131m", "Xe133m")]
     for name, data in parsed.items():
         regions = dict(zip(data["roi_numbers"], data["roi_limits"]))
@@ -215,7 +221,7 @@ def _constants_input(paths, use_fixed_roi, radon_mode, radon_h):
     )
     model = JointModel(extras["M"], x, b, 5, extras["T_c"], "beta_gamma")
     metadata.update(extras.get("metadata", {}))
-    metadata["calibration_source"] = "Rs/Rg из constants.py; времена, объём и эффективности из IMS"
+    metadata["calibration_source"] += "; времена, объём и эффективности из IMS"
     return model, extras, metadata
 
 

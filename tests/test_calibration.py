@@ -13,7 +13,7 @@ from numpy.testing import assert_allclose
 from scipy.integrate import quad_vec
 from scipy.linalg import expm
 
-from constants import ROI_INFO, XENON_ISOTOPES
+from constants import DETECTOR_RESPONSE_MATRICES, ROI_INFO, Rs, Rg, XENON_ISOTOPES
 from xemat.calibration import build_physical_matrices, decay_correction
 
 
@@ -24,6 +24,7 @@ ISOTOPES = ("Rn222", "Xe135", "Xe133", "Xe131m", "Xe133m")
 def measurement_metadata():
     start = datetime(2026, 10, 14, 12)
     sample = {
+        "detector_id": 221,
         "start_time": start,
         "collection_start": start - timedelta(hours=20),
         "collection_end": start - timedelta(hours=4),
@@ -35,6 +36,7 @@ def measurement_metadata():
         "efficiency": {2: .18, 3: .37, 5: .24, 6: .12},
     }
     gasbk = {
+        "detector_id": 221,
         "start_time": start - timedelta(hours=6),
         "real_time": 10800.0,
         "live_time": 9000.0,
@@ -76,6 +78,83 @@ RADON_H = {"sample": .013, "gasbk": .017, "sample_memory": .019}
 
 def _build(sample, gasbk):
     return build_physical_matrices(sample, gasbk, radon_h=RADON_H)
+
+
+@pytest.mark.parametrize("detector_id,expected_rs,expected_rg", [
+    (221, [
+        [1, 0, 0, 0, 0],
+        [.65, 1, 0, 0, 0],
+        [1.4, .01, 1, .004, 0],
+        [.054, 0, .32, 1, .05],
+        [.072, .01, .17, .043, 1],
+        [.03, .02, .34, .0456, 0],
+        [.089, 0, .0576, 0, .05],
+    ], [
+        [1, 0, 0, 0, 0],
+        [.65, 1, 0, 0, 0],
+        [1.4, .01, 1, .004, 0],
+        [.054, 0, .33, 1, .05],
+        [.072, .01, .18, .049, 1],
+        [.03, .01, .18, .0456, 0],
+        [.089, 0, .0576, 0, .05],
+    ]),
+    (222, [
+        [1, 0, 0, 0, 0],
+        [.65, 1, 0, 0, 0],
+        [1.33, .01, 1, .004, 0],
+        [.054, 0, .33, 1, .05],
+        [.072, .01, .17, .04, 1],
+        [.03, .02, .347, .045, 0],
+        [.089, 0, .0576, 0, .05],
+    ], [
+        [1, 0, 0, 0, 0],
+        [.65, 1, 0, 0, 0],
+        [1.33, .01, 1, .004, 0],
+        [.054, 0, .33, 1, .05],
+        [.072, .01, .18, .04, 1],
+        [.03, .01, .18, .045, 0],
+        [.089, 0, .0576, 0, .05],
+    ]),
+])
+def test_detector_response_uses_user_calibration_exactly(
+    measurement_metadata, detector_id, expected_rs, expected_rg,
+):
+    # Эталонные числа взяты из спецификации пользователя, независимо от constants.py.
+    sample, gasbk = deepcopy(measurement_metadata)
+    sample["detector_id"] = gasbk["detector_id"] = detector_id
+    result = _build(sample, gasbk)
+    assert_allclose(result["R_c0"], expected_rs, rtol=0, atol=0)
+    assert_allclose(result["R_g0"], expected_rg, rtol=0, atol=0)
+    assert_allclose(DETECTOR_RESPONSE_MATRICES[detector_id][0], expected_rs, rtol=0, atol=0)
+    assert_allclose(DETECTOR_RESPONSE_MATRICES[detector_id][1], expected_rg, rtol=0, atol=0)
+    assert result["metadata"]["calibration_detector_id"] == detector_id
+    assert_allclose(result["R_c"], np.asarray(expected_rs) @ result["C_s_c"])
+    assert_allclose(result["R_g1"], np.asarray(expected_rg) @ result["C_s_g"])
+    assert_allclose(result["R_g2"], np.asarray(expected_rg) @ result["C_g_g"])
+
+
+def test_legacy_aliases_and_branching_probabilities():
+    assert Rs is DETECTOR_RESPONSE_MATRICES[221][0]
+    assert Rg is DETECTOR_RESPONSE_MATRICES[221][1]
+    assert ROI_INFO == {
+        "Rn222": {"roi": 1, "br": .3700},
+        "Xe135": {"roi": 2, "br": .9020},
+        "Xe133": {"roi": 3, "br": .3700},
+        "Xe131m": {"roi": 5, "br": .5400},
+        "Xe133m": {"roi": 6, "br": .5577},
+    }
+
+
+@pytest.mark.parametrize("side", [0, 1], ids=["sample", "gasbk"])
+@pytest.mark.parametrize("detector_id", [None, 999, 222], ids=["missing", "unknown", "mismatch"])
+def test_physical_matrices_do_not_guess_detector(measurement_metadata, side, detector_id):
+    data = deepcopy(measurement_metadata)
+    if detector_id is None:
+        del data[side]["detector_id"]
+    else:
+        data[side]["detector_id"] = detector_id
+    with pytest.raises(ValueError, match="детектор"):
+        _build(*data)
 
 
 def test_daughter_counts_and_activity_scale_match_integrated_bateman(measurement_metadata):

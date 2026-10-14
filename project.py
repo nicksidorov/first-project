@@ -18,6 +18,7 @@ from PyQt5.QtWidgets import (
 )
 
 from process_measurement import METHOD_NAMES, process_prepared_measurement
+from xemat.detectors import DetectorSelectionError
 from results_saver import format_results, names_for_results, save_results_to_file
 
 
@@ -31,6 +32,7 @@ class ProcessingThread(QThread):
     message = pyqtSignal(str)
     result_ready = pyqtSignal(dict)
     error = pyqtSignal(str)
+    warning = pyqtSignal(str)
 
     def __init__(self, model_file, **options):
         super().__init__()
@@ -44,6 +46,8 @@ class ProcessingThread(QThread):
             results = process_prepared_measurement(self.model_file, **self.options)
             self.progress.emit(100)
             self.result_ready.emit(results)
+        except DetectorSelectionError as exc:
+            self.warning.emit(str(exc))
         except Exception as exc:
             self.error.emit(f"{type(exc).__name__}: {exc}")
 
@@ -392,6 +396,7 @@ class MainWindow(QMainWindow):
         self.thread.message.connect(self.update_message)
         self.thread.result_ready.connect(self.on_processing_finished)
         self.thread.error.connect(self.on_processing_error)
+        self.thread.warning.connect(self.on_processing_warning)
         self.thread.start()
 
     def update_message(self, message):
@@ -420,6 +425,10 @@ class MainWindow(QMainWindow):
             "<h3 style='text-align:center'>РЕЗУЛЬТАТЫ СОВМЕСТНОГО РАСЧЁТА</h3>",
             "<p style='background:#ecf0f1;padding:5px'>",
             f"<b>Метод:</b> {escape(METHOD_NAMES[solution.method])}<br>",
+            (
+                f"<b>Детектор:</b> {results['metadata']['input_detector_id']}<br>"
+                if results.get("metadata", {}).get("input_detector_id") is not None else ""
+            ),
             f"<b>Координаты theta:</b> {escape(model.coordinates)}; ",
             "<b>физические координаты:</b> [a_c; gamma]</p>",
             "<table width='100%' style='border-collapse:collapse' border='1' cellpadding='7'>",
@@ -471,6 +480,15 @@ class MainWindow(QMainWindow):
 
     def generate_output_text(self, results):
         return format_results(results)
+
+    def on_processing_warning(self, message):
+        self.results = None
+        self.results_output.clear()
+        self.results_output.setVisible(False)
+        self.text_output.clear()
+        self._set_busy(False)
+        self.update_message("Проверьте номера детекторов в выбранных файлах")
+        QMessageBox.warning(self, "Проверьте детекторы", message)
 
     def on_processing_error(self, message):
         self._set_busy(False)

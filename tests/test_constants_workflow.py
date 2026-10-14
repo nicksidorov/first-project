@@ -2,16 +2,18 @@
 
 from datetime import datetime, timedelta
 import json
+from pathlib import Path
 
 import numpy as np
 import pytest
 from numpy.testing import assert_allclose, assert_array_equal
 
-from constants import FIXED_ROI_TABLE, Rs, Rg
+from constants import DETECTOR_RESPONSE_MATRICES, FIXED_ROI_TABLE, Rs, Rg
 from process_measurement import METHOD_NAMES, process_prepared_measurement
 from results_saver import format_results
 from ims_parser import parse_ims_spectral_file
 from xemat.io import save_json
+from xemat.detectors import DetectorSelectionError
 
 
 ROI_ORDER = [1, 2, 3, 5, 6, 7, 8]
@@ -172,14 +174,45 @@ def test_fixed_roi_rejects_efficiency_tied_to_different_reference_roi(constant_s
         process_prepared_measurement(None, radon_mode="legacy", use_fixed_roi=True, **paths)
 
 
-def test_constants_rejects_files_from_different_detectors(constant_spectra):
-    from pathlib import Path
-
+@pytest.mark.parametrize("file_key", ["sample_file", "background_file", "detector_file"])
+@pytest.mark.parametrize("replacement", ["MIX58_222", "MIX58_999", "UNKNOWN"],
+                         ids=["mismatch", "unknown", "missing"])
+def test_constants_rejects_incompatible_detectors_with_file_details(constant_spectra, file_key, replacement):
     paths, _, _ = constant_spectra
-    file = Path(paths["detector_file"])
-    file.write_text(file.read_text(encoding="utf-8").replace("MIX58_221", "MIX58_222"), encoding="utf-8")
-    with pytest.raises(ValueError, match="детектор"):
+    file = Path(paths[file_key])
+    file.write_text(file.read_text(encoding="utf-8").replace("MIX58_221", replacement), encoding="utf-8")
+    with pytest.raises(DetectorSelectionError, match="детектор") as error:
         process_prepared_measurement(None, radon_mode="legacy", **paths)
+    for role in ("SAMPLE", "GASBK", "DETBK"):
+        assert role in str(error.value)
+    assert "221" in str(error.value)
+    if replacement != "UNKNOWN":
+        assert replacement.split("_")[1] in str(error.value)
+
+
+def test_three_spectra_select_detector_222_in_fit_and_report(constant_spectra):
+    paths, counts, background = constant_spectra
+    result_221 = process_prepared_measurement(None, method="wls", radon_mode="legacy", **paths)
+    for file_path in paths.values():
+        file = Path(file_path)
+        contents = file.read_text(encoding="utf-8").replace(
+            "IMS MIX58_221", "MIX58 MIX58_222 B CYLINDER          FULL",
+        )
+        file.write_text(contents, encoding="utf-8")
+    result = process_prepared_measurement(None, method="wls", radon_mode="legacy", **paths)
+    assert result["fit"].success
+    assert result["metadata"]["calibration_detector_id"] == 222
+    for role in ("sample", "background", "detector"):
+        assert result["metadata"]["detector_info"][role]["id"] == 222
+    assert_array_equal(result["calibration_matrices"]["R_c0"], DETECTOR_RESPONSE_MATRICES[222][0])
+    assert_array_equal(result["calibration_matrices"]["R_g0"], DETECTOR_RESPONSE_MATRICES[222][1])
+    assert not np.array_equal(result["model"].M, result_221["model"].M)
+    # Замена калибровки не меняет наблюдения, фон или временной пересчёт активностей.
+    assert_array_equal(result["model"].x, counts)
+    assert_allclose(result["model"].b, background)
+    assert_array_equal(result["model"].T_c, result_221["model"].T_c)
+    report = format_results(result)
+    assert "Rs_222" in report and "Rg_222" in report
 
 
 def test_calibrated_radon_scales_survive_export(constant_spectra, tmp_path):

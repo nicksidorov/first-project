@@ -50,6 +50,12 @@ def format_results(results: dict) -> str:
     for label, key in (("SAMPLE", "sample_file"), ("GASBK", "background_file"), ("DETBK", "detector_file")):
         lines.append(f"{label}: {results.get(key) or 'вектор из NPZ'}")
     metadata = results.get("metadata", {})
+    if metadata.get("detector_info"):
+        detector_info = metadata["detector_info"]
+        lines.append("Детекторы: " + "; ".join(
+            f"{label}: {detector_info[key]['id']} ({detector_info[key]['name']})"
+            for label, key in (("SAMPLE", "sample"), ("GASBK", "background"), ("DETBK", "detector"))
+        ))
     lines.append(f"Калибровка: {metadata.get('calibration_source', 'подготовленная модель NPZ')}")
     lines.append(f"Фон b: {metadata.get('background_source', 'из NPZ')}")
     if results.get("calibration_mode") == "constants":
