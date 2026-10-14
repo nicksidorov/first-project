@@ -414,7 +414,7 @@ class MainWindow(QMainWindow):
         self.update_message("Расчёт завершён. Результаты можно сохранить в файл.")
 
     def generate_activities_html(self, results):
-        """Прежние цвета таблиц; единицы и ограничения определяет новая модель."""
+        """Две таблицы как в старом окне; ±σ берётся из нового ядра."""
         model, solution = results["model"], results["fit"]
         names = names_for_results(results)
         activity = results.get("activities")
@@ -433,14 +433,23 @@ class MainWindow(QMainWindow):
             ),
             f"<b>Координаты theta:</b> {escape(model.coordinates)}; ",
             "<b>физические координаты:</b> [a_c; gamma]</p>",
-            "<table width='100%' style='border-collapse:collapse' border='1' cellpadding='7'>",
-            "<tr style='background:#e0e0e0'><th>Компонент</th><th>a, мБк</th><th>σ(a), мБк</th>",
-            "<th>a_c, мБк/м³</th><th>σ(a_c), мБк/м³</th></tr>",
         ]
 
         def number(value):
-            return "—" if value is None else f"{1000 * value:.6g}"
+            return "—" if value is None or not np.isfinite(value) else f"{1000 * value:.6g}"
 
+        def relative_error(value, sigma):
+            # Относительная σ не зависит от перевода Бк → мБк.
+            # Для отрицательной свободной оценки используем модуль;
+            # при нуле или отсутствии σ относительная погрешность не определена.
+            if value is None or sigma is None or value == 0:
+                return "—"
+            if not np.isfinite(value) or not np.isfinite(sigma):
+                return "—"
+            percent = 100 * (float(sigma) / abs(float(value)))
+            return f"{percent:.1f}%" if np.isfinite(percent) else "—"
+
+        detector_rows, concentration_rows = [], []
         for index, name in enumerate(names):
             a = None if activity is None or activity.a is None else activity.a[index]
             sigma_a = None if activity is None or activity.std_A is None else activity.std_A[index]
@@ -449,12 +458,37 @@ class MainWindow(QMainWindow):
             if activity is not None and activity.a_c is not None:
                 a_c = activity.a_c[index]
                 sigma_c = None if activity.std_A_c is None else activity.std_A_c[index]
-            color = "#f0f8ff" if index % 2 == 0 else "#ffffff"
-            display_name = name + " (вспом.)" if name.lower().replace("-", "").startswith("rn") else name
-            parts.append(f"<tr style='background:{color}'><td>{escape(display_name)}</td>")
-            parts.extend(f"<td align='right'>{number(value)}</td>" for value in (a, sigma_a, a_c, sigma_c))
-            parts.append("</tr>")
-        parts.append("</table>")
+            detector_rows.append((a, sigma_a))
+            concentration_rows.append((a_c, sigma_c))
+
+        def activity_table(title, rows):
+            table = [
+                f"<h4>{title}</h4>",
+                "<table width='100%' style='border-collapse:collapse' border='1' cellspacing='0' cellpadding='5'>",
+                "<tr style='background:#e0e0e0'><th align='left'>Изотоп</th>",
+                "<th>Значение</th><th>±σ</th><th>Отн.<br>погр., %</th></tr>",
+            ]
+            for index, (name, (value, sigma)) in enumerate(zip(names, rows)):
+                color = "#f0f8ff" if index % 2 == 0 else "#ffffff"
+                display_name = name + " (вспом.)" if name.lower().replace("-", "").startswith("rn") else name
+                table.append(f"<tr style='background:{color}'><td>{escape(display_name)}</td>")
+                table.extend(f"<td align='right'>{cell}</td>" for cell in
+                             (number(value), number(sigma), relative_error(value, sigma)))
+                table.append("</tr>")
+            table.append("</table>")
+            return "".join(table)
+
+        # QTextBrowser поддерживает вложенные таблицы; явная ячейка между
+        # ними обеспечивает промежуток без браузерных flex/grid-стилей.
+        parts.extend([
+            "<table width='100%' border='0' cellspacing='0' cellpadding='0'><tr>",
+            "<td width='49%' valign='top'>",
+            activity_table("1. АКТИВНОСТЬ В ДЕТЕКТОРЕ (мБк)", detector_rows),
+            "</td><td width='2%'>&nbsp;</td><td width='49%' valign='top'>",
+            activity_table("2. ОБЪЁМНАЯ АКТИВНОСТЬ (мБк/м³)", concentration_rows),
+            "</td></tr></table>",
+            "<p>Отн. погр. = 100 × σ / |значение|. При нулевом значении или отсутствии σ — прочерк.</p>",
+        ])
         if any(name.lower().replace("-", "").startswith("rn") for name in names):
             parts.append("<p>Радоновая компонента a_c — вспомогательный параметр модели; она не является объёмной активностью радона в атмосфере.</p>")
         if solution.covariance is None:
