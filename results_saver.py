@@ -7,6 +7,13 @@ import numpy as np
 
 from process_measurement import METHOD_NAMES
 from xemat.activities import covariance_to_correlation
+from xemat.diagnostics import compute_fit_quality
+
+
+def quality_for_results(results):
+    """Одна диагностика для окна и TXT; поддерживаются прежние словари результатов."""
+    quality = results.get("fit_quality")
+    return quality if quality is not None else compute_fit_quality(results["model"], results["fit"])
 
 
 def names_for_results(results):
@@ -207,7 +214,15 @@ def format_results(results: dict) -> str:
     lines.append("Модель: mu = M @ theta + b; фон входит в ожидаемые отсчёты.")
     coordinates = "[beta; gamma]" if model.coordinates == "beta_gamma" else "[a_c; gamma]"
     _field(lines, "Координаты theta", f"{coordinates} ({model.coordinates})")
-    _field(lines, "Критерий", _number(solution.objective, 12))
+    quality = quality_for_results(results)
+    _field(lines, quality.label, _number(quality.reduced_statistic))
+    _field(lines, f"Исходная статистика {quality.symbol}", _number(quality.statistic, 12))
+    _field(lines, "Степени свободы ν = N − ранг",
+           f"{quality.n_observations} − {quality.rank} = {quality.degrees_of_freedom}"
+           + (" (номинальные)" if quality.nominal_dof else ""))
+    lines.append("Около 1 — ориентир при достаточных отсчётах и корректной модели дисперсий;")
+    lines.append("при малых отсчётах χ²/ν и D/ν могут заметно отклоняться от 1 даже для верной модели.")
+    lines.extend(quality.warnings)
     _field(lines, "Ранг", solution.rank)
     _field(lines, "Число обусловленности", _number(solution.condition_number))
     _field(lines, "Сообщение решателя", solution.message)

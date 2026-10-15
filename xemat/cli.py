@@ -24,11 +24,16 @@ def main(argv=None):
     except (ValueError, RuntimeError, OSError) as exc:
         parser.exit(1, f"Ошибка расчёта: {exc}\n")
     solution = result['fit']
-    print(f"{METHOD_NAMES[args.method]}; ранг={solution.rank}; критерий={solution.objective:.8g}")
+    quality = result['fit_quality']
+    reduced = "—" if quality.reduced_statistic is None else f"{quality.reduced_statistic:.8g}"
+    print(f"{METHOD_NAMES[args.method]}; ранг={solution.rank}; {quality.label}={reduced}; ν={quality.degrees_of_freedom}"
+          + (" (номинальное)" if quality.nominal_dof else ""))
     print(f"Координаты входа/выхода theta: {result['model'].coordinates}")
     print(f"Результаты: {args.output}")
     for message in result['warnings']:
         print(f"Примечание: {message}")
+    for message in quality.warnings:
+        print(f"Качество подгонки: {message}")
     return 0
 
 

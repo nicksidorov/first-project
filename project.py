@@ -19,7 +19,7 @@ from PyQt5.QtWidgets import (
 
 from process_measurement import METHOD_NAMES, process_prepared_measurement
 from xemat.detectors import DetectorSelectionError
-from results_saver import format_results, names_for_results, save_results_to_file
+from results_saver import format_results, names_for_results, quality_for_results, save_results_to_file
 
 
 REGRESSION_METHODS = METHOD_NAMES
@@ -441,6 +441,12 @@ class MainWindow(QMainWindow):
             None if solution.physical_covariance is None else
             np.sqrt(np.maximum(np.diag(solution.physical_covariance), 0))
         )
+        quality = quality_for_results(results)
+        reduced = "—" if quality.reduced_statistic is None else f"{quality.reduced_statistic:.5g}"
+        quality_note = (
+            "Для ограниченного метода ν номинальное; сравнение с 1 условно."
+            if quality.nominal_dof else "Около 1 — ориентир при достаточных отсчётах."
+        )
         parts = [
             "<h3 style='text-align:center'>РЕЗУЛЬТАТЫ СОВМЕСТНОГО РАСЧЁТА</h3>",
             "<p style='background:#ecf0f1;padding:5px'>",
@@ -454,8 +460,15 @@ class MainWindow(QMainWindow):
                 if results.get("sample_file") else ""
             ),
             f"<b>Координаты theta:</b> {escape(model.coordinates)}; ",
-            "<b>физические координаты:</b> [a_c; gamma]</p>",
+            "<b>физические координаты:</b> [a_c; gamma]<br>",
+            f"<b>{escape(quality.label)}: {reduced}</b>; ν = {quality.degrees_of_freedom}",
+            " (номинальное)" if quality.nominal_dof else "",
+            f"<br>{quality_note}</p>",
         ]
+        if quality.degrees_of_freedom <= 0:
+            parts.append("<p>Приведённая статистика не определена: нет остаточных степеней свободы (ν≤0).</p>")
+        elif quality.warnings and not quality.nominal_dof:
+            parts.append("<p>" + "<br>".join(escape(note) for note in quality.warnings) + "</p>")
 
         def number(value):
             return "—" if value is None or not np.isfinite(value) else f"{1000 * value:.6g}"

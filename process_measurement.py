@@ -17,6 +17,7 @@ from ims_parser import (
 from xemat.activities import compute_activities
 from xemat.calibration import LEGACY_ROI_NUMBERS, build_physical_matrices
 from xemat.detection import compute_detection_limits
+from xemat.diagnostics import compute_fit_quality
 from xemat.detectors import validate_detector_ids
 from xemat.io import load_prepared_model
 from xemat.model import JointModel
@@ -279,6 +280,7 @@ def process_prepared_measurement(
         "regression_method_used": method,
         "model": model,
         "fit": solution,
+        "fit_quality": compute_fit_quality(model, solution),
         "activities": None,
         "detection": None,
         "warnings": list(extras.get("warnings", [])) + list(solution.warnings),

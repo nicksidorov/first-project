@@ -58,18 +58,51 @@ def test_all_four_methods_npz_to_exports_and_html(prepared, tmp_path, app, metho
     text = format_results(result)
     assert "mu = M @ theta + b" in text
     assert "ФИЗИЧЕСКИЕ КООРДИНАТЫ z=[a_c;gamma]" in text
+    assert result["fit_quality"].label in text
+    assert "ν≤0" in text
     save_results_to_file(result, tmp_path / "report.txt")
     assert (tmp_path / "report.txt").read_text(encoding="utf-8") == text
     save_json(result, tmp_path / "report.json")
     raw_json = (tmp_path / "report.json").read_text(encoding="utf-8")
     assert "NaN" not in raw_json and "Infinity" not in raw_json
     assert json.loads(raw_json)["fit"]["method"] == method
+    assert json.loads(raw_json)["fit_quality"]["reduced_statistic"] is None
     window = MainWindow()
     html = window.generate_activities_html(result)
     assert METHOD_NAMES[method] in html.replace("&gt;", ">").replace("&lt;", "<")
+    assert result["fit_quality"].label in html
+    assert "ν≤0" in html
     window.on_processing_finished(result)
     assert window.save_button.isEnabled()
     assert "Xe133" in window.results_output.toPlainText()
+    window.close()
+
+
+@pytest.mark.parametrize("method", METHOD_NAMES)
+def test_reduced_statistic_in_report_window_and_json(tmp_path, app, method):
+    path = tmp_path / "overdetermined.npz"
+    np.savez(path, M=np.ones((3, 1)), x=[0, 4, 8], b=[1, 1, 1],
+             n_sample_parameters=1, coordinates="a_c_gamma")
+    result = process_prepared_measurement(path, method=method)
+    if method.startswith("poisson"):
+        expected = 8 * np.log(2)
+        label = "Приведённый девианс D/ν"
+    else:
+        mean = 16 / 11  # Взвешенная средняя x при весах [1, 1/4, 1/8].
+        expected = np.sum((np.array([0, 4, 8]) - mean)**2 / [1, 4, 8]) / 2
+        label = "Приведённый χ²/ν"
+    assert result["fit_quality"].reduced_statistic == pytest.approx(expected)
+    text = format_results(result)
+    value_line = next(line for line in text.splitlines() if label in line)
+    assert float(value_line.split(":")[-1]) == pytest.approx(expected, rel=1e-6)
+    window = MainWindow()
+    window.on_processing_finished(result)
+    assert f"{label}: {expected:.5g}" in window.results_output.toPlainText()
+    if method in ("nnls", "poisson_nonnegative"):
+        assert "номинальное" in window.results_output.toPlainText()
+    save_json(result, tmp_path / "quality.json")
+    payload = json.loads((tmp_path / "quality.json").read_text(encoding="utf-8"))
+    assert payload["fit_quality"]["reduced_statistic"] == pytest.approx(expected)
     window.close()
 
 
