@@ -309,6 +309,12 @@ def process_prepared_measurement(
             "Внешние веса" if extras.get("weights") is not None else
             "Статья: w_i=1/x_i при x_i>0; w_i=1 при x_i=0"
         ) if method in ("wls", "nnls") else "Исходные пуассоновские отсчёты; веса не применяются",
+        # Снимок весов нужен экспериментам, чтобы повторить тот же оцениватель
+        # без повторного чтения изменившегося NPZ. None означает веса по отсчётам.
+        "quadratic_options": {
+            key: None if extras.get(key) is None else np.array(extras[key], copy=True)
+            for key in ("weights", "observation_covariance")
+        },
     }
     if not is_quadratic and any(key in extras for key in ("weights", "observation_covariance")):
         result["warnings"].append("Веса/ковариация из NPZ относятся к МНК и не применяются в пуассоновском критерии.")

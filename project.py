@@ -19,6 +19,7 @@ from PyQt5.QtWidgets import (
 
 from process_measurement import METHOD_NAMES, process_prepared_measurement
 from xemat.detectors import DetectorSelectionError
+from xemat.monte_carlo_dialog import MonteCarloDialog, eligible_components
 from results_saver import format_results, names_for_results, quality_for_results, save_results_to_file
 
 
@@ -146,6 +147,7 @@ class MainWindow(QMainWindow):
         self.detector_file = None
         self.results = None
         self.thread = None
+        self.monte_carlo_dialog = None
         self.radon_mode = "legacy"
         self.radon_h = None
         self.init_ui()
@@ -256,7 +258,17 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.text_output)
         self.save_button = self.create_button("Сохранить результаты в файл", "#27ae60", self.save_results)
         self.save_button.setEnabled(False)
-        layout.addWidget(self.save_button)
+        self.monte_carlo_button = QPushButton("Монте-Карло: Lc / Ld…")
+        self.monte_carlo_button.setMinimumHeight(35)
+        self.monte_carlo_button.setEnabled(False)
+        self.monte_carlo_button.setToolTip(
+            "Отдельный эксперимент по последнему расчёту: ложные обнаружения и вероятность обнаружения при MDC."
+        )
+        self.monte_carlo_button.clicked.connect(self.open_monte_carlo)
+        result_actions = QHBoxLayout()
+        result_actions.addWidget(self.save_button, 1)
+        result_actions.addWidget(self.monte_carlo_button)
+        layout.addLayout(result_actions)
         self.source_combo.currentIndexChanged.connect(self.change_source)
         self.update_source_description()
         self.check_files_selected()
@@ -375,6 +387,7 @@ class MainWindow(QMainWindow):
     def invalidate_results(self, *_):
         self.results = None
         self.save_button.setEnabled(False)
+        self.monte_carlo_button.setEnabled(False)
         self.results_output.setVisible(False)
         self.text_output.clear()
         self.message_label.clear()
@@ -407,6 +420,7 @@ class MainWindow(QMainWindow):
         self.checkbox_fixed_efficiencies.setEnabled(not busy and self.source_combo.currentData() == "constants")
         self.calculate_button.setEnabled(not busy)
         self.save_button.setEnabled(not busy and self.results is not None)
+        self.monte_carlo_button.setEnabled(not busy and bool(eligible_components(self.results)))
         self.progress_bar.setVisible(busy)
         if not busy:
             self.check_files_selected()
@@ -617,8 +631,21 @@ class MainWindow(QMainWindow):
             except (OSError, ValueError) as exc:
                 QMessageBox.critical(self, "Ошибка сохранения", str(exc))
 
+    def open_monte_carlo(self):
+        if not eligible_components(self.results) or (self.thread is not None and self.thread.isRunning()):
+            return
+        if self.monte_carlo_dialog is None or self.monte_carlo_dialog.source_results is not self.results:
+            if self.monte_carlo_dialog is not None:
+                self.monte_carlo_dialog.deleteLater()
+            self.monte_carlo_dialog = MonteCarloDialog(self.results, self)
+        self.monte_carlo_dialog.exec_()
+
     def closeEvent(self, event):
-        if self.thread is not None and self.thread.isRunning():
+        if self.monte_carlo_dialog is not None and self.monte_carlo_dialog.is_running:
+            self.monte_carlo_dialog.request_close()
+            self.update_message("Эксперимент Монте-Карло останавливается. Закройте окно после завершения текущего повтора.")
+            event.ignore()
+        elif self.thread is not None and self.thread.isRunning():
             self.update_message("Дождитесь завершения текущего расчёта перед закрытием окна.")
             event.ignore()
         else:
