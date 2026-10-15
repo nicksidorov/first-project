@@ -203,7 +203,7 @@ class MainWindow(QMainWindow):
         self.method_combo = QComboBox()
         for method in ("nnls", "wls", "poisson", "poisson_nonnegative"):
             self.method_combo.addItem(METHOD_NAMES[method], method)
-        self.method_combo.currentIndexChanged.connect(self.invalidate_results)
+        self.method_combo.currentIndexChanged.connect(self.calculation_options_changed)
         method_layout.addWidget(self.method_combo, 1)
         self.method_group.setLayout(method_layout)
         layout.addWidget(self.method_group)
@@ -211,7 +211,7 @@ class MainWindow(QMainWindow):
         self.checkbox_fixed_roi = QCheckBox("Использовать фиксированные ROI")
         self.checkbox_fixed_roi.setChecked(True)
         self.checkbox_fixed_roi.setToolTip("Границы ROI из FIXED_ROI_TABLE в constants.py. При отключении используются границы из спектров.")
-        self.checkbox_fixed_roi.toggled.connect(self.invalidate_results)
+        self.checkbox_fixed_roi.toggled.connect(self.calculation_options_changed)
         layout.addWidget(self.checkbox_fixed_roi)
         self.calculate_button = self.create_button("РАССЧИТАТЬ", "#3498db", self.calculate)
         self.calculate_button.setEnabled(False)
@@ -271,9 +271,9 @@ class MainWindow(QMainWindow):
             self.invalidate_results()
 
     def change_source(self, *_):
+        self.invalidate_results()
         self.checkbox_fixed_roi.setChecked(self.source_combo.currentData() == "constants")
         self.update_source_description()
-        self.invalidate_results()
 
     def update_source_description(self):
         constants_mode = self.source_combo.currentData() == "constants"
@@ -336,6 +336,19 @@ class MainWindow(QMainWindow):
         self.sample_file = self.background_file = self.detector_file = None
         self.update_source_description()
         self.invalidate_results()
+
+    def calculation_options_changed(self, *_):
+        """Настройки относятся к следующему запуску; показан последний расчёт."""
+        self.check_files_selected()
+        if self.results is not None:
+            changed = (
+                self.method_combo.currentData() != self.results["fit"].method
+                or self.checkbox_fixed_roi.isChecked() != self.results["use_fixed_roi"]
+            )
+            self.update_message(
+                "Настройки изменены. Показан предыдущий расчёт; нажмите «РАССЧИТАТЬ» для обновления."
+                if changed else "Расчёт завершён. Результаты можно сохранить в файл."
+            )
 
     def invalidate_results(self, *_):
         self.results = None
@@ -418,6 +431,11 @@ class MainWindow(QMainWindow):
         model, solution = results["model"], results["fit"]
         names = names_for_results(results)
         activity = results.get("activities")
+        detection = results.get("detection")
+        detected_components = set() if detection is None else {
+            int(component) for index, component in enumerate(detection.component_indices)
+            if detection.converged[index] and detection.detected[index]
+        }
         physical = solution.physical_parameters
         physical_std = (
             None if solution.physical_covariance is None else
@@ -430,6 +448,10 @@ class MainWindow(QMainWindow):
             (
                 f"<b>Детектор:</b> {results['metadata']['input_detector_id']}<br>"
                 if results.get("metadata", {}).get("input_detector_id") is not None else ""
+            ),
+            (
+                "<b>ROI:</b> " + ("фиксированные" if results["use_fixed_roi"] else "из файлов спектров") + "<br>"
+                if results.get("sample_file") else ""
             ),
             f"<b>Координаты theta:</b> {escape(model.coordinates)}; ",
             "<b>физические координаты:</b> [a_c; gamma]</p>",
@@ -469,8 +491,10 @@ class MainWindow(QMainWindow):
                 "<th>Значение</th><th>±σ</th><th>Отн.<br>погр., %</th></tr>",
             ]
             for index, (name, (value, sigma)) in enumerate(zip(names, rows)):
-                color = "#f0f8ff" if index % 2 == 0 else "#ffffff"
-                display_name = name + " (вспом.)" if name.lower().replace("-", "").startswith("rn") else name
+                color = "#fde2e2" if index in detected_components else (
+                    "#f0f8ff" if index % 2 == 0 else "#ffffff"
+                )
+                display_name = "Rn 222" if name.lower().replace("-", "").replace(" ", "") == "rn222" else name
                 table.append(f"<tr style='background:{color}'><td>{escape(display_name)}</td>")
                 table.extend(f"<td align='right'>{cell}</td>" for cell in
                              (number(value), number(sigma), relative_error(value, sigma)))
@@ -489,11 +513,12 @@ class MainWindow(QMainWindow):
             "</td></tr></table>",
             "<p>Отн. погр. = 100 × σ / |значение|. При нулевом значении или отсутствии σ — прочерк.</p>",
         ])
+        if detection is not None:
+            parts.append("<p>Красноватой заливкой отмечено обнаружение: свободная оценка a_c &gt; L_C.</p>")
         if any(name.lower().replace("-", "").startswith("rn") for name in names):
             parts.append("<p>Радоновая компонента a_c — вспомогательный параметр модели; она не является объёмной активностью радона в атмосфере.</p>")
         if solution.covariance is None:
             parts.append("<p>Ковариация этой оценки недоступна; ±σ не выдаётся. Прочерк означает, что значение не рассчитано.</p>")
-        detection = results.get("detection")
         if detection is not None:
             parts.extend([
                 "<h4>ПОРОГ L_C И MDC, мБк/м³</h4>",

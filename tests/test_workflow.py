@@ -2,12 +2,14 @@
 
 import json
 import os
+from dataclasses import replace
 from pathlib import Path
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 import numpy as np
 import pytest
+from PyQt5.QtGui import QTextCursor, QTextDocument
 from PyQt5.QtWidgets import QApplication, QFileDialog
 
 from ims_parser import parse_ims_spectral_file
@@ -217,11 +219,62 @@ def test_radon_note_and_mdc_exclusion(prepared, tmp_path, app):
     assert any("Rn" in message for message in result["warnings"])
     assert "не объёмная активность радона" in format_results(result)
     window = MainWindow()
-    assert "вспомогательный параметр" in window.generate_activities_html(result)
+    html = window.generate_activities_html(result)
+    assert "вспомогательный параметр" in html
+    assert html.count(">Rn 222</td>") == 2
+    assert "(вспом.)" not in html
     window.close()
 
 
-def test_gui_model_selection_and_stale_results(prepared, app, monkeypatch):
+@pytest.mark.parametrize(
+    "include_detection, converged, detected, highlighted",
+    [
+        (True, [True, True], [True, False], "Xe133m"),
+        (True, [False, True], [True, False], None),
+        (True, [True, True], [False, False], None),
+        (False, [True, True], [True, False], None),
+    ],
+    ids=["permuted-components", "nonconverged", "not-detected", "no-detection"],
+)
+def test_activity_rows_use_core_detection_in_both_rendered_tables(
+    prepared, app, include_detection, converged, detected, highlighted,
+):
+    result = process_prepared_measurement(prepared, method="nnls")
+    # Порядок порогов отличается от порядка изотопов в таблицах.
+    # Свободная оценка Xe133m находится между L_C и MDC, а отображаемая
+    # ограниченная оценка равна нулю. Xe133, наоборот, показан большим.
+    # Подсветка должна следовать решению ядра, не величинам в таблице.
+    result["activities"] = replace(result["activities"], a=np.array([100., 0.]), a_c=np.array([100., 0.]))
+    result["detection"] = replace(
+        result["detection"],
+        component_indices=np.array([1, 0]),
+        free_activity=np.array([2., 0.]),
+        L_C=np.array([1., 1.]), MDC=np.array([3., 3.]),
+        converged=np.array(converged), detected=np.array(detected),
+    ) if include_detection else None
+    window = MainWindow()
+    window.results_output.setHtml(window.generate_activities_html(result))
+    document = window.results_output.document()
+    for name in ("Xe133", "Xe133m"):
+        cursor, activity_rows = QTextCursor(document), 0
+        while True:
+            cursor = document.find(name, cursor, QTextDocument.FindWholeWords)
+            if cursor.isNull():
+                break
+            table = cursor.currentTable()
+            # У двух таблиц активностей четыре столбца, у таблицы порогов — пять.
+            if table is None or table.columns() != 4:
+                continue
+            activity_rows += 1
+            row = table.cellAt(cursor).row()
+            for column in range(table.columns()):
+                color = table.cellAt(row, column).format().background().color().name()
+                assert (color == "#fde2e2") == (name == highlighted)
+        assert activity_rows == 2
+    window.close()
+
+
+def test_gui_option_changes_keep_previous_result_until_calculate(prepared, tmp_path, app, monkeypatch):
     window = MainWindow()
     assert not window.calculate_button.isEnabled()
     assert window.method_combo.count() == 4
@@ -232,11 +285,66 @@ def test_gui_model_selection_and_stale_results(prepared, app, monkeypatch):
     window.on_processing_finished(result)
     assert window.results is result
     assert window.save_button.isEnabled()
-    window.method_combo.setCurrentIndex(1)
+    old_html = window.results_output.toHtml()
+    old_text = window.text_output.toPlainText()
+    window.method_combo.setCurrentIndex(window.method_combo.findData("wls"))
+    for change_roi in (False, True):
+        if change_roi:
+            window.checkbox_fixed_roi.setChecked(not window.checkbox_fixed_roi.isChecked())
+        assert window.results is result
+        assert window.save_button.isEnabled()
+        assert not window.results_output.isHidden()
+        assert window.results_output.toHtml() == old_html
+        assert window.text_output.toPlainText() == old_text
+        assert "предыдущ" in window.statusBar().currentMessage().lower()
+
+    saved = tmp_path / "previous_result.txt"
+    monkeypatch.setattr(QFileDialog, "getSaveFileName", lambda *args: (str(saved), ""))
+    window.save_results()
+    assert saved.read_text(encoding="utf-8") == format_results(result)
+    assert window.results["fit"].method == "nnls"
+
+    # Не запускаем реальный поток: проверяем состояние окна в момент старта.
+    started = []
+    monkeypatch.setattr(ProcessingThread, "start", lambda self: started.append(self))
+    window.calculate()
+    assert started == [window.thread]
+    assert window.thread.options["method"] == "wls"
+    assert window.thread.options["use_fixed_roi"] is True
     assert window.results is None
     assert not window.save_button.isEnabled()
-    window.sample_file = str(prepared)
-    window.invalidate_results()
+    assert window.results_output.isHidden()
+    assert not window.text_output.toPlainText()
+
+    updated = process_prepared_measurement(prepared, method="wls", use_fixed_roi=True)
+    window.on_processing_finished(updated)
+    assert window.results is updated
+    assert not window.results_output.isHidden()
+    assert window.save_button.isEnabled()
+    assert window.text_output.toPlainText() == format_results(updated)
+    window.close()
+
+
+def test_gui_source_and_file_selection_still_clear_results(prepared, spectra, app, monkeypatch):
+    window = MainWindow()
+    monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args: (str(prepared), ""))
+    window.select_model_file()
+    result = process_prepared_measurement(prepared, method="nnls")
+    window.on_processing_finished(result)
+    window.source_combo.setCurrentIndex(window.source_combo.findData("constants"))
+    assert window.results is None
+    assert window.results_output.isHidden()
+    assert not window.save_button.isEnabled()
+    assert not window.text_output.toPlainText()
+
+    window.select_model_file()
+    window.on_processing_finished(result)
+    monkeypatch.setattr(QFileDialog, "getOpenFileName", lambda *args: (spectra["sample_file"], ""))
+    window.select_sample_file()
+    assert window.results is None
+    assert window.results_output.isHidden()
+    assert not window.save_button.isEnabled()
+    assert not window.text_output.toPlainText()
     assert not window.calculate_button.isEnabled()
     window.clear_spectra()
     assert window.calculate_button.isEnabled()
