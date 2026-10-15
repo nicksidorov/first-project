@@ -14,6 +14,7 @@ from scipy.integrate import quad_vec
 from scipy.linalg import expm
 
 from constants import DETECTOR_RESPONSE_MATRICES, ROI_INFO, Rs, Rg, XENON_ISOTOPES
+from constants import FIXED_EFFICIENCIES_SAMPLE, FIXED_EFFICIENCIES_GASBK
 from xemat.calibration import build_physical_matrices, decay_correction
 
 
@@ -43,6 +44,63 @@ def measurement_metadata():
         "efficiency": {2: .27, 3: .15, 5: .31, 6: .40},
     }
     return sample, gasbk
+
+
+@pytest.mark.parametrize("detector_id", [221, 222])
+def test_fixed_efficiencies_replace_both_sources_and_keep_physical_scaling(
+    measurement_metadata, monkeypatch, detector_id,
+):
+    sample, gasbk = deepcopy(measurement_metadata)
+    sample["detector_id"] = gasbk["detector_id"] = detector_id
+    eps_c = np.array([.21, .36, .29, .19])
+    eps_g = np.array([.33, .25, .47, .38])
+    monkeypatch.setitem(FIXED_EFFICIENCIES_SAMPLE, detector_id, eps_c.copy())
+    monkeypatch.setitem(FIXED_EFFICIENCIES_GASBK, detector_id, eps_g.copy())
+
+    # Тот же эталонный набор калибровки, записанный в метаданные файлов.
+    for data, efficiencies in ((sample, eps_c), (gasbk, eps_g)):
+        data["efficiency"] = dict(zip([2, 3, 5, 6], efficiencies))
+    expected = _build(sample, gasbk)
+    # При фиксированном источнике отсутствующие ε и неверные метки из файла
+    # не должны ни изменять расчёт, ни мешать ему.
+    sample.pop("efficiency")
+    gasbk["efficiency"] = {2: 0, 3: 99}
+    gasbk["roi_to_isotope"] = {2: "WRONG"}
+    actual = build_physical_matrices(
+        sample, gasbk, use_fixed_efficiencies=True, radon_h=RADON_H,
+    )
+    for key in ("M", "T_c", "H", "H_g1", "H_g2", "F", "C_s_c", "C_s_g", "C_g_g"):
+        assert_allclose(actual[key], expected[key], rtol=0, atol=0)
+    branching = np.array([.9020, .3700, .5400, .5577])
+    assert_allclose(actual["I_c"][1:], eps_c * branching, rtol=1e-15)
+    assert_allclose(actual["I_g"][1:], eps_g * branching, rtol=1e-15)
+    assert actual["metadata"]["sample_efficiencies"] == list(eps_c)
+    assert actual["metadata"]["gasbk_efficiencies"] == list(eps_g)
+    assert f"[{detector_id}]" in actual["metadata"]["efficiency_source"]
+    assert_allclose(FIXED_EFFICIENCIES_SAMPLE[detector_id], eps_c, rtol=0, atol=0)
+    assert_allclose(FIXED_EFFICIENCIES_GASBK[detector_id], eps_g, rtol=0, atol=0)
+
+
+@pytest.mark.parametrize("registry,label", [
+    (FIXED_EFFICIENCIES_SAMPLE, "SAMPLE"), (FIXED_EFFICIENCIES_GASBK, "GASBK"),
+])
+@pytest.mark.parametrize("bad_values", [None, [.1] * 3, [[.1] * 4], [0, .1, .1, .1],
+                                       [-.1, .1, .1, .1], [1.1, .1, .1, .1],
+                                       [np.nan] * 4, [np.inf] * 4])
+def test_bad_fixed_efficiencies_fail_only_when_selected(
+    measurement_metadata, monkeypatch, registry, label, bad_values,
+):
+    expected = _build(*measurement_metadata)
+    monkeypatch.setitem(FIXED_EFFICIENCIES_SAMPLE, 221, [.2] * 4)
+    monkeypatch.setitem(FIXED_EFFICIENCIES_GASBK, 221, [.3] * 4)
+    if bad_values is None:
+        monkeypatch.delitem(registry, 221)
+    else:
+        monkeypatch.setitem(registry, 221, bad_values)
+    # Выключенный флажок полностью сохраняет прежний источник.
+    assert_allclose(_build(*measurement_metadata)["T_c"], expected["T_c"], rtol=0, atol=0)
+    with pytest.raises(ValueError, match=rf"FIXED_EFFICIENCIES_{label}\[221\]"):
+        build_physical_matrices(*measurement_metadata, use_fixed_efficiencies=True, radon_h=RADON_H)
 
 
 def _activity_generator():

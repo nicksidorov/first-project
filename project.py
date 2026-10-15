@@ -212,7 +212,18 @@ class MainWindow(QMainWindow):
         self.checkbox_fixed_roi.setChecked(True)
         self.checkbox_fixed_roi.setToolTip("Границы ROI из FIXED_ROI_TABLE в constants.py. При отключении используются границы из спектров.")
         self.checkbox_fixed_roi.toggled.connect(self.calculation_options_changed)
-        layout.addWidget(self.checkbox_fixed_roi)
+        self.checkbox_fixed_efficiencies = QCheckBox("Фиксированные эффективности")
+        self.checkbox_fixed_efficiencies.setToolTip(
+            "Включено: ε ксенона из FIXED_EFFICIENCIES_SAMPLE/GASBK в constants.py "
+            "для выбранного детектора. Выключено: ε из SAMPLE и GASBK. "
+            "Для готовой модели NPZ не применяется."
+        )
+        self.checkbox_fixed_efficiencies.toggled.connect(self.calculation_options_changed)
+        options_layout = QHBoxLayout()
+        options_layout.addWidget(self.checkbox_fixed_roi)
+        options_layout.addWidget(self.checkbox_fixed_efficiencies)
+        options_layout.addStretch()
+        layout.addLayout(options_layout)
         self.calculate_button = self.create_button("РАССЧИТАТЬ", "#3498db", self.calculate)
         self.calculate_button.setEnabled(False)
         layout.addWidget(self.calculate_button)
@@ -280,14 +291,20 @@ class MainWindow(QMainWindow):
         self.model_file_row.setVisible(not constants_mode)
         self.radon_button.setVisible(constants_mode)
         self.clear_spectra_button.setVisible(not constants_mode)
+        self.checkbox_fixed_efficiencies.setEnabled(constants_mode)
         if constants_mode:
             radon = (
                 "прежняя модель (ε = 0,3)" if self.radon_mode == "legacy" else
                 "калиброванные коэффициенты H_Rn"
             )
+            efficiencies = (
+                "Эффективности SAMPLE/GASBK — фиксированные из constants.py для выбранного детектора. "
+                if self.checkbox_fixed_efficiencies.isChecked() else
+                "Эффективности — из файлов SAMPLE/GASBK. "
+            )
             self.source_hint.setText(
-                "R_s/R_g — из constants.py; времена, объём и эффективности — из файлов. "
-                "Для памяти используются эффективности GASBK. Радон: " + radon + "."
+                "R_s/R_g — из constants.py; времена и объём — из файлов. "
+                + efficiencies + "Для памяти используется набор GASBK. Радон: " + radon + "."
             )
         else:
             self.source_hint.setText(
@@ -339,11 +356,16 @@ class MainWindow(QMainWindow):
 
     def calculation_options_changed(self, *_):
         """Настройки относятся к следующему запуску; показан последний расчёт."""
+        self.update_source_description()
         self.check_files_selected()
         if self.results is not None:
             changed = (
                 self.method_combo.currentData() != self.results["fit"].method
                 or self.checkbox_fixed_roi.isChecked() != self.results["use_fixed_roi"]
+                or (
+                    self.source_combo.currentData() == "constants"
+                    and self.checkbox_fixed_efficiencies.isChecked() != self.results.get("use_fixed_efficiencies", False)
+                )
             )
             self.update_message(
                 "Настройки изменены. Показан предыдущий расчёт; нажмите «РАССЧИТАТЬ» для обновления."
@@ -382,6 +404,7 @@ class MainWindow(QMainWindow):
         self.file_group.setEnabled(not busy)
         self.method_group.setEnabled(not busy)
         self.checkbox_fixed_roi.setEnabled(not busy)
+        self.checkbox_fixed_efficiencies.setEnabled(not busy and self.source_combo.currentData() == "constants")
         self.calculate_button.setEnabled(not busy)
         self.save_button.setEnabled(not busy and self.results is not None)
         self.progress_bar.setVisible(busy)
@@ -405,7 +428,10 @@ class MainWindow(QMainWindow):
             use_fixed_roi=self.checkbox_fixed_roi.isChecked(), method=self.method_combo.currentData(),
         )
         if constants_mode:
-            options.update(radon_mode=self.radon_mode, radon_h=self.radon_h)
+            options.update(
+                radon_mode=self.radon_mode, radon_h=self.radon_h,
+                use_fixed_efficiencies=self.checkbox_fixed_efficiencies.isChecked(),
+            )
         self.thread = ProcessingThread(None if constants_mode else self.model_file, **options)
         self.thread.progress.connect(self.progress_bar.setValue)
         self.thread.message.connect(self.update_message)
@@ -455,9 +481,19 @@ class MainWindow(QMainWindow):
                 f"<b>Детектор:</b> {results['metadata']['input_detector_id']}<br>"
                 if results.get("metadata", {}).get("input_detector_id") is not None else ""
             ),
+            "</p>",
+        ]
+        details = [
+            "<p style='background:#ecf0f1;padding:5px'>",
             (
                 "<b>ROI:</b> " + ("фиксированные" if results["use_fixed_roi"] else "из файлов спектров") + "<br>"
                 if results.get("sample_file") else ""
+            ),
+            (
+                "<b>Эффективности:</b> " + (
+                    "фиксированные, constants.py" if results.get("use_fixed_efficiencies") else "из SAMPLE и GASBK"
+                ) + "<br>"
+                if results.get("calibration_mode") == "constants" else ""
             ),
             f"<b>Координаты theta:</b> {escape(model.coordinates)}; ",
             "<b>физические координаты:</b> [a_c; gamma]<br>",
@@ -466,9 +502,9 @@ class MainWindow(QMainWindow):
             f"<br>{quality_note}</p>",
         ]
         if quality.degrees_of_freedom <= 0:
-            parts.append("<p>Приведённая статистика не определена: нет остаточных степеней свободы (ν≤0).</p>")
+            details.append("<p>Приведённая статистика не определена: нет остаточных степеней свободы (ν≤0).</p>")
         elif quality.warnings and not quality.nominal_dof:
-            parts.append("<p>" + "<br>".join(escape(note) for note in quality.warnings) + "</p>")
+            details.append("<p>" + "<br>".join(escape(note) for note in quality.warnings) + "</p>")
 
         def number(value):
             return "—" if value is None or not np.isfinite(value) else f"{1000 * value:.6g}"
@@ -524,6 +560,7 @@ class MainWindow(QMainWindow):
             "</td><td width='2%'>&nbsp;</td><td width='49%' valign='top'>",
             activity_table("2. ОБЪЁМНАЯ АКТИВНОСТЬ (мБк/м³)", concentration_rows),
             "</td></tr></table>",
+            *details,
             "<p>Отн. погр. = 100 × σ / |значение|. При нулевом значении или отсутствии σ — прочерк.</p>",
         ])
         if detection is not None:

@@ -37,6 +37,11 @@ def prepared(tmp_path):
     return path
 
 
+def test_fixed_efficiencies_cannot_silently_override_prepared_model(prepared):
+    with pytest.raises(ValueError, match="Фиксированные эффективности.*NPZ"):
+        process_prepared_measurement(prepared, use_fixed_efficiencies=True)
+
+
 @pytest.mark.parametrize("method", METHOD_NAMES)
 def test_all_four_methods_npz_to_exports_and_html(prepared, tmp_path, app, method):
     result = process_prepared_measurement(prepared, method=method)
@@ -75,6 +80,8 @@ def test_all_four_methods_npz_to_exports_and_html(prepared, tmp_path, app, metho
     window.on_processing_finished(result)
     assert window.save_button.isEnabled()
     assert "Xe133" in window.results_output.toPlainText()
+    shown = window.results_output.toPlainText()
+    assert shown.index("2. ОБЪЁМНАЯ АКТИВНОСТЬ") < shown.index("Координаты theta:") < shown.index(result["fit_quality"].label)
     window.close()
 
 

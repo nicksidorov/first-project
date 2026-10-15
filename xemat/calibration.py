@@ -18,7 +18,8 @@ from typing import Any
 import numpy as np
 
 from constants import (
-    DELTA_EFF, DELTA_V_XE, DETECTOR_RESPONSE_MATRICES, ROI_INFO, XENON_ISOTOPES,
+    DELTA_EFF, DELTA_V_XE, DETECTOR_RESPONSE_MATRICES,
+    FIXED_EFFICIENCIES_SAMPLE, FIXED_EFFICIENCIES_GASBK, ROI_INFO, XENON_ISOTOPES,
 )
 
 from .activities import compose_activity_transform
@@ -116,13 +117,29 @@ def _isotope_identity(label: Any) -> str | None:
     return nuclide if nuclide.startswith("XE") else "XE" + nuclide[:-2]
 
 
-def _sensitivities(data: Mapping, label: str) -> np.ndarray:
-    """I_j=epsilon_j*BR_j; первые коэффициенты радона задаются через H."""
+def _efficiencies(data: Mapping, label: str, *, fixed: bool, detector_id: int) -> np.ndarray:
+    """Четыре ε ксенона: из выбранного источника, без множителя branching."""
+    if fixed:
+        constant_name = f"FIXED_EFFICIENCIES_{label}"
+        registry = FIXED_EFFICIENCIES_SAMPLE if label == "SAMPLE" else FIXED_EFFICIENCIES_GASBK
+        error = (
+            f"constants.py: заполните {constant_name}[{detector_id}] четырьмя "
+            "эффективностями в порядке Xe135, Xe133, Xe131m, Xe133m. "
+            "Нужны конечные значения 0 < ε ≤ 1 (в долях, без branching)."
+        )
+        try:
+            values = np.array(registry[detector_id], dtype=float, copy=True)
+        except (KeyError, TypeError, ValueError, OverflowError) as exc:
+            raise ValueError(error) from exc
+        if values.shape != (4,) or np.any(~np.isfinite(values)) or np.any(values <= 0) or np.any(values > 1):
+            raise ValueError(error)
+        return values
+
     efficiencies = data.get("efficiency")
     if not isinstance(efficiencies, Mapping):
         raise ValueError(f"{label}: отсутствуют эффективности #b-gEfficiency.")
-    values = np.zeros(5)
-    for index, isotope in enumerate(ISOTOPE_NAMES[1:], start=1):
+    values = np.zeros(4)
+    for index, isotope in enumerate(ISOTOPE_NAMES[1:]):
         roi = ROI_INFO[isotope]["roi"]
         identities = data.get("roi_to_isotope", {})
         if isinstance(identities, Mapping) and roi in identities:
@@ -137,10 +154,18 @@ def _sensitivities(data: Mapping, label: str) -> np.ndarray:
         )
         if efficiency > 1:
             raise ValueError(f"{label}: эффективность {isotope} должна быть не больше 1.")
+        values[index] = efficiency
+    return values
+
+
+def _sensitivities(efficiencies: np.ndarray) -> np.ndarray:
+    """I_j=epsilon_j*BR_j; первые коэффициенты радона задаются через H."""
+    values = np.zeros(5)
+    for index, isotope in enumerate(ISOTOPE_NAMES[1:], start=1):
         branching = _positive(ROI_INFO[isotope]["br"], f"Ветвление {isotope}")
         if branching > 1:
             raise ValueError(f"Вероятность ветвления {isotope} должна быть не больше 1.")
-        values[index] = efficiency * branching
+        values[index] = efficiencies[index - 1] * branching
     return values
 
 
@@ -158,6 +183,7 @@ def build_physical_matrices(
     sample: Mapping,
     gasbk: Mapping,
     *,
+    use_fixed_efficiencies: bool = False,
     radon_mode: str = "calibrated",
     radon_h: Mapping | None = None,
 ) -> dict[str, Any]:
@@ -170,6 +196,10 @@ def build_physical_matrices(
     и xenon_volume (cm³). Эффективности GASBK интерпретируются как
     эффективности памяти и сохраняются до SAMPLE. Это условие калибровки
     должно выполняться для используемых файлов.
+
+    При use_fixed_efficiencies=True четыре ε каждого спектра берутся из
+    FIXED_EFFICIENCIES_SAMPLE/GASBK[detector_id] в constants.py. Значения
+    из файлов тогда не используются; модель радона выбирается отдельно.
 
     radon_h в режиме calibrated содержит положительные коэффициенты
     Бк/отсчёт: sample=H[0,0], gasbk=H_g2[0,0],
@@ -214,8 +244,10 @@ def build_physical_matrices(
     if difference <= 0:
         raise ValueError("Для цепочки Xe133m→Xe133 требуется lambda_5>lambda_3.")
     chain_factor = lambda_3 / difference
-    I_c = _sensitivities(sample, "SAMPLE")
-    I_g = _sensitivities(gasbk, "GASBK")
+    epsilon_c = _efficiencies(sample, "SAMPLE", fixed=use_fixed_efficiencies, detector_id=detector_id)
+    epsilon_g = _efficiencies(gasbk, "GASBK", fixed=use_fixed_efficiencies, detector_id=detector_id)
+    I_c = _sensitivities(epsilon_c)
+    I_g = _sensitivities(epsilon_g)
     Rs, Rg = DETECTOR_RESPONSE_MATRICES[detector_id]
     R_c0 = _base_response(Rs, f"Rs_{detector_id}")
     R_g0 = _base_response(Rg, f"Rg_{detector_id}")
@@ -313,7 +345,14 @@ def build_physical_matrices(
                             "t_gl": t_gl, "t_a": t_a, "t_p": t_p, "tau": tau},
         "xenon_volume_cm3": V_xe,
         "effective_air_volume_m3": V0,
-        "efficiency_convention": "I=epsilon×BR; epsilon из #b-gEfficiency, BR из constants.ROI_INFO",
+        "efficiency_source": (
+            f"constants.py: FIXED_EFFICIENCIES_SAMPLE/GASBK[{detector_id}]"
+            if use_fixed_efficiencies else "SAMPLE/GASBK: #b-gEfficiency"
+        ),
+        "efficiency_isotope_names": ISOTOPE_NAMES[1:],
+        "sample_efficiencies": epsilon_c.tolist(),
+        "gasbk_efficiencies": epsilon_g.tolist(),
+        "efficiency_convention": "I=epsilon×BR; epsilon без branching, BR из constants.ROI_INFO",
         "memory_calibration": "Эффективности GASBK относятся к памяти и сохраняются при SAMPLE",
         "base_response_convention": "Rs=R_c^(0), Rg=R_g1^(0)=R_g2^(0); без повторной нормировки после C",
         "radon_concentration": "Первая координата a_c вспомогательная; не атмосферная активность Rn222",

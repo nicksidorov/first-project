@@ -151,6 +151,8 @@ def _input_data(lines, results):
     if results.get("sample_file"):
         _field(lines, "Границы ROI", "фиксированные, constants.py" if results.get("use_fixed_roi") else "из файлов спектров")
     _field(lines, "Калибровка", metadata.get("calibration_source", "подготовленная модель NPZ"))
+    if metadata.get("efficiency_source"):
+        _field(lines, "Эффективности ε", metadata["efficiency_source"])
     _field(lines, "Фон b", metadata.get("background_source", "из NPZ"))
     detector_info = metadata.get("detector_info", {})
     for role, key in (("ПРОБА — SAMPLE", "sample"), ("ГАЗОВЫЙ ФОН — GASBK", "background"),
@@ -326,6 +328,14 @@ def format_results(results: dict) -> str:
     if results.get("calibration_mode") == "constants":
         lines.append("Исходные Rs/Rg: ROI 1, 2, 3, 5, 6, 7, 8; изотопы Rn222, Xe135, Xe133, Xe131m, Xe133m.")
         lines.append("Чувствительности ксенона: I_c = ε_SAMPLE × BR; I_g = ε_GASBK × BR.")
+        if metadata.get("sample_efficiencies") is not None and metadata.get("gasbk_efficiencies") is not None:
+            lines.append("Эффективности ε в долях, без branching:")
+            _table(lines, ["Изотоп", "ε SAMPLE", "ε GASBK"], [
+                [name, _number(sample, 12), _number(gasbk, 12)]
+                for name, sample, gasbk in zip(
+                    metadata["efficiency_isotope_names"], metadata["sample_efficiencies"], metadata["gasbk_efficiencies"],
+                )
+            ], min_width=16)
         _field(lines, "Модель радона", metadata.get("radon_mode"))
         for key, label in (("sample", "SAMPLE"), ("gasbk", "GASBK"), ("sample_memory", "память в SAMPLE")):
             _field(lines, f"H_Rn: {label}", f"{_number(metadata.get('radon_h', {}).get(key), 12)} Бк/отсчёт")

@@ -190,20 +190,22 @@ def _spectral_input(model_file, paths, use_fixed_roi):
     return _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi)
 
 
-def _constants_input(paths, use_fixed_roi, radon_mode, radon_h):
+def _constants_input(paths, use_fixed_roi, radon_mode, radon_h, use_fixed_efficiencies):
     """Привязать Rs/Rg к геометрии ROI и временам конкретного измерения."""
     parsed = _read_spectra(paths)
     reference_rois = [ROI_INFO[name]["roi"] for name in ("Xe135", "Xe133", "Xe131m", "Xe133m")]
     for name, data in parsed.items():
         regions = dict(zip(data["roi_numbers"], data["roi_limits"]))
-        # Даже при фиксированных ROI нельзя использовать эффективность
-        # из файла для ДРУГОЙ опорной области. У DETBK эффективности не берём.
-        checked = (reference_rois if name != "detector" else []) if use_fixed_roi else LEGACY_ROI_NUMBERS
+        # При ε из файла проверяем его опорные ROI даже в режиме фиксированных
+        # границ. Фиксированные ε уже привязаны к FIXED_ROI_TABLE.
+        checked = LEGACY_ROI_NUMBERS
+        if use_fixed_roi:
+            checked = reference_rois if name != "detector" and not use_fixed_efficiencies else []
         for number in checked:
             if number not in regions or not np.allclose(
                 regions[number], FIXED_ROI_TABLE[number], rtol=0, atol=1e-6,
             ):
-                if name != "detector" and number in reference_rois:
+                if name != "detector" and number in reference_rois and not use_fixed_efficiencies:
                     reason = (
                         "Эффективность из файла относится к этой опорной области; "
                         "нужна калибровка для совпадающих границ или подготовленная модель NPZ."
@@ -218,11 +220,12 @@ def _constants_input(paths, use_fixed_roi, radon_mode, radon_h):
     x, b, metadata = _spectral_arrays(parsed, order, order, use_fixed_roi)
     extras = build_physical_matrices(
         parsed["sample"], parsed["background"],
+        use_fixed_efficiencies=use_fixed_efficiencies,
         radon_mode=radon_mode, radon_h=radon_h,
     )
     model = JointModel(extras["M"], x, b, 5, extras["T_c"], "beta_gamma")
     metadata.update(extras.get("metadata", {}))
-    metadata["calibration_source"] += "; времена, объём и эффективности из IMS"
+    metadata["calibration_source"] += "; времена и объём из IMS; ε — " + metadata["efficiency_source"]
     return model, extras, metadata
 
 
@@ -233,6 +236,7 @@ def process_prepared_measurement(
     background_file: str | None = None,
     detector_file: str | None = None,
     use_fixed_roi: bool = False,
+    use_fixed_efficiencies: bool = False,
     method: str = "nnls",
     radon_mode: str = "legacy",
     radon_h: dict | None = None,
@@ -244,16 +248,20 @@ def process_prepared_measurement(
     Пользовательский профиль по умолчанию сохраняет прежнюю модель радона
     (эффективность 0.3); допущение записывается в протокол. Для отдельной
     калибровки задаются radon_mode='calibrated' и три коэффициента radon_h.
+    use_fixed_efficiencies выбирает ε ксенона из constants.py вместо файлов;
+    этот переключатель применим только при построении матриц без NPZ.
     """
     paths = (sample_file, background_file, detector_file)
     if any(paths) and not all(paths):
         raise ValueError("Выберите все три спектра или используйте только готовую модель NPZ.")
     if method not in METHOD_NAMES:
         raise ValueError(f"Неизвестный метод: {method}.")
+    if model_file is not None and use_fixed_efficiencies:
+        raise ValueError("Фиксированные эффективности доступны только для матриц из constants.py; в NPZ чувствительности уже заданы.")
     if model_file is None:
         if not all(paths):
             raise ValueError("Для матриц constants.py выберите все три спектра: SAMPLE, GASBK и DETBK.")
-        model, extras, metadata = _constants_input(paths, use_fixed_roi, radon_mode, radon_h)
+        model, extras, metadata = _constants_input(paths, use_fixed_roi, radon_mode, radon_h, use_fixed_efficiencies)
     else:
         x = b = None
         metadata = {"background_source": "Готовый фиксированный вектор b из NPZ"}
@@ -277,6 +285,7 @@ def process_prepared_measurement(
         "background_file": background_file,
         "detector_file": detector_file,
         "use_fixed_roi": use_fixed_roi,
+        "use_fixed_efficiencies": use_fixed_efficiencies,
         "regression_method_used": method,
         "model": model,
         "fit": solution,
@@ -387,12 +396,14 @@ def process_prepared_measurement(
 def parse_sample_and_background_and_detector(
     sample_file, background_file, detector_file, use_fixed_roi=False,
     regression_method="nnls", *, model_file=None, radon_mode="legacy", radon_h=None,
+    use_fixed_efficiencies=False,
 ):
     """Совместимый вход старого GUI; без NPZ используются Rs/Rg constants.py."""
     aliases = {"ls": "wls", "mle_free": "poisson", "mle": "poisson_nonnegative"}
     return process_prepared_measurement(
         model_file, sample_file=sample_file, background_file=background_file,
         detector_file=detector_file, use_fixed_roi=use_fixed_roi,
+        use_fixed_efficiencies=use_fixed_efficiencies,
         method=aliases.get(regression_method, regression_method),
         radon_mode=radon_mode, radon_h=radon_h,
     )

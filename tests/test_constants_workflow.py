@@ -9,6 +9,7 @@ import pytest
 from numpy.testing import assert_allclose, assert_array_equal
 
 from constants import DETECTOR_RESPONSE_MATRICES, FIXED_ROI_TABLE, Rs, Rg
+from constants import FIXED_EFFICIENCIES_SAMPLE, FIXED_EFFICIENCIES_GASBK
 from process_measurement import METHOD_NAMES, process_prepared_measurement
 from results_saver import format_results
 from ims_parser import parse_ims_spectral_file
@@ -172,6 +173,108 @@ def test_fixed_roi_rejects_efficiency_tied_to_different_reference_roi(constant_s
     file.write_text(file.read_text(encoding="utf-8").replace("224.65", "225.65"), encoding="utf-8")
     with pytest.raises(ValueError, match="ROI|эффектив|границ|калибров"):
         process_prepared_measurement(None, radon_mode="legacy", use_fixed_roi=True, **paths)
+
+
+@pytest.mark.parametrize("method", METHOD_NAMES)
+def test_fixed_efficiencies_work_without_file_efficiencies_and_are_exported(
+    constant_spectra, monkeypatch, tmp_path, method,
+):
+    paths, counts, background = constant_spectra
+    # Фиксированная калибровка совпадает с ε синтетических файлов.
+    eps = [.27, .15, .31, .40]
+    monkeypatch.setitem(FIXED_EFFICIENCIES_SAMPLE, 221, eps.copy())
+    monkeypatch.setitem(FIXED_EFFICIENCIES_GASBK, 221, eps.copy())
+    expected = process_prepared_measurement(method=method, **paths)
+    for key in ("sample_file", "background_file"):
+        path = Path(paths[key])
+        text = path.read_text(encoding="utf-8")
+        text = text[:text.index("#b-gEfficiency")] + text[text.index("#g_Energy"):]
+        path.write_text(text, encoding="utf-8")
+    with pytest.raises(ValueError, match="эффективност"):
+        process_prepared_measurement(method=method, **paths)
+    actual = process_prepared_measurement(method=method, use_fixed_efficiencies=True, **paths)
+    assert actual["use_fixed_efficiencies"] is True
+    assert_array_equal(actual["model"].x, counts)
+    assert_allclose(actual["model"].b, background)
+    assert_allclose(actual["fit"].theta, expected["fit"].theta, rtol=0, atol=0)
+    assert_allclose(actual["activities"].a_c, expected["activities"].a_c, rtol=0, atol=0)
+    assert_allclose(actual["detection"].MDC, expected["detection"].MDC, rtol=0, atol=0)
+    assert actual["metadata"]["sample_efficiencies"] == eps
+    assert actual["metadata"]["gasbk_efficiencies"] == eps
+    assert actual["calibration_matrices"]["I_c"][0] == pytest.approx(.3 * .3700)
+    report = format_results(actual)
+    assert "FIXED_EFFICIENCIES_SAMPLE/GASBK[221]" in report
+    assert "ε SAMPLE" in report and "ε GASBK" in report
+    save_json(actual, tmp_path / "fixed.json")
+    saved = json.loads((tmp_path / "fixed.json").read_text(encoding="utf-8"))
+    assert saved["use_fixed_efficiencies"] is True
+    assert saved["metadata"]["sample_efficiencies"] == eps
+
+
+def test_fixed_roi_and_efficiencies_replace_file_reference_geometry(constant_spectra, monkeypatch):
+    paths, counts, background = constant_spectra
+    monkeypatch.setitem(FIXED_EFFICIENCIES_SAMPLE, 221, [.27, .15, .31, .40])
+    monkeypatch.setitem(FIXED_EFFICIENCIES_GASBK, 221, [.27, .15, .31, .40])
+    for path in paths.values():
+        file = Path(path)
+        file.write_text(file.read_text(encoding="utf-8").replace("224.65", "225.65"), encoding="utf-8")
+    actual = process_prepared_measurement(
+        method="wls", use_fixed_roi=True, use_fixed_efficiencies=True, **paths,
+    )
+    assert_array_equal(actual["model"].x, counts)
+    assert_allclose(actual["model"].b, background)
+    with pytest.raises(ValueError, match="границы ROI 2"):
+        process_prepared_measurement(method="wls", use_fixed_efficiencies=True, **paths)
+
+
+def test_gui_fixed_efficiencies_preserves_export_until_calculation(constant_spectra, monkeypatch, tmp_path):
+    from PyQt5.QtWidgets import QApplication, QFileDialog
+    from project import MainWindow, ProcessingThread
+
+    app = QApplication.instance() or QApplication([])
+    paths, _, _ = constant_spectra
+    monkeypatch.setitem(FIXED_EFFICIENCIES_SAMPLE, 221, [.21, .36, .29, .19])
+    monkeypatch.setitem(FIXED_EFFICIENCIES_GASBK, 221, [.33, .25, .47, .38])
+    window = MainWindow()
+    for name, path in paths.items():
+        setattr(window, name, path)
+    window.method_combo.setCurrentIndex(window.method_combo.findData("wls"))
+    old = process_prepared_measurement(method="wls", use_fixed_roi=True, **paths)
+    window.on_processing_finished(old)
+    old_html = window.results_output.toHtml()
+    old_text = window.text_output.toPlainText()
+    displayed = window.results_output.toPlainText()
+    assert displayed.index("2. ОБЪЁМНАЯ АКТИВНОСТЬ") < displayed.index("ROI:") < displayed.index("Координаты theta:")
+
+    window.checkbox_fixed_efficiencies.setChecked(True)
+    assert window.results is old
+    assert window.save_button.isEnabled()
+    assert window.results_output.toHtml() == old_html
+    assert window.text_output.toPlainText() == old_text
+    assert "предыдущий расчёт" in window.message_label.text()
+    assert "фиксированные из constants.py" in window.source_hint.text()
+    target = tmp_path / "previous.txt"
+    monkeypatch.setattr(QFileDialog, "getSaveFileName", lambda *args: (str(target), ""))
+    window.save_results()
+    assert target.read_text(encoding="utf-8") == format_results(old)
+    assert "#b-gEfficiency" in target.read_text(encoding="utf-8")
+    window.checkbox_fixed_efficiencies.setChecked(False)
+    assert "Расчёт завершён" in window.message_label.text()
+    window.checkbox_fixed_efficiencies.setChecked(True)
+
+    monkeypatch.setattr(ProcessingThread, "start", lambda self: None)
+    window.calculate()
+    assert window.thread.options["use_fixed_efficiencies"] is True
+    assert window.results is None
+    assert not window.checkbox_fixed_efficiencies.isEnabled()
+    window.thread.run()
+    assert window.results is not None
+    assert window.results["use_fixed_efficiencies"] is True
+    assert not np.allclose(window.results["activities"].a_c, old["activities"].a_c)
+    assert "Эффективности: фиксированные, constants.py" in window.results_output.toPlainText()
+    assert "FIXED_EFFICIENCIES_SAMPLE/GASBK[221]" in window.text_output.toPlainText()
+    assert window.checkbox_fixed_efficiencies.isEnabled()
+    window.close()
 
 
 @pytest.mark.parametrize("file_key", ["sample_file", "background_file", "detector_file"])

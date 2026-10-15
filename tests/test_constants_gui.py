@@ -30,6 +30,8 @@ def test_constants_default_requires_all_three_and_ignores_unused_npz(app, tmp_pa
     assert window.source_combo.currentData() == "constants"
     assert window.model_file_row.isHidden()
     assert window.checkbox_fixed_roi.isChecked()
+    assert not window.checkbox_fixed_efficiencies.isChecked()
+    assert window.checkbox_fixed_efficiencies.isEnabled()
     assert not window.calculate_button.isEnabled()
     select_three_files(window, tmp_path)
     window.model_file = str(tmp_path / "removed_model.npz")
@@ -52,10 +54,12 @@ def test_source_change_invalidates_results_and_updates_roi_default(app, tmp_path
     assert not window.save_button.isEnabled()
     assert not window.calculate_button.isEnabled()
     assert not window.checkbox_fixed_roi.isChecked()
+    assert not window.checkbox_fixed_efficiencies.isEnabled()
     window.source_combo.setCurrentIndex(window.source_combo.findData("constants"))
     assert window.model_file_row.isHidden()
     assert window.calculate_button.isEnabled()
     assert window.checkbox_fixed_roi.isChecked()
+    assert window.checkbox_fixed_efficiencies.isEnabled()
     window.close()
 
 
@@ -75,15 +79,18 @@ def test_constants_worker_receives_physical_options_and_locks_settings(app, tmp_
     window = MainWindow()
     select_three_files(window, tmp_path)
     window.model_file = "unused.npz"
+    window.checkbox_fixed_efficiencies.setChecked(True)
     window.calculate()
     assert window.thread.started
     assert window.thread.model_file is None
     assert window.thread.options["radon_mode"] == "legacy"
     assert window.thread.options["radon_h"] is None
     assert window.thread.options["use_fixed_roi"] is True
+    assert window.thread.options["use_fixed_efficiencies"] is True
     assert not window.source_combo.isEnabled()
     assert not window.radon_button.isEnabled()
     assert not window.checkbox_fixed_roi.isEnabled()
+    assert not window.checkbox_fixed_efficiencies.isEnabled()
     window.close()
 
 
