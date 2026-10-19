@@ -10,7 +10,7 @@ W=diag(1/where(x==0,1,x)), eq:wls_weights: заменяется дисперси
 from dataclasses import dataclass, field
 
 import numpy as np
-from scipy.linalg import cholesky, solve_triangular
+from scipy.linalg import cholesky, null_space, solve_triangular
 from scipy.optimize import LinearConstraint, linprog, minimize, nnls
 
 from .model import JointModel
@@ -271,6 +271,12 @@ def _poisson(model, method, max_iter, tol):
     if P is not None:
         constraints.append(LinearConstraint(P, 0, np.inf))
     positive = x > 0
+    C = np.vstack([constraint.A for constraint in constraints])
+    lower = np.concatenate([np.broadcast_to(constraint.lb, constraint.A.shape[0])
+                            for constraint in constraints])
+    # При x>0 граница mu=0 не может быть решением с конечным правдоподобием.
+    can_bind = np.r_[~positive, np.ones(0 if P is None else len(P), dtype=bool)]
+    active_tolerance = 1e-8 * (1 + np.abs(lower))
 
     def value(v):
         mu = B @ v + b
@@ -288,8 +294,9 @@ def _poisson(model, method, max_iter, tol):
         loss = np.sum(mu[~positive]) + np.sum(loss_terms)
         return float(loss / count_scale)
 
-    def gradient(v):
-        mu = B @ v + b
+    def gradient(v, mu=None):
+        if mu is None:
+            mu = B @ v + b
         if np.any(mu[positive] <= 0):
             # На границе log не определён; эта точка не может быть принята.
             return np.full(B.shape[1], np.nan)
@@ -302,69 +309,86 @@ def _poisson(model, method, max_iter, tol):
         weighted = B[positive] * (np.sqrt(x[positive]) / mu[positive])[:, None]
         return weighted.T @ weighted / count_scale
 
-    def stationarity(v):
+    def stationarity(v, mu=None, parameters=None):
         """Невязка ККТ: grad f=C_active.T lambda, lambda>=0."""
-        g = gradient(v)
+        g = gradient(v, mu)
         if not np.all(np.isfinite(g)):
             return np.inf
-        blocks = [constraint.A for constraint in constraints]
-        lower = np.concatenate([np.broadcast_to(constraint.lb, constraint.A.shape[0])
-                                for constraint in constraints])
-        C_all = np.vstack(blocks)
-        slacks = C_all @ v - lower
-        active = slacks <= 1e-8 * (1 + np.abs(lower))
+        slacks = C @ v - lower
+        if mu is not None:
+            slacks[:len(x)] = mu / row_scale
+        if parameters is not None and P is not None:
+            slacks[len(x):] = parameters / np.linalg.norm(T, axis=1)
+        active = can_bind & (slacks <= active_tolerance)
         if not np.any(active):
             return float(np.linalg.norm(g, np.inf))
         try:
-            multipliers, _ = nnls(C_all[active].T, g, maxiter=max_iter)
+            multipliers, _ = nnls(C[active].T, g, maxiter=max_iter)
         except RuntimeError:
             return np.inf
-        residual = g - C_all[active].T @ multipliers
+        residual = g - C[active].T @ multipliers
         return float(np.linalg.norm(residual, np.inf) / max(1.0, np.linalg.norm(g, np.inf)))
 
     def polish(v):
-        # Ньютоновское уточнение с равенствами на активных границах. Нулевые
-        # отсчёты дают линейный член, поэтому обычный Hessian может быть
-        # вырожденным; седловая система учитывает эти границы явно.
+        # Ньютоновское уточнение вдоль активной границы E v=lower.
+        # Z — базис null(E): E@Z=0, поэтому Z@dw меняет остальные ROI,
+        # не сдвигая активные ожидания/физические параметры за границу.
+        # Ограничитель шага применяется только к НЕактивным ограничениям:
+        # остаток округления E@step раньше ошибочно уменьшал шаг до нуля.
         for _ in range(30):
             g = gradient(v)
             mu = B @ v + b
-            if not np.all(np.isfinite(g)) or np.any(mu < 0) or stationarity(v) <= tol:
+            slack = C @ v - lower
+            roundoff = 64 * np.finfo(float).eps * (np.abs(C) @ np.abs(v) + np.abs(lower) + 1)
+            if not np.all(np.isfinite(g)) or np.any(slack < -roundoff):
+                break
+            feasible = np.all(mu >= 0) and (P is None or np.all(P @ v >= 0))
+            if feasible and stationarity(v) <= tol:
                 break
             H = hessian(v)
-            eq_rows, eq_slack = [], []
-            active_mean = (~positive) & (mu / row_scale <= 1e-7)
-            if np.any(active_mean):
-                eq_rows.append(B[active_mean] / row_scale[active_mean, None])
-                eq_slack.append(mu[active_mean] / row_scale[active_mean])
-            if P is not None:
-                slack = P @ v
-                active_physical = slack <= 1e-7
-                if np.any(active_physical):
-                    eq_rows.append(P[active_physical])
-                    eq_slack.append(slack[active_physical])
-            try:
-                if eq_rows:
-                    E = np.vstack(eq_rows)
-                    saddle = np.block([[H, -E.T], [E, np.zeros((len(E), len(E)))]] )
-                    rhs = np.r_[-g, -np.concatenate(eq_slack)]
-                    step = np.linalg.lstsq(saddle, rhs, rcond=None)[0][:len(v)]
+            active = can_bind & (slack <= active_tolerance)
+            for _ in range(np.count_nonzero(active) + 1):
+                E = C[active]
+                if len(E):
+                    Z = null_space(E)
+                    # Представляем границу с запасом на округление параметров.
+                    # Это малая поправка v, а не замена x или обрезание mu.
+                    normal_step = np.linalg.lstsq(E, roundoff[active] - slack[active], rcond=None)[0]
                 else:
-                    step = np.linalg.solve(H, -g)
-            except np.linalg.LinAlgError:
-                break
-            if g @ step >= 0 or np.linalg.norm(step, np.inf) == 0:
+                    Z, normal_step = np.eye(len(v)), np.zeros_like(v)
+                reduced_gradient = Z.T @ (g + H @ normal_step)
+                reduced_hessian = Z.T @ H @ Z
+                tangent = np.linalg.lstsq(reduced_hessian, -reduced_gradient, rcond=None)[0]
+                # Нулевые отсчёты дают линейный член. При вырожденном H
+                # нельзя потерять его ненулевой градиент в null(H).
+                unresolved = reduced_hessian @ tangent + reduced_gradient
+                tangent -= unresolved / max(1.0, np.linalg.norm(reduced_hessian))
+                step = normal_step + Z @ tangent
+                if not len(E):
+                    break
+                multipliers = np.linalg.lstsq(E.T, g + H @ step, rcond=None)[0]
+                if np.all(multipliers >= -tol):
+                    break
+                # При зависимых строках E множители не единственны. У
+                # минимальной по норме λ могут быть отрицательные элементы,
+                # хотя существует другая неотрицательная λ той же грани.
+                predicted = g + H @ step
+                try:
+                    _, cone_residual = nnls(E.T, predicted, maxiter=max_iter)
+                    if cone_residual <= np.linalg.norm(predicted - E.T @ multipliers) + tol:
+                        break
+                except RuntimeError:
+                    pass
+                # Отрицательный множитель означает, что эту границу следует
+                # отпустить; иначе можно зафиксировать неверную активную грань.
+                active[np.flatnonzero(active)[np.argmin(multipliers)]] = False
+            if np.linalg.norm(step, np.inf) == 0:
                 break
             alpha = 1.0
-            change = B @ step
-            falling = change < 0
+            change = C @ step
+            falling = (~active) & (change < 0)
             if np.any(falling):
-                alpha = min(alpha, 0.99 * float(np.min(-mu[falling] / change[falling])))
-            if P is not None:
-                slack, change = P @ v, P @ step
-                falling = change < 0
-                if np.any(falling):
-                    alpha = min(alpha, 0.99 * float(np.min(-slack[falling] / change[falling])))
+                alpha = min(alpha, 0.99 * float(np.min(-slack[falling] / change[falling])))
             if alpha <= 0:
                 break
             old = value(v)
@@ -372,10 +396,15 @@ def _poisson(model, method, max_iter, tol):
             for _ in range(50):
                 candidate = v + alpha * step
                 candidate_value = value(candidate)
+                if P is not None and np.any(P @ candidate < 0):
+                    candidate_value = np.inf
                 indistinguishable = (np.isfinite(candidate_value)
                                      and candidate_value <= old + 64 * np.finfo(float).eps * max(1, abs(old))
                                      and stationarity(candidate) < 0.9 * old_stationarity)
-                if candidate_value <= old + 1e-4 * alpha * (g @ step) or indistinguishable:
+                armijo = (np.isfinite(candidate_value) and g @ step < 0
+                          and candidate_value <= old + 1e-4 * alpha * (g @ step))
+                repairing_roundoff = not np.isfinite(old) and np.isfinite(candidate_value)
+                if armijo or indistinguishable or repairing_roundoff:
                     v = candidate
                     break
                 alpha *= 0.5
@@ -434,7 +463,9 @@ def _poisson(model, method, max_iter, tol):
     warnings = []
     if corrected_mean:
         warnings.append("Отрицательный остаток округления mu устранён малой допустимой поправкой параметров; mu не обрезался")
-    kkt_residual = stationarity(v)
+    # Проверяем именно возвращаемые mu/параметры: восстановление допустимости
+    # в исходных координатах могло внести малую поправку после оптимизации.
+    kkt_residual = stationarity(v, mu, parameters if nonnegative else None)
     stationary = kkt_residual <= max(1e-7, tol * 1000)
     if not stationary:
         warnings.append(f"Условия оптимальности ККТ не подтверждены: невязка {kkt_residual:.3g}")
@@ -448,7 +479,9 @@ def _poisson(model, method, max_iter, tol):
         # иначе остаток ~1e-14 в DETBK ошибочно выглядит внутренней точкой
         # с допустимой обычной ковариацией. Сами mu и theta не изменяем.
         parameter_magnitudes = np.abs(T) @ np.abs(v)
-        mean_roundoff = 32 * np.finfo(float).eps * (np.abs(model.M) @ parameter_magnitudes + b + 1.0)
+        # В polish граница представлена с запасом 64 eps в нормированных
+        # строках; row_scale переводит этот запас обратно в отсчёты.
+        mean_roundoff = 128 * np.finfo(float).eps * (np.abs(model.M) @ parameter_magnitudes + b + row_scale)
         zero_rows = mu <= mean_roundoff
         if corrected_mean or np.any(zero_rows & np.any(model.M != 0, axis=1)):
             warnings.append("Граничный mu=0: обычная асимптотическая ковариация неприменима")
