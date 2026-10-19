@@ -9,13 +9,26 @@ from matplotlib.figure import Figure
 from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.QtWidgets import (
     QComboBox, QDialog, QFileDialog, QGridLayout, QGroupBox, QHBoxLayout,
-    QLabel, QMessageBox, QProgressBar, QPushButton, QSpinBox, QTabWidget, QTextBrowser,
+    QLabel, QMessageBox, QProgressBar, QPushButton, QScrollArea, QSpinBox, QTabWidget, QTextBrowser,
     QVBoxLayout,
 )
 
 from .distribution_mc import eligible_components, run_from_results, save_distribution_report
 from .distribution_plot import render_distribution_figure
+from .distribution_pairs import render_activity_pair_figure
 from .io import save_json
+
+
+class _ScrollableFigureCanvas(FigureCanvasQTAgg):
+    def wheelEvent(self, event):
+        # Здесь колесо прокручивает большую матрицу графиков в QScrollArea.
+        parent = self.parentWidget()
+        while parent is not None:
+            if isinstance(parent, QScrollArea):
+                parent.wheelEvent(event)
+                return
+            parent = parent.parentWidget()
+        event.ignore()
 
 
 class DistributionThread(QThread):
@@ -51,6 +64,8 @@ class DistributionDialog(QDialog):
         self._running = False
         self._worker_error = None
         self._close_when_finished = False
+        self._pairs_dirty = True
+        self._pairs_plot_error = None
         self.setWindowTitle("XeMat — Монте-Карло: гистограммы активностей")
         self.setModal(True)
         self.resize(1160, 900)
@@ -131,6 +146,13 @@ class DistributionDialog(QDialog):
         # получает отдельную вкладку, а не отнимает место у гистограмм.
         self.result_tabs = QTabWidget()
         self.result_tabs.addTab(self.canvas, "Гистограммы")
+        self.pairs_figure = Figure(figsize=(9, 9))
+        self.pairs_canvas = _ScrollableFigureCanvas(self.pairs_figure)
+        self.pairs_canvas.setMinimumSize(800, 800)
+        self.pairs_scroll = QScrollArea()
+        self.pairs_scroll.setWidgetResizable(True)
+        self.pairs_scroll.setWidget(self.pairs_canvas)
+        self.result_tabs.addTab(self.pairs_scroll, "Корреляции активностей")
         self.results_output = QTextBrowser()
         self.results_output.setOpenExternalLinks(False)
         self.result_tabs.addTab(self.results_output, "Статистика и пояснения")
@@ -147,6 +169,7 @@ class DistributionDialog(QDialog):
         footer.addStretch()
         footer.addWidget(self.close_button)
         layout.addLayout(footer)
+        self.result_tabs.currentChanged.connect(self._on_tab_changed)
         self._set_running(False)
         if not eligible_components(results):
             self.status_label.setText("Нет доступных компонентов ксенона для эксперимента.")
@@ -188,7 +211,43 @@ class DistributionDialog(QDialog):
         self.cancel_button.setEnabled(running)
         ready = not running and self.experiment_result is not None
         self.save_button.setEnabled(ready)
+        self._update_plot_export()
+
+    def _update_plot_export(self):
+        active = self.result_tabs.currentWidget()
+        ready = not self._running and self.experiment_result is not None
+        if active is self.canvas:
+            self.save_plot_button.setText("Сохранить гистограммы PNG…")
+        elif active is self.pairs_scroll:
+            self.save_plot_button.setText("Сохранить корреляции PNG…")
+            ready = ready and self._pairs_plot_error is None
+        else:
+            self.save_plot_button.setText("Сохранить график PNG…")
+            ready = False
         self.save_plot_button.setEnabled(ready)
+
+    def _on_tab_changed(self, *_):
+        if self.result_tabs.currentWidget() is self.pairs_scroll:
+            try:
+                self._ensure_pair_plot()
+            except Exception as exc:
+                self._pairs_plot_error = f"Ошибка графика корреляций: {type(exc).__name__}: {exc}"
+                self.status_label.setText(self._pairs_plot_error)
+        self._update_plot_export()
+
+    def _ensure_pair_plot(self):
+        if self.experiment_result is None or not self._pairs_dirty:
+            return
+        # Все пары берутся из тех же строк сохранённой выборки; переключение
+        # вкладки не запускает новых генераций или подгонок.
+        try:
+            render_activity_pair_figure(self.experiment_result, self.pairs_figure, bins=self.bins_spin.value())
+        except Exception as exc:
+            self._pairs_plot_error = f"Ошибка графика корреляций: {type(exc).__name__}: {exc}"
+            raise
+        self.pairs_canvas.draw_idle()
+        self._pairs_dirty = False
+        self._pairs_plot_error = None
 
     def start_experiment(self):
         if self._running or not eligible_components(self.source_results):
@@ -199,6 +258,10 @@ class DistributionDialog(QDialog):
         self.results_output.clear()
         self.figure.clear()
         self.canvas.draw_idle()
+        self.pairs_figure.clear()
+        self.pairs_canvas.draw_idle()
+        self._pairs_dirty = True
+        self._pairs_plot_error = None
         self._update_assumption()
         self.progress_bar.setRange(0, self.trials_spin.value())
         self.progress_bar.setValue(0)
@@ -261,9 +324,14 @@ class DistributionDialog(QDialog):
             super().reject()
 
     def redraw_plot(self, *_):
+        self._pairs_dirty = True
+        self._pairs_plot_error = None
         if self.experiment_result is not None:
             render_distribution_figure(self.experiment_result, self.figure, bins=self.bins_spin.value())
             self.canvas.draw_idle()
+            if self.result_tabs.currentWidget() is self.pairs_scroll:
+                self._ensure_pair_plot()
+        self._update_plot_export()
 
     def request_cancel(self):
         if self._running:
@@ -350,8 +418,20 @@ class DistributionDialog(QDialog):
     def save_plot(self):
         if self._running or self.experiment_result is None:
             return
+        active = self.result_tabs.currentWidget()
+        if active is self.canvas:
+            figure, label, filename = self.figure, "Гистограммы", "activity_distributions.png"
+        elif active is self.pairs_scroll:
+            try:
+                self._ensure_pair_plot()
+            except Exception as exc:
+                QMessageBox.critical(self, "Ошибка графика корреляций", str(exc))
+                return
+            figure, label, filename = self.pairs_figure, "Корреляции активностей", "activity_correlations.png"
+        else:
+            return
         path, _ = QFileDialog.getSaveFileName(
-            self, "Сохранить гистограммы", "activity_distributions.png", "Изображение PNG (*.png)",
+            self, f"Сохранить: {label}", filename, "Изображение PNG (*.png)",
         )
         if not path:
             return
@@ -359,8 +439,8 @@ class DistributionDialog(QDialog):
         if not target.suffix:
             target = target.with_suffix(".png")
         try:
-            self.figure.savefig(target, format="png", dpi=160)
+            figure.savefig(target, format="png", dpi=160)
         except (OSError, ValueError) as exc:
             QMessageBox.critical(self, "Ошибка сохранения", str(exc))
             return
-        self.status_label.setText(f"Гистограммы сохранены: {target}")
+        self.status_label.setText(f"{label} сохранены: {target}")

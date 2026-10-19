@@ -11,6 +11,8 @@ os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
 import numpy as np
 import pytest
+from PyQt5.QtCore import QPoint, QPointF, Qt
+from PyQt5.QtGui import QWheelEvent
 from PyQt5.QtTest import QTest
 from PyQt5.QtWidgets import QApplication, QFileDialog
 
@@ -82,9 +84,11 @@ def test_defaults_only_free_methods_and_no_detection_requirement(app, results):
     assert dialog.trials_spin.value() == 1000
     assert dialog.seed_spin.value() == 12345
     assert dialog.result_tabs.tabText(0) == "Гистограммы"
-    assert dialog.result_tabs.tabText(1) == "Статистика и пояснения"
+    assert dialog.result_tabs.tabText(1) == "Корреляции активностей"
+    assert dialog.result_tabs.tabText(2) == "Статистика и пояснения"
     assert dialog.result_tabs.widget(0) is dialog.canvas
-    assert dialog.result_tabs.widget(1) is dialog.results_output
+    assert dialog.result_tabs.widget(1) is dialog.pairs_scroll
+    assert dialog.result_tabs.widget(2) is dialog.results_output
     assert not dialog.save_button.isEnabled()
     assert "неотрицательным ММП" in dialog.assumption_label.text()
     dialog.generation_combo.setCurrentIndex(dialog.generation_combo.findData("observed"))
@@ -238,6 +242,121 @@ def test_stats_convert_bq_to_mbq_once_and_do_not_claim_confidence_interval(exper
     assert "<td>10</td><td>30</td><td>20</td><td>25</td><td>20</td>" in text
     assert "<td>-40 … 60</td>" in text
     assert "не доверительный интервал истинной активности" in text
+
+
+def test_pair_tab_uses_saved_rows_lazily_and_invalidates_on_bins_or_new_result(app, results, experiment, monkeypatch):
+    rendered = []
+
+    def pairs(result, figure, *, bins):
+        rendered.append((result, bins))
+        return figure
+
+    def unexpected_run(*args, **kwargs):
+        pytest.fail("Переключение графиков не должно запускать Монте-Карло")
+
+    monkeypatch.setattr(gui, "render_activity_pair_figure", pairs)
+    monkeypatch.setattr(gui, "run_from_results", unexpected_run)
+    dialog = gui.DistributionDialog(results)
+    dialog._on_result(experiment)
+    dialog._set_running(False)
+    assert rendered == []
+    dialog.result_tabs.setCurrentWidget(dialog.pairs_scroll)
+    assert len(rendered) == 1 and rendered[-1][0] is experiment
+    dialog.result_tabs.setCurrentWidget(dialog.results_output)
+    dialog.result_tabs.setCurrentWidget(dialog.pairs_scroll)
+    assert len(rendered) == 1
+    dialog.result_tabs.setCurrentWidget(dialog.canvas)
+    dialog.bins_spin.setValue(41)
+    assert len(rendered) == 1
+    dialog.result_tabs.setCurrentWidget(dialog.pairs_scroll)
+    assert rendered[-1][1] == 41 and len(rendered) == 2
+    dialog.seed_spin.setValue(54321)
+    dialog.generation_combo.setCurrentIndex(dialog.generation_combo.findData("observed"))
+    assert dialog.experiment_result is experiment and len(rendered) == 2
+    replacement = deepcopy(experiment)
+    replacement["seed"] = 54321
+    replacement["activity_samples"] = replacement["activity_samples"] + .5
+    dialog._on_result(replacement)
+    assert len(rendered) == 3 and rendered[-1][0] is replacement
+    dialog.result_tabs.setCurrentWidget(dialog.canvas)
+    final = deepcopy(replacement)
+    final["method"] = "poisson"
+    dialog._on_result(final)
+    assert len(rendered) == 3
+    dialog.result_tabs.setCurrentWidget(dialog.pairs_scroll)
+    assert len(rendered) == 4 and rendered[-1][0] is final
+    dialog.close()
+
+
+def test_png_exports_active_figure_and_is_disabled_for_statistics(app, results, experiment, tmp_path, monkeypatch):
+    dialog = gui.DistributionDialog(results)
+    dialog._on_result(experiment)
+    dialog._set_running(False)
+    saves, paths = [], []
+    monkeypatch.setattr(dialog.figure, "savefig", lambda *args, **kwargs: saves.append("histograms"))
+    monkeypatch.setattr(dialog.pairs_figure, "savefig", lambda *args, **kwargs: saves.append("pairs"))
+
+    def choose_file(parent, title, filename, selected_filter):
+        paths.append(filename)
+        return str(tmp_path / filename), selected_filter
+
+    monkeypatch.setattr(QFileDialog, "getSaveFileName", choose_file)
+    assert "гистограммы" in dialog.save_plot_button.text()
+    dialog.save_plot()
+    dialog.result_tabs.setCurrentWidget(dialog.pairs_scroll)
+    assert "корреляции" in dialog.save_plot_button.text()
+    assert dialog.save_plot_button.isEnabled()
+    dialog.save_plot()
+    assert saves == ["histograms", "pairs"]
+    assert paths == ["activity_distributions.png", "activity_correlations.png"]
+    dialog.result_tabs.setCurrentWidget(dialog.results_output)
+    assert not dialog.save_plot_button.isEnabled()
+    dialog.save_plot()
+    assert saves == ["histograms", "pairs"]
+    assert len(paths) == 2
+    dialog.close()
+
+
+def test_pair_tab_keeps_large_canvas_scrollable_on_small_window(app, results, experiment):
+    dialog = gui.DistributionDialog(results)
+    dialog._on_result(experiment)
+    dialog._set_running(False)
+    dialog.resize(1024, 768)
+    dialog.show()
+    dialog.result_tabs.setCurrentWidget(dialog.pairs_scroll)
+    app.processEvents()
+    assert dialog.height() == 768
+    assert dialog.pairs_canvas.width() >= 800 and dialog.pairs_canvas.height() >= 800
+    scrollbar = dialog.pairs_scroll.verticalScrollBar()
+    assert scrollbar.maximum() > 0
+    position = QPoint(100, 100)
+    event = QWheelEvent(
+        QPointF(position), QPointF(dialog.pairs_canvas.mapToGlobal(position)),
+        QPoint(), QPoint(0, -120), Qt.NoButton, Qt.NoModifier, Qt.NoScrollPhase, False,
+    )
+    app.sendEvent(dialog.pairs_canvas, event)
+    assert scrollbar.value() > 0
+    scrollbar.setValue(scrollbar.maximum())
+    assert scrollbar.value() == scrollbar.maximum()
+    dialog.close()
+
+
+def test_empty_cancelled_result_can_show_and_export_pairs(app, results, experiment):
+    empty = deepcopy(experiment)
+    empty.update(activity_samples=np.empty((0, 2)), n_attempted=0, n_valid=0, n_failed=0,
+                 failure_reasons={}, cancelled=True)
+    for row in empty["summary"]:
+        row.update(mean=None, std=None, median=None, q025=None, q975=None, mean_stat_sigma=None, sigma_count=0)
+    dialog = gui.DistributionDialog(results)
+    dialog._on_result(empty)
+    dialog._on_finished()
+    dialog.result_tabs.setCurrentWidget(dialog.pairs_scroll)
+    assert dialog.experiment_result is empty
+    assert dialog._pairs_plot_error is None and not dialog._pairs_dirty
+    assert dialog.save_plot_button.isEnabled()
+    assert "Частичные результаты" in dialog.status_label.text()
+    assert "результаты частичные" in dialog.results_output.toPlainText()
+    dialog.close()
 
 
 def test_main_uses_stored_snapshot_retains_window_and_resets_on_input_change(app, results, monkeypatch):
