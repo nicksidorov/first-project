@@ -1,7 +1,8 @@
 """Активности по подготовленным преобразованиям статьи XeMat.
 
-Обозначения сохранены: a = H @ beta, a_tilde = Gamma @ a,
-a_c = T_c @ beta, T_c = G_s @ G_p @ Gamma @ H / V0.
+V86: a = H @ beta, a_tilde = Gamma @ a,
+a_V = T_V @ beta, T_V = G_a @ G_p @ Gamma @ H / V0.
+Для совместимости сохранены прежние имена a_c, T_c и G_s.
 H переводит отсчёты beta в Бк на начало SAMPLE; T_c — в Бк/м³.
 Этот модуль не строит физические матрицы по временам и калибровкам.
 Радоновая первая компонента a_c — вспомогательный параметр; она
@@ -109,6 +110,35 @@ class ActivityResult:
     std_A_c: Array | None
     correlation_A: Array | None
     correlation_A_c: Array | None
+
+    @property
+    def a_V(self):
+        """Объёмная активность V86, Бк/м³; прежнее имя поля — a_c."""
+        return self.a_c
+
+    @property
+    def T_V(self):
+        return self.T_c
+
+    @property
+    def K_A_V_stat(self):
+        return self.K_A_c_stat
+
+    @property
+    def K_A_V_sys(self):
+        return self.K_A_c_sys
+
+    @property
+    def K_A_V(self):
+        return self.K_A_c
+
+    @property
+    def std_A_V(self):
+        return self.std_A_c
+
+    @property
+    def correlation_A_V(self):
+        return self.correlation_A_c
 
 
 def compute_activities(

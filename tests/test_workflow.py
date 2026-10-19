@@ -157,6 +157,67 @@ def test_real_parser_three_spectra_raw_counts_fixed_background(spectral_model, s
     assert "фиксированный фон" in result["metadata"]["background_source"]
 
 
+@pytest.fixture
+def joint_spectral_model(tmp_path):
+    path = tmp_path / "joint_spectral_model.npz"
+    np.savez(path, R_c=np.eye(2), R_g1=.2 * np.eye(2), R_g2=np.eye(2), F=np.eye(2),
+             kappa_s=.1, kappa_g=.2, x=np.full(6, 99),
+             n_sample_parameters=2, n_detector_parameters=2,
+             coordinates="beta_gamma_zeta", T_V=[[1., -.3], [0., 1.]], H=np.eye(2),
+             mdc_component_indices=[0, 1], roi_numbers=[1, 2])
+    return path
+
+
+@pytest.mark.parametrize("method", METHOD_NAMES)
+def test_v86_npz_three_spectra_keep_raw_detbk_and_zero_offset(joint_spectral_model, spectra, method):
+    result = process_prepared_measurement(joint_spectral_model, method=method, **spectra)
+    model, solution = result["model"], result["fit"]
+    np.testing.assert_array_equal(model.x, [0, 8, 3, 1, 2, 4])
+    np.testing.assert_array_equal(model.b, np.zeros(6))
+    assert result["metadata"]["detector_roi_numbers"] == [1, 2]
+    assert result["metadata"]["detector_background_mode"] == "joint"
+    np.testing.assert_allclose(result["activities"].a_c, model.T_V @ solution.theta[:2])
+    if method == "wls":
+        # Точная насыщенная модель: ζ=b_obs, γ=d−κg b_obs,
+        # β=c−0.2 γ−κs b_obs. Нулевой SAMPLE не заменяется единицей.
+        np.testing.assert_allclose(solution.theta, [-.72, 7.56, 2.6, .2, 2., 4.], atol=1e-12)
+
+
+def test_v86_npz_rejects_background_exposure_mismatch(joint_spectral_model, spectra, tmp_path):
+    with np.load(joint_spectral_model) as archive:
+        data = dict(archive)
+    data["kappa_s"] = .5
+    path = tmp_path / "wrong_time.npz"
+    np.savez(path, **data)
+    with pytest.raises(ValueError, match="kappa_s.*живым временам"):
+        process_prepared_measurement(path, **spectra)
+
+
+@pytest.mark.parametrize("key", ["gasbk_roi_numbers", "detector_roi_numbers"])
+def test_v86_npz_rejects_inconsistent_roi_order(joint_spectral_model, spectra, tmp_path, key):
+    with np.load(joint_spectral_model) as archive:
+        data = dict(archive)
+    data[key] = [2, 1]
+    path = tmp_path / "wrong_order.npz"
+    np.savez(path, **data)
+    with pytest.raises(ValueError, match="одинакового порядка ROI"):
+        process_prepared_measurement(path, **spectra)
+
+
+def test_v86_prepared_activity_coordinates_report_the_same_activities(joint_spectral_model, tmp_path):
+    from xemat.io import load_prepared_model
+
+    model, extras = load_prepared_model(joint_spectral_model)
+    path = tmp_path / "physical_coordinates.npz"
+    np.savez(path, **extras, M=model.physical_matrix, x=model.x,
+             coordinates="a_V_gamma_zeta", n_sample_parameters=2, n_detector_parameters=2)
+    physical = process_prepared_measurement(path, method="wls")
+    reference = process_prepared_measurement(joint_spectral_model, method="wls")
+    np.testing.assert_allclose(physical["activities"].a_c, reference["activities"].a_c)
+    np.testing.assert_allclose(physical["activities"].a, reference["activities"].a)
+    np.testing.assert_allclose(physical["activities"].K_A_c, reference["activities"].K_A_c)
+
+
 @pytest.mark.parametrize("file_key", ["sample_file", "background_file", "detector_file"])
 @pytest.mark.parametrize("replacement", ["MIX58_222", "MIX58_999", "UNKNOWN"],
                          ids=["mismatch", "unknown", "missing"])

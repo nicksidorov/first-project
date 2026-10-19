@@ -104,10 +104,18 @@ class MonteCarloDialog(QDialog):
         form.addRow("Seed генератора:", self.seed_spin)
         layout.addWidget(self.settings_group)
 
+        joint_detector = results["model"].has_detector_background
+        activity_symbol = "a_V" if joint_detector else "a_c"
+        sampling_assumption = (
+            "Разыгрываются SAMPLE, GASBK и DETBK; фон zeta каждый раз оценивается заново. "
+            "Для генерации фиксируются истинные средние фоновых отсчётов и сопутствующие активности. "
+            if joint_detector else
+            "Для генерации фиксируются фон b и опорные сопутствующие активности. "
+        )
         assumption = QLabel(
             "В каждом повторе заново оцениваются все параметры и Lc; обнаружение: "
-            "свободная оценка a_c > Lc. Для генерации фиксируются матрица M, фон b "
-            "и опорные сопутствующие активности. Их истинная неопределённость и "
+            f"свободная оценка {activity_symbol} > Lc. " + sampling_assumption +
+            "Матрица M, времена, объём и калибровка фиксированы; "
             "систематические погрешности этим экспериментом не моделируются. "
             "MDC для второго сценария фиксируется по исходному расчёту. При смене пары методов "
             "и том же seed моделируются те же спектры."

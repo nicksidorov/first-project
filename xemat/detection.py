@@ -1,10 +1,12 @@
-"""Критические уровни Керри и MDC в координатах [a_c; gamma].
+"""Критические уровни Керри и MDC в координатах V86 [a_V; gamma; zeta].
 
-Статья: mu_i^(0) = b_det + S_c z_+ - a_(c,i,+) s_(c,i),
-K_i(L) = [S_cᵀ diag(1 / mu_i(L)) S_c]^{-1},
+Статья: mu_i^(0) = S_V theta_(V,+) - a_(V,i,+) s_(V,i),
+K_i(L) = [S_Vᵀ diag(1 / mu_i(L)) S_V]^{-1},
 L_C = z_(1-alpha) sqrt(K_i(0)[i,i]),
 L_D = L_C + z_(1-beta_II) sqrt(K_i(L_D)[i,i]), MDC = L_D.
 
+Имена аргументов S_c и b сохранены для совместимости: S_c обозначает S_V,
+а b=0 для V86. В прежней модели b остаётся известным аддитивным фоном.
 Вспомогательная неотрицательная подгонка задаёт только нулевой спектр;
 решение об обнаружении использует основную неограниченную оценку.
 Здесь нет повторной подгонки и нет вычитания из наблюдаемых отсчётов.
@@ -33,7 +35,9 @@ def model_covariance(S_c: ArrayLike, mu: ArrayLike, *, rcond: float | None = Non
     """Статистическая ковариация неограниченной полной модели при данном mu.
 
     Это обратная информация Фишера, не ковариация NNLS/ML+.
-    Все столбцы (включая память, радон и нулевые оценки) сохраняются.
+    Все столбцы (включая память, радон, фон zeta и нулевые оценки) сохраняются.
+    Статистика DETBK входит через его строки и столбцы zeta полной S_V;
+    отдельно добавлять дисперсию DETBK к полученной ковариации не нужно.
     Масштабирование столбцов и SVD избегают квадратного ухудшения
     обусловленности при формировании нормальных уравнений S_cᵀ W S_c.
     Неидентифицируемые модели отклоняются вместо конечного MDC из pinv.
@@ -124,16 +128,20 @@ def compute_detection_limits(
 ) -> DetectionResult:
     """Вычислить LC/MDC по двум уже выполненным подгонкам полной модели.
 
-    physical_free и physical_positive имеют координаты [a_c; gamma].
+    Для V86 physical_free и physical_positive имеют координаты
+    [a_V; gamma; zeta]; для прежней модели — [a_c; gamma].
     Первый вектор сохраняет знаки; второй — NNLS либо ML+ именно в этих
-    физических координатах. Удаляется только вклад проверяемого a_c;
-    соответствующая память gamma и все мешающие компоненты остаются.
+    физических координатах. Удаляется только вклад проверяемого a_V;
+    память gamma, фон zeta и все мешающие компоненты остаются. Строки
+    GASBK и DETBK нулевого спектра совпадают с неотрицательной подгонкой.
 
-    По умолчанию для 10 столбцов статьи проверяются четыре изотопа Xe
+    По умолчанию для модели V86 размера 21×17 и прежних 10 столбцов
+    проверяются четыре изотопа Xe
     (Python-индексы 1,2,3,4), а радон остаётся nuisance-параметром.
     Для иных размерностей component_indices задаются явно.
 
-    Стандартная версия учитывает только статистику при известных b и S_c.
+    Стандартная версия учитывает статистику всех наблюдений, в том числе
+    DETBK в полной модели V86, при фиксированной калибровке S_V.
     mode='fixed': MDC=(z_(1-alpha)+z_(1-beta_II))*sigma0 — приближение
     постоянной дисперсии, отдельно от основного итерационного метода.
     Ни отрицательные, ни нулевые ожидаемые отсчёты здесь не исправляются.
@@ -144,18 +152,18 @@ def compute_detection_limits(
     n_rows, n_parameters = S.shape
     background = _finite_vector(b, "b", n_rows)
     if np.any(background < 0):
-        raise ValueError("Детекторный фон b не может быть отрицательным")
-    free = _finite_vector(physical_free, "physical_free [a_c; gamma]", n_parameters)
-    positive = _finite_vector(physical_positive, "physical_positive [a_c; gamma]", n_parameters)
+        raise ValueError("Аддитивный фон b не может быть отрицательным")
+    free = _finite_vector(physical_free, "physical_free", n_parameters)
+    positive = _finite_vector(physical_positive, "physical_positive", n_parameters)
     if np.any(positive < 0):
-        raise ValueError("Вспомогательная оценка должна удовлетворять [a_c; gamma] >= 0")
+        raise ValueError("Вспомогательная оценка должна иметь все физические параметры >= 0")
     if component_indices is None:
-        if n_parameters != 10:
+        if n_parameters != 10 and S.shape != (21, 17):
             raise ValueError("Для нестандартного числа параметров задайте component_indices явно")
         component_indices = range(1, 5)
     supplied = list(component_indices)
     if not supplied or any(isinstance(i, (bool, np.bool_)) or not isinstance(i, (int, np.integer)) for i in supplied):
-        raise ValueError("component_indices должен содержать целые индексы проверяемых a_c")
+        raise ValueError("component_indices должен содержать целые индексы проверяемых объёмных активностей")
     indices = np.asarray(supplied, dtype=np.int64)
     if np.unique(indices).size != indices.size or np.any(indices < 0) or np.any(indices >= n_parameters):
         raise ValueError("component_indices: недопустимые или повторяющиеся индексы")

@@ -42,7 +42,7 @@ class ProcessingThread(QThread):
 
     def run(self):
         try:
-            self.message.emit("Чтение данных и совместный расчёт SAMPLE/GASBK...")
+            self.message.emit("Чтение данных и совместный расчёт спектров...")
             self.progress.emit(10)
             results = process_prepared_measurement(self.model_file, **self.options)
             self.progress.emit(100)
@@ -316,7 +316,8 @@ class MainWindow(QMainWindow):
             )
             self.source_hint.setText(
                 "R_s/R_g — из constants.py; времена и объём — из файлов. "
-                + efficiencies + "Для памяти используется набор GASBK. Радон: " + radon + "."
+                + efficiencies + "Для памяти используется набор GASBK. Фон детектора оценивается "
+                "совместно по SAMPLE/GASBK/DETBK. Радон: " + radon + "."
             )
         else:
             self.source_hint.setText(
@@ -469,6 +470,7 @@ class MainWindow(QMainWindow):
     def generate_activities_html(self, results):
         """Две таблицы как в старом окне; ±σ берётся из нового ядра."""
         model, solution = results["model"], results["fit"]
+        activity_symbol = "a_V" if model.has_detector_background else "a_c"
         names = names_for_results(results)
         activity = results.get("activities")
         detection = results.get("detection")
@@ -510,7 +512,7 @@ class MainWindow(QMainWindow):
                 if results.get("calibration_mode") == "constants" else ""
             ),
             f"<b>Координаты theta:</b> {escape(model.coordinates)}; ",
-            "<b>физические координаты:</b> [a_c; gamma]<br>",
+            f"<b>физические координаты:</b> {escape(model.physical_coordinate_label)}<br>",
             f"<b>{escape(quality.label)}: {reduced}</b>; ν = {quality.degrees_of_freedom}",
             " (номинальное)" if quality.nominal_dof else "",
             f"<br>{quality_note}</p>",
@@ -578,16 +580,16 @@ class MainWindow(QMainWindow):
             "<p>Отн. погр. = 100 × σ / |значение|. При нулевом значении или отсутствии σ — прочерк.</p>",
         ])
         if detection is not None:
-            parts.append("<p>Красноватой заливкой отмечено обнаружение: свободная оценка a_c &gt; L_C.</p>")
+            parts.append(f"<p>Красноватой заливкой отмечено обнаружение: свободная оценка {activity_symbol} &gt; L_C.</p>")
         if any(name.lower().replace("-", "").startswith("rn") for name in names):
-            parts.append("<p>Радоновая компонента a_c — вспомогательный параметр модели; она не является объёмной активностью радона в атмосфере.</p>")
+            parts.append(f"<p>Радоновая компонента {activity_symbol} — вспомогательный параметр модели; она не является объёмной активностью радона в атмосфере.</p>")
         if solution.covariance is None:
             parts.append("<p>Ковариация этой оценки недоступна; ±σ не выдаётся. Прочерк означает, что значение не рассчитано.</p>")
         if detection is not None:
             parts.extend([
                 "<h4>ПОРОГ L_C И MDC, мБк/м³</h4>",
                 "<table width='100%' style='border-collapse:collapse' border='1' cellpadding='7'>",
-                "<tr style='background:#e0e0e0'><th>Компонент</th><th>Свободная a_c</th><th>L_C</th><th>MDC</th><th>Обнаружен</th></tr>",
+                f"<tr style='background:#e0e0e0'><th>Компонент</th><th>Свободная {activity_symbol}</th><th>L_C</th><th>MDC</th><th>Обнаружен</th></tr>",
             ])
             for index, component in enumerate(detection.component_indices):
                 parts.append(f"<tr><td>{escape(names[component])}</td>")
@@ -598,7 +600,7 @@ class MainWindow(QMainWindow):
                 else:
                     parts.append("<td colspan='3'>Расчёт MDC не сошёлся</td></tr>")
             parts.append("</table>")
-            parts.append("<p>Обнаружение проверяется по свободной оценке a_c &gt; L_C.</p>")
+            parts.append(f"<p>Обнаружение проверяется по свободной оценке {activity_symbol} &gt; L_C.</p>")
         if results.get("warnings"):
             parts.append("<p><b>Замечания:</b><br>" + "<br>".join(escape(str(value)) for value in results["warnings"]) + "</p>")
         return "".join(parts)

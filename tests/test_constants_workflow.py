@@ -67,7 +67,7 @@ def constant_spectra(tmp_path):
         "detector_file": _write_ims(tmp_path / "detbk.phd", detector_counts,
                                     start=start - timedelta(days=1), real_time=3600, live_time=3600),
     }
-    return paths, np.r_[sample_counts, gas_counts], np.r_[1.5 * detector_counts, 2.5 * detector_counts]
+    return paths, np.r_[sample_counts, gas_counts, detector_counts], np.zeros(21)
 
 
 @pytest.mark.parametrize("method", METHOD_NAMES)
@@ -76,8 +76,13 @@ def test_constants_three_spectra_all_methods_without_npz(constant_spectra, metho
     result = process_prepared_measurement(None, method=method, radon_mode="legacy", **paths)
     model, solution = result["model"], result["fit"]
     assert solution.success
-    assert model.M.shape == (14, 10)
-    assert model.coordinates == "beta_gamma"
+    assert model.M.shape == (21, 17)
+    assert model.coordinates == "beta_gamma_zeta"
+    assert model.n_detector_parameters == 7
+    assert_allclose(model.M[:7, -7:], 1.5 * np.eye(7))
+    assert_allclose(model.M[7:14, -7:], 2.5 * np.eye(7))
+    assert_array_equal(model.M[14:, -7:], np.eye(7))
+    assert result["fit_quality"].degrees_of_freedom == 4
     assert_array_equal(model.x, counts)
     assert_allclose(model.b, background)
     assert_allclose(solution.mu, model.M @ solution.theta + model.b)
@@ -89,7 +94,8 @@ def test_constants_three_spectra_all_methods_without_npz(constant_spectra, metho
     if method in ("nnls", "poisson_nonnegative"):
         assert np.min(solution.physical_parameters) >= -1e-9
     report = format_results(result)
-    assert "mu = M @ theta + b" in report
+    assert "mu = M @ theta" in report
+    assert "DETBK ROI 8" in report
     assert "constants.py" in report
     assert "Rn" in report
 

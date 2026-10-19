@@ -183,11 +183,16 @@ def build_physical_matrices(
     sample: Mapping,
     gasbk: Mapping,
     *,
+    detector_live_time: float | None = None,
     use_fixed_efficiencies: bool = False,
     radon_mode: str = "calibrated",
     radon_h: Mapping | None = None,
 ) -> dict[str, Any]:
-    """Построить R_F в координатах [beta;gamma] и T_c для [a_c;gamma].
+    """Построить R_F и преобразование объёмных активностей T_V (ранее T_c).
+
+    Если задано detector_live_time=t_bl, V86 включает параметры zeta
+    детекторного фона: [beta;gamma;zeta], kappa_s=t_sl/t_bl,
+    kappa_g=t_gl/t_bl. Без t_bl сохранён прежний двухблочный API.
 
     ``sample``/``gasbk`` — словари IMS-парсера. Нужны одинаковые номера
     detector_id (221 или 222) из #Header, даты начала, реальные и живые
@@ -218,6 +223,9 @@ def build_physical_matrices(
 
     t_sr, t_sl = _times(sample, "SAMPLE")
     t_gr, t_gl = _times(gasbk, "GASBK")
+    t_bl = None if detector_live_time is None else _positive(detector_live_time, "DETBK: живое время")
+    kappa_s = None if t_bl is None else t_sl / t_bl
+    kappa_g = None if t_bl is None else t_gl / t_bl
     sample_start = _date(sample, "start_time", "SAMPLE")
     gasbk_start = _date(gasbk, "start_time", "GASBK")
     collection_start = _date(sample, "collection_start", "SAMPLE")
@@ -321,7 +329,7 @@ def build_physical_matrices(
         raise ValueError("Времена/чувствительности приводят к переполнению физических матриц.")
     with np.errstate(over="ignore", invalid="ignore"):
         T_c = compose_activity_transform(H, Gamma, G_p, G_s, V0)
-        M = build_joint_matrix(R_c, R_g1, R_g2, F)
+        M = build_joint_matrix(R_c, R_g1, R_g2, F, kappa_s=kappa_s, kappa_g=kappa_g)
     if not np.all(np.isfinite(T_c)):
         raise ValueError("Переполнение T_c: проверьте времена, объём и эффективности.")
 
@@ -360,22 +368,36 @@ def build_physical_matrices(
         "delta_I": delta_I.tolist(), "delta_V0": delta_V0,
         "radon_sensitivity_audit": "В режиме calibrated I_c[0]=I_g[0]=0 служебные; радон задаётся коэффициентами H_11",
     }
+    detector_extras = {}
+    parameter_names = ([f"beta:{name}" for name in ISOTOPE_NAMES]
+                       + [f"gamma:{name}" for name in ISOTOPE_NAMES])
+    if t_bl is not None:
+        metadata["time_parameters"]["t_bl"] = t_bl
+        metadata["detector_background_model"] = "V86: совместные SAMPLE/GASBK/DETBK; zeta — ожидаемые отсчёты DETBK"
+        metadata["observation_blocks"] = ["SAMPLE", "GASBK", "DETBK"]
+        metadata["kappa_s"] = kappa_s
+        metadata["kappa_g"] = kappa_g
+        metadata["radon_concentration"] = "Первая координата a_V вспомогательная; не атмосферная активность Rn222"
+        parameter_names.extend(f"zeta:ROI{roi}" for roi in LEGACY_ROI_NUMBERS)
+        detector_extras = {
+            "kappa_s": kappa_s, "kappa_g": kappa_g,
+            "detector_roi_numbers": np.array(LEGACY_ROI_NUMBERS, dtype=int),
+        }
     return {
         "M": M, "R_c": R_c, "R_g1": R_g1, "R_g2": R_g2, "F": F,
         "R_c0": R_c0, "R_g0": R_g0,
         "C_s_c": C_s_c, "C_s_g": C_s_g, "C_g_g": C_g_g,
         "B": B, "H": H, "H_g1": H_g1, "H_g2": H_g2,
-        "Gamma": Gamma, "G_p": G_p, "G_s": G_s, "V0": V0, "T_c": T_c,
+        "Gamma": Gamma, "G_p": G_p, "G_s": G_s, "G_a": G_s,
+        "V0": V0, "T_c": T_c, "T_V": T_c,
         "I_c": I_c, "I_g": I_g,
         "delta_I": delta_I, "delta_V0": delta_V0,
-        "coordinates": "beta_gamma", "n_sample_parameters": 5,
+        "coordinates": "beta_gamma" if t_bl is None else "beta_gamma_zeta",
+        "n_sample_parameters": 5, "n_detector_parameters": 0 if t_bl is None else 7,
         "isotope_names": np.array(ISOTOPE_NAMES),
-        "parameter_names": np.array(
-            [f"beta:{name}" for name in ISOTOPE_NAMES]
-            + [f"gamma:{name}" for name in ISOTOPE_NAMES]
-        ),
+        "parameter_names": np.array(parameter_names),
         "sample_roi_numbers": np.array(LEGACY_ROI_NUMBERS, dtype=int),
         "gasbk_roi_numbers": np.array(LEGACY_ROI_NUMBERS, dtype=int),
         "mdc_component_indices": np.array([1, 2, 3, 4], dtype=int),
-        "warnings": warnings, "metadata": metadata,
+        "warnings": warnings, "metadata": metadata, **detector_extras,
     }

@@ -1,4 +1,4 @@
-"""IMS → совместная модель SAMPLE/GASBK → активности и MDC.
+"""IMS → совместная модель SAMPLE/GASBK/DETBK V86 → активности и MDC.
 
 Матрицы строятся из constants.py и метаданных трёх спектров либо читаются
 из подготовленного NPZ. Старый calculation.py не вызывается.
@@ -116,8 +116,14 @@ def _read_spectra(paths):
     return parsed
 
 
-def _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi):
-    """Исходные отсчёты и фиксированный DETBK в согласованном порядке ROI."""
+def _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi, *, joint_detector=False):
+    """Собрать исходные отсчёты; в V86 DETBK — третий измеренный блок.
+
+    Режим фиксированного b оставлен только для прежних подготовленных NPZ.
+    Единичные блоки новой модели требуют общего порядка энергетических ROI.
+    """
+    if joint_detector and sample_order != gasbk_order:
+        raise ValueError("Совместная модель DETBK требует одинакового порядка ROI SAMPLE/GASBK/DETBK.")
     counts = {
         name: get_roi_counts_vector(data, use_fixed_roi=use_fixed_roi)
         for name, data in parsed.items()
@@ -157,18 +163,21 @@ def _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi):
         live_times.append(float(live_time))
     t_s, t_g, t_d = live_times
 
-    # x=[x_s;x_g] — исходные отсчёты. DETBK не вычитается из наблюдений.
+    # Исходные отсчёты: никакое измерение фона не вычитается из x.
     x = np.concatenate([
         _ordered_counts(counts["sample"], sample_order, "SAMPLE"),
         _ordered_counts(counts["background"], gasbk_order, "GASBK"),
     ])
-    # b — фиксированный фон в mu=M@theta+b, приведённый по живому времени.
-    # Неопределённость оценки DETBK здесь автоматически не добавляется:
-    # при необходимости полную covariance пользователь передаёт через NPZ.
-    b = np.concatenate([
-        (t_s / t_d) * _ordered_counts(counts["detector"], sample_order, "DETBK"),
-        (t_g / t_d) * _ordered_counts(counts["detector"], gasbk_order, "DETBK"),
-    ])
+    if joint_detector:
+        x = np.concatenate([x, _ordered_counts(counts["detector"], sample_order, "DETBK")])
+        # Фон ζ оценивается в M, поэтому аддитивный сдвиг b равен нулю.
+        # Наблюдения DETBK нельзя одновременно включать в x и в этот сдвиг.
+        b = np.zeros_like(x)
+    else:
+        b = np.concatenate([
+            (t_s / t_d) * _ordered_counts(counts["detector"], sample_order, "DETBK"),
+            (t_g / t_d) * _ordered_counts(counts["detector"], gasbk_order, "DETBK"),
+        ])
     metadata = {f"{name}_temporal": _temporal(data) for name, data in parsed.items()}
     metadata.update({f"{name}_roi_counts": value for name, value in counts.items()})
     metadata["detector_info"] = {
@@ -178,7 +187,15 @@ def _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi):
     metadata["input_detector_id"] = int(parsed["sample"]["detector_id"])
     metadata["sample_roi_numbers"] = sample_order
     metadata["gasbk_roi_numbers"] = gasbk_order
-    metadata["background_source"] = "DETBK: b=[t_s/t_d·d_s; t_g/t_d·d_g], фиксированный фон"
+    metadata["detector_background_mode"] = "joint" if joint_detector else "fixed"
+    metadata["kappa_s"], metadata["kappa_g"] = t_s / t_d, t_g / t_d
+    if joint_detector:
+        metadata["detector_roi_numbers"] = sample_order
+        metadata["background_source"] = (
+            "DETBK: исходные отсчёты включены в x; ζ оценивается совместно с пробой и памятью (V86)"
+        )
+    else:
+        metadata["background_source"] = "DETBK: b=[t_s/t_d·d_s; t_g/t_d·d_g], фиксированный фон"
     return x, b, metadata
 
 
@@ -187,7 +204,13 @@ def _spectral_input(model_file, paths, use_fixed_roi):
     with np.load(model_file, allow_pickle=False) as archive:
         sample_order = _roi_order(archive, "sample_roi_numbers")
         gasbk_order = _roi_order(archive, "gasbk_roi_numbers")
-    return _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi)
+        joint_detector = str(archive["coordinates"].item()) in ("beta_gamma_zeta", "a_V_gamma_zeta")
+        if joint_detector:
+            detector_order = _roi_order(archive, "detector_roi_numbers")
+            if detector_order != sample_order:
+                raise ValueError("Совместная модель DETBK требует одинакового порядка ROI SAMPLE/GASBK/DETBK.")
+    return _spectral_arrays(parsed, sample_order, gasbk_order, use_fixed_roi,
+                            joint_detector=joint_detector)
 
 
 def _constants_input(paths, use_fixed_roi, radon_mode, radon_h, use_fixed_efficiencies):
@@ -217,13 +240,15 @@ def _constants_input(paths, use_fixed_roi, radon_mode, radon_h, use_fixed_effici
                     f"калибровке constants.py. {reason}"
                 )
     order = list(LEGACY_ROI_NUMBERS)
-    x, b, metadata = _spectral_arrays(parsed, order, order, use_fixed_roi)
+    x, b, metadata = _spectral_arrays(parsed, order, order, use_fixed_roi, joint_detector=True)
     extras = build_physical_matrices(
         parsed["sample"], parsed["background"],
+        detector_live_time=parsed["detector"]["live_time"],
         use_fixed_efficiencies=use_fixed_efficiencies,
         radon_mode=radon_mode, radon_h=radon_h,
     )
-    model = JointModel(extras["M"], x, b, 5, extras["T_c"], "beta_gamma")
+    model = JointModel(extras["M"], x, b, 5, extras["T_V"],
+                       extras["coordinates"], extras["n_detector_parameters"])
     metadata.update(extras.get("metadata", {}))
     metadata["calibration_source"] += "; времена и объём из IMS; ε — " + metadata["efficiency_source"]
     return model, extras, metadata
@@ -243,8 +268,10 @@ def process_prepared_measurement(
 ) -> dict[str, Any]:
     """Обработать три спектра с constants.py либо готовую модель NPZ.
 
-    При трёх спектрах x,b из NPZ заменяются исходными ROI и нормированным
-    DETBK. Без NPZ все преобразования строятся из калибровки и метаданных.
+    Без NPZ используется совместная модель V86 трёх исходных спектров.
+    При трёх файлах наблюдения NPZ заменяются исходными ROI; готовая M
+    должна соответствовать их временам. Прежние NPZ без zeta сохраняют
+    явно обозначенный режим известного фона.
     Пользовательский профиль по умолчанию сохраняет прежнюю модель радона
     (эффективность 0.3); допущение записывается в протокол. Для отдельной
     калибровки задаются radon_mode='calibrated' и три коэффициента radon_h.
@@ -269,6 +296,21 @@ def process_prepared_measurement(
             x, b, metadata = _spectral_input(model_file, paths, use_fixed_roi)
         metadata["calibration_source"] = "Подготовленная модель NPZ"
         model, extras = load_prepared_model(model_file, x=x, b=b)
+        if model.has_detector_background:
+            k = model.n_detector_parameters
+            if all(paths):
+                # NPZ задаёт отклики для определённых времён. Подмена только
+                # наблюдений при иных κ дала бы неверную нормировку фона.
+                for row, key in ((0, "kappa_s"), (k, "kappa_g")):
+                    if not np.isclose(model.M[row, -k], metadata[key], rtol=1e-10, atol=0):
+                        raise ValueError(f"{key} в матрице NPZ не соответствует живым временам спектров; перестройте модель.")
+            else:
+                for key in ("sample_roi_numbers", "gasbk_roi_numbers", "detector_roi_numbers"):
+                    if key in extras or "roi_numbers" in extras:
+                        metadata[key] = np.asarray(extras.get(key, extras.get("roi_numbers"))).tolist()
+                metadata["kappa_s"], metadata["kappa_g"] = model.M[0, -k], model.M[k, -k]
+            metadata["detector_background_mode"] = "joint"
+            metadata["background_source"] = "DETBK: исходные отсчёты в x; фон ζ оценивается совместно (V86)"
     is_quadratic = method in ("wls", "nnls")
     fitting_options = (
         {"weights": extras.get("weights"), "observation_covariance": extras.get("observation_covariance")}
@@ -300,7 +342,7 @@ def process_prepared_measurement(
             key: extras[key] for key in (
                 "R_c0", "R_g0", "R_c", "R_g1", "R_g2", "C_s_c", "C_s_g", "C_g_g", "B", "F",
                 "H_g1", "H_g2", "H", "Gamma", "G_p", "G_s", "I_c", "I_g", "V0",
-                "delta_I", "delta_V0",
+                "delta_I", "delta_V0", "kappa_s", "kappa_g",
             ) if key in extras
         },
         "weights_source": (
@@ -320,10 +362,12 @@ def process_prepared_measurement(
         result["warnings"].append("Веса/ковариация из NPZ относятся к МНК и не применяются в пуассоновском критерии.")
 
     # Активности всегда вычисляются из beta. Неотрицательные методы
-    # ограничивают a_c, поэтому нельзя выдавать beta за a_c.
+    # ограничивают a_V (прежнее имя a_c), поэтому нельзя выдавать beta за a_V.
     n = model.n_sample_parameters
+    volume_symbol = "a_V" if model.has_detector_background else "a_c"
+    transform_symbol = "T_V" if model.has_detector_background else "T_c"
     if extras.get("H") is not None or model.T_c is not None:
-        if model.coordinates == "beta_gamma":
+        if not model.is_activity_coordinates:
             beta = solution.theta[:n]
             K_beta = None if solution.covariance is None else solution.covariance[:n, :n]
         elif model.T_c is not None:
@@ -336,7 +380,7 @@ def process_prepared_measurement(
         else:
             beta = None
             K_beta = None
-            result["warnings"].append("Активность в детекторе не рассчитана: для a_c→beta нужна T_c.")
+            result["warnings"].append(f"Активность в детекторе не рассчитана: для {volume_symbol}→beta нужна {transform_symbol}.")
         if beta is not None:
             activity_options = {key: extras[key] for key in (
                 "H", "Gamma", "G_p", "G_s", "V0", "delta_I", "delta_V0",
@@ -353,11 +397,11 @@ def process_prepared_measurement(
     # MDC — отдельное заключение о обнаружении, а не неопределённость
     # ограниченной оценки. Использует свободную и неотрицательную оценки.
     if solution.physical_parameters is None:
-        result["warnings"].append("MDC недоступна: отсутствует преобразование beta→a_c (T_c).")
+        result["warnings"].append(f"MDC недоступна: отсутствует преобразование beta→{volume_symbol} ({transform_symbol}).")
     elif "mdc_component_indices" not in extras:
         result["warnings"].append(
             "MDC не рассчитана: укажите mdc_component_indices в NPZ; включайте "
-            "только компоненты радиоактивного ксенона в блоке a_c."
+            f"только компоненты радиоактивного ксенона в блоке {volume_symbol}."
         )
     else:
         free_method = "poisson" if method.startswith("poisson") else "wls"
@@ -366,7 +410,7 @@ def process_prepared_measurement(
             extras.get(key) is not None for key in ("weights", "observation_covariance")
         ):
             result["warnings"].append(
-                "MDC использует пуассоновскую ковариацию модели статьи при фиксированном фоне; "
+                "MDC использует пуассоновскую ковариацию полной модели статьи; "
                 "внешние веса/ковариация МНК не заменяют модель K_i(L)."
             )
         try:
@@ -380,7 +424,7 @@ def process_prepared_measurement(
                 or not np.all(np.isfinite(indices)) or np.any(indices != np.floor(indices))
                 or np.any(indices < 0) or np.any(indices >= n)
             ):
-                raise ValueError("mdc_component_indices должны индексировать только блок a_c.")
+                raise ValueError(f"mdc_component_indices должны индексировать только блок {volume_symbol}.")
             isotope_names = extras.get("isotope_names")
             if isotope_names is not None and np.asarray(isotope_names).shape == (n,):
                 for index in indices.astype(int):

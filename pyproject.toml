@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xemat"
-version = "0.1.0"
+version = "0.2.0"
 description = "Совместная обработка бета-гамма спектров ксенона"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24,<3", "scipy>=1.11,<2", "PyQt5>=5.15.10,<5.16"]

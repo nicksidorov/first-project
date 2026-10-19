@@ -29,10 +29,17 @@ def parameter_names_for_results(results):
     model = results["model"]
     names = results.get("parameter_names")
     if names is None or np.asarray(names).shape != (model.M.shape[1],):
-        first = "beta" if model.coordinates == "beta_gamma" else "a_c"
+        first = "beta" if not model.is_activity_coordinates else _activity_symbol(model)
         n = model.n_sample_parameters
-        names = [f"{first}[{i}]" if i < n else f"gamma[{i - n}]" for i in range(model.M.shape[1])]
+        names = ([f"{first}[{i}]" for i in range(n)]
+                 + [f"gamma[{i}]" for i in range(model.n_memory_parameters)]
+                 + [f"zeta[{i}]" for i in range(model.n_detector_parameters)])
     return [str(value) for value in names]
+
+
+def _activity_symbol(model):
+    """V86 использует a_V; прежние NPZ сохраняют обозначение a_c."""
+    return "a_V" if model.has_detector_background else "a_c"
 
 
 # Ширина основного отчёта рассчитана на моноширинный шрифт.
@@ -134,7 +141,8 @@ def _matrix(lines, title, value, row_names=None, column_names=None, *, correlati
 def _observation_names(results):
     metadata = results.get("metadata", {})
     labels = [f"{role} ROI {roi}" for role, key in
-              (("SAMPLE", "sample_roi_numbers"), ("GASBK", "gasbk_roi_numbers"))
+              (("SAMPLE", "sample_roi_numbers"), ("GASBK", "gasbk_roi_numbers"),
+               ("DETBK", "detector_roi_numbers"))
               for roi in metadata.get(key, [])]
     if len(labels) != results["model"].x.size:
         labels = [f"x[{i}]" for i in range(results["model"].x.size)]
@@ -153,7 +161,10 @@ def _input_data(lines, results):
     _field(lines, "Калибровка", metadata.get("calibration_source", "подготовленная модель NPZ"))
     if metadata.get("efficiency_source"):
         _field(lines, "Эффективности ε", metadata["efficiency_source"])
-    _field(lines, "Фон b", metadata.get("background_source", "из NPZ"))
+    if results["model"].has_detector_background:
+        _field(lines, "Фон детектора ζ", metadata.get("background_source", "оценивается совместно по SAMPLE/GASBK/DETBK"))
+    else:
+        _field(lines, "Фон b", metadata.get("background_source", "из NPZ"))
     detector_info = metadata.get("detector_info", {})
     for role, key in (("ПРОБА — SAMPLE", "sample"), ("ГАЗОВЫЙ ФОН — GASBK", "background"),
                       ("ФОН ДЕТЕКТОРА — DETBK", "detector")):
@@ -192,6 +203,8 @@ def _input_data(lines, results):
         _table(lines, ["ROI", "Проба SAMPLE", "Фон GASBK", "Фон DETBK"], rows, min_width=18)
         _field(lines, "ROI SAMPLE в расчёте", ", ".join(map(str, metadata.get("sample_roi_numbers", []))))
         _field(lines, "ROI GASBK в расчёте", ", ".join(map(str, metadata.get("gasbk_roi_numbers", []))))
+        if results["model"].has_detector_background:
+            _field(lines, "ROI DETBK в расчёте", ", ".join(map(str, metadata.get("detector_roi_numbers", []))))
         lines.append("Все ROI приведены для справки; общая сумма не выводится, так как области могут пересекаться.")
     else:
         lines.append("Исходные отсчёты взяты из NPZ и приведены построчно в разделе 8.")
@@ -204,17 +217,25 @@ def format_results(results: dict) -> str:
     names = names_for_results(results)
     parameters = parameter_names_for_results(results)
     n = model.n_sample_parameters
+    memory_end = n + model.n_memory_parameters
+    activity_symbol = _activity_symbol(model)
     lines = ["=" * _WIDTH, "XeMat — РЕЗУЛЬТАТЫ ОБРАБОТКИ БЕТА-ГАММА СПЕКТРОВ".center(_WIDTH).rstrip(),
              "=" * _WIDTH]
     _field(lines, "Метод", METHOD_NAMES[solution.method])
-    _field(lines, "Совместная обработка", "SAMPLE + предшествующий GASBK")
+    _field(lines, "Совместная обработка", "SAMPLE + предшествующий GASBK" +
+           (" + DETBK" if model.has_detector_background else ""))
     _field(lines, "Сходимость", "достигнута" if solution.success else "НЕ достигнута")
     lines.append("Обозначение «—»: величина не рассчитана или не определена; это не ноль.")
     _input_data(lines, results)
 
     _section(lines, "3. РЕЗУЛЬТАТЫ РЕГРЕССИИ")
-    lines.append("Модель: mu = M @ theta + b; фон входит в ожидаемые отсчёты.")
-    coordinates = "[beta; gamma]" if model.coordinates == "beta_gamma" else "[a_c; gamma]"
+    if model.has_detector_background:
+        lines.append("Модель V86: mu = M @ theta; x = [SAMPLE; GASBK; DETBK].")
+        lines.append("ζ — оцениваемые средние отсчёты DETBK; фон входит в модель всех трёх спектров.")
+        lines.append("Статистическая неопределённость DETBK включена через совместное оценивание ζ.")
+    else:
+        lines.append("Модель: mu = M @ theta + b; фон входит в ожидаемые отсчёты.")
+    coordinates = model.input_coordinate_label
     _field(lines, "Координаты theta", f"{coordinates} ({model.coordinates})")
     quality = quality_for_results(results)
     _field(lines, quality.label, _number(quality.reduced_statistic))
@@ -234,12 +255,19 @@ def format_results(results: dict) -> str:
     else:
         lines.append("±σ параметров: локальная статистическая ковариация оценки.")
     if solution.method in ("nnls", "poisson_nonnegative"):
-        lines.append("Неотрицательность наложена на z=[a_c;gamma]. Условие beta ≥ 0 не используется вместо a_c ≥ 0.")
+        lines.append(f"Неотрицательность наложена на z={model.physical_coordinate_label.replace(' ', '')}. "
+                     f"Условие beta ≥ 0 не используется вместо {activity_symbol} ≥ 0.")
     std = None if solution.covariance is None else np.sqrt(np.maximum(np.diag(solution.covariance), 0))
-    first_title = "ПАРАМЕТРЫ ПРОБЫ β (амплитуды в отсчётах)" if model.coordinates == "beta_gamma" else "ПАРАМЕТРЫ ПРОБЫ a_c (Бк/м³)"
+    first_title = ("ПАРАМЕТРЫ ПРОБЫ β (амплитуды в отсчётах)" if not model.is_activity_coordinates else
+                   f"ПАРАМЕТРЫ ПРОБЫ {activity_symbol} (Бк/м³)")
     _estimates(lines, first_title, parameters[:n], solution.theta[:n], None if std is None else std[:n])
-    if solution.theta.size > n:
-        _estimates(lines, "ПАРАМЕТРЫ ПАМЯТИ γ", parameters[n:], solution.theta[n:], None if std is None else std[n:])
+    if memory_end > n:
+        _estimates(lines, "ПАРАМЕТРЫ ПАМЯТИ γ", parameters[n:memory_end], solution.theta[n:memory_end],
+                   None if std is None else std[n:memory_end])
+    if model.has_detector_background:
+        _estimates(lines, "ПАРАМЕТРЫ ФОНА ДЕТЕКТОРА ζ (средние отсчёты за измерение DETBK)",
+                   parameters[memory_end:], solution.theta[memory_end:],
+                   None if std is None else std[memory_end:])
 
     _section(lines, "4. ФИНАЛЬНЫЕ РЕЗУЛЬТАТЫ РАСЧЁТА АКТИВНОСТЕЙ")
     if "xenon_volume_cm3" in metadata:
@@ -248,19 +276,38 @@ def format_results(results: dict) -> str:
         _field(lines, "V0 = V_Xe / 0.087", f"{_number(metadata['effective_air_volume_m3'])} м³")
     elif "V0" in results.get("calibration_matrices", {}):
         _field(lines, "Объём V0 из модели", f"{_number(results['calibration_matrices']['V0'])} м³")
-    lines.append("a = H @ beta (Бк); a_c = T_c @ beta (Бк/м³).")
-    lines.append("Если ±σ рассчитана, она включает статистическую часть и заданные систематические вклады.")
-    if any(name.lower().replace("-", "").startswith("rn") for name in names):
-        lines.append("Радоновая компонента a_c — вспомогательный параметр нормировки,")
-        lines.append("не объёмная активность радона в атмосфере.")
+    transform_symbol = "T_V" if model.has_detector_background else "T_c"
     activity = results.get("activities")
+    physical_activity_only = ((activity is None or activity.a_c is None)
+                              and solution.physical_parameters is not None)
+    if physical_activity_only:
+        # Подготовленная S_V может сразу оценивать a_V без H и T_V:
+        # объёмная активность доступна, даже если нельзя восстановить beta и a.
+        concentration = solution.physical_parameters[:n]
+        concentration_covariance = (None if solution.physical_covariance is None else
+                                    solution.physical_covariance[:n, :n])
+        concentration_std = (None if concentration_covariance is None else
+                             np.sqrt(np.maximum(np.diag(concentration_covariance), 0)))
+        concentration_correlation = (None if concentration_covariance is None else
+                                     covariance_to_correlation(concentration_covariance))
+        lines.append(f"Объёмная активность {activity_symbol} взята из оценённых физических координат (Бк/м³).")
+        lines.append("Её ±σ, если доступна, — статистическая; систематические вклады здесь не рассчитаны.")
+    else:
+        concentration = None if activity is None else activity.a_c
+        concentration_std = None if activity is None else activity.std_A_c
+        concentration_correlation = None if activity is None else activity.correlation_A_c
+        lines.append(f"a = H @ beta (Бк); {activity_symbol} = {transform_symbol} @ beta (Бк/м³).")
+        lines.append("Если ±σ рассчитана, она включает статистическую часть и заданные систематические вклады.")
+    if any(name.lower().replace("-", "").startswith("rn") for name in names):
+        lines.append(f"Радоновая компонента {activity_symbol} — вспомогательный параметр нормировки,")
+        lines.append("не объёмная активность радона в атмосфере.")
     if activity is None or activity.a is None:
         lines.extend(["", "АКТИВНОСТЬ В ДЕТЕКТОРЕ a (Бк)",
                       "Активность в детекторе не рассчитана; см. предупреждения."])
     else:
         _estimates(lines, "АКТИВНОСТЬ В ДЕТЕКТОРЕ a НА НАЧАЛО SAMPLE (Бк)", names, activity.a, activity.std_A)
-    _estimates(lines, "ОБЪЁМНАЯ АКТИВНОСТЬ a_c (Бк/м³)", names,
-               None if activity is None else activity.a_c, None if activity is None else activity.std_A_c)
+    _estimates(lines, f"ОБЪЁМНАЯ АКТИВНОСТЬ {activity_symbol} (Бк/м³)", names,
+               concentration, concentration_std)
 
     _section(lines, "5. ПОРОГ ОБНАРУЖЕНИЯ L_C И MDC")
     detection = results.get("detection")
@@ -271,7 +318,7 @@ def format_results(results: dict) -> str:
         _field(lines, "Режим MDC", mode.get(detection.mode, detection.mode))
         _field(lines, "Вероятности ошибок", f"α = {_number(detection.alpha)}; β_II = {_number(detection.beta_ii)}")
         lines.append("Все активности и пороги в этой таблице — в мБк/м³ (1 Бк/м³ = 1000 мБк/м³).")
-        lines.append("Обнаружение: свободная оценка a_c > L_C, в том числе при выборе ограниченного метода.")
+        lines.append(f"Обнаружение: свободная оценка {activity_symbol} > L_C, в том числе при выборе ограниченного метода.")
         rows = []
         for i, component in enumerate(detection.component_indices):
             converged = detection.converged[i]
@@ -280,16 +327,19 @@ def format_results(results: dict) -> str:
                          _number(1000 * detection.MDC[i]) if converged else "не сошёлся",
                          ("да" if detection.detected[i] else "нет") if converged else _MISSING,
                          detection.iterations[i]])
-        _table(lines, ["Изотоп", "a_c, свободная", "L_C", "MDC", "Обнаружен", "Итераций"], rows, min_width=12)
+        _table(lines, ["Изотоп", f"{activity_symbol}, свободная", "L_C", "MDC", "Обнаружен", "Итераций"], rows, min_width=12)
 
     _section(lines, "6. КОРРЕЛЯЦИОННЫЕ МАТРИЦЫ ПИРСОНА")
     lines.append("Связь между оценками: r_ij = K_ij / sqrt(K_ii × K_jj). Коэффициенты безразмерны.")
     lines.append("От +1 (прямая связь) до −1 (обратная связь); 0 — отсутствие линейной корреляции.")
     lines.append("При нулевой дисперсии или недоступной ковариации корреляция не определена: «—».")
-    lines.append("Для активностей учтены статистическая часть и заданные систематические вклады.")
+    if physical_activity_only:
+        lines.append(f"Для объёмных активностей {activity_symbol} приведена статистическая корреляция; систематические вклады не рассчитаны.")
+    else:
+        lines.append("Для активностей учтены статистическая часть и заданные систематические вклады.")
     _matrix(lines, "Активности в детекторе a", None if activity is None else activity.correlation_A,
             names, names, correlation=True)
-    _matrix(lines, "Объёмные активности a_c", None if activity is None else activity.correlation_A_c,
+    _matrix(lines, f"Объёмные активности {activity_symbol}", concentration_correlation,
             names, names, correlation=True)
     _matrix(lines, f"Параметры theta={coordinates} (статистическая корреляция)",
             None if solution.covariance is None else covariance_to_correlation(solution.covariance),
@@ -307,21 +357,31 @@ def format_results(results: dict) -> str:
         lines.append("Предупреждений нет.")
 
     _section(lines, "8. ПОДРОБНЫЙ ПРОТОКОЛ: ФИЗИЧЕСКИЕ КООРДИНАТЫ И ОСТАТКИ")
-    lines.extend(["", "ФИЗИЧЕСКИЕ КООРДИНАТЫ z=[a_c;gamma]",
-                  "a_c — Бк/м³; gamma — параметры памяти. Индексы начинаются с нуля."])
+    lines.extend(["", f"ФИЗИЧЕСКИЕ КООРДИНАТЫ z={model.physical_coordinate_label.replace(' ', '')}",
+                  f"{activity_symbol} — Бк/м³; gamma — параметры памяти. Индексы начинаются с нуля."])
+    if model.has_detector_background:
+        lines.append("zeta — средние отсчёты фона за измерение DETBK, отдельный параметр для каждой ROI.")
     if solution.physical_parameters is None:
-        lines.append("Физические координаты a_c недоступны: T_c не задана.")
+        lines.append(f"Физические координаты {activity_symbol} недоступны: {transform_symbol} не задана.")
     else:
-        labels = [f"a_c[{i}] {names[i]}" if i < n else f"gamma[{i - n}]"
-                  for i in range(solution.physical_parameters.size)]
+        labels = ([f"{activity_symbol}[{i}] {names[i]}" for i in range(n)]
+                  + [f"gamma[{i}]" for i in range(model.n_memory_parameters)]
+                  + [f"zeta[{i}]" for i in range(model.n_detector_parameters)])
         _table(lines, ["Координата", "Значение"],
                [[label, _number(value, 12)] for label, value in zip(labels, solution.physical_parameters)], min_width=18)
     observations = _observation_names(results)
-    lines.extend(["", "ИСХОДНЫЕ ОТСЧЁТЫ, ФОН, ОЖИДАЕМЫЕ ОТСЧЁТЫ И ОСТАТКИ",
-                  "x — исходные отсчёты; b — фиксированный фон; mu — модель; остаток = x − mu."])
-    _table(lines, ["Наблюдение", "x", "b", "mu", "x − mu"],
+    lines.extend(["", "ИСХОДНЫЕ ОТСЧЁТЫ, ФОН, ОЖИДАЕМЫЕ ОТСЧЁТЫ И ОСТАТКИ"])
+    if model.has_detector_background:
+        background = model.M[:, memory_end:] @ solution.theta[memory_end:]
+        background_label = "Фон, оценка"
+        lines.append("x — исходные отсчёты трёх спектров; mu — совместная модель; остаток = x − mu.")
+        lines.append("Фон, оценка: κ_s ζ в SAMPLE, κ_g ζ в GASBK, ζ в DETBK; это оценка, а не вычитание из x.")
+    else:
+        background, background_label = model.b, "b"
+        lines.append("x — исходные отсчёты; b — фиксированный фон; mu — модель; остаток = x − mu.")
+    _table(lines, ["Наблюдение", "x", background_label, "mu", "x − mu"],
            [[label, f"{x:.0f}", _number(b, 12), _number(mu, 12), _number(x - mu, 12)]
-            for label, x, b, mu in zip(observations, model.x, model.b, solution.mu)], min_width=16)
+            for label, x, b, mu in zip(observations, model.x, background, solution.mu)], min_width=16)
 
     _section(lines, "9. ПОДРОБНЫЙ ПРОТОКОЛ: МАТРИЦЫ И КАЛИБРОВКА")
     lines.append("В матрицах и подробных векторах — до 12 значащих цифр. Индексы начинаются с нуля.")
@@ -343,13 +403,16 @@ def format_results(results: dict) -> str:
             lines.append("Нулевые первые элементы I_c и I_g служебные: радон задан отдельными H_Rn.")
     _matrix(lines, "M — совместная матрица в координатах theta", model.M, observations, parameters)
     if model.T_c is not None:
-        _matrix(lines, "T_c — переход beta → a_c", model.T_c, names, names)
+        _matrix(lines, f"{transform_symbol} — переход beta → {activity_symbol}", model.T_c, names, names)
     titles = {
         "F": "F — перенос памяти GASBK → SAMPLE", "H": "H — нормировка beta → a (Бк)",
         "Gamma": "Gamma — поправка на цепочку распада", "G_p": "G_p — поправка за время ожидания",
-        "G_s": "G_s — поправка за время пробоотбора", "V0": "V0 — объём воздуха (м³)",
+        "G_s": ("G_a — поправка за время пробоотбора (в коде G_s)" if model.has_detector_background else
+                "G_s — поправка за время пробоотбора"), "V0": "V0 — объём воздуха (м³)",
         "delta_I": "delta_I — относительные неопределённости чувствительностей",
         "delta_V0": "delta_V0 — относительная неопределённость объёма",
+        "kappa_s": "κ_s = t_sl / t_bl — перенос фона DETBK → SAMPLE",
+        "kappa_g": "κ_g = t_gl / t_bl — перенос фона DETBK → GASBK",
     }
     for key, value in results.get("calibration_matrices", {}).items():
         array = np.asarray(value)

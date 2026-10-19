@@ -3,7 +3,9 @@
 МНК/NNLS используют одну квадратичную форму. По умолчанию
 W=diag(1/where(x==0,1,x)), eq:wls_weights: заменяется дисперсия нулевого
 отсчёта, а не сам отсчёт. Пуассоновские методы используют исходный x.
-Неотрицательность всегда относится к z=[a_c;gamma], а не к beta.
+В V86 b=0, x=[SAMPLE;GASBK;DETBK], z=[a_V;gamma;zeta].
+Неотрицательность относится ко всему физическому z, а не к beta.
+Прежний формат z=[a_c;gamma] с известным b также поддерживается.
 """
 from dataclasses import dataclass, field
 
@@ -108,7 +110,8 @@ def _result(model, method, theta, covariance, objective, success, message,
 
 def _least_squares(model, method, weights, covariance, max_iter):
     C = _whiten(model.x, weights, covariance)
-    y = _apply_whitening(C, model.x - model.b)  # x_b=x-b_det, eq:wls_problem.
+    # В V86 model.b=0: используем все исходные отсчёты, включая DETBK.
+    y = _apply_whitening(C, model.x - model.b)
     A = _apply_whitening(C, model.physical_matrix if method == "nnls" else model.M)
     scales, U, s, Vt, rank, condition = _scaled_svd(A)
     warnings = []
@@ -117,7 +120,7 @@ def _least_squares(model, method, weights, covariance, max_iter):
     elif condition > 1e8:
         warnings.append("Сильное перекрытие компонент: большая обусловленность нормированных столбцов")
     if method == "nnls":
-        # u=scales*z, scales>0: u>=0 эквивалентно a_c>=0 и gamma>=0.
+        # u=scales*z, scales>0: u>=0 эквивалентно a_V,gamma,zeta>=0.
         u, _ = nnls(A / scales, y, maxiter=max_iter)
         z = u / scales
         theta = model.from_physical(z)
@@ -465,13 +468,15 @@ def _poisson(model, method, max_iter, tol):
 
 def fit(model: JointModel, method="wls", *, weights=None,
         observation_covariance=None, max_iter=2000, tol=1e-10) -> FitResult:
-    """Оценить совместную модель SAMPLE/GASBK.
+    """Оценить совместную модель SAMPLE/GASBK/DETBK (или прежнюю NPZ).
 
     ``theta`` возвращается в model.coordinates, ``physical_parameters`` —
-    в [a_c;gamma], если переход определён. ``nnls`` и
+    в [a_V;gamma;zeta] для V86, если переход определён. ``nnls`` и
     ``poisson_nonnegative`` требуют этого перехода. ``weights``: положительный
     вектор или SPD матрица W; ``observation_covariance``: SPD матрица Ω.
-    Ковариация свободной оценки условна на фиксированные M, b, T_c.
+    Ковариация свободной оценки условна на фиксированные M и T_V;
+    в V86 она включает совместно оцениваемый фон zeta. Для прежней
+    двухблочной модели координаты [a_c;gamma] и сдвиг b фиксирован.
     """
     aliases = {"ls": "wls", "mle_free": "poisson", "mle": "poisson_nonnegative"}
     method = aliases.get(method, method)

@@ -1,10 +1,11 @@
 """Экспериментальная проверка L_C и L_D=MDC параметрическим Монте-Карло.
 
-Физические координаты z=[a_c;gamma], S_c=M Q^{-1}. Для проверяемого
-изотопа i задаём z0=z_+ с z0[i]=0; память gamma и другие компоненты остаются.
-Генерация: x* ~ Poisson(mu(A)), mu(A)=b+S_c@z0+A*S_c[:,i].
+Физические координаты V86 z=[a_V;gamma;zeta], S_V=M Q^{-1}. Для проверяемого
+изотопа i задаём z0=z_+ с z0[i]=0; память gamma и фон zeta остаются.
+Генерация всех трёх спектров: x* ~ Poisson(S_V@z0+A*S_V[:,i]).
+Прежние модели [a_c;gamma] с известным аддитивным b также поддерживаются.
 Каждый повтор заново оценивает свободные и неотрицательные параметры,
-строит свой нулевой спектр и L_C. Решение: a_c_free[i] > L_C.
+включая zeta, строит свой нулевой спектр и L_C. Решение: a_V_free[i] > L_C.
 Проверяются A=0 и A=исходный MDC. Это проверка в одном заданном режиме
 памяти/фона, а не доказательство уровня для всех возможных измерений.
 """
@@ -42,7 +43,7 @@ def _checked_fit(model, method, options):
     if not result.success:
         raise RuntimeError(f"{method}: решатель не сошёлся: {result.message}")
     if result.physical_parameters is None or not np.all(np.isfinite(result.physical_parameters)):
-        raise ValueError(f"{method}: нет конечных физических параметров [a_c;gamma].")
+        raise ValueError(f"{method}: нет конечных физических параметров {model.physical_coordinate_label}.")
     return result
 
 
@@ -94,13 +95,18 @@ def run_monte_carlo(
     progress: Callable[[int, int], None] | None = None,
     should_cancel: Callable[[], bool] | None = None,
 ) -> dict[str, Any]:
-    """Два независимых набора n_trials повторов при фиксированном фоне b.
+    """Два независимых набора n_trials повторов при фиксированной истинной смеси.
 
     physical_positive — выбранная неотрицательная физическая смесь; из неё
     удаляется только активность пробы проверяемого изотопа. Для сравнения
     методов передавайте одну смесь и seed: исходные случайные отсчёты будут
     одинаковыми. При стандартном МНК веса 1/max(x*,1) обновляются в каждом
     повторе. Переданные внешние веса/ковариация остаются фиксированными.
+
+    В V86 истинные средние zeta фиксированы, но наблюдения DETBK каждый
+    раз разыгрываются и zeta оценивается заново вместе с пробой и памятью.
+    Так учитывается конечная статистика измерения DETBK. В прежней модели
+    фиксированный b остаётся известным, отдельного розыгрыша DETBK нет.
 
     Неудачные расчёты учитываются отдельно, без повторного розыгрыша.
     detection_rate и биномиальный интервал условны на успешном расчёте,
@@ -109,14 +115,14 @@ def run_monte_carlo(
     """
     component_index = _integer(component_index, "Индекс изотопа", 0)
     if component_index >= model.n_sample_parameters:
-        raise ValueError("Проверяемый индекс должен относиться к пробе a_c, а не к памяти gamma.")
+        raise ValueError("Проверяемый индекс должен относиться к объёмной активности пробы, а не к памяти или фону.")
     n_trials = _integer(n_trials, "Число повторов", 1)
     seed = _integer(seed, "Seed", 0)
     free_method, positive_method = _family(method)
     S = model.physical_matrix
     positive = np.asarray(physical_positive, dtype=float)
     if positive.shape != (S.shape[1],) or np.any(~np.isfinite(positive)) or np.any(positive < 0):
-        raise ValueError("Нужен конечный неотрицательный вектор [a_c;gamma] полной модели.")
+        raise ValueError(f"Нужен конечный неотрицательный вектор {model.physical_coordinate_label} полной модели.")
     positive = positive.copy()
     # Для исходных LC/LD свободная оценка не нужна: она используется
     # compute_detection_limits только в поле detected, здесь не читаемом.
@@ -150,11 +156,15 @@ def run_monte_carlo(
             if should_cancel is not None and should_cancel():
                 cancelled = True
                 break
-            # Независимые исходные отсчёты обоих спектров, включая нули.
-            # b не вычитается и DETBK повторно не разыгрывается.
+            # Независимые исходные отсчёты всех строк M, включая нули.
+            # Для V86 здесь 3k строк: SAMPLE, GASBK и DETBK. Средние заданы
+            # исходной истинной смесью, а не новым случайным отсчётом DETBK.
             x = rng.poisson(mu)
             try:
-                trial = JointModel(model.M, x, model.b, model.n_sample_parameters, model.T_c, model.coordinates)
+                trial = JointModel(
+                    model.M, x, model.b, model.n_sample_parameters, model.T_c,
+                    model.coordinates, n_detector_parameters=model.n_detector_parameters,
+                )
                 free = _checked_fit(trial, free_method, options)
                 constrained = _checked_fit(trial, positive_method, options)
                 # LC не зависит от mode. fixed здесь экономит ненужную
@@ -174,9 +184,16 @@ def run_monte_carlo(
         scenarios.append(_summarize(label, activity, n_trials, estimates, levels, failures, lc))
         if cancelled:
             break
+    sampling_note = (
+        "Разыгрываются SAMPLE, GASBK и DETBK; в каждом повторе заново оцениваются проба, память и фон zeta. "
+        "Истинная смесь, матрицы, времена, объём и калибровка фиксированы; систематические неопределённости не моделируются."
+        if model.has_detector_background else
+        "Разыгрываются SAMPLE и GASBK. b (DETBK), матрицы, времена, объём и калибровка фиксированы; их систематические неопределённости не моделируются."
+    )
+    activity_symbol = "a_V" if model.has_detector_background else "a_c"
     warnings = [
         "Параметрическая проверка для одной фиксированной смеси, матриц и фона; она не доказывает уровень для всех измерений.",
-        "Разыгрываются SAMPLE и GASBK. b (DETBK), матрицы, времена, объём и калибровка фиксированы; их систематические неопределённости не моделируются.",
+        sampling_note,
         "Уровни относятся к одному выбранному изотопу, без поправки на одновременную проверку нескольких изотопов.",
         "Проверяется вероятность обнаружения при исходном MDC; эмпирический L_D здесь не подбирается.",
     ]
@@ -190,8 +207,10 @@ def run_monte_carlo(
             if free_method == "wls" else "Внешние веса/ковариация не используются пуассоновским оценивателем."
         )
     return {
-        "experiment_version": 1,
-        "component_name": f"a_c[{component_index}]", "component_index": component_index,
+        "experiment_version": 2 if model.has_detector_background else 1,
+        "component_name": f"{activity_symbol}[{component_index}]", "component_index": component_index,
+        "physical_coordinates": model.physical_coordinate_label,
+        "detector_background_estimated": model.has_detector_background,
         "method": free_method, "requested_trials_per_scenario": n_trials, "seed": seed,
         "alpha": float(alpha), "beta_ii": float(beta_ii), "mdc_mode": mdc_mode,
         "reference_L_C": lc, "reference_MDC": ld,
@@ -218,7 +237,8 @@ def run_from_results(results: Mapping, *, component_index: int, n_trials: int = 
     if len(selected) != 1 or not detection.converged[selected[0]]:
         raise ValueError("Выберите изотоп с рассчитанным MDC из последнего расчёта.")
     names = results.get("isotope_names")
-    name = str(names[component_index]) if names is not None else f"a_c[{component_index}]"
+    activity_symbol = "a_V" if model.has_detector_background else "a_c"
+    name = str(names[component_index]) if names is not None else f"{activity_symbol}[{component_index}]"
     if name.lower().replace("-", "").replace(" ", "").startswith("rn"):
         raise ValueError("Проверка LC/MDC предназначена для ксенона; радон остаётся мешающей компонентой.")
     quadratic = results.get("quadratic_options")
@@ -258,18 +278,29 @@ def format_monte_carlo_report(result: Mapping) -> str:
     def percent(value):
         return number(value, 100) + "%" if value is not None else "—"
 
+    joint_detector = result.get("detector_background_estimated", False)
+    coordinates = result.get("physical_coordinates", "[a_c; gamma]")
+    activity_symbol = "a_V" if joint_detector else "a_c"
+    generation = (
+        "Генерация: [c*; d*; b_DETBK*] ~ Poisson(S_V @ z0 + A * S_V[:,i]); z0[i]=0."
+        if joint_detector else "Генерация: x* ~ Poisson(b + S_c @ z0 + A * S_c[:,i]); z0[i]=0."
+    )
+    fitting = (
+        "В каждом повторе заново подгоняются проба, память и детекторный фон zeta и рассчитывается LC."
+        if joint_detector else "В каждом повторе заново подгоняются проба и память и рассчитывается LC."
+    )
     lines = [
         "XeMat — ЭКСПЕРИМЕНТ МОНТЕ-КАРЛО: LC И LD=MDC", "=" * 90,
         f"Изотоп: {result['component_name']}; метод: {result['method']}",
-        "Координаты: [a_c;gamma]; единицы активностей ниже — мБк/м³.",
+        f"Координаты: {coordinates}; единицы активностей ниже — мБк/м³.",
         f"Исходный L_C: {number(result['reference_L_C'], 1000)}; исходный MDC: {number(result['reference_MDC'], 1000)}",
         f"alpha={percent(result['alpha'])}; beta_II={percent(result['beta_ii'])}; целевая мощность={percent(1-result['beta_ii'])}",
         f"Повторов на сценарий: {result['requested_trials_per_scenario']}; seed: {result['seed']}",
         f"RNG: {result['rng']}; NumPy {result['numpy_version']}; SciPy {result['scipy_version']}",
         f"Режим исходного MDC: {result['mdc_mode']}; исходная неотрицательная смесь: {result.get('reference_fit_method', 'задана явно')}",
-        "Генерация: x* ~ Poisson(b + S_c @ z0 + A * S_c[:,i]); z0[i]=0.",
-        "В каждом повторе заново подгоняются проба и память и рассчитывается LC.",
-        "Обнаружение: свободная оценка a_c[i] > L_C своего повтора.",
+        generation,
+        fitting,
+        f"Обнаружение: свободная оценка {activity_symbol}[i] > L_C своего повтора.",
         "Интервалы: 95%, точные биномиальные Клоппера—Пирсона.",
     ]
     for row in result["scenarios"]:
@@ -281,7 +312,7 @@ def format_monte_carlo_report(result: Mapping) -> str:
             f"Обнаружений: {row['n_detected']}; доля: {percent(row['detection_rate'])}",
             "95% интервал: " + ("—" if interval is None else f"[{percent(interval[0])}; {percent(interval[1])}]"),
             f"Средний L_C: {number(row['mean_L_C'], 1000)}",
-            f"Средняя свободная a_c: {number(row['mean_free_activity'], 1000)}; СКО: {number(row['std_free_activity'], 1000)}",
+            f"Средняя свободная {activity_symbol}: {number(row['mean_free_activity'], 1000)}; СКО: {number(row['std_free_activity'], 1000)}",
             "Для сравнения, доля при фиксированном исходном LC (те же успешные повторы): " + percent(row["fixed_threshold_detection_rate"]),
         ])
         if row["n_failed"] and bounds is not None:
