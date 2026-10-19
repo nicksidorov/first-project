@@ -20,6 +20,8 @@ from PyQt5.QtWidgets import (
 from process_measurement import METHOD_NAMES, process_prepared_measurement
 from xemat.detectors import DetectorSelectionError
 from xemat.monte_carlo_dialog import MonteCarloDialog, eligible_components
+from xemat.distribution_dialog import DistributionDialog
+from xemat.distribution_mc import eligible_components as distribution_components
 from results_saver import format_results, names_for_results, quality_for_results, save_results_to_file
 
 
@@ -148,6 +150,7 @@ class MainWindow(QMainWindow):
         self.results = None
         self.thread = None
         self.monte_carlo_dialog = None
+        self.distribution_dialog = None
         self.radon_mode = "legacy"
         self.radon_h = None
         self.init_ui()
@@ -265,9 +268,17 @@ class MainWindow(QMainWindow):
             "Отдельный эксперимент по последнему расчёту: ложные обнаружения и вероятность обнаружения при MDC."
         )
         self.monte_carlo_button.clicked.connect(self.open_monte_carlo)
+        self.distribution_button = QPushButton("Монте-Карло: гистограммы…")
+        self.distribution_button.setMinimumHeight(35)
+        self.distribution_button.setEnabled(False)
+        self.distribution_button.setToolTip(
+            "Распределения свободных оценок по последнему расчёту: генерация по модели или наблюдениям."
+        )
+        self.distribution_button.clicked.connect(self.open_distributions)
         result_actions = QHBoxLayout()
         result_actions.addWidget(self.save_button, 1)
         result_actions.addWidget(self.monte_carlo_button)
+        result_actions.addWidget(self.distribution_button)
         layout.addLayout(result_actions)
         self.source_combo.currentIndexChanged.connect(self.change_source)
         self.update_source_description()
@@ -389,6 +400,8 @@ class MainWindow(QMainWindow):
         self.results = None
         self.save_button.setEnabled(False)
         self.monte_carlo_button.setEnabled(False)
+        self.distribution_button.setEnabled(False)
+        self._clear_distribution_dialog()
         self.results_output.setVisible(False)
         self.text_output.clear()
         self.message_label.clear()
@@ -422,6 +435,7 @@ class MainWindow(QMainWindow):
         self.calculate_button.setEnabled(not busy)
         self.save_button.setEnabled(not busy and self.results is not None)
         self.monte_carlo_button.setEnabled(not busy and bool(eligible_components(self.results)))
+        self.distribution_button.setEnabled(not busy and bool(distribution_components(self.results)))
         self.progress_bar.setVisible(busy)
         if not busy:
             self.check_files_selected()
@@ -432,6 +446,7 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Неполные данные", self.statusBar().currentMessage())
             return
         self.results = None
+        self._clear_distribution_dialog()
         self.results_output.setVisible(False)
         self.text_output.clear()
         self.progress_bar.setValue(0)
@@ -460,6 +475,8 @@ class MainWindow(QMainWindow):
         self.statusBar().showMessage(message)
 
     def on_processing_finished(self, results):
+        if self.distribution_dialog is not None and self.distribution_dialog.source_results is not results:
+            self._clear_distribution_dialog()
         self.results = results
         self._set_busy(False)
         self.results_output.setHtml(self.generate_activities_html(results))
@@ -642,8 +659,31 @@ class MainWindow(QMainWindow):
             self.monte_carlo_dialog = MonteCarloDialog(self.results, self)
         self.monte_carlo_dialog.exec_()
 
+    def _clear_distribution_dialog(self):
+        if self.distribution_dialog is None:
+            return
+        if self.distribution_dialog.is_running:
+            self.distribution_dialog.request_close()
+            return
+        self.distribution_dialog.deleteLater()
+        self.distribution_dialog = None
+
+    def open_distributions(self):
+        if not distribution_components(self.results) or (self.thread is not None and self.thread.isRunning()):
+            return
+        if self.distribution_dialog is not None and self.distribution_dialog.is_running:
+            return
+        if self.distribution_dialog is None or self.distribution_dialog.source_results is not self.results:
+            self._clear_distribution_dialog()
+            self.distribution_dialog = DistributionDialog(self.results, self)
+        self.distribution_dialog.exec_()
+
     def closeEvent(self, event):
-        if self.monte_carlo_dialog is not None and self.monte_carlo_dialog.is_running:
+        if self.distribution_dialog is not None and self.distribution_dialog.is_running:
+            self.distribution_dialog.request_close()
+            self.update_message("Эксперимент с гистограммами останавливается. Закройте окно после завершения текущего повтора.")
+            event.ignore()
+        elif self.monte_carlo_dialog is not None and self.monte_carlo_dialog.is_running:
             self.monte_carlo_dialog.request_close()
             self.update_message("Эксперимент Монте-Карло останавливается. Закройте окно после завершения текущего повтора.")
             event.ignore()

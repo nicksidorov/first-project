@@ -442,7 +442,13 @@ def _poisson(model, method, max_iter, tol):
     if nonnegative:
         warnings.append("Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией")
     elif valid:
-        mean_roundoff = 32 * np.finfo(float).eps * (np.abs(model.M) @ np.abs(theta) + b + 1.0)
+        # Свободная задача решается в SVD-координатах: theta=T@v. Нулевая
+        # компонента theta может получиться вычитанием больших слагаемых.
+        # Граница mu=0 проверяется с учётом округления всего перехода,
+        # иначе остаток ~1e-14 в DETBK ошибочно выглядит внутренней точкой
+        # с допустимой обычной ковариацией. Сами mu и theta не изменяем.
+        parameter_magnitudes = np.abs(T) @ np.abs(v)
+        mean_roundoff = 32 * np.finfo(float).eps * (np.abs(model.M) @ parameter_magnitudes + b + 1.0)
         zero_rows = mu <= mean_roundoff
         if corrected_mean or np.any(zero_rows & np.any(model.M != 0, axis=1)):
             warnings.append("Граничный mu=0: обычная асимптотическая ковариация неприменима")
