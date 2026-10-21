@@ -1,0 +1,809 @@
+{
+  "scope": "Distribution of reported iterative MDC for the existing Lc procedure",
+  "unit": "mBq/m3",
+  "n_new_vectors": 40000,
+  "n_application_MDC_calculations": 80000,
+  "validation_vectors_excluded": 400,
+  "cells": [
+    {
+      "dataset": "may22",
+      "scenario": "null",
+      "family": "wls",
+      "activity_mBq_m3": 0,
+      "n_total": 10000,
+      "n_valid": 10000,
+      "n_missing": 0,
+      "mean": 0.34975784402923504,
+      "mc_standard_error": 0.00025576693590236347,
+      "mean_ci95": [
+        0.3492564893582867,
+        0.3502591987001834
+      ],
+      "median": 0.3476474477339614,
+      "sd": 0.025576693590236347,
+      "central95": [
+        0.30651359857861016,
+        0.40166750684960156
+      ],
+      "q05_q95": [
+        0.31180794152351654,
+        0.3942987519973954
+      ],
+      "min": 0.2764503780145823,
+      "max": 0.44011343042687884,
+      "cv_percent": 7.312686198997293,
+      "reference_ld": 0.38380963004715596,
+      "reference_approximate_ci95": [
+        0.3786957453887935,
+        0.38763494157063483
+      ],
+      "reference_grid_bound95": [
+        0.3624264684109122,
+        0.39866911525200344
+      ],
+      "bias": -0.0340517860179209,
+      "relative_bias_percent": -8.872050973222636,
+      "rmse": 0.04258668770042593,
+      "below_reference": {
+        "k": 8948,
+        "n": 10000,
+        "rate": 0.8948,
+        "ci95": [
+          0.8886212063093093,
+          0.9007477821979564
+        ]
+      },
+      "bias_sensitivity_to_reference_approximate_ci": [
+        -0.037877097541399785,
+        -0.028937901359558482
+      ],
+      "bias_sensitivity_to_reference_grid_ci": [
+        -0.04891127122276839,
+        -0.012668624381677152
+      ],
+      "below_reference_sensitivity_approximate_ci": [
+        0.8562,
+        0.9201
+      ],
+      "original_reported_mdc": 0.3620188805253876,
+      "oracle_formula_mdc": 0.3624264684109122,
+      "mean_minus_oracle": -0.012668624381677152,
+      "oracle_minus_reference": -0.021383161636243764,
+      "detection": {
+        "k": 717,
+        "n": 10000,
+        "rate": 0.0717,
+        "ci95": [
+          0.06671876381645912,
+          0.07693236191873086
+        ],
+        "n_missing": 0,
+        "missing_completion_rate_bounds": [
+          0.0717,
+          0.0717
+        ]
+      },
+      "activity_MDC_correlation": -0.3688655626719556,
+      "activity_LC_correlation": -0.3688602474589934,
+      "iterations_max": 9,
+      "equation_residual_max": 9.60141383883492e-10,
+      "free_covariance_unavailable": 0
+    },
+    {
+      "dataset": "may22",
+      "scenario": "null",
+      "family": "poisson",
+      "activity_mBq_m3": 0,
+      "n_total": 10000,
+      "n_valid": 10000,
+      "n_missing": 0,
+      "mean": 0.3522077670104048,
+      "mc_standard_error": 0.00025786193114827965,
+      "mean_ci95": [
+        0.3517023057271281,
+        0.3527132282936815
+      ],
+      "median": 0.35051503837226017,
+      "sd": 0.025786193114827962,
+      "central95": [
+        0.30826523952663376,
+        0.4044258371889532
+      ],
+      "q05_q95": [
+        0.3137155368766701,
+        0.3969000404397174
+      ],
+      "min": 0.2786705628251095,
+      "max": 0.44858786267592904,
+      "cv_percent": 7.321301666259449,
+      "reference_ld": 0.38354718329416876,
+      "reference_approximate_ci95": [
+        0.37847014056813477,
+        0.38746693514220043
+      ],
+      "reference_grid_bound95": [
+        0.3624264684109122,
+        0.39866911525200344
+      ],
+      "bias": -0.03133941628376396,
+      "relative_bias_percent": -8.170941581319761,
+      "rmse": 0.040583497577053596,
+      "below_reference": {
+        "k": 8729,
+        "n": 10000,
+        "rate": 0.8729,
+        "ci95": [
+          0.8662129229926732,
+          0.8793690661282462
+        ]
+      },
+      "bias_sensitivity_to_reference_approximate_ci": [
+        -0.03525916813179564,
+        -0.02626237355772998
+      ],
+      "bias_sensitivity_to_reference_grid_ci": [
+        -0.04646134824159864,
+        -0.010218701400507402
+      ],
+      "below_reference_sensitivity_approximate_ci": [
+        0.831,
+        0.9023
+      ],
+      "original_reported_mdc": 0.3624264684109122,
+      "oracle_formula_mdc": 0.3624264684109122,
+      "mean_minus_oracle": -0.010218701400507402,
+      "oracle_minus_reference": -0.021120714883256564,
+      "detection": {
+        "k": 716,
+        "n": 10000,
+        "rate": 0.0716,
+        "ci95": [
+          0.06662204800947656,
+          0.07682913843069639
+        ],
+        "n_missing": 0,
+        "missing_completion_rate_bounds": [
+          0.0716,
+          0.0716
+        ]
+      },
+      "activity_MDC_correlation": -0.45062706184907625,
+      "activity_LC_correlation": -0.45062512371925334,
+      "iterations_max": 9,
+      "equation_residual_max": 9.012248464063523e-10,
+      "free_covariance_unavailable": 0
+    },
+    {
+      "dataset": "may22",
+      "scenario": "signal",
+      "family": "wls",
+      "activity_mBq_m3": 0.38354718329416876,
+      "n_total": 10000,
+      "n_valid": 10000,
+      "n_missing": 0,
+      "mean": 0.3609750357511739,
+      "mc_standard_error": 0.0003386154894417505,
+      "mean_ci95": [
+        0.3603112812408884,
+        0.3616387902614594
+      ],
+      "median": 0.35836604354605306,
+      "sd": 0.03386154894417505,
+      "central95": [
+        0.3065890530419396,
+        0.4332019519358622
+      ],
+      "q05_q95": [
+        0.3123121995024383,
+        0.4206327093094374
+      ],
+      "min": 0.27891469428819593,
+      "max": 0.5017267577544897,
+      "cv_percent": 9.380579151051425,
+      "reference_ld": 0.38380963004715596,
+      "reference_approximate_ci95": [
+        0.3786957453887935,
+        0.38763494157063483
+      ],
+      "reference_grid_bound95": [
+        0.3624264684109122,
+        0.39866911525200344
+      ],
+      "bias": -0.022834594295982055,
+      "relative_bias_percent": -5.949458405506014,
+      "rmse": 0.040840035909768355,
+      "below_reference": {
+        "k": 7489,
+        "n": 10000,
+        "rate": 0.7489,
+        "ci95": [
+          0.7402789679244028,
+          0.7573758530484138
+        ]
+      },
+      "bias_sensitivity_to_reference_approximate_ci": [
+        -0.026659905819460927,
+        -0.017720709637619625
+      ],
+      "bias_sensitivity_to_reference_grid_ci": [
+        -0.037694079500829536,
+        -0.0014514326597382943
+      ],
+      "below_reference_sensitivity_approximate_ci": [
+        0.704,
+        0.781
+      ],
+      "original_reported_mdc": 0.3620188805253876,
+      "oracle_formula_mdc": 0.3624264684109122,
+      "mean_minus_oracle": -0.0014514326597382943,
+      "oracle_minus_reference": -0.021383161636243764,
+      "detection": {
+        "k": 9462,
+        "n": 10000,
+        "rate": 0.9462,
+        "ci95": [
+          0.9415962552079503,
+          0.9505416435345977
+        ],
+        "n_missing": 0,
+        "missing_completion_rate_bounds": [
+          0.9462,
+          0.9462
+        ]
+      },
+      "activity_MDC_correlation": -0.6030298468741654,
+      "activity_LC_correlation": -0.6030261766162043,
+      "iterations_max": 9,
+      "equation_residual_max": 8.945168488295455e-10,
+      "free_covariance_unavailable": 0
+    },
+    {
+      "dataset": "may22",
+      "scenario": "signal",
+      "family": "poisson",
+      "activity_mBq_m3": 0.38354718329416876,
+      "n_total": 10000,
+      "n_valid": 10000,
+      "n_missing": 0,
+      "mean": 0.3620473007966771,
+      "mc_standard_error": 0.0003370295179447927,
+      "mean_ci95": [
+        0.361386655109724,
+        0.36270794648363014
+      ],
+      "median": 0.35921107185119605,
+      "sd": 0.03370295179447927,
+      "central95": [
+        0.30815696667154363,
+        0.4341375735751635
+      ],
+      "q05_q95": [
+        0.31396680114383535,
+        0.421688019633395
+      ],
+      "min": 0.2810646688377416,
+      "max": 0.5030857742191643,
+      "cv_percent": 9.308991316967886,
+      "reference_ld": 0.38354718329416876,
+      "reference_approximate_ci95": [
+        0.37847014056813477,
+        0.38746693514220043
+      ],
+      "reference_grid_bound95": [
+        0.3624264684109122,
+        0.39866911525200344
+      ],
+      "bias": -0.0214998824974917,
+      "relative_bias_percent": -5.605537840960224,
+      "rmse": 0.03997524631782745,
+      "below_reference": {
+        "k": 7404,
+        "n": 10000,
+        "rate": 0.7404,
+        "ci95": [
+          0.7316880031294007,
+          0.7489717874842347
+        ]
+      },
+      "bias_sensitivity_to_reference_approximate_ci": [
+        -0.025419634345523356,
+        -0.016422839771457698
+      ],
+      "bias_sensitivity_to_reference_grid_ci": [
+        -0.03662181445532636,
+        -0.0003791676142351208
+      ],
+      "below_reference_sensitivity_approximate_ci": [
+        0.6954,
+        0.772
+      ],
+      "original_reported_mdc": 0.3624264684109122,
+      "oracle_formula_mdc": 0.3624264684109122,
+      "mean_minus_oracle": -0.0003791676142351208,
+      "oracle_minus_reference": -0.021120714883256564,
+      "detection": {
+        "k": 9459,
+        "n": 10000,
+        "rate": 0.9459,
+        "ci95": [
+          0.9412847450133116,
+          0.9502533399575224
+        ],
+        "n_missing": 0,
+        "missing_completion_rate_bounds": [
+          0.9459,
+          0.9459
+        ]
+      },
+      "activity_MDC_correlation": -0.6031274899823135,
+      "activity_LC_correlation": -0.6031208676004324,
+      "iterations_max": 9,
+      "equation_residual_max": 8.401471568151772e-10,
+      "free_covariance_unavailable": 0
+    },
+    {
+      "dataset": "may26",
+      "scenario": "null",
+      "family": "wls",
+      "activity_mBq_m3": 0,
+      "n_total": 10000,
+      "n_valid": 10000,
+      "n_missing": 0,
+      "mean": 0.30501958124875667,
+      "mc_standard_error": 0.00017646053609983757,
+      "mean_ci95": [
+        0.3046736830829145,
+        0.30536547941459885
+      ],
+      "median": 0.30353404024192254,
+      "sd": 0.017646053609983756,
+      "central95": [
+        0.27348677130375165,
+        0.34439623118330803
+      ],
+      "q05_q95": [
+        0.2788564338965877,
+        0.3364766839772942
+      ],
+      "min": 0.2354003627776911,
+      "max": 0.3942954849542903,
+      "cv_percent": 5.785219931697642,
+      "reference_ld": 0.32584289931131327,
+      "reference_approximate_ci95": [
+        0.32157486431685767,
+        0.32983870142704114
+      ],
+      "reference_grid_bound95": [
+        0.3037825032425118,
+        0.33416075356676306
+      ],
+      "bias": -0.0208233180625566,
+      "relative_bias_percent": -6.390600533744273,
+      "rmse": 0.027294003825382895,
+      "below_reference": {
+        "k": 8827,
+        "n": 10000,
+        "rate": 0.8827,
+        "ci95": [
+          0.8762315679641435,
+          0.8889446133095753
+        ]
+      },
+      "bias_sensitivity_to_reference_approximate_ci": [
+        -0.02481912017828447,
+        -0.016555283068101
+      ],
+      "bias_sensitivity_to_reference_grid_ci": [
+        -0.029141172318006392,
+        0.0012370780062448405
+      ],
+      "below_reference_sensitivity_approximate_ci": [
+        0.8416,
+        0.9159
+      ],
+      "original_reported_mdc": 0.2994854894336567,
+      "oracle_formula_mdc": 0.3037825032425118,
+      "mean_minus_oracle": 0.0012370780062448405,
+      "oracle_minus_reference": -0.022060396068801447,
+      "detection": {
+        "k": 530,
+        "n": 10000,
+        "rate": 0.053,
+        "ci95": [
+          0.04868973552408536,
+          0.057572862830868606
+        ],
+        "n_missing": 0,
+        "missing_completion_rate_bounds": [
+          0.053,
+          0.053
+        ]
+      },
+      "activity_MDC_correlation": -0.26090988607088256,
+      "activity_LC_correlation": -0.2609106341628278,
+      "iterations_max": 10,
+      "equation_residual_max": 1.080906592605316e-09,
+      "free_covariance_unavailable": 0
+    },
+    {
+      "dataset": "may26",
+      "scenario": "null",
+      "family": "poisson",
+      "activity_mBq_m3": 0,
+      "n_total": 10000,
+      "n_valid": 10000,
+      "n_missing": 0,
+      "mean": 0.3086543874193068,
+      "mc_standard_error": 0.00017009380376746764,
+      "mean_ci95": [
+        0.3083209693302276,
+        0.30898780550838595
+      ],
+      "median": 0.3070030270993245,
+      "sd": 0.017009380376746763,
+      "central95": [
+        0.2795036811501996,
+        0.3474919705648643
+      ],
+      "q05_q95": [
+        0.28337269984033814,
+        0.3391858938078892
+      ],
+      "min": 0.24852446994989244,
+      "max": 0.394687829021994,
+      "cv_percent": 5.510817623220606,
+      "reference_ld": 0.32512584290998137,
+      "reference_approximate_ci95": [
+        0.31995885177995587,
+        0.32930044447495443
+      ],
+      "reference_grid_bound95": [
+        0.3037825032425118,
+        0.33416075356676306
+      ],
+      "bias": -0.016471455490674577,
+      "relative_bias_percent": -5.066178481307338,
+      "rmse": 0.0236769705595976,
+      "below_reference": {
+        "k": 8453,
+        "n": 10000,
+        "rate": 0.8453,
+        "ci95": [
+          0.838062003398073,
+          0.8523362806280889
+        ]
+      },
+      "bias_sensitivity_to_reference_approximate_ci": [
+        -0.02064605705564765,
+        -0.01130446436064908
+      ],
+      "bias_sensitivity_to_reference_grid_ci": [
+        -0.025506366147456272,
+        0.0048718841767949606
+      ],
+      "below_reference_sensitivity_approximate_ci": [
+        0.7795,
+        0.8859
+      ],
+      "original_reported_mdc": 0.3037825032425118,
+      "oracle_formula_mdc": 0.3037825032425118,
+      "mean_minus_oracle": 0.0048718841767949606,
+      "oracle_minus_reference": -0.02134333966746954,
+      "detection": {
+        "k": 500,
+        "n": 10000,
+        "rate": 0.05,
+        "ci95": [
+          0.045809942198770603,
+          0.054454527028358866
+        ],
+        "n_missing": 0,
+        "missing_completion_rate_bounds": [
+          0.05,
+          0.05
+        ]
+      },
+      "activity_MDC_correlation": -0.29897241049250356,
+      "activity_LC_correlation": -0.2989817748547619,
+      "iterations_max": 10,
+      "equation_residual_max": 1.0813218524019912e-09,
+      "free_covariance_unavailable": 7
+    },
+    {
+      "dataset": "may26",
+      "scenario": "signal",
+      "family": "wls",
+      "activity_mBq_m3": 0.32512584290998137,
+      "n_total": 10000,
+      "n_valid": 10000,
+      "n_missing": 0,
+      "mean": 0.31528972565678326,
+      "mc_standard_error": 0.0002524306864947715,
+      "mean_ci95": [
+        0.3147949107061394,
+        0.3157845406074271
+      ],
+      "median": 0.3114077113378665,
+      "sd": 0.025243068649477153,
+      "central95": [
+        0.27592868540255594,
+        0.37595658724381253
+      ],
+      "q05_q95": [
+        0.2812662665012042,
+        0.36399652666868243
+      ],
+      "min": 0.23972188764205857,
+      "max": 0.44860702233489497,
+      "cv_percent": 8.0063086727273,
+      "reference_ld": 0.32584289931131327,
+      "reference_approximate_ci95": [
+        0.32157486431685767,
+        0.32983870142704114
+      ],
+      "reference_grid_bound95": [
+        0.3037825032425118,
+        0.33416075356676306
+      ],
+      "bias": -0.010553173654530004,
+      "relative_bias_percent": -3.238730589751906,
+      "rmse": 0.02735906189498094,
+      "below_reference": {
+        "k": 7185,
+        "n": 10000,
+        "rate": 0.7185,
+        "ci95": [
+          0.709572679401209,
+          0.7272999084440149
+        ]
+      },
+      "bias_sensitivity_to_reference_approximate_ci": [
+        -0.014548975770257877,
+        -0.0062851386600744075
+      ],
+      "bias_sensitivity_to_reference_grid_ci": [
+        -0.0188710279099798,
+        0.011507222414271434
+      ],
+      "below_reference_sensitivity_approximate_ci": [
+        0.6711,
+        0.7615
+      ],
+      "original_reported_mdc": 0.2994854894336567,
+      "oracle_formula_mdc": 0.3037825032425118,
+      "mean_minus_oracle": 0.011507222414271434,
+      "oracle_minus_reference": -0.022060396068801447,
+      "detection": {
+        "k": 9462,
+        "n": 10000,
+        "rate": 0.9462,
+        "ci95": [
+          0.9415962552079503,
+          0.9505416435345977
+        ],
+        "n_missing": 0,
+        "missing_completion_rate_bounds": [
+          0.9462,
+          0.9462
+        ]
+      },
+      "activity_MDC_correlation": -0.5352177433447216,
+      "activity_LC_correlation": -0.5352107666067852,
+      "iterations_max": 10,
+      "equation_residual_max": 1.080853481026668e-09,
+      "free_covariance_unavailable": 0
+    },
+    {
+      "dataset": "may26",
+      "scenario": "signal",
+      "family": "poisson",
+      "activity_mBq_m3": 0.32512584290998137,
+      "n_total": 10000,
+      "n_valid": 10000,
+      "n_missing": 0,
+      "mean": 0.3176333649490873,
+      "mc_standard_error": 0.00024161342854400947,
+      "mean_ci95": [
+        0.31715975400114743,
+        0.31810697589702713
+      ],
+      "median": 0.3137105680962908,
+      "sd": 0.024161342854400948,
+      "central95": [
+        0.28077706888453285,
+        0.37684435496046687
+      ],
+      "q05_q95": [
+        0.285398571213191,
+        0.3647856258605789
+      ],
+      "min": 0.254712421244006,
+      "max": 0.44898332736587065,
+      "cv_percent": 7.606676602841681,
+      "reference_ld": 0.32512584290998137,
+      "reference_approximate_ci95": [
+        0.31995885177995587,
+        0.32930044447495443
+      ],
+      "reference_grid_bound95": [
+        0.3037825032425118,
+        0.33416075356676306
+      ],
+      "bias": -0.007492477960894073,
+      "relative_bias_percent": -2.304485516695312,
+      "rmse": 0.025295243376444163,
+      "below_reference": {
+        "k": 6928,
+        "n": 10000,
+        "rate": 0.6928,
+        "ci95": [
+          0.6836528427149012,
+          0.7018347523595084
+        ]
+      },
+      "bias_sensitivity_to_reference_approximate_ci": [
+        -0.011667079525867152,
+        -0.002325486830868584
+      ],
+      "bias_sensitivity_to_reference_grid_ci": [
+        -0.016527388617675776,
+        0.013850861706575457
+      ],
+      "below_reference_sensitivity_approximate_ci": [
+        0.6183,
+        0.7411
+      ],
+      "original_reported_mdc": 0.3037825032425118,
+      "oracle_formula_mdc": 0.3037825032425118,
+      "mean_minus_oracle": 0.013850861706575457,
+      "oracle_minus_reference": -0.02134333966746954,
+      "detection": {
+        "k": 9475,
+        "n": 10000,
+        "rate": 0.9475,
+        "ci95": [
+          0.942946579316726,
+          0.9517905112723559
+        ],
+        "n_missing": 0,
+        "missing_completion_rate_bounds": [
+          0.9475,
+          0.9475
+        ]
+      },
+      "activity_MDC_correlation": -0.5073504823309335,
+      "activity_LC_correlation": -0.5073442297396876,
+      "iterations_max": 10,
+      "equation_residual_max": 1.0810215462276016e-09,
+      "free_covariance_unavailable": 8
+    }
+  ],
+  "paired_method_comparisons": [
+    {
+      "dataset": "may22",
+      "scenario": "null",
+      "n_paired": 10000,
+      "definition": "WLS MDC minus Poisson MDC on identical observations",
+      "mean": -0.0024499229811697364,
+      "mc_standard_error": 3.7938841581615175e-05,
+      "mean_ci95": [
+        -0.002524290746378349,
+        -0.0023755552159611237
+      ],
+      "sd": 0.0037938841581615177,
+      "central95": [
+        -0.013460254740675779,
+        0.0003120557623747032
+      ],
+      "correlation": 0.9891212199938564
+    },
+    {
+      "dataset": "may22",
+      "scenario": "signal",
+      "n_paired": 10000,
+      "definition": "WLS MDC minus Poisson MDC on identical observations",
+      "mean": -0.0010722650455031524,
+      "mc_standard_error": 1.8663908399659883e-05,
+      "mean_ci95": [
+        -0.001108850062332279,
+        -0.0010356800286740258
+      ],
+      "sd": 0.0018663908399659884,
+      "central95": [
+        -0.0055943728928510884,
+        0.0005855318932835514
+      ],
+      "correlation": 0.9984848588230955
+    },
+    {
+      "dataset": "may26",
+      "scenario": "null",
+      "n_paired": 10000,
+      "definition": "WLS MDC minus Poisson MDC on identical observations",
+      "mean": -0.0036348061705501165,
+      "mc_standard_error": 4.564765939214568e-05,
+      "mean_ci95": [
+        -0.003724284770171958,
+        -0.003545327570928275
+      ],
+      "sd": 0.004564765939214568,
+      "central95": [
+        -0.015543437072553876,
+        -1.4045648607277364e-05
+      ],
+      "correlation": 0.9659639486882037
+    },
+    {
+      "dataset": "may26",
+      "scenario": "signal",
+      "n_paired": 10000,
+      "definition": "WLS MDC minus Poisson MDC on identical observations",
+      "mean": -0.002343639292304026,
+      "mc_standard_error": 4.048215589319379e-05,
+      "mean_ci95": [
+        -0.002422992465439981,
+        -0.0022642861191680707
+      ],
+      "sd": 0.004048215589319379,
+      "central95": [
+        -0.013134900967901465,
+        0.00031673778259960636
+      ],
+      "correlation": 0.9875243825485213
+    }
+  ],
+  "signal_vs_null_mean_comparisons": [
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "definition": "Independent signal scenario mean minus null scenario mean",
+      "difference": 0.011217191721938857,
+      "mc_standard_error": 0.00042435501079963686,
+      "approximate_ci95": [
+        0.010385455900771568,
+        0.012048927543106146
+      ],
+      "relative_to_null_percent": 3.2071308516532517
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "definition": "Independent signal scenario mean minus null scenario mean",
+      "difference": 0.009839533786272281,
+      "mc_standard_error": 0.0004243603085841317,
+      "approximate_ci95": [
+        0.009007787581447383,
+        0.010671279991097179
+      ],
+      "relative_to_null_percent": 2.793673140655528
+    },
+    {
+      "dataset": "may26",
+      "family": "wls",
+      "definition": "Independent signal scenario mean minus null scenario mean",
+      "difference": 0.010270144408026594,
+      "mc_standard_error": 0.00030799281206687874,
+      "approximate_ci95": [
+        0.009666478496375511,
+        0.010873810319677676
+      ],
+      "relative_to_null_percent": 3.3670442946581995
+    },
+    {
+      "dataset": "may26",
+      "family": "poisson",
+      "definition": "Independent signal scenario mean minus null scenario mean",
+      "difference": 0.008978977529780496,
+      "mc_standard_error": 0.0002954808808245924,
+      "approximate_ci95": [
+        0.008399835003364295,
+        0.009558120056196698
+      ],
+      "relative_to_null_percent": 2.9090717306352625
+    }
+  ],
+  "errors": [],
+  "reference_note": "Prior independent MC Ld95 estimates are kept fixed, not refitted. Mean CIs condition on those references.",
+  "central95_note": "Central range of reported MDC across repeat measurements, not a CI for mean or true Ld.",
+  "distribution_note": "All trials retained; summaries of MDC conditional on available MDC if any failures; no replacements."
+}

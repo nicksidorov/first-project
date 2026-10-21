@@ -1,0 +1,4051 @@
+{
+  "scope": "First question only: fixed-truth power and MC reference Ld95",
+  "partial": false,
+  "target": "Xe133m",
+  "activity_unit": "mBq/m3 in tables; Bq/m3 in generating model",
+  "manifest": "manifest.json",
+  "points": [
+    {
+      "dataset": "may22",
+      "stage": "confirm",
+      "factor": 1.05,
+      "activity_Bq_m3": 0.00038054779183145784,
+      "activity_mBq_m3": 0.3805477918314578,
+      "n_attempted": 10000,
+      "n_complete": 10000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_confirm_f10500_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9473,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9473,
+          "rate_ci95": [
+            0.9427387893219337,
+            0.9515984257240632
+          ],
+          "missing_decision_bounds": [
+            0.9473,
+            0.9473
+          ],
+          "count_rate_ci95_conservative": [
+            0.9427387893219337,
+            0.9515984257240632
+          ],
+          "paired_complete_detected": 9473,
+          "paired_complete_rate": 0.9473,
+          "rate_missing_as_no": 0.9473,
+          "rate_missing_as_yes": 0.9473
+        },
+        "wls_wald": {
+          "detected": 9301,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9301,
+          "rate_ci95": [
+            0.9249261020978377,
+            0.9350216786247838
+          ],
+          "missing_decision_bounds": [
+            0.9301,
+            0.9301
+          ],
+          "count_rate_ci95_conservative": [
+            0.9249261020978377,
+            0.9350216786247838
+          ],
+          "paired_complete_detected": 9301,
+          "paired_complete_rate": 0.9301,
+          "rate_missing_as_no": 0.9301,
+          "rate_missing_as_yes": 0.9301
+        },
+        "poisson_LC": {
+          "detected": 9476,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9476,
+          "rate_ci95": [
+            0.9430504809173914,
+            0.9518865474253339
+          ],
+          "missing_decision_bounds": [
+            0.9476,
+            0.9476
+          ],
+          "count_rate_ci95_conservative": [
+            0.9430504809173914,
+            0.9518865474253339
+          ],
+          "paired_complete_detected": 9476,
+          "paired_complete_rate": 0.9476,
+          "rate_missing_as_no": 0.9476,
+          "rate_missing_as_yes": 0.9476
+        },
+        "poisson_wald": {
+          "detected": 9308,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9308,
+          "rate_ci95": [
+            0.9256490944382646,
+            0.9356982605190212
+          ],
+          "missing_decision_bounds": [
+            0.9308,
+            0.9308
+          ],
+          "count_rate_ci95_conservative": [
+            0.9256490944382646,
+            0.9356982605190212
+          ],
+          "paired_complete_detected": 9308,
+          "paired_complete_rate": 0.9308,
+          "rate_missing_as_no": 0.9308,
+          "rate_missing_as_yes": 0.9308
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "confirm",
+      "factor": 1.1,
+      "activity_Bq_m3": 0.00039866911525200346,
+      "activity_mBq_m3": 0.39866911525200344,
+      "n_attempted": 10000,
+      "n_complete": 10000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_confirm_f11000_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9623,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9623,
+          "rate_ci95": [
+            0.9583797576107124,
+            0.9659479536405136
+          ],
+          "missing_decision_bounds": [
+            0.9623,
+            0.9623
+          ],
+          "count_rate_ci95_conservative": [
+            0.9583797576107124,
+            0.9659479536405136
+          ],
+          "paired_complete_detected": 9623,
+          "paired_complete_rate": 0.9623,
+          "rate_missing_as_no": 0.9623,
+          "rate_missing_as_yes": 0.9623
+        },
+        "wls_wald": {
+          "detected": 9494,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9494,
+          "rate_ci95": [
+            0.9449214770175276,
+            0.9536144288272608
+          ],
+          "missing_decision_bounds": [
+            0.9494,
+            0.9494
+          ],
+          "count_rate_ci95_conservative": [
+            0.9449214770175276,
+            0.9536144288272608
+          ],
+          "paired_complete_detected": 9494,
+          "paired_complete_rate": 0.9494,
+          "rate_missing_as_no": 0.9494,
+          "rate_missing_as_yes": 0.9494
+        },
+        "poisson_LC": {
+          "detected": 9621,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9621,
+          "rate_ci95": [
+            0.9581703283098146,
+            0.9657575126150335
+          ],
+          "missing_decision_bounds": [
+            0.9621,
+            0.9621
+          ],
+          "count_rate_ci95_conservative": [
+            0.9581703283098146,
+            0.9657575126150335
+          ],
+          "paired_complete_detected": 9621,
+          "paired_complete_rate": 0.9621,
+          "rate_missing_as_no": 0.9621,
+          "rate_missing_as_yes": 0.9621
+        },
+        "poisson_wald": {
+          "detected": 9492,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9492,
+          "rate_ci95": [
+            0.94471351564415,
+            0.9534225151220951
+          ],
+          "missing_decision_bounds": [
+            0.9492,
+            0.9492
+          ],
+          "count_rate_ci95_conservative": [
+            0.94471351564415,
+            0.9534225151220951
+          ],
+          "paired_complete_detected": 9492,
+          "paired_complete_rate": 0.9492,
+          "rate_missing_as_no": 0.9492,
+          "rate_missing_as_yes": 0.9492
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "confirm",
+      "factor": 1.15,
+      "activity_Bq_m3": 0.000416790438672549,
+      "activity_mBq_m3": 0.416790438672549,
+      "n_attempted": 10000,
+      "n_complete": 9999,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_confirm_f11500_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9654,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9654,
+          "rate_ci95": [
+            0.9616296675341072,
+            0.9688960192790267
+          ],
+          "missing_decision_bounds": [
+            0.9654,
+            0.9654
+          ],
+          "count_rate_ci95_conservative": [
+            0.9616296675341072,
+            0.9688960192790267
+          ],
+          "paired_complete_detected": 9653,
+          "paired_complete_rate": 0.9653965396539654,
+          "rate_missing_as_no": 0.9654,
+          "rate_missing_as_yes": 0.9654
+        },
+        "wls_wald": {
+          "detected": 9530,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.953,
+          "rate_ci95": [
+            0.948668062525376,
+            0.9570655854550983
+          ],
+          "missing_decision_bounds": [
+            0.953,
+            0.953
+          ],
+          "count_rate_ci95_conservative": [
+            0.948668062525376,
+            0.9570655854550983
+          ],
+          "paired_complete_detected": 9529,
+          "paired_complete_rate": 0.952995299529953,
+          "rate_missing_as_no": 0.953,
+          "rate_missing_as_yes": 0.953
+        },
+        "poisson_LC": {
+          "detected": 9660,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.966,
+          "rate_ci95": [
+            0.9622595409467549,
+            0.9694657505983624
+          ],
+          "missing_decision_bounds": [
+            0.966,
+            0.966
+          ],
+          "count_rate_ci95_conservative": [
+            0.9622595409467549,
+            0.9694657505983624
+          ],
+          "paired_complete_detected": 9659,
+          "paired_complete_rate": 0.965996599659966,
+          "rate_missing_as_no": 0.966,
+          "rate_missing_as_yes": 0.966
+        },
+        "poisson_wald": {
+          "detected": 9545,
+          "n_valid": 9999,
+          "n_attempted": 10000,
+          "n_missing": 1,
+          "rate": 0.9545954595459546,
+          "rate_ci95": [
+            0.9503303597676427,
+            0.9585931735375357
+          ],
+          "missing_decision_bounds": [
+            0.9545,
+            0.9546
+          ],
+          "count_rate_ci95_conservative": [
+            0.9502310723919747,
+            0.9585973226636316
+          ],
+          "paired_complete_detected": 9545,
+          "paired_complete_rate": 0.9545954595459546,
+          "rate_missing_as_no": 0.9545,
+          "rate_missing_as_yes": 0.9546
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "confirm",
+      "factor": 1.2,
+      "activity_Bq_m3": 0.00043491176209309464,
+      "activity_mBq_m3": 0.4349117620930946,
+      "n_attempted": 10000,
+      "n_complete": 10000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_confirm_f12000_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9758,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9758,
+          "rate_ci95": [
+            0.9725959410165651,
+            0.978722667761065
+          ],
+          "missing_decision_bounds": [
+            0.9758,
+            0.9758
+          ],
+          "count_rate_ci95_conservative": [
+            0.9725959410165651,
+            0.978722667761065
+          ],
+          "paired_complete_detected": 9758,
+          "paired_complete_rate": 0.9758,
+          "rate_missing_as_no": 0.9758,
+          "rate_missing_as_yes": 0.9758
+        },
+        "wls_wald": {
+          "detected": 9678,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9678,
+          "rate_ci95": [
+            0.9641509641452622,
+            0.9711731339683489
+          ],
+          "missing_decision_bounds": [
+            0.9678,
+            0.9678
+          ],
+          "count_rate_ci95_conservative": [
+            0.9641509641452622,
+            0.9711731339683489
+          ],
+          "paired_complete_detected": 9678,
+          "paired_complete_rate": 0.9678,
+          "rate_missing_as_no": 0.9678,
+          "rate_missing_as_yes": 0.9678
+        },
+        "poisson_LC": {
+          "detected": 9750,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.975,
+          "rate_ci95": [
+            0.9717481426140768,
+            0.9779710326467191
+          ],
+          "missing_decision_bounds": [
+            0.975,
+            0.975
+          ],
+          "count_rate_ci95_conservative": [
+            0.9717481426140768,
+            0.9779710326467191
+          ],
+          "paired_complete_detected": 9750,
+          "paired_complete_rate": 0.975,
+          "rate_missing_as_no": 0.975,
+          "rate_missing_as_yes": 0.975
+        },
+        "poisson_wald": {
+          "detected": 9685,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9685,
+          "rate_ci95": [
+            0.9648872817376883,
+            0.9718363489262101
+          ],
+          "missing_decision_bounds": [
+            0.9685,
+            0.9685
+          ],
+          "count_rate_ci95_conservative": [
+            0.9648872817376883,
+            0.9718363489262101
+          ],
+          "paired_complete_detected": 9685,
+          "paired_complete_rate": 0.9685,
+          "rate_missing_as_no": 0.9685,
+          "rate_missing_as_yes": 0.9685
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "reused",
+      "factor": 0.0,
+      "activity_Bq_m3": 0.0,
+      "activity_mBq_m3": 0.0,
+      "n_attempted": 10000,
+      "n_complete": 10000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_reused_f00000_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 702,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.0702,
+          "rate_ci95": [
+            0.0652683295074954,
+            0.07538370738597666
+          ],
+          "missing_decision_bounds": [
+            0.0702,
+            0.0702
+          ],
+          "count_rate_ci95_conservative": [
+            0.0652683295074954,
+            0.07538370738597666
+          ],
+          "paired_complete_detected": 702,
+          "paired_complete_rate": 0.0702,
+          "rate_missing_as_no": 0.0702,
+          "rate_missing_as_yes": 0.0702
+        },
+        "wls_wald": {
+          "detected": 593,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.0593,
+          "rate_ci95": [
+            0.054749732489407066,
+            0.06410896906485464
+          ],
+          "missing_decision_bounds": [
+            0.0593,
+            0.0593
+          ],
+          "count_rate_ci95_conservative": [
+            0.054749732489407066,
+            0.06410896906485464
+          ],
+          "paired_complete_detected": 593,
+          "paired_complete_rate": 0.0593,
+          "rate_missing_as_no": 0.0593,
+          "rate_missing_as_yes": 0.0593
+        },
+        "poisson_LC": {
+          "detected": 697,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.0697,
+          "rate_ci95": [
+            0.0647849973923017,
+            0.07486734350322706
+          ],
+          "missing_decision_bounds": [
+            0.0697,
+            0.0697
+          ],
+          "count_rate_ci95_conservative": [
+            0.0647849973923017,
+            0.07486734350322706
+          ],
+          "paired_complete_detected": 697,
+          "paired_complete_rate": 0.0697,
+          "rate_missing_as_no": 0.0697,
+          "rate_missing_as_yes": 0.0697
+        },
+        "poisson_wald": {
+          "detected": 593,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.0593,
+          "rate_ci95": [
+            0.054749732489407066,
+            0.06410896906485464
+          ],
+          "missing_decision_bounds": [
+            0.0593,
+            0.0593
+          ],
+          "count_rate_ci95_conservative": [
+            0.054749732489407066,
+            0.06410896906485464
+          ],
+          "paired_complete_detected": 593,
+          "paired_complete_rate": 0.0593,
+          "rate_missing_as_no": 0.0593,
+          "rate_missing_as_yes": 0.0593
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "reused",
+      "factor": 1.0,
+      "activity_Bq_m3": 0.0003624264684109122,
+      "activity_mBq_m3": 0.3624264684109122,
+      "n_attempted": 10000,
+      "n_complete": 10000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_reused_f10000_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9339,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9339,
+          "rate_ci95": [
+            0.9288527090610565,
+            0.9386927567690667
+          ],
+          "missing_decision_bounds": [
+            0.9339,
+            0.9339
+          ],
+          "count_rate_ci95_conservative": [
+            0.9288527090610565,
+            0.9386927567690667
+          ],
+          "paired_complete_detected": 9339,
+          "paired_complete_rate": 0.9339,
+          "rate_missing_as_no": 0.9339,
+          "rate_missing_as_yes": 0.9339
+        },
+        "wls_wald": {
+          "detected": 9135,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9135,
+          "rate_ci95": [
+            0.9078193338600066,
+            0.9189384734857549
+          ],
+          "missing_decision_bounds": [
+            0.9135,
+            0.9135
+          ],
+          "count_rate_ci95_conservative": [
+            0.9078193338600066,
+            0.9189384734857549
+          ],
+          "paired_complete_detected": 9135,
+          "paired_complete_rate": 0.9135,
+          "rate_missing_as_no": 0.9135,
+          "rate_missing_as_yes": 0.9135
+        },
+        "poisson_LC": {
+          "detected": 9345,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9345,
+          "rate_ci95": [
+            0.9294731114243315,
+            0.9392719880544032
+          ],
+          "missing_decision_bounds": [
+            0.9345,
+            0.9345
+          ],
+          "count_rate_ci95_conservative": [
+            0.9294731114243315,
+            0.9392719880544032
+          ],
+          "paired_complete_detected": 9345,
+          "paired_complete_rate": 0.9345,
+          "rate_missing_as_no": 0.9345,
+          "rate_missing_as_yes": 0.9345
+        },
+        "poisson_wald": {
+          "detected": 9141,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9141,
+          "rate_ci95": [
+            0.908436485339517,
+            0.9195209615603509
+          ],
+          "missing_decision_bounds": [
+            0.9141,
+            0.9141
+          ],
+          "count_rate_ci95_conservative": [
+            0.908436485339517,
+            0.9195209615603509
+          ],
+          "paired_complete_detected": 9141,
+          "paired_complete_rate": 0.9141,
+          "rate_missing_as_no": 0.9141,
+          "rate_missing_as_yes": 0.9141
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "screen",
+      "factor": 0.5,
+      "activity_Bq_m3": 0.0001812132342054561,
+      "activity_mBq_m3": 0.1812132342054561,
+      "n_attempted": 2000,
+      "n_complete": 2000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_screen_f05000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1105,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.5525,
+          "rate_ci95": [
+            0.5303944633005121,
+            0.5744513977661628
+          ],
+          "missing_decision_bounds": [
+            0.5525,
+            0.5525
+          ],
+          "count_rate_ci95_conservative": [
+            0.5303944633005121,
+            0.5744513977661628
+          ],
+          "paired_complete_detected": 1105,
+          "paired_complete_rate": 0.5525
+        },
+        "wls_wald": {
+          "detected": 1001,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.5005,
+          "rate_ci95": [
+            0.47834983123893543,
+            0.522648700891188
+          ],
+          "missing_decision_bounds": [
+            0.5005,
+            0.5005
+          ],
+          "count_rate_ci95_conservative": [
+            0.47834983123893543,
+            0.522648700891188
+          ],
+          "paired_complete_detected": 1001,
+          "paired_complete_rate": 0.5005
+        },
+        "poisson_LC": {
+          "detected": 1107,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.5535,
+          "rate_ci95": [
+            0.5313976610822085,
+            0.5754452635064738
+          ],
+          "missing_decision_bounds": [
+            0.5535,
+            0.5535
+          ],
+          "count_rate_ci95_conservative": [
+            0.5313976610822085,
+            0.5754452635064738
+          ],
+          "paired_complete_detected": 1107,
+          "paired_complete_rate": 0.5535
+        },
+        "poisson_wald": {
+          "detected": 1000,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.5,
+          "rate_ci95": [
+            0.4778505542311097,
+            0.5221494457688902
+          ],
+          "missing_decision_bounds": [
+            0.5,
+            0.5
+          ],
+          "count_rate_ci95_conservative": [
+            0.4778505542311097,
+            0.5221494457688902
+          ],
+          "paired_complete_detected": 1000,
+          "paired_complete_rate": 0.5
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "screen",
+      "factor": 0.8,
+      "activity_Bq_m3": 0.0002899411747287298,
+      "activity_mBq_m3": 0.2899411747287298,
+      "n_attempted": 2000,
+      "n_complete": 2000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_screen_f08000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1696,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.848,
+          "rate_ci95": [
+            0.831506832784496,
+            0.8634656438886056
+          ],
+          "missing_decision_bounds": [
+            0.848,
+            0.848
+          ],
+          "count_rate_ci95_conservative": [
+            0.831506832784496,
+            0.8634656438886056
+          ],
+          "paired_complete_detected": 1696,
+          "paired_complete_rate": 0.848
+        },
+        "wls_wald": {
+          "detected": 1622,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.811,
+          "rate_ci95": [
+            0.7931405609458589,
+            0.8279427087449176
+          ],
+          "missing_decision_bounds": [
+            0.811,
+            0.811
+          ],
+          "count_rate_ci95_conservative": [
+            0.7931405609458589,
+            0.8279427087449176
+          ],
+          "paired_complete_detected": 1622,
+          "paired_complete_rate": 0.811
+        },
+        "poisson_LC": {
+          "detected": 1695,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.8475,
+          "rate_ci95": [
+            0.8309864071077555,
+            0.8629875738714238
+          ],
+          "missing_decision_bounds": [
+            0.8475,
+            0.8475
+          ],
+          "count_rate_ci95_conservative": [
+            0.8309864071077555,
+            0.8629875738714238
+          ],
+          "paired_complete_detected": 1695,
+          "paired_complete_rate": 0.8475
+        },
+        "poisson_wald": {
+          "detected": 1631,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.8155,
+          "rate_ci95": [
+            0.7977921441189765,
+            0.8322776993516169
+          ],
+          "missing_decision_bounds": [
+            0.8155,
+            0.8155
+          ],
+          "count_rate_ci95_conservative": [
+            0.7977921441189765,
+            0.8322776993516169
+          ],
+          "paired_complete_detected": 1631,
+          "paired_complete_rate": 0.8155
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "screen",
+      "factor": 1.1,
+      "activity_Bq_m3": 0.00039866911525200346,
+      "activity_mBq_m3": 0.39866911525200344,
+      "n_attempted": 2000,
+      "n_complete": 2000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_screen_f11000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1916,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.958,
+          "rate_ci95": [
+            0.948262920281319,
+            0.9663633208869061
+          ],
+          "missing_decision_bounds": [
+            0.958,
+            0.958
+          ],
+          "count_rate_ci95_conservative": [
+            0.948262920281319,
+            0.9663633208869061
+          ],
+          "paired_complete_detected": 1916,
+          "paired_complete_rate": 0.958
+        },
+        "wls_wald": {
+          "detected": 1883,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9415,
+          "rate_ci95": [
+            0.9303006442029863,
+            0.9513818520084207
+          ],
+          "missing_decision_bounds": [
+            0.9415,
+            0.9415
+          ],
+          "count_rate_ci95_conservative": [
+            0.9303006442029863,
+            0.9513818520084207
+          ],
+          "paired_complete_detected": 1883,
+          "paired_complete_rate": 0.9415
+        },
+        "poisson_LC": {
+          "detected": 1911,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9555,
+          "rate_ci95": [
+            0.9455219886425167,
+            0.9641130554949818
+          ],
+          "missing_decision_bounds": [
+            0.9555,
+            0.9555
+          ],
+          "count_rate_ci95_conservative": [
+            0.9455219886425167,
+            0.9641130554949818
+          ],
+          "paired_complete_detected": 1911,
+          "paired_complete_rate": 0.9555
+        },
+        "poisson_wald": {
+          "detected": 1883,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9415,
+          "rate_ci95": [
+            0.9303006442029863,
+            0.9513818520084207
+          ],
+          "missing_decision_bounds": [
+            0.9415,
+            0.9415
+          ],
+          "count_rate_ci95_conservative": [
+            0.9303006442029863,
+            0.9513818520084207
+          ],
+          "paired_complete_detected": 1883,
+          "paired_complete_rate": 0.9415
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "screen",
+      "factor": 1.2,
+      "activity_Bq_m3": 0.00043491176209309464,
+      "activity_mBq_m3": 0.4349117620930946,
+      "n_attempted": 2000,
+      "n_complete": 2000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_screen_f12000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1947,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9735,
+          "rate_ci95": [
+            0.9654793392124014,
+            0.9800880940920242
+          ],
+          "missing_decision_bounds": [
+            0.9735,
+            0.9735
+          ],
+          "count_rate_ci95_conservative": [
+            0.9654793392124014,
+            0.9800880940920242
+          ],
+          "paired_complete_detected": 1947,
+          "paired_complete_rate": 0.9735
+        },
+        "wls_wald": {
+          "detected": 1930,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.965,
+          "rate_ci95": [
+            0.9559845847215137,
+            0.9726161988615576
+          ],
+          "missing_decision_bounds": [
+            0.965,
+            0.965
+          ],
+          "count_rate_ci95_conservative": [
+            0.9559845847215137,
+            0.9726161988615576
+          ],
+          "paired_complete_detected": 1930,
+          "paired_complete_rate": 0.965
+        },
+        "poisson_LC": {
+          "detected": 1948,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.974,
+          "rate_ci95": [
+            0.966042965278244,
+            0.9805223827548027
+          ],
+          "missing_decision_bounds": [
+            0.974,
+            0.974
+          ],
+          "count_rate_ci95_conservative": [
+            0.966042965278244,
+            0.9805223827548027
+          ],
+          "paired_complete_detected": 1948,
+          "paired_complete_rate": 0.974
+        },
+        "poisson_wald": {
+          "detected": 1930,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.965,
+          "rate_ci95": [
+            0.9559845847215137,
+            0.9726161988615576
+          ],
+          "missing_decision_bounds": [
+            0.965,
+            0.965
+          ],
+          "count_rate_ci95_conservative": [
+            0.9559845847215137,
+            0.9726161988615576
+          ],
+          "paired_complete_detected": 1930,
+          "paired_complete_rate": 0.965
+        }
+      }
+    },
+    {
+      "dataset": "may22",
+      "stage": "screen",
+      "factor": 1.5,
+      "activity_Bq_m3": 0.0005436397026163684,
+      "activity_mBq_m3": 0.5436397026163684,
+      "n_attempted": 2000,
+      "n_complete": 2000,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may22_screen_f15000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1996,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.998,
+          "rate_ci95": [
+            0.9948871913946538,
+            0.999454806874793
+          ],
+          "missing_decision_bounds": [
+            0.998,
+            0.998
+          ],
+          "count_rate_ci95_conservative": [
+            0.9948871913946538,
+            0.999454806874793
+          ],
+          "paired_complete_detected": 1996,
+          "paired_complete_rate": 0.998
+        },
+        "wls_wald": {
+          "detected": 1992,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.996,
+          "rate_ci95": [
+            0.9921336961714626,
+            0.9982715504265239
+          ],
+          "missing_decision_bounds": [
+            0.996,
+            0.996
+          ],
+          "count_rate_ci95_conservative": [
+            0.9921336961714626,
+            0.9982715504265239
+          ],
+          "paired_complete_detected": 1992,
+          "paired_complete_rate": 0.996
+        },
+        "poisson_LC": {
+          "detected": 1996,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.998,
+          "rate_ci95": [
+            0.9948871913946538,
+            0.999454806874793
+          ],
+          "missing_decision_bounds": [
+            0.998,
+            0.998
+          ],
+          "count_rate_ci95_conservative": [
+            0.9948871913946538,
+            0.999454806874793
+          ],
+          "paired_complete_detected": 1996,
+          "paired_complete_rate": 0.998
+        },
+        "poisson_wald": {
+          "detected": 1992,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.996,
+          "rate_ci95": [
+            0.9921336961714626,
+            0.9982715504265239
+          ],
+          "missing_decision_bounds": [
+            0.996,
+            0.996
+          ],
+          "count_rate_ci95_conservative": [
+            0.9921336961714626,
+            0.9982715504265239
+          ],
+          "paired_complete_detected": 1992,
+          "paired_complete_rate": 0.996
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05,
+      "activity_Bq_m3": 0.00031897162840463744,
+      "activity_mBq_m3": 0.31897162840463744,
+      "n_attempted": 10000,
+      "n_complete": 9989,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_confirm_f10500_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9443,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9443,
+          "rate_ci95": [
+            0.939623992091435,
+            0.9487150844756047
+          ],
+          "missing_decision_bounds": [
+            0.9443,
+            0.9443
+          ],
+          "count_rate_ci95_conservative": [
+            0.939623992091435,
+            0.9487150844756047
+          ],
+          "paired_complete_detected": 9432,
+          "paired_complete_rate": 0.9442386625287816,
+          "rate_missing_as_no": 0.9443,
+          "rate_missing_as_yes": 0.9443
+        },
+        "wls_wald": {
+          "detected": 9261,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9261,
+          "rate_ci95": [
+            0.9207974324779017,
+            0.9311527759597258
+          ],
+          "missing_decision_bounds": [
+            0.9261,
+            0.9261
+          ],
+          "count_rate_ci95_conservative": [
+            0.9207974324779017,
+            0.9311527759597258
+          ],
+          "paired_complete_detected": 9250,
+          "paired_complete_rate": 0.9260186204825308,
+          "rate_missing_as_no": 0.9261,
+          "rate_missing_as_yes": 0.9261
+        },
+        "poisson_LC": {
+          "detected": 9453,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9453,
+          "rate_ci95": [
+            0.9406618383521202,
+            0.9496766187827761
+          ],
+          "missing_decision_bounds": [
+            0.9453,
+            0.9453
+          ],
+          "count_rate_ci95_conservative": [
+            0.9406618383521202,
+            0.9496766187827761
+          ],
+          "paired_complete_detected": 9442,
+          "paired_complete_rate": 0.9452397637401141,
+          "rate_missing_as_no": 0.9453,
+          "rate_missing_as_yes": 0.9453
+        },
+        "poisson_wald": {
+          "detected": 9260,
+          "n_valid": 9989,
+          "n_attempted": 10000,
+          "n_missing": 11,
+          "rate": 0.9270197216938633,
+          "rate_ci95": [
+            0.9217433395886806,
+            0.9320454773856679
+          ],
+          "missing_decision_bounds": [
+            0.926,
+            0.9271
+          ],
+          "count_rate_ci95_conservative": [
+            0.9206942731514369,
+            0.9321204254528352
+          ],
+          "paired_complete_detected": 9260,
+          "paired_complete_rate": 0.9270197216938633,
+          "rate_missing_as_no": 0.926,
+          "rate_missing_as_yes": 0.9271
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.1,
+      "activity_Bq_m3": 0.00033416075356676304,
+      "activity_mBq_m3": 0.33416075356676306,
+      "n_attempted": 10000,
+      "n_complete": 9996,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_confirm_f11000_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9569,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9569,
+          "rate_ci95": [
+            0.9527344403655489,
+            0.9607967388618468
+          ],
+          "missing_decision_bounds": [
+            0.9569,
+            0.9569
+          ],
+          "count_rate_ci95_conservative": [
+            0.9527344403655489,
+            0.9607967388618468
+          ],
+          "paired_complete_detected": 9565,
+          "paired_complete_rate": 0.9568827531012405,
+          "rate_missing_as_no": 0.9569,
+          "rate_missing_as_yes": 0.9569
+        },
+        "wls_wald": {
+          "detected": 9394,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9394,
+          "rate_ci95": [
+            0.934544221671014,
+            0.9439978762645891
+          ],
+          "missing_decision_bounds": [
+            0.9394,
+            0.9394
+          ],
+          "count_rate_ci95_conservative": [
+            0.934544221671014,
+            0.9439978762645891
+          ],
+          "paired_complete_detected": 9390,
+          "paired_complete_rate": 0.93937575030012,
+          "rate_missing_as_no": 0.9394,
+          "rate_missing_as_yes": 0.9394
+        },
+        "poisson_LC": {
+          "detected": 9569,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9569,
+          "rate_ci95": [
+            0.9527344403655489,
+            0.9607967388618468
+          ],
+          "missing_decision_bounds": [
+            0.9569,
+            0.9569
+          ],
+          "count_rate_ci95_conservative": [
+            0.9527344403655489,
+            0.9607967388618468
+          ],
+          "paired_complete_detected": 9565,
+          "paired_complete_rate": 0.9568827531012405,
+          "rate_missing_as_no": 0.9569,
+          "rate_missing_as_yes": 0.9569
+        },
+        "poisson_wald": {
+          "detected": 9398,
+          "n_valid": 9996,
+          "n_attempted": 10000,
+          "n_missing": 4,
+          "rate": 0.9401760704281713,
+          "rate_ci95": [
+            0.9353471595227144,
+            0.9447464980670173
+          ],
+          "missing_decision_bounds": [
+            0.9398,
+            0.9402
+          ],
+          "count_rate_ci95_conservative": [
+            0.9349585588588489,
+            0.9447686519255565
+          ],
+          "paired_complete_detected": 9398,
+          "paired_complete_rate": 0.9401760704281713,
+          "rate_missing_as_no": 0.9398,
+          "rate_missing_as_yes": 0.9402
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15,
+      "activity_Bq_m3": 0.0003493498787288886,
+      "activity_mBq_m3": 0.34934987872888856,
+      "n_attempted": 10000,
+      "n_complete": 9988,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_confirm_f11500_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9608,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9608,
+          "rate_ci95": [
+            0.9568097124400528,
+            0.9645189688663062
+          ],
+          "missing_decision_bounds": [
+            0.9608,
+            0.9608
+          ],
+          "count_rate_ci95_conservative": [
+            0.9568097124400528,
+            0.9645189688663062
+          ],
+          "paired_complete_detected": 9596,
+          "paired_complete_rate": 0.960752903484181,
+          "rate_missing_as_no": 0.9608,
+          "rate_missing_as_yes": 0.9608
+        },
+        "wls_wald": {
+          "detected": 9430,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.943,
+          "rate_ci95": [
+            0.9382753964150855,
+            0.9474644839068606
+          ],
+          "missing_decision_bounds": [
+            0.943,
+            0.943
+          ],
+          "count_rate_ci95_conservative": [
+            0.9382753964150855,
+            0.9474644839068606
+          ],
+          "paired_complete_detected": 9418,
+          "paired_complete_rate": 0.9429315178213856,
+          "rate_missing_as_no": 0.943,
+          "rate_missing_as_yes": 0.943
+        },
+        "poisson_LC": {
+          "detected": 9601,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9601,
+          "rate_ci95": [
+            0.9560775444472407,
+            0.963851587663386
+          ],
+          "missing_decision_bounds": [
+            0.9601,
+            0.9601
+          ],
+          "count_rate_ci95_conservative": [
+            0.9560775444472407,
+            0.963851587663386
+          ],
+          "paired_complete_detected": 9589,
+          "paired_complete_rate": 0.96005206247497,
+          "rate_missing_as_no": 0.9601,
+          "rate_missing_as_yes": 0.9601
+        },
+        "poisson_wald": {
+          "detected": 9433,
+          "n_valid": 9988,
+          "n_attempted": 10000,
+          "n_missing": 12,
+          "rate": 0.9444333199839807,
+          "rate_ci95": [
+            0.9397594187723632,
+            0.9488458994449702
+          ],
+          "missing_decision_bounds": [
+            0.9433,
+            0.9445
+          ],
+          "count_rate_ci95_conservative": [
+            0.9385865511645437,
+            0.9489074241750827
+          ],
+          "paired_complete_detected": 9433,
+          "paired_complete_rate": 0.9444333199839807,
+          "rate_missing_as_no": 0.9433,
+          "rate_missing_as_yes": 0.9445
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2,
+      "activity_Bq_m3": 0.0003645390038910142,
+      "activity_mBq_m3": 0.3645390038910142,
+      "n_attempted": 10000,
+      "n_complete": 9985,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_confirm_f12000_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9740,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.974,
+          "rate_ci95": [
+            0.9706895437365224,
+            0.9770303330704013
+          ],
+          "missing_decision_bounds": [
+            0.974,
+            0.974
+          ],
+          "count_rate_ci95_conservative": [
+            0.9706895437365224,
+            0.9770303330704013
+          ],
+          "paired_complete_detected": 9725,
+          "paired_complete_rate": 0.9739609414121182,
+          "rate_missing_as_no": 0.974,
+          "rate_missing_as_yes": 0.974
+        },
+        "wls_wald": {
+          "detected": 9627,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9627,
+          "rate_ci95": [
+            0.9587987012449012,
+            0.9663287503397041
+          ],
+          "missing_decision_bounds": [
+            0.9627,
+            0.9627
+          ],
+          "count_rate_ci95_conservative": [
+            0.9587987012449012,
+            0.9663287503397041
+          ],
+          "paired_complete_detected": 9612,
+          "paired_complete_rate": 0.9626439659489234,
+          "rate_missing_as_no": 0.9627,
+          "rate_missing_as_yes": 0.9627
+        },
+        "poisson_LC": {
+          "detected": 9745,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9745,
+          "rate_ci95": [
+            0.9712186875514871,
+            0.9775008393548272
+          ],
+          "missing_decision_bounds": [
+            0.9745,
+            0.9745
+          ],
+          "count_rate_ci95_conservative": [
+            0.9712186875514871,
+            0.9775008393548272
+          ],
+          "paired_complete_detected": 9730,
+          "paired_complete_rate": 0.9744616925388082,
+          "rate_missing_as_no": 0.9745,
+          "rate_missing_as_yes": 0.9745
+        },
+        "poisson_wald": {
+          "detected": 9629,
+          "n_valid": 9985,
+          "n_attempted": 10000,
+          "n_missing": 15,
+          "rate": 0.9643465197796695,
+          "rate_ci95": [
+            0.9605214144009747,
+            0.9678975885350513
+          ],
+          "missing_decision_bounds": [
+            0.9629,
+            0.9644
+          ],
+          "count_rate_ci95_conservative": [
+            0.9590082160156663,
+            0.967945828099126
+          ],
+          "paired_complete_detected": 9629,
+          "paired_complete_rate": 0.9643465197796695,
+          "rate_missing_as_no": 0.9629,
+          "rate_missing_as_yes": 0.9644
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0,
+      "activity_Bq_m3": 0.0,
+      "activity_mBq_m3": 0.0,
+      "n_attempted": 10000,
+      "n_complete": 9991,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_reused_f00000_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 472,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.0472,
+          "rate_ci95": [
+            0.04312597611664475,
+            0.051540249975564535
+          ],
+          "missing_decision_bounds": [
+            0.0472,
+            0.0472
+          ],
+          "count_rate_ci95_conservative": [
+            0.04312597611664475,
+            0.051540249975564535
+          ],
+          "paired_complete_detected": 466,
+          "paired_complete_rate": 0.046641977780002,
+          "rate_missing_as_no": 0.0472,
+          "rate_missing_as_yes": 0.0472
+        },
+        "wls_wald": {
+          "detected": 525,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.0525,
+          "rate_ci95": [
+            0.04820948872764404,
+            0.05705342068327396
+          ],
+          "missing_decision_bounds": [
+            0.0525,
+            0.0525
+          ],
+          "count_rate_ci95_conservative": [
+            0.04820948872764404,
+            0.05705342068327396
+          ],
+          "paired_complete_detected": 516,
+          "paired_complete_rate": 0.05164648183365029,
+          "rate_missing_as_no": 0.0525,
+          "rate_missing_as_yes": 0.0525
+        },
+        "poisson_LC": {
+          "detected": 451,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.0451,
+          "rate_ci95": [
+            0.04111562938186299,
+            0.0493519221146289
+          ],
+          "missing_decision_bounds": [
+            0.0451,
+            0.0451
+          ],
+          "count_rate_ci95_conservative": [
+            0.04111562938186299,
+            0.0493519221146289
+          ],
+          "paired_complete_detected": 446,
+          "paired_complete_rate": 0.04464017615854269,
+          "rate_missing_as_no": 0.0451,
+          "rate_missing_as_yes": 0.0451
+        },
+        "poisson_wald": {
+          "detected": 534,
+          "n_valid": 9991,
+          "n_attempted": 10000,
+          "n_missing": 9,
+          "rate": 0.053448103292963664,
+          "rate_ci95": [
+            0.049118316540222855,
+            0.05804044786945388
+          ],
+          "missing_decision_bounds": [
+            0.0534,
+            0.0543
+          ],
+          "count_rate_ci95_conservative": [
+            0.049074011492425594,
+            0.05892290731590974
+          ],
+          "paired_complete_detected": 534,
+          "paired_complete_rate": 0.053448103292963664,
+          "rate_missing_as_no": 0.0534,
+          "rate_missing_as_yes": 0.0543
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0,
+      "activity_Bq_m3": 0.00030378250324251184,
+      "activity_mBq_m3": 0.3037825032425118,
+      "n_attempted": 10000,
+      "n_complete": 9988,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_reused_f10000_0_10000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 9215,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.9215,
+          "rate_ci95": [
+            0.9160548516244102,
+            0.9266981387629745
+          ],
+          "missing_decision_bounds": [
+            0.9215,
+            0.9215
+          ],
+          "count_rate_ci95_conservative": [
+            0.9160548516244102,
+            0.9266981387629745
+          ],
+          "paired_complete_detected": 9203,
+          "paired_complete_rate": 0.921405686824189,
+          "rate_missing_as_no": 0.9215,
+          "rate_missing_as_yes": 0.9215
+        },
+        "wls_wald": {
+          "detected": 8951,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.8951,
+          "rate_ci95": [
+            0.888928688054573,
+            0.9010401217599576
+          ],
+          "missing_decision_bounds": [
+            0.8951,
+            0.8951
+          ],
+          "count_rate_ci95_conservative": [
+            0.888928688054573,
+            0.9010401217599576
+          ],
+          "paired_complete_detected": 8939,
+          "paired_complete_rate": 0.894973968762515,
+          "rate_missing_as_no": 0.8951,
+          "rate_missing_as_yes": 0.8951
+        },
+        "poisson_LC": {
+          "detected": 9220,
+          "n_valid": 10000,
+          "n_attempted": 10000,
+          "n_missing": 0,
+          "rate": 0.922,
+          "rate_ci95": [
+            0.9165700838662011,
+            0.9271826046051735
+          ],
+          "missing_decision_bounds": [
+            0.922,
+            0.922
+          ],
+          "count_rate_ci95_conservative": [
+            0.9165700838662011,
+            0.9271826046051735
+          ],
+          "paired_complete_detected": 9208,
+          "paired_complete_rate": 0.9219062875450541,
+          "rate_missing_as_no": 0.922,
+          "rate_missing_as_yes": 0.922
+        },
+        "poisson_wald": {
+          "detected": 8948,
+          "n_valid": 9988,
+          "n_attempted": 10000,
+          "n_missing": 12,
+          "rate": 0.8958750500600721,
+          "rate_ci95": [
+            0.8897193434708254,
+            0.901798824934274
+          ],
+          "missing_decision_bounds": [
+            0.8948,
+            0.896
+          ],
+          "count_rate_ci95_conservative": [
+            0.8886212063093093,
+            0.9019170482455752
+          ],
+          "paired_complete_detected": 8948,
+          "paired_complete_rate": 0.8958750500600721,
+          "rate_missing_as_no": 0.8948,
+          "rate_missing_as_yes": 0.896
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.5,
+      "activity_Bq_m3": 0.00015189125162125592,
+      "activity_mBq_m3": 0.1518912516212559,
+      "n_attempted": 2000,
+      "n_complete": 1999,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_screen_f05000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1085,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.5425,
+          "rate_ci95": [
+            0.5203673713993362,
+            0.5645078530005858
+          ],
+          "missing_decision_bounds": [
+            0.5425,
+            0.5425
+          ],
+          "count_rate_ci95_conservative": [
+            0.5203673713993362,
+            0.5645078530005858
+          ],
+          "paired_complete_detected": 1084,
+          "paired_complete_rate": 0.542271135567784
+        },
+        "wls_wald": {
+          "detected": 990,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.495,
+          "rate_ci95": [
+            0.47285898789297026,
+            0.5171556908157722
+          ],
+          "missing_decision_bounds": [
+            0.495,
+            0.495
+          ],
+          "count_rate_ci95_conservative": [
+            0.47285898789297026,
+            0.5171556908157722
+          ],
+          "paired_complete_detected": 989,
+          "paired_complete_rate": 0.4947473736868434
+        },
+        "poisson_LC": {
+          "detected": 1089,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.5445,
+          "rate_ci95": [
+            0.5223720803388088,
+            0.566497271591495
+          ],
+          "missing_decision_bounds": [
+            0.5445,
+            0.5445
+          ],
+          "count_rate_ci95_conservative": [
+            0.5223720803388088,
+            0.566497271591495
+          ],
+          "paired_complete_detected": 1088,
+          "paired_complete_rate": 0.544272136068034
+        },
+        "poisson_wald": {
+          "detected": 1000,
+          "n_valid": 1999,
+          "n_attempted": 2000,
+          "n_missing": 1,
+          "rate": 0.5002501250625313,
+          "rate_ci95": [
+            0.47809471962072636,
+            0.5224047958325583
+          ],
+          "missing_decision_bounds": [
+            0.5,
+            0.5005
+          ],
+          "count_rate_ci95_conservative": [
+            0.4778505542311097,
+            0.522648700891188
+          ],
+          "paired_complete_detected": 1000,
+          "paired_complete_rate": 0.5002501250625313
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.8,
+      "activity_Bq_m3": 0.00024302600259400948,
+      "activity_mBq_m3": 0.24302600259400947,
+      "n_attempted": 2000,
+      "n_complete": 1994,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_screen_f08000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1662,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.831,
+          "rate_ci95": [
+            0.8138439714471614,
+            0.8471795317100476
+          ],
+          "missing_decision_bounds": [
+            0.831,
+            0.831
+          ],
+          "count_rate_ci95_conservative": [
+            0.8138439714471614,
+            0.8471795317100476
+          ],
+          "paired_complete_detected": 1656,
+          "paired_complete_rate": 0.8304914744232698
+        },
+        "wls_wald": {
+          "detected": 1571,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.7855,
+          "rate_ci95": [
+            0.7668484734062841,
+            0.8033106873883551
+          ],
+          "missing_decision_bounds": [
+            0.7855,
+            0.7855
+          ],
+          "count_rate_ci95_conservative": [
+            0.7668484734062841,
+            0.8033106873883551
+          ],
+          "paired_complete_detected": 1565,
+          "paired_complete_rate": 0.7848545636910732
+        },
+        "poisson_LC": {
+          "detected": 1665,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.8325,
+          "rate_ci95": [
+            0.8153999362222766,
+            0.8486190737965685
+          ],
+          "missing_decision_bounds": [
+            0.8325,
+            0.8325
+          ],
+          "count_rate_ci95_conservative": [
+            0.8153999362222766,
+            0.8486190737965685
+          ],
+          "paired_complete_detected": 1659,
+          "paired_complete_rate": 0.8319959879638916
+        },
+        "poisson_wald": {
+          "detected": 1572,
+          "n_valid": 1994,
+          "n_attempted": 2000,
+          "n_missing": 6,
+          "rate": 0.7883650952858575,
+          "rate_ci95": [
+            0.7697682617544871,
+            0.8061100003508426
+          ],
+          "missing_decision_bounds": [
+            0.786,
+            0.789
+          ],
+          "count_rate_ci95_conservative": [
+            0.767362970366347,
+            0.8066979744903793
+          ],
+          "paired_complete_detected": 1572,
+          "paired_complete_rate": 0.7883650952858575
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.1,
+      "activity_Bq_m3": 0.00033416075356676304,
+      "activity_mBq_m3": 0.33416075356676306,
+      "n_attempted": 2000,
+      "n_complete": 1999,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_screen_f11000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1910,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.955,
+          "rate_ci95": [
+            0.9449747471525491,
+            0.9636620426887371
+          ],
+          "missing_decision_bounds": [
+            0.955,
+            0.955
+          ],
+          "count_rate_ci95_conservative": [
+            0.9449747471525491,
+            0.9636620426887371
+          ],
+          "paired_complete_detected": 1909,
+          "paired_complete_rate": 0.9549774887443722
+        },
+        "wls_wald": {
+          "detected": 1873,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9365,
+          "rate_ci95": [
+            0.9249077447348575,
+            0.9467911577686388
+          ],
+          "missing_decision_bounds": [
+            0.9365,
+            0.9365
+          ],
+          "count_rate_ci95_conservative": [
+            0.9249077447348575,
+            0.9467911577686388
+          ],
+          "paired_complete_detected": 1872,
+          "paired_complete_rate": 0.9364682341170585
+        },
+        "poisson_LC": {
+          "detected": 1906,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.953,
+          "rate_ci95": [
+            0.942788768038537,
+            0.9618549593360113
+          ],
+          "missing_decision_bounds": [
+            0.953,
+            0.953
+          ],
+          "count_rate_ci95_conservative": [
+            0.942788768038537,
+            0.9618549593360113
+          ],
+          "paired_complete_detected": 1905,
+          "paired_complete_rate": 0.9529764882441221
+        },
+        "poisson_wald": {
+          "detected": 1870,
+          "n_valid": 1999,
+          "n_attempted": 2000,
+          "n_missing": 1,
+          "rate": 0.9354677338669335,
+          "rate_ci95": [
+            0.9237936137660953,
+            0.9458434591936473
+          ],
+          "missing_decision_bounds": [
+            0.935,
+            0.9355
+          ],
+          "count_rate_ci95_conservative": [
+            0.9232936210254108,
+            0.9458706798992594
+          ],
+          "paired_complete_detected": 1870,
+          "paired_complete_rate": 0.9354677338669335
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.2,
+      "activity_Bq_m3": 0.0003645390038910142,
+      "activity_mBq_m3": 0.3645390038910142,
+      "n_attempted": 2000,
+      "n_complete": 1997,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_screen_f12000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1947,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9735,
+          "rate_ci95": [
+            0.9654793392124014,
+            0.9800880940920242
+          ],
+          "missing_decision_bounds": [
+            0.9735,
+            0.9735
+          ],
+          "count_rate_ci95_conservative": [
+            0.9654793392124014,
+            0.9800880940920242
+          ],
+          "paired_complete_detected": 1944,
+          "paired_complete_rate": 0.9734601902854282
+        },
+        "wls_wald": {
+          "detected": 1931,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9655,
+          "rate_ci95": [
+            0.9565391285476879,
+            0.973059780432526
+          ],
+          "missing_decision_bounds": [
+            0.9655,
+            0.9655
+          ],
+          "count_rate_ci95_conservative": [
+            0.9565391285476879,
+            0.973059780432526
+          ],
+          "paired_complete_detected": 1928,
+          "paired_complete_rate": 0.9654481722583875
+        },
+        "poisson_LC": {
+          "detected": 1946,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.973,
+          "rate_ci95": [
+            0.9649163594184622,
+            0.9796531421512603
+          ],
+          "missing_decision_bounds": [
+            0.973,
+            0.973
+          ],
+          "count_rate_ci95_conservative": [
+            0.9649163594184622,
+            0.9796531421512603
+          ],
+          "paired_complete_detected": 1943,
+          "paired_complete_rate": 0.9729594391587381
+        },
+        "poisson_wald": {
+          "detected": 1927,
+          "n_valid": 1997,
+          "n_attempted": 2000,
+          "n_missing": 3,
+          "rate": 0.9649474211316975,
+          "rate_ci95": [
+            0.9559187725209944,
+            0.9725749098705971
+          ],
+          "missing_decision_bounds": [
+            0.9635,
+            0.965
+          ],
+          "count_rate_ci95_conservative": [
+            0.9543235211290454,
+            0.9726161988615576
+          ],
+          "paired_complete_detected": 1927,
+          "paired_complete_rate": 0.9649474211316975
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.5,
+      "activity_Bq_m3": 0.00045567375486376777,
+      "activity_mBq_m3": 0.45567375486376777,
+      "n_attempted": 2000,
+      "n_complete": 1998,
+      "sources": [
+        "/workspace/scratch/may-xe133m-ld-power/may26_screen_f15000_0_2000.json"
+      ],
+      "results": {
+        "wls_LC": {
+          "detected": 1986,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.993,
+          "rate_ci95": [
+            0.9882830542295333,
+            0.9961679060996261
+          ],
+          "missing_decision_bounds": [
+            0.993,
+            0.993
+          ],
+          "count_rate_ci95_conservative": [
+            0.9882830542295333,
+            0.9961679060996261
+          ],
+          "paired_complete_detected": 1985,
+          "paired_complete_rate": 0.9934934934934935
+        },
+        "wls_wald": {
+          "detected": 1983,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9915,
+          "rate_ci95": [
+            0.986425453800216,
+            0.9950408649784319
+          ],
+          "missing_decision_bounds": [
+            0.9915,
+            0.9915
+          ],
+          "count_rate_ci95_conservative": [
+            0.986425453800216,
+            0.9950408649784319
+          ],
+          "paired_complete_detected": 1982,
+          "paired_complete_rate": 0.991991991991992
+        },
+        "poisson_LC": {
+          "detected": 1987,
+          "n_valid": 2000,
+          "n_attempted": 2000,
+          "n_missing": 0,
+          "rate": 0.9935,
+          "rate_ci95": [
+            0.9889104507283436,
+            0.9965346187913325
+          ],
+          "missing_decision_bounds": [
+            0.9935,
+            0.9935
+          ],
+          "count_rate_ci95_conservative": [
+            0.9889104507283436,
+            0.9965346187913325
+          ],
+          "paired_complete_detected": 1986,
+          "paired_complete_rate": 0.993993993993994
+        },
+        "poisson_wald": {
+          "detected": 1982,
+          "n_valid": 1998,
+          "n_attempted": 2000,
+          "n_missing": 2,
+          "rate": 0.991991991991992,
+          "rate_ci95": [
+            0.987027991872869,
+            0.99541600460233
+          ],
+          "missing_decision_bounds": [
+            0.991,
+            0.992
+          ],
+          "count_rate_ci95_conservative": [
+            0.9858132855288902,
+            0.9954205953386053
+          ],
+          "paired_complete_detected": 1982,
+          "paired_complete_rate": 0.991991991991992
+        }
+      }
+    }
+  ],
+  "ld": {
+    "may22": {
+      "reference_MDC_mBq_m3": 0.3624264684109122,
+      "n_formal_points": 6,
+      "methods": {
+        "wls_LC": {
+          "label": "МНК — Lc",
+          "ld_interpolation": {
+            "estimate_mBq_m3": 0.38380963004715596,
+            "lower_activity": 0.3805477918314578,
+            "upper_activity": 0.39866911525200344,
+            "lower_power": 0.9473,
+            "upper_power": 0.9623,
+            "crossing_count": 1
+          },
+          "ld_over_reported_MDC": 1.059,
+          "ld_missing_completion_range_mBq_m3": [
+            0.38380963004715596,
+            0.38380963004715596
+          ],
+          "grid_bound95_mBq_m3": [
+            0.3624264684109122,
+            0.39866911525200344
+          ],
+          "grid_point_confidence": 0.9916666666666667,
+          "grid_bound_note": "Per-curve simultaneous binomial bounds; monotone true power assumed; missing decisions bounded; no interpolation of CI endpoints",
+          "bounded_grid": [
+            {
+              "activity_mBq_m3": 0.0,
+              "low": 0.06362505445007716,
+              "high": 0.07720675822527898
+            },
+            {
+              "activity_mBq_m3": 0.3624264684109122,
+              "low": 0.9270763818430721,
+              "high": 0.9402875630946458
+            },
+            {
+              "activity_mBq_m3": 0.3805477918314578,
+              "low": 0.9411290664496526,
+              "high": 0.953020895938595
+            },
+            {
+              "activity_mBq_m3": 0.39866911525200344,
+              "low": 0.9569899768078635,
+              "high": 0.9671439815870547
+            },
+            {
+              "activity_mBq_m3": 0.416790438672549,
+              "low": 0.9602913624740514,
+              "high": 0.9700392094163313
+            },
+            {
+              "activity_mBq_m3": 0.4349117620930946,
+              "low": 0.9714521817291796,
+              "high": 0.9796666554610641
+            }
+          ],
+          "conditional_on_available_decision": false,
+          "empirical_reversals": 0,
+          "null_result": {
+            "detected": 702,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.0702,
+            "rate_ci95": [
+              0.0652683295074954,
+              0.07538370738597666
+            ],
+            "missing_decision_bounds": [
+              0.0702,
+              0.0702
+            ],
+            "count_rate_ci95_conservative": [
+              0.0652683295074954,
+              0.07538370738597666
+            ],
+            "paired_complete_detected": 702,
+            "paired_complete_rate": 0.0702,
+            "rate_missing_as_no": 0.0702,
+            "rate_missing_as_yes": 0.0702
+          },
+          "reference_MDC_result": {
+            "detected": 9339,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.9339,
+            "rate_ci95": [
+              0.9288527090610565,
+              0.9386927567690667
+            ],
+            "missing_decision_bounds": [
+              0.9339,
+              0.9339
+            ],
+            "count_rate_ci95_conservative": [
+              0.9288527090610565,
+              0.9386927567690667
+            ],
+            "paired_complete_detected": 9339,
+            "paired_complete_rate": 0.9339,
+            "rate_missing_as_no": 0.9339,
+            "rate_missing_as_yes": 0.9339
+          }
+        },
+        "wls_wald": {
+          "label": "МНК — Вальд",
+          "ld_interpolation": {
+            "estimate_mBq_m3": 0.4016893358220941,
+            "lower_activity": 0.39866911525200344,
+            "upper_activity": 0.416790438672549,
+            "lower_power": 0.9494,
+            "upper_power": 0.953,
+            "crossing_count": 1
+          },
+          "ld_over_reported_MDC": 1.1083333333333327,
+          "ld_missing_completion_range_mBq_m3": [
+            0.4016893358220941,
+            0.4016893358220941
+          ],
+          "grid_bound95_mBq_m3": [
+            0.3805477918314578,
+            0.4349117620930946
+          ],
+          "grid_point_confidence": 0.9916666666666667,
+          "grid_bound_note": "Per-curve simultaneous binomial bounds; monotone true power assumed; missing decisions bounded; no interpolation of CI endpoints",
+          "bounded_grid": [
+            {
+              "activity_mBq_m3": 0.0,
+              "low": 0.0532394913367517,
+              "high": 0.06580363356833266
+            },
+            {
+              "activity_mBq_m3": 0.3624264684109122,
+              "low": 0.905826208061313,
+              "high": 0.9207587345207592
+            },
+            {
+              "activity_mBq_m3": 0.3805477918314578,
+              "low": 0.9231064105632772,
+              "high": 0.9366614667956843
+            },
+            {
+              "activity_mBq_m3": 0.39866911525200344,
+              "low": 0.9433401125943099,
+              "high": 0.955007637227456
+            },
+            {
+              "activity_mBq_m3": 0.416790438672549,
+              "low": 0.9471369822813137,
+              "high": 0.9584069568073247
+            },
+            {
+              "activity_mBq_m3": 0.4349117620930946,
+              "low": 0.9628543184003867,
+              "high": 0.9722736037279535
+            }
+          ],
+          "conditional_on_available_decision": false,
+          "empirical_reversals": 0,
+          "null_result": {
+            "detected": 593,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.0593,
+            "rate_ci95": [
+              0.054749732489407066,
+              0.06410896906485464
+            ],
+            "missing_decision_bounds": [
+              0.0593,
+              0.0593
+            ],
+            "count_rate_ci95_conservative": [
+              0.054749732489407066,
+              0.06410896906485464
+            ],
+            "paired_complete_detected": 593,
+            "paired_complete_rate": 0.0593,
+            "rate_missing_as_no": 0.0593,
+            "rate_missing_as_yes": 0.0593
+          },
+          "reference_MDC_result": {
+            "detected": 9135,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.9135,
+            "rate_ci95": [
+              0.9078193338600066,
+              0.9189384734857549
+            ],
+            "missing_decision_bounds": [
+              0.9135,
+              0.9135
+            ],
+            "count_rate_ci95_conservative": [
+              0.9078193338600066,
+              0.9189384734857549
+            ],
+            "paired_complete_detected": 9135,
+            "paired_complete_rate": 0.9135,
+            "rate_missing_as_no": 0.9135,
+            "rate_missing_as_yes": 0.9135
+          }
+        },
+        "poisson_LC": {
+          "label": "ММП — Lc",
+          "ld_interpolation": {
+            "estimate_mBq_m3": 0.38354718329416876,
+            "lower_activity": 0.3805477918314578,
+            "upper_activity": 0.39866911525200344,
+            "lower_power": 0.9476,
+            "upper_power": 0.9621,
+            "crossing_count": 1
+          },
+          "ld_over_reported_MDC": 1.0582758620689654,
+          "ld_missing_completion_range_mBq_m3": [
+            0.38354718329416876,
+            0.38354718329416876
+          ],
+          "grid_bound95_mBq_m3": [
+            0.3624264684109122,
+            0.39866911525200344
+          ],
+          "grid_point_confidence": 0.9916666666666667,
+          "grid_bound_note": "Per-curve simultaneous binomial bounds; monotone true power assumed; missing decisions bounded; no interpolation of CI endpoints",
+          "bounded_grid": [
+            {
+              "activity_mBq_m3": 0.0,
+              "low": 0.06314753891514654,
+              "high": 0.07668479040749344
+            },
+            {
+              "activity_mBq_m3": 0.3624264684109122,
+              "low": 0.9277037734707059,
+              "high": 0.940859549448112
+            },
+            {
+              "activity_mBq_m3": 0.3805477918314578,
+              "low": 0.9414447674885841,
+              "high": 0.9533048792468576
+            },
+            {
+              "activity_mBq_m3": 0.39866911525200344,
+              "low": 0.9567773101104038,
+              "high": 0.9669568655450488
+            },
+            {
+              "activity_mBq_m3": 0.416790438672549,
+              "low": 0.9609314952022254,
+              "high": 0.9705984167381222
+            },
+            {
+              "activity_mBq_m3": 0.4349117620930946,
+              "low": 0.9705879566280117,
+              "high": 0.9789318118817673
+            }
+          ],
+          "conditional_on_available_decision": false,
+          "empirical_reversals": 0,
+          "null_result": {
+            "detected": 697,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.0697,
+            "rate_ci95": [
+              0.0647849973923017,
+              0.07486734350322706
+            ],
+            "missing_decision_bounds": [
+              0.0697,
+              0.0697
+            ],
+            "count_rate_ci95_conservative": [
+              0.0647849973923017,
+              0.07486734350322706
+            ],
+            "paired_complete_detected": 697,
+            "paired_complete_rate": 0.0697,
+            "rate_missing_as_no": 0.0697,
+            "rate_missing_as_yes": 0.0697
+          },
+          "reference_MDC_result": {
+            "detected": 9345,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.9345,
+            "rate_ci95": [
+              0.9294731114243315,
+              0.9392719880544032
+            ],
+            "missing_decision_bounds": [
+              0.9345,
+              0.9345
+            ],
+            "count_rate_ci95_conservative": [
+              0.9294731114243315,
+              0.9392719880544032
+            ],
+            "paired_complete_detected": 9345,
+            "paired_complete_rate": 0.9345,
+            "rate_missing_as_no": 0.9345,
+            "rate_missing_as_yes": 0.9345
+          }
+        },
+        "poisson_wald": {
+          "label": "ММП — Вальд",
+          "ld_interpolation": {
+            "estimate_mBq_m3": 0.40135601497073164,
+            "lower_activity": 0.39866911525200344,
+            "upper_activity": 0.416790438672549,
+            "lower_power": 0.9492,
+            "upper_power": 0.9545954595459546,
+            "crossing_count": 1
+          },
+          "ld_over_reported_MDC": 1.1074136409807738,
+          "ld_missing_completion_range_mBq_m3": [
+            0.40135375575875065,
+            0.4014044093532176
+          ],
+          "grid_bound95_mBq_m3": [
+            0.3805477918314578,
+            0.4349117620930946
+          ],
+          "grid_point_confidence": 0.9916666666666667,
+          "grid_bound_note": "Per-curve simultaneous binomial bounds; monotone true power assumed; missing decisions bounded; no interpolation of CI endpoints",
+          "bounded_grid": [
+            {
+              "activity_mBq_m3": 0.0,
+              "low": 0.0532394913367517,
+              "high": 0.06580363356833266
+            },
+            {
+              "activity_mBq_m3": 0.3624264684109122,
+              "low": 0.9064492255151759,
+              "high": 0.9213351028441088
+            },
+            {
+              "activity_mBq_m3": 0.3805477918314578,
+              "low": 0.9238372770555868,
+              "high": 0.9373298767822374
+            },
+            {
+              "activity_mBq_m3": 0.39866911525200344,
+              "low": 0.9431294205940748,
+              "high": 0.9548185402570523
+            },
+            {
+              "activity_mBq_m3": 0.416790438672549,
+              "low": 0.9487216111891568,
+              "high": 0.9599149269023853
+            },
+            {
+              "activity_mBq_m3": 0.4349117620930946,
+              "low": 0.9636031107184493,
+              "high": 0.9729240332369282
+            }
+          ],
+          "conditional_on_available_decision": true,
+          "empirical_reversals": 0,
+          "null_result": {
+            "detected": 593,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.0593,
+            "rate_ci95": [
+              0.054749732489407066,
+              0.06410896906485464
+            ],
+            "missing_decision_bounds": [
+              0.0593,
+              0.0593
+            ],
+            "count_rate_ci95_conservative": [
+              0.054749732489407066,
+              0.06410896906485464
+            ],
+            "paired_complete_detected": 593,
+            "paired_complete_rate": 0.0593,
+            "rate_missing_as_no": 0.0593,
+            "rate_missing_as_yes": 0.0593
+          },
+          "reference_MDC_result": {
+            "detected": 9141,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.9141,
+            "rate_ci95": [
+              0.908436485339517,
+              0.9195209615603509
+            ],
+            "missing_decision_bounds": [
+              0.9141,
+              0.9141
+            ],
+            "count_rate_ci95_conservative": [
+              0.908436485339517,
+              0.9195209615603509
+            ],
+            "paired_complete_detected": 9141,
+            "paired_complete_rate": 0.9141,
+            "rate_missing_as_no": 0.9141,
+            "rate_missing_as_yes": 0.9141
+          }
+        }
+      }
+    },
+    "may26": {
+      "reference_MDC_mBq_m3": 0.3037825032425118,
+      "n_formal_points": 6,
+      "methods": {
+        "wls_LC": {
+          "label": "МНК — Lc",
+          "ld_interpolation": {
+            "estimate_mBq_m3": 0.32584289931131327,
+            "lower_activity": 0.31897162840463744,
+            "upper_activity": 0.33416075356676306,
+            "lower_power": 0.9443,
+            "upper_power": 0.9569,
+            "crossing_count": 1
+          },
+          "ld_over_reported_MDC": 1.0726190476190476,
+          "ld_missing_completion_range_mBq_m3": [
+            0.32584289931131327,
+            0.32584289931131327
+          ],
+          "grid_bound95_mBq_m3": [
+            0.3037825032425118,
+            0.33416075356676306
+          ],
+          "grid_point_confidence": 0.9916666666666667,
+          "grid_bound_note": "Per-curve simultaneous binomial bounds; monotone true power assumed; missing decisions bounded; no interpolation of CI endpoints",
+          "bounded_grid": [
+            {
+              "activity_mBq_m3": 0.0,
+              "low": 0.0417816664670681,
+              "high": 0.053074182092596754
+            },
+            {
+              "activity_mBq_m3": 0.3037825032425118,
+              "low": 0.91414229958803,
+              "high": 0.9284344387976167
+            },
+            {
+              "activity_mBq_m3": 0.31897162840463744,
+              "low": 0.9379749065157008,
+              "high": 0.9501782051560808
+            },
+            {
+              "activity_mBq_m3": 0.33416075356676306,
+              "low": 0.9512604507840655,
+              "high": 0.9620793301713444
+            },
+            {
+              "activity_mBq_m3": 0.34934987872888856,
+              "low": 0.9553958839833808,
+              "high": 0.9657397006009972
+            },
+            {
+              "activity_mBq_m3": 0.3645390038910142,
+              "low": 0.969509220490777,
+              "high": 0.9780117036504063
+            }
+          ],
+          "conditional_on_available_decision": false,
+          "empirical_reversals": 0,
+          "null_result": {
+            "detected": 472,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.0472,
+            "rate_ci95": [
+              0.04312597611664475,
+              0.051540249975564535
+            ],
+            "missing_decision_bounds": [
+              0.0472,
+              0.0472
+            ],
+            "count_rate_ci95_conservative": [
+              0.04312597611664475,
+              0.051540249975564535
+            ],
+            "paired_complete_detected": 466,
+            "paired_complete_rate": 0.046641977780002,
+            "rate_missing_as_no": 0.0472,
+            "rate_missing_as_yes": 0.0472
+          },
+          "reference_MDC_result": {
+            "detected": 9215,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.9215,
+            "rate_ci95": [
+              0.9160548516244102,
+              0.9266981387629745
+            ],
+            "missing_decision_bounds": [
+              0.9215,
+              0.9215
+            ],
+            "count_rate_ci95_conservative": [
+              0.9160548516244102,
+              0.9266981387629745
+            ],
+            "paired_complete_detected": 9203,
+            "paired_complete_rate": 0.921405686824189,
+            "rate_missing_as_no": 0.9215,
+            "rate_missing_as_yes": 0.9215
+          }
+        },
+        "wls_wald": {
+          "label": "МНК — Вальд",
+          "ld_interpolation": {
+            "estimate_mBq_m3": 0.35474702980172507,
+            "lower_activity": 0.34934987872888856,
+            "upper_activity": 0.3645390038910142,
+            "lower_power": 0.943,
+            "upper_power": 0.9627,
+            "crossing_count": 1
+          },
+          "ld_over_reported_MDC": 1.1677664974619288,
+          "ld_missing_completion_range_mBq_m3": [
+            0.35474702980172507,
+            0.35474702980172507
+          ],
+          "grid_bound95_mBq_m3": [
+            0.34934987872888856,
+            0.3645390038910142
+          ],
+          "grid_point_confidence": 0.9916666666666667,
+          "grid_bound_note": "Per-curve simultaneous binomial bounds; monotone true power assumed; missing decisions bounded; no interpolation of CI endpoints",
+          "bounded_grid": [
+            {
+              "activity_mBq_m3": 0.0,
+              "low": 0.04678977591825824,
+              "high": 0.05866047211351527
+            },
+            {
+              "activity_mBq_m3": 0.3037825032425118,
+              "low": 0.8867678838919109,
+              "high": 0.9030358271246219
+            },
+            {
+              "activity_mBq_m3": 0.31897162840463744,
+              "low": 0.9189336839076099,
+              "high": 0.9328383209512137
+            },
+            {
+              "activity_mBq_m3": 0.33416075356676306,
+              "low": 0.9328335141570046,
+              "high": 0.9455247161927192
+            },
+            {
+              "activity_mBq_m3": 0.34934987872888856,
+              "low": 0.9366096507833086,
+              "high": 0.9489448217577575
+            },
+            {
+              "activity_mBq_m3": 0.3645390038910142,
+              "low": 0.957415424581456,
+              "high": 0.9675180988740161
+            }
+          ],
+          "conditional_on_available_decision": false,
+          "empirical_reversals": 0,
+          "null_result": {
+            "detected": 525,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.0525,
+            "rate_ci95": [
+              0.04820948872764404,
+              0.05705342068327396
+            ],
+            "missing_decision_bounds": [
+              0.0525,
+              0.0525
+            ],
+            "count_rate_ci95_conservative": [
+              0.04820948872764404,
+              0.05705342068327396
+            ],
+            "paired_complete_detected": 516,
+            "paired_complete_rate": 0.05164648183365029,
+            "rate_missing_as_no": 0.0525,
+            "rate_missing_as_yes": 0.0525
+          },
+          "reference_MDC_result": {
+            "detected": 8951,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.8951,
+            "rate_ci95": [
+              0.888928688054573,
+              0.9010401217599576
+            ],
+            "missing_decision_bounds": [
+              0.8951,
+              0.8951
+            ],
+            "count_rate_ci95_conservative": [
+              0.888928688054573,
+              0.9010401217599576
+            ],
+            "paired_complete_detected": 8939,
+            "paired_complete_rate": 0.894973968762515,
+            "rate_missing_as_no": 0.8951,
+            "rate_missing_as_yes": 0.8951
+          }
+        },
+        "poisson_LC": {
+          "label": "ММП — Lc",
+          "ld_interpolation": {
+            "estimate_mBq_m3": 0.32512584290998137,
+            "lower_activity": 0.31897162840463744,
+            "upper_activity": 0.33416075356676306,
+            "lower_power": 0.9453,
+            "upper_power": 0.9569,
+            "crossing_count": 1
+          },
+          "ld_over_reported_MDC": 1.070258620689655,
+          "ld_missing_completion_range_mBq_m3": [
+            0.32512584290998137,
+            0.32512584290998137
+          ],
+          "grid_bound95_mBq_m3": [
+            0.3037825032425118,
+            0.33416075356676306
+          ],
+          "grid_point_confidence": 0.9916666666666667,
+          "grid_bound_note": "Per-curve simultaneous binomial bounds; monotone true power assumed; missing decisions bounded; no interpolation of CI endpoints",
+          "bounded_grid": [
+            {
+              "activity_mBq_m3": 0.0,
+              "low": 0.039802534208519876,
+              "high": 0.05085554819842381
+            },
+            {
+              "activity_mBq_m3": 0.3037825032425118,
+              "low": 0.9146627447516982,
+              "high": 0.9289134797413902
+            },
+            {
+              "activity_mBq_m3": 0.31897162840463744,
+              "low": 0.9390257287999181,
+              "high": 0.9511263345245112
+            },
+            {
+              "activity_mBq_m3": 0.33416075356676306,
+              "low": 0.9512604507840655,
+              "high": 0.9620793301713444
+            },
+            {
+              "activity_mBq_m3": 0.34934987872888856,
+              "low": 0.9546526731417219,
+              "high": 0.9650836678591529
+            },
+            {
+              "activity_mBq_m3": 0.3645390038910142,
+              "low": 0.9700483792874942,
+              "high": 0.9784719681719746
+            }
+          ],
+          "conditional_on_available_decision": false,
+          "empirical_reversals": 0,
+          "null_result": {
+            "detected": 451,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.0451,
+            "rate_ci95": [
+              0.04111562938186299,
+              0.0493519221146289
+            ],
+            "missing_decision_bounds": [
+              0.0451,
+              0.0451
+            ],
+            "count_rate_ci95_conservative": [
+              0.04111562938186299,
+              0.0493519221146289
+            ],
+            "paired_complete_detected": 446,
+            "paired_complete_rate": 0.04464017615854269,
+            "rate_missing_as_no": 0.0451,
+            "rate_missing_as_yes": 0.0451
+          },
+          "reference_MDC_result": {
+            "detected": 9220,
+            "n_valid": 10000,
+            "n_attempted": 10000,
+            "n_missing": 0,
+            "rate": 0.922,
+            "rate_ci95": [
+              0.9165700838662011,
+              0.9271826046051735
+            ],
+            "missing_decision_bounds": [
+              0.922,
+              0.922
+            ],
+            "count_rate_ci95_conservative": [
+              0.9165700838662011,
+              0.9271826046051735
+            ],
+            "paired_complete_detected": 9208,
+            "paired_complete_rate": 0.9219062875450541,
+            "rate_missing_as_no": 0.922,
+            "rate_missing_as_yes": 0.922
+          }
+        },
+        "poisson_wald": {
+          "label": "ММП — Вальд",
+          "ld_interpolation": {
+            "estimate_mBq_m3": 0.3535959567258123,
+            "lower_activity": 0.34934987872888856,
+            "upper_activity": 0.3645390038910142,
+            "lower_power": 0.9444333199839807,
+            "upper_power": 0.9643465197796695,
+            "crossing_count": 1
+          },
+          "ld_over_reported_MDC": 1.1639773619336267,
+          "ld_missing_completion_range_mBq_m3": [
+            0.3535478781455564,
+            0.35454207967716617
+          ],
+          "grid_bound95_mBq_m3": [
+            0.33416075356676306,
+            0.3645390038910142
+          ],
+          "grid_point_confidence": 0.9916666666666667,
+          "grid_bound_note": "Per-curve simultaneous binomial bounds; monotone true power assumed; missing decisions bounded; no interpolation of CI endpoints",
+          "bounded_grid": [
+            {
+              "activity_mBq_m3": 0.0,
+              "low": 0.047641937939042575,
+              "high": 0.06055378645480886
+            },
+            {
+              "activity_mBq_m3": 0.3037825032425118,
+              "low": 0.886457847270106,
+              "high": 0.9039046779320683
+            },
+            {
+              "activity_mBq_m3": 0.31897162840463744,
+              "low": 0.918829442993131,
+              "high": 0.9337946776582444
+            },
+            {
+              "activity_mBq_m3": 0.33416075356676306,
+              "low": 0.9332527649738441,
+              "high": 0.9462853025571337
+            },
+            {
+              "activity_mBq_m3": 0.34934987872888856,
+              "low": 0.936924629562643,
+              "high": 0.9503678752073101
+            },
+            {
+              "activity_mBq_m3": 0.3645390038910142,
+              "low": 0.9576282062448841,
+              "high": 0.9691063378539674
+            }
+          ],
+          "conditional_on_available_decision": true,
+          "empirical_reversals": 0,
+          "null_result": {
+            "detected": 534,
+            "n_valid": 9991,
+            "n_attempted": 10000,
+            "n_missing": 9,
+            "rate": 0.053448103292963664,
+            "rate_ci95": [
+              0.049118316540222855,
+              0.05804044786945388
+            ],
+            "missing_decision_bounds": [
+              0.0534,
+              0.0543
+            ],
+            "count_rate_ci95_conservative": [
+              0.049074011492425594,
+              0.05892290731590974
+            ],
+            "paired_complete_detected": 534,
+            "paired_complete_rate": 0.053448103292963664,
+            "rate_missing_as_no": 0.0534,
+            "rate_missing_as_yes": 0.0543
+          },
+          "reference_MDC_result": {
+            "detected": 8948,
+            "n_valid": 9988,
+            "n_attempted": 10000,
+            "n_missing": 12,
+            "rate": 0.8958750500600721,
+            "rate_ci95": [
+              0.8897193434708254,
+              0.901798824934274
+            ],
+            "missing_decision_bounds": [
+              0.8948,
+              0.896
+            ],
+            "count_rate_ci95_conservative": [
+              0.8886212063093093,
+              0.9019170482455752
+            ],
+            "paired_complete_detected": 8948,
+            "paired_complete_rate": 0.8958750500600721,
+            "rate_missing_as_no": 0.8948,
+            "rate_missing_as_yes": 0.896
+          }
+        }
+      }
+    }
+  },
+  "errors": [
+    {
+      "index": 5624,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may22_confirm_f11500_0_10000.json",
+      "dataset": "may22",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 813,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 924,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 1383,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 1658,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 1976,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 3464,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 4004,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 5148,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 7100,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 8329,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 9764,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f10500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.05
+    },
+    {
+      "index": 3660,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.1
+    },
+    {
+      "index": 6811,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.1
+    },
+    {
+      "index": 6899,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.1
+    },
+    {
+      "index": 7792,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.1
+    },
+    {
+      "index": 183,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 600,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 1397,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 1896,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 2080,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 2128,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 2868,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 2920,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 3152,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 4804,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 4819,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 8372,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f11500_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.15
+    },
+    {
+      "index": 459,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 1512,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 2160,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 3624,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 3891,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 4052,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 5633,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 5649,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 5677,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 6040,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 6123,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 6972,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 7402,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 7661,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 8804,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_confirm_f12000_0_10000.json",
+      "dataset": "may26",
+      "stage": "confirm",
+      "factor": 1.2
+    },
+    {
+      "index": 398,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 3400,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 5160,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 5701,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 5785,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 7088,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 7523,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 7821,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 8358,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f00000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 0.0
+    },
+    {
+      "index": 380,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 1934,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 2419,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 4528,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 6290,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 6576,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 7020,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 7187,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 7699,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 8040,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 8769,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 9013,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Full free fit covariance unavailable or nonpositive",
+      "source": "may26_reused_f10000_0_10000.json",
+      "dataset": "may26",
+      "stage": "reused",
+      "factor": 1.0
+    },
+    {
+      "index": 1700,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f05000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.5
+    },
+    {
+      "index": 370,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f08000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.8
+    },
+    {
+      "index": 830,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f08000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.8
+    },
+    {
+      "index": 1122,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f08000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.8
+    },
+    {
+      "index": 1416,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f08000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.8
+    },
+    {
+      "index": 1482,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f08000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.8
+    },
+    {
+      "index": 1499,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f08000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 0.8
+    },
+    {
+      "index": 1316,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f11000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.1
+    },
+    {
+      "index": 359,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f12000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.2
+    },
+    {
+      "index": 538,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f12000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.2
+    },
+    {
+      "index": 1138,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f12000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.2
+    },
+    {
+      "index": 1415,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f15000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.5
+    },
+    {
+      "index": 1621,
+      "family": "poisson",
+      "phase": "wald",
+      "reason": "Free-fit covariance unavailable or nonpositive",
+      "source": "may26_screen_f15000_0_2000.json",
+      "dataset": "may26",
+      "stage": "screen",
+      "factor": 1.5
+    }
+  ],
+  "error_counts": {
+    "poisson/wald: Free-fit covariance unavailable or nonpositive": 56,
+    "poisson/wald: Full free fit covariance unavailable or nonpositive": 21
+  },
+  "ignored_result_files": [
+    "may26_validate_f11000_0_100.json"
+  ],
+  "interval_definition": "Local linear point interpolation; conservative per-curve simultaneous grid bracket at95%; screen excluded",
+  "paired_bootstrap": {
+    "repetitions": 2000,
+    "seed": 2026102107,
+    "method": "Paired empirical bootstrap, multinomial joint-decision patterns per independent activity; first upward linear crossing",
+    "limitation": "Approximate interpolation uncertainty, conditional on grid and available decisions; not the conservative grid guarantee",
+    "datasets": {
+      "may22": {
+        "methods": {
+          "wls_LC": {
+            "n_valid": 2000,
+            "n_total": 2000,
+            "approximate_ci95_mBq_m3": [
+              0.3786957453887935,
+              0.38763494157063483
+            ],
+            "bootstrap_sd_mBq_m3": 0.0022960158788900087,
+            "crossing_available_fraction": 1.0
+          },
+          "wls_wald": {
+            "n_valid": 2000,
+            "n_total": 2000,
+            "approximate_ci95_mBq_m3": [
+              0.39578937005726555,
+              0.41731612689492187
+            ],
+            "bootstrap_sd_mBq_m3": 0.005887120167035176,
+            "crossing_available_fraction": 1.0
+          },
+          "poisson_LC": {
+            "n_valid": 2000,
+            "n_total": 2000,
+            "approximate_ci95_mBq_m3": [
+              0.37847014056813477,
+              0.38746693514220043
+            ],
+            "bootstrap_sd_mBq_m3": 0.002373225533584491,
+            "crossing_available_fraction": 1.0
+          },
+          "poisson_wald": {
+            "n_valid": 2000,
+            "n_total": 2000,
+            "approximate_ci95_mBq_m3": [
+              0.39573444552042936,
+              0.4115052663249893
+            ],
+            "bootstrap_sd_mBq_m3": 0.004509223580060769,
+            "crossing_available_fraction": 1.0
+          }
+        },
+        "contrasts": {
+          "wls_minus_poisson_LC": {
+            "left": "wls_LC",
+            "right": "poisson_LC",
+            "n_valid": 2000,
+            "point_difference_mBq_m3": 0.0002624467529871999,
+            "approximate_ci95_mBq_m3": [
+              -0.000913133676904028,
+              0.001473800388361181
+            ]
+          },
+          "wls_minus_poisson_wald": {
+            "left": "wls_wald",
+            "right": "poisson_wald",
+            "n_valid": 2000,
+            "point_difference_mBq_m3": 0.0003333208513624508,
+            "approximate_ci95_mBq_m3": [
+              -0.002163177030352363,
+              0.007145237820245719
+            ]
+          },
+          "wald_minus_LC_wls": {
+            "left": "wls_wald",
+            "right": "wls_LC",
+            "n_valid": 2000,
+            "point_difference_mBq_m3": 0.017879705774938137,
+            "approximate_ci95_mBq_m3": [
+              0.011143981888404639,
+              0.034015281658393993
+            ]
+          },
+          "wald_minus_LC_poisson": {
+            "left": "poisson_wald",
+            "right": "poisson_LC",
+            "n_valid": 2000,
+            "point_difference_mBq_m3": 0.017808831676562886,
+            "approximate_ci95_mBq_m3": [
+              0.011389571303011367,
+              0.029273493377244823
+            ]
+          }
+        }
+      },
+      "may26": {
+        "methods": {
+          "wls_LC": {
+            "n_valid": 2000,
+            "n_total": 2000,
+            "approximate_ci95_mBq_m3": [
+              0.32157486431685767,
+              0.32983870142704114
+            ],
+            "bootstrap_sd_mBq_m3": 0.0020549159407276976,
+            "crossing_available_fraction": 1.0
+          },
+          "wls_wald": {
+            "n_valid": 2000,
+            "n_total": 2000,
+            "approximate_ci95_mBq_m3": [
+              0.35176364725086207,
+              0.35708560501750125
+            ],
+            "bootstrap_sd_mBq_m3": 0.001337188641974317,
+            "crossing_available_fraction": 1.0
+          },
+          "poisson_LC": {
+            "n_valid": 2000,
+            "n_total": 2000,
+            "approximate_ci95_mBq_m3": [
+              0.31995885177995587,
+              0.32930044447495443
+            ],
+            "bootstrap_sd_mBq_m3": 0.002282053261400373,
+            "crossing_available_fraction": 1.0
+          },
+          "poisson_wald": {
+            "n_valid": 2000,
+            "n_total": 2000,
+            "approximate_ci95_mBq_m3": [
+              0.3504310897436614,
+              0.35598100840066255
+            ],
+            "bootstrap_sd_mBq_m3": 0.0014055797100159851,
+            "crossing_available_fraction": 1.0
+          }
+        },
+        "contrasts": {
+          "wls_minus_poisson_LC": {
+            "left": "wls_LC",
+            "right": "poisson_LC",
+            "n_valid": 2000,
+            "point_difference_mBq_m3": 0.0007170564013319058,
+            "approximate_ci95_mBq_m3": [
+              -0.000388350557014247,
+              0.002335443204965527
+            ]
+          },
+          "wls_minus_poisson_wald": {
+            "left": "wls_wald",
+            "right": "poisson_wald",
+            "n_valid": 2000,
+            "point_difference_mBq_m3": 0.0011510730759127785,
+            "approximate_ci95_mBq_m3": [
+              0.00036010329540816924,
+              0.002166128001591176
+            ]
+          },
+          "wald_minus_LC_wls": {
+            "left": "wls_wald",
+            "right": "wls_LC",
+            "n_valid": 2000,
+            "point_difference_mBq_m3": 0.028904130490411795,
+            "approximate_ci95_mBq_m3": [
+              0.024063657325989956,
+              0.03396781193310443
+            ]
+          },
+          "wald_minus_LC_poisson": {
+            "left": "poisson_wald",
+            "right": "poisson_LC",
+            "n_valid": 2000,
+            "point_difference_mBq_m3": 0.028470113815830922,
+            "approximate_ci95_mBq_m3": [
+              0.02333932923955253,
+              0.03396820912749563
+            ]
+          }
+        }
+      }
+    }
+  }
+}

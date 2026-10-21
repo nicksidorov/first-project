@@ -1,0 +1,15 @@
+{
+  "datasets": [
+    "may22",
+    "may26"
+  ],
+  "scenarios": [
+    "null",
+    "signal"
+  ],
+  "unit": "Bq/m3",
+  "rows": 40000,
+  "observations": "21 raw integer SAMPLE/GASBK/DETBK counts in model order",
+  "missing": "NaN for unavailable floating results, -1 for unavailable decision",
+  "note": "Physical target index4; full model, truth and seeds in manifest.json. Full fitted vectors remain in local chunks."
+}

@@ -1,0 +1,209 @@
+{
+  "status": "passed",
+  "validation": true,
+  "raw_vectors": 400,
+  "number_of_chunks": 4,
+  "production_hashes_unchanged": true,
+  "all_counts_reproduced_from_seeds": true,
+  "all_indices_disjoint_and_complete": true,
+  "independent_projection_brentq_checks": 32,
+  "maximum_relative_root_difference": 1.1997827860670697e-09,
+  "maximum_equation_relative_residual": 1.076555092796139e-09,
+  "refitted_parameter_vectors": 16,
+  "full_four_isotope_call_matches_target_only": true,
+  "recorded_errors": [],
+  "checks": [
+    {
+      "file": "may22_null_00000_00100.npz",
+      "family": "wls",
+      "index": 0,
+      "relative_difference": 3.3007534666613486e-10
+    },
+    {
+      "file": "may22_null_00000_00100.npz",
+      "family": "wls",
+      "index": 1,
+      "relative_difference": 4.492722372269374e-10
+    },
+    {
+      "file": "may22_null_00000_00100.npz",
+      "family": "wls",
+      "index": 98,
+      "relative_difference": 3.9692967466858734e-10
+    },
+    {
+      "file": "may22_null_00000_00100.npz",
+      "family": "wls",
+      "index": 99,
+      "relative_difference": 2.525900636646754e-10
+    },
+    {
+      "file": "may22_null_00000_00100.npz",
+      "family": "poisson",
+      "index": 0,
+      "relative_difference": 3.2765833574706865e-10
+    },
+    {
+      "file": "may22_null_00000_00100.npz",
+      "family": "poisson",
+      "index": 1,
+      "relative_difference": 4.4744134928465413e-10
+    },
+    {
+      "file": "may22_null_00000_00100.npz",
+      "family": "poisson",
+      "index": 98,
+      "relative_difference": 3.9457015806712174e-10
+    },
+    {
+      "file": "may22_null_00000_00100.npz",
+      "family": "poisson",
+      "index": 99,
+      "relative_difference": 2.5263439841772875e-10
+    },
+    {
+      "file": "may22_signal_00000_00100.npz",
+      "family": "wls",
+      "index": 0,
+      "relative_difference": 1.8099081196972247e-10
+    },
+    {
+      "file": "may22_signal_00000_00100.npz",
+      "family": "wls",
+      "index": 23,
+      "relative_difference": 2.988048148185925e-10
+    },
+    {
+      "file": "may22_signal_00000_00100.npz",
+      "family": "wls",
+      "index": 27,
+      "relative_difference": 7.054750587534044e-10
+    },
+    {
+      "file": "may22_signal_00000_00100.npz",
+      "family": "wls",
+      "index": 99,
+      "relative_difference": 2.048319162047072e-10
+    },
+    {
+      "file": "may22_signal_00000_00100.npz",
+      "family": "poisson",
+      "index": 0,
+      "relative_difference": 1.563546292913924e-10
+    },
+    {
+      "file": "may22_signal_00000_00100.npz",
+      "family": "poisson",
+      "index": 23,
+      "relative_difference": 2.9662160668509137e-10
+    },
+    {
+      "file": "may22_signal_00000_00100.npz",
+      "family": "poisson",
+      "index": 27,
+      "relative_difference": 6.889394574421017e-10
+    },
+    {
+      "file": "may22_signal_00000_00100.npz",
+      "family": "poisson",
+      "index": 99,
+      "relative_difference": 2.0438788677949798e-10
+    },
+    {
+      "file": "may26_null_00000_00100.npz",
+      "family": "wls",
+      "index": 0,
+      "relative_difference": 8.150738602467669e-10
+    },
+    {
+      "file": "may26_null_00000_00100.npz",
+      "family": "wls",
+      "index": 42,
+      "relative_difference": 2.400902237772446e-10
+    },
+    {
+      "file": "may26_null_00000_00100.npz",
+      "family": "wls",
+      "index": 45,
+      "relative_difference": 5.232670807948226e-10
+    },
+    {
+      "file": "may26_null_00000_00100.npz",
+      "family": "wls",
+      "index": 99,
+      "relative_difference": 1.1997827860670697e-09
+    },
+    {
+      "file": "may26_null_00000_00100.npz",
+      "family": "poisson",
+      "index": 0,
+      "relative_difference": 7.37641108325989e-10
+    },
+    {
+      "file": "may26_null_00000_00100.npz",
+      "family": "poisson",
+      "index": 46,
+      "relative_difference": 1.732667370132744e-10
+    },
+    {
+      "file": "may26_null_00000_00100.npz",
+      "family": "poisson",
+      "index": 68,
+      "relative_difference": 2.3087107262012477e-10
+    },
+    {
+      "file": "may26_null_00000_00100.npz",
+      "family": "poisson",
+      "index": 99,
+      "relative_difference": 1.1110655203691249e-09
+    },
+    {
+      "file": "may26_signal_00000_00100.npz",
+      "family": "wls",
+      "index": 0,
+      "relative_difference": 6.568320924643346e-10
+    },
+    {
+      "file": "may26_signal_00000_00100.npz",
+      "family": "wls",
+      "index": 7,
+      "relative_difference": 3.0973953240317e-10
+    },
+    {
+      "file": "may26_signal_00000_00100.npz",
+      "family": "wls",
+      "index": 71,
+      "relative_difference": 8.229310155379204e-10
+    },
+    {
+      "file": "may26_signal_00000_00100.npz",
+      "family": "wls",
+      "index": 99,
+      "relative_difference": 8.004143419939241e-10
+    },
+    {
+      "file": "may26_signal_00000_00100.npz",
+      "family": "poisson",
+      "index": 0,
+      "relative_difference": 6.345792629748549e-10
+    },
+    {
+      "file": "may26_signal_00000_00100.npz",
+      "family": "poisson",
+      "index": 71,
+      "relative_difference": 8.023395601766712e-10
+    },
+    {
+      "file": "may26_signal_00000_00100.npz",
+      "family": "poisson",
+      "index": 89,
+      "relative_difference": 2.2048772187550774e-10
+    },
+    {
+      "file": "may26_signal_00000_00100.npz",
+      "family": "poisson",
+      "index": 99,
+      "relative_difference": 7.5275245388215e-10
+    }
+  ]
+}

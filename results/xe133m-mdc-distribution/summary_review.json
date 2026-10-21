@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "n_observation_vectors": 40000,
+  "n_MDC_summaries": 8,
+  "separate_mean_sd_quantile_bias_rmse_checks": true,
+  "all_compact_decisions_recomputed": true,
+  "binomial_intervals_checked_via_beta_quantiles": true,
+  "paired_method_differences_checked": true,
+  "cells": [
+    {
+      "dataset": "may22",
+      "scenario": "null",
+      "family": "wls",
+      "status": "passed"
+    },
+    {
+      "dataset": "may22",
+      "scenario": "null",
+      "family": "poisson",
+      "status": "passed"
+    },
+    {
+      "dataset": "may22",
+      "scenario": "signal",
+      "family": "wls",
+      "status": "passed"
+    },
+    {
+      "dataset": "may22",
+      "scenario": "signal",
+      "family": "poisson",
+      "status": "passed"
+    },
+    {
+      "dataset": "may26",
+      "scenario": "null",
+      "family": "wls",
+      "status": "passed"
+    },
+    {
+      "dataset": "may26",
+      "scenario": "null",
+      "family": "poisson",
+      "status": "passed"
+    },
+    {
+      "dataset": "may26",
+      "scenario": "signal",
+      "family": "wls",
+      "status": "passed"
+    },
+    {
+      "dataset": "may26",
+      "scenario": "signal",
+      "family": "poisson",
+      "status": "passed"
+    }
+  ]
+}
