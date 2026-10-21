@@ -1,0 +1,274 @@
+[
+  {
+    "dataset": "may22",
+    "target": 1,
+    "screen_factors": [
+      0.8,
+      1.0,
+      1.2,
+      1.4
+    ],
+    "screen_powers": {
+      "wls": [
+        0.848,
+        0.942,
+        0.98,
+        0.994
+      ],
+      "poisson": [
+        0.848,
+        0.942,
+        0.98,
+        0.994
+      ]
+    },
+    "screen_crossings": {
+      "wls": 1.0421052631578946,
+      "poisson": 1.0421052631578946
+    },
+    "confirmation_factors": [
+      0.9621,
+      1.0421,
+      1.1221
+    ],
+    "n_per_point": 3000
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "screen_factors": [
+      0.8,
+      1.0,
+      1.2,
+      1.4
+    ],
+    "screen_powers": {
+      "wls": [
+        0.87,
+        0.958,
+        0.986,
+        1.0
+      ],
+      "poisson": [
+        0.856,
+        0.952,
+        0.988,
+        1.0
+      ]
+    },
+    "screen_crossings": {
+      "wls": 0.9818181818181818,
+      "poisson": 0.9958333333333333
+    },
+    "confirmation_factors": [
+      0.9018,
+      0.9888,
+      1.0758
+    ],
+    "n_per_point": 3000
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "screen_factors": [
+      0.8,
+      1.0,
+      1.2,
+      1.4
+    ],
+    "screen_powers": {
+      "wls": [
+        0.846,
+        0.93,
+        0.978,
+        0.99
+      ],
+      "poisson": [
+        0.856,
+        0.938,
+        0.978,
+        0.99
+      ]
+    },
+    "screen_crossings": {
+      "wls": 1.083333333333333,
+      "poisson": 1.06
+    },
+    "confirmation_factors": [
+      0.98,
+      1.0717,
+      1.1633
+    ],
+    "n_per_point": 3000
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "screen_factors": [
+      0.8,
+      1.0,
+      1.2,
+      1.4
+    ],
+    "screen_powers": {
+      "wls": [
+        0.834,
+        0.922,
+        0.954,
+        0.988
+      ],
+      "poisson": [
+        0.84,
+        0.92,
+        0.956,
+        0.988
+      ]
+    },
+    "screen_crossings": {
+      "wls": 1.1749999999999998,
+      "poisson": 1.1666666666666665
+    },
+    "confirmation_factors": [
+      1.0867,
+      1.1708,
+      1.255
+    ],
+    "n_per_point": 3000
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "screen_factors": [
+      0.8,
+      1.0,
+      1.2,
+      1.4
+    ],
+    "screen_powers": {
+      "wls": [
+        0.846,
+        0.944,
+        0.988,
+        1.0
+      ],
+      "poisson": [
+        0.844,
+        0.946,
+        0.988,
+        1.0
+      ]
+    },
+    "screen_crossings": {
+      "wls": 1.0272727272727273,
+      "poisson": 1.019047619047619
+    },
+    "confirmation_factors": [
+      0.939,
+      1.0232,
+      1.1073
+    ],
+    "n_per_point": 3000
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "screen_factors": [
+      0.8,
+      1.0,
+      1.2,
+      1.4
+    ],
+    "screen_powers": {
+      "wls": [
+        0.856,
+        0.938,
+        0.988,
+        0.998
+      ],
+      "poisson": [
+        0.852,
+        0.928,
+        0.984,
+        0.998
+      ]
+    },
+    "screen_crossings": {
+      "wls": 1.048,
+      "poisson": 1.0785714285714283
+    },
+    "confirmation_factors": [
+      0.968,
+      1.0633,
+      1.1586
+    ],
+    "n_per_point": 3000
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "screen_factors": [
+      0.8,
+      1.0,
+      1.2,
+      1.4
+    ],
+    "screen_powers": {
+      "wls": [
+        0.832,
+        0.928,
+        0.98,
+        0.998
+      ],
+      "poisson": [
+        0.83,
+        0.926,
+        0.978,
+        0.998
+      ]
+    },
+    "screen_crossings": {
+      "wls": 1.0846153846153843,
+      "poisson": 1.092307692307692
+    },
+    "confirmation_factors": [
+      1.0046,
+      1.0885,
+      1.1723
+    ],
+    "n_per_point": 3000
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "screen_factors": [
+      0.8,
+      1.0,
+      1.2,
+      1.4
+    ],
+    "screen_powers": {
+      "wls": [
+        0.81,
+        0.936,
+        0.98,
+        0.986
+      ],
+      "poisson": [
+        0.808,
+        0.936,
+        0.982,
+        0.986
+      ]
+    },
+    "screen_crossings": {
+      "wls": 1.0636363636363633,
+      "poisson": 1.060869565217391
+    },
+    "confirmation_factors": [
+      0.9809,
+      1.0623,
+      1.1436
+    ],
+    "n_per_point": 3000
+  }
+]

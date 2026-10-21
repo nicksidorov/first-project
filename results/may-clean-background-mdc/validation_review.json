@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "validation_vectors_excluded": 400,
+  "independent_projection_brentq": [
+    {
+      "dataset": "may22",
+      "target": 1,
+      "relative_difference": 2.315395385083978e-10
+    },
+    {
+      "dataset": "may22",
+      "target": 2,
+      "relative_difference": 2.1045038449272928e-10
+    },
+    {
+      "dataset": "may22",
+      "target": 3,
+      "relative_difference": 2.9902969396539866e-10
+    },
+    {
+      "dataset": "may22",
+      "target": 4,
+      "relative_difference": 1.6502755167568513e-10
+    },
+    {
+      "dataset": "may26",
+      "target": 1,
+      "relative_difference": 2.2541518352330798e-10
+    },
+    {
+      "dataset": "may26",
+      "target": 2,
+      "relative_difference": 2.1046786113564154e-10
+    },
+    {
+      "dataset": "may26",
+      "target": 3,
+      "relative_difference": 2.9854920070618003e-10
+    },
+    {
+      "dataset": "may26",
+      "target": 4,
+      "relative_difference": 1.6194992834097238e-10
+    }
+  ],
+  "lc_fixed_matches_iterative": true,
+  "seeds_reproduced": true
+}

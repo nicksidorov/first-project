@@ -1,0 +1,6 @@
+{
+  "max_extra_points_per_curve": 4,
+  "max_grid_points_including_null": 8,
+  "confidence_per_grid_point": 0.99375,
+  "note": "Fixed error budget before inspecting confirmation results; allows up to four adaptively located additional independent points. Per-curve simultaneous grid coverage under monotone power; bootstrap remains conditional on the realized grid."
+}

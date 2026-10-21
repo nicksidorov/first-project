@@ -1,0 +1,338 @@
+[
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "null"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "null"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "null"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 3,
+    "stage": "null"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 4,
+    "stage": "null"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 0.8,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.0,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.2,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.4,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 0.8,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.0,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.2,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.4,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 0.8,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.0,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.2,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.4,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 0.8,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.0,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.2,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.4,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "null"
+  },
+  {
+    "dataset": "may26",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "null"
+  },
+  {
+    "dataset": "may26",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "null"
+  },
+  {
+    "dataset": "may26",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 3,
+    "stage": "null"
+  },
+  {
+    "dataset": "may26",
+    "target": 0,
+    "factor": 0,
+    "n": 1000,
+    "chunk": 4,
+    "stage": "null"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 0.8,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.0,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.2,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.4,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 0.8,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.0,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.2,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.4,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 0.8,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.0,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.2,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.4,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 0.8,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.0,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.2,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.4,
+    "n": 500,
+    "chunk": 0,
+    "stage": "screen"
+  }
+]

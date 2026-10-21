@@ -1,0 +1,82 @@
+[
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may26",
+    "target": 0,
+    "factor": 0,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1,
+    "n": 40,
+    "chunk": 0,
+    "stage": "validate"
+  }
+]
