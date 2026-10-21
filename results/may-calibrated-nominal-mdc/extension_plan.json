@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.3,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "extend"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.3,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "extend"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.3,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "extend"
+  }
+]

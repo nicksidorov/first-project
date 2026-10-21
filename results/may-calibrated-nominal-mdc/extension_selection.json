@@ -1,0 +1,27 @@
+{
+  "selected_at_utc": "2026-10-21T20:34:25.009866+00:00",
+  "cutoffs_unchanged": true,
+  "based_on": "power_preview.json",
+  "requests": [
+    {
+      "dataset": "may26",
+      "target": 4,
+      "family": "wls",
+      "directions": [
+        "upper"
+      ],
+      "min_factor": 0.9809,
+      "max_factor": 1.1436,
+      "reason": "Point estimate or bootstrap interval not covered by the independent signal grid"
+    }
+  ],
+  "chosen_points": [
+    {
+      "dataset": "may26",
+      "target": 4,
+      "factor": 1.3,
+      "n": 3000,
+      "reason": "Upper bootstrap Ld95 interval reached prior grid limit 1.1436; extend to 1.3 before generating any new signal vectors."
+    }
+  ]
+}

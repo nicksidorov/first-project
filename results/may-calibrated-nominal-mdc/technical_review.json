@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "vectors": 60,
+  "seed_reproduction": true,
+  "lc_fixed_iterative_identical": true,
+  "full_model": true,
+  "production_hashes_unchanged": true
+}

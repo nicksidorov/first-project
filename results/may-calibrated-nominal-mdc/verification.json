@@ -1,0 +1,224 @@
+{
+  "status": "passed",
+  "new_vectors": 63000,
+  "new_by_stage": {
+    "calibration": 40000,
+    "validation": 20000,
+    "extend": 3000
+  },
+  "portable_prior_signal": false,
+  "reused_signal_vectors": 75000,
+  "all_new_batch_keys_match_plan": true,
+  "unique_new_seeds": 63,
+  "old_new_seeds_disjoint": true,
+  "calibration_validation_seeds_disjoint": true,
+  "all_raw_poisson_counts_reproduced": true,
+  "all_full_models_rank": 17,
+  "all_generating_null_activities_zero": true,
+  "source_background_from_DETBK_only": true,
+  "all_production_hashes_unchanged": true,
+  "calibrated_cutoffs_from_calibration_only": true,
+  "calibration_sha256": "2365171cb47b3e3acb956b92243acfac8c3a55644907888b47783f11791fa7a3",
+  "calibration_order_statistics": [
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "target": 1,
+      "n": 20000,
+      "rank": 19001,
+      "c": 0.9910783863668728,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "target": 2,
+      "n": 20000,
+      "rank": 19001,
+      "c": 1.0936634138959405,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "target": 3,
+      "n": 20000,
+      "rank": 19001,
+      "c": 0.98542211162133,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "target": 4,
+      "n": 20000,
+      "rank": 19001,
+      "c": 1.0048400375994113,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "target": 1,
+      "n": 20000,
+      "rank": 19001,
+      "c": 0.991425872784835,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "target": 2,
+      "n": 20000,
+      "rank": 19001,
+      "c": 1.0257576433357567,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "target": 3,
+      "n": 20000,
+      "rank": 19001,
+      "c": 0.9869853231496953,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "target": 4,
+      "n": 20000,
+      "rank": 19001,
+      "c": 0.988981672000471,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may26",
+      "family": "wls",
+      "target": 1,
+      "n": 20000,
+      "rank": 19001,
+      "c": 1.0097887492085822,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may26",
+      "family": "wls",
+      "target": 2,
+      "n": 20000,
+      "rank": 19001,
+      "c": 1.1030372604713734,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may26",
+      "family": "wls",
+      "target": 3,
+      "n": 20000,
+      "rank": 19001,
+      "c": 0.9826996203716216,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may26",
+      "family": "wls",
+      "target": 4,
+      "n": 20000,
+      "rank": 19001,
+      "c": 1.015192906682282,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may26",
+      "family": "poisson",
+      "target": 1,
+      "n": 20000,
+      "rank": 19001,
+      "c": 1.0076811416696532,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may26",
+      "family": "poisson",
+      "target": 2,
+      "n": 20000,
+      "rank": 19001,
+      "c": 1.0272047197481875,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may26",
+      "family": "poisson",
+      "target": 3,
+      "n": 20000,
+      "rank": 19001,
+      "c": 0.9804521227056155,
+      "ties": 1,
+      "training_exceedances": 999
+    },
+    {
+      "dataset": "may26",
+      "family": "poisson",
+      "target": 4,
+      "n": 20000,
+      "rank": 19001,
+      "c": 0.9922679283177231,
+      "ties": 1,
+      "training_exceedances": 999
+    }
+  ],
+  "refitted_models": 352,
+  "paired_calibration_bootstrap_quantiles_checked": 48,
+  "paired_power_bootstrap_rebuilds": [
+    {
+      "dataset": "may22",
+      "target": 2,
+      "modes": {
+        "conditional": {
+          "repetitions": 2000,
+          "paired_finite": 1989
+        },
+        "total": {
+          "repetitions": 2000,
+          "paired_finite": 1977
+        }
+      }
+    },
+    {
+      "dataset": "may26",
+      "target": 4,
+      "modes": {
+        "conditional": {
+          "repetitions": 2000,
+          "paired_finite": 2000
+        },
+        "total": {
+          "repetitions": 2000,
+          "paired_finite": 2000
+        }
+      }
+    }
+  ],
+  "lc_fixed_iterative_agreements": 536,
+  "reported_rate_checks": 136,
+  "independent_ld_interpolations": 32,
+  "missing_decisions": 0,
+  "recorded_errors": [],
+  "cutoff_direction_invariants_checked": true,
+  "all_grid_bounds_independently_recomputed": true,
+  "note": "Raw decisions, cutoffs, CP intervals, grid bounds and Ld point estimates are independently rebuilt; both conditional and total paired-bootstrap intervals are independently rebuilt for two representative curves. Portable mode retains all raw observations and compares old target estimates against new full-model spot refits."
+}

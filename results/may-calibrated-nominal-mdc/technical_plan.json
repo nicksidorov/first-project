@@ -1,0 +1,18 @@
+[
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0,
+    "n": 30,
+    "chunk": 0,
+    "stage": "tech"
+  },
+  {
+    "dataset": "may26",
+    "target": 0,
+    "factor": 0,
+    "n": 30,
+    "chunk": 0,
+    "stage": "tech"
+  }
+]
