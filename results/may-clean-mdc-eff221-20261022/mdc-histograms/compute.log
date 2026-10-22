@@ -1,0 +1,68 @@
+DONE may26_null_i0_both_c1 n 1000 seconds 22.7 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c1 n 1000 seconds 23.0 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c0 n 1000 seconds 24.3 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c0 n 1000 seconds 24.3 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c2 n 1000 seconds 16.1 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c2 n 1000 seconds 16.3 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c3 n 1000 seconds 24.8 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c3 n 1000 seconds 24.9 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c4 n 1000 seconds 14.8 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c4 n 1000 seconds 14.9 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c6 n 1000 seconds 14.7 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c6 n 1000 seconds 14.7 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c5 n 1000 seconds 23.9 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c5 n 1000 seconds 23.9 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c7 n 1000 seconds 14.6 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c7 n 1000 seconds 14.7 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c8 n 1000 seconds 23.9 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c8 n 1000 seconds 23.9 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may22_null_i0_both_c9 n 1000 seconds 14.7 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_null_i0_both_c9 n 1000 seconds 14.9 errors 0 valid_MDC {'wls': 4000, 'poisson': 4000}
+DONE may26_signal_ld_i1_wls_c0 n 1000 seconds 2.9 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i1_wls_c0 n 1000 seconds 4.8 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i2_wls_c0 n 1000 seconds 3.9 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i2_wls_c0 n 1000 seconds 5.0 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i1_poisson_c0 n 1000 seconds 48.7 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i3_wls_c0 n 1000 seconds 3.0 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i2_poisson_c0 n 1000 seconds 40.8 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i3_wls_c0 n 1000 seconds 3.0 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i1_poisson_c0 n 1000 seconds 74.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i2_poisson_c0 n 1000 seconds 71.4 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i4_wls_c0 n 1000 seconds 5.4 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i4_wls_c0 n 1000 seconds 5.4 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i3_poisson_c0 n 1000 seconds 41.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i3_poisson_c0 n 1000 seconds 40.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i1_wls_c1 n 1000 seconds 3.0 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i1_wls_c1 n 1000 seconds 2.9 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i1_poisson_c1 n 1000 seconds 53.2 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i1_poisson_c1 n 1000 seconds 58.2 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i2_wls_c1 n 1000 seconds 2.9 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i4_poisson_c0 n 1000 seconds 83.2 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i2_wls_c1 n 1000 seconds 3.6 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i3_wls_c1 n 1000 seconds 3.0 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i4_poisson_c0 n 1000 seconds 85.2 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i3_wls_c1 n 1000 seconds 5.5 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i3_poisson_c1 n 1000 seconds 42.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i4_wls_c1 n 1000 seconds 3.2 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i2_poisson_c1 n 1000 seconds 56.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i4_wls_c1 n 1000 seconds 3.2 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i2_poisson_c1 n 1000 seconds 67.4 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i1_wls_c2 n 1000 seconds 5.7 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i4_poisson_c1 n 1000 seconds 45.0 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i1_wls_c2 n 1000 seconds 2.7 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i3_poisson_c1 n 1000 seconds 83.4 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i4_poisson_c1 n 1000 seconds 47.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i2_wls_c2 n 1000 seconds 5.4 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i2_wls_c2 n 1000 seconds 5.5 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i1_poisson_c2 n 1000 seconds 46.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i3_wls_c2 n 1000 seconds 3.0 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i2_poisson_c2 n 1000 seconds 44.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i3_wls_c2 n 1000 seconds 3.0 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i1_poisson_c2 n 1000 seconds 84.4 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i4_wls_c2 n 1000 seconds 5.6 errors 0 valid_MDC {'wls': 1000}
+DONE may22_signal_ld_i3_poisson_c2 n 1000 seconds 41.4 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i4_wls_c2 n 1000 seconds 4.1 errors 0 valid_MDC {'wls': 1000}
+DONE may26_signal_ld_i2_poisson_c2 n 1000 seconds 83.0 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i3_poisson_c2 n 1000 seconds 46.3 errors 0 valid_MDC {'poisson': 1000}
+DONE may22_signal_ld_i4_poisson_c2 n 1000 seconds 59.4 errors 0 valid_MDC {'poisson': 1000}
+DONE may26_signal_ld_i4_poisson_c2 n 1000 seconds 42.5 errors 0 valid_MDC {'poisson': 1000}

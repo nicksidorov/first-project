@@ -1,0 +1,4 @@
+# Rebuild summary/values from archived points; no XeMat or plotting needed.
+# Original environment: Python 3.12.14.
+numpy==2.3.5
+scipy==1.17.0

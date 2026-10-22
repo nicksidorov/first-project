@@ -1,0 +1,110 @@
+{
+  "status": "passed",
+  "audited_at_utc": "2026-10-22T09:57:12.369715+00:00",
+  "audit_file_sha256": "04d7b15a093e15c49e2e680d2699f05b3eab7f66647edab1fc9cf64c88c3dd5d",
+  "root": "/workspace/scratch/may-clean-mdc-histograms-20261022",
+  "source": "/workspace/scratch/may-clean-mdc-eff221-20261022",
+  "repo": "/workspace/first-project",
+  "manifest_sha256": "18713b384c731be64946c56d07bd7f84c69c43ff767a095a143c0e2ab2941328",
+  "run_lock_sha256": "3a4f82342e5d67c4925836276c9f10ce6e23c9348d26b0f30c654dd98d6bddf2",
+  "production_sha256": {
+    "xemat/solvers.py": "03a48d1b3daee1d7b0a8c5a0a60c2b71e4934e26b7a051738c280dcbd7fd05fe",
+    "xemat/model.py": "8113837e2b350a00eea3bab4acdda24d5cdfa0198cbc6c0ec515f93299326299",
+    "xemat/detection.py": "90411c39a8aac1000809bcc9eb15bd7693c6a631ac75e8e397c6bf74b208a80b",
+    "constants.py": "bb266e2ab8e2683c00be0cb5a53b942c5e724744201e15bb7a4636019cacfd35",
+    "xemat/calibration.py": "728120e21dee13f3528a4d814b22c22042c4dbbe0200dd7876d4b6f9f139d067",
+    "process_measurement.py": "a9b5aa2adf83a9748ad92515cb61536a8e8f8f0cb0edc673936b49b425521059"
+  },
+  "nominal_root_checks": [
+    {
+      "dataset": "may22",
+      "target": 1,
+      "independent_MDC_Bq_m3": 0.001230262637098959
+    },
+    {
+      "dataset": "may22",
+      "target": 2,
+      "independent_MDC_Bq_m3": 0.0006506853245177595
+    },
+    {
+      "dataset": "may22",
+      "target": 3,
+      "independent_MDC_Bq_m3": 0.00032907696980882155
+    },
+    {
+      "dataset": "may22",
+      "target": 4,
+      "independent_MDC_Bq_m3": 0.00029351492285762315
+    },
+    {
+      "dataset": "may26",
+      "target": 1,
+      "independent_MDC_Bq_m3": 0.0012923212590836015
+    },
+    {
+      "dataset": "may26",
+      "target": 2,
+      "independent_MDC_Bq_m3": 0.0006896256448530161
+    },
+    {
+      "dataset": "may26",
+      "target": 3,
+      "independent_MDC_Bq_m3": 0.00034878686226265355
+    },
+    {
+      "dataset": "may26",
+      "target": 4,
+      "independent_MDC_Bq_m3": 0.0003110271176403539
+    }
+  ],
+  "selected_rows_per_batch": [
+    0,
+    999
+  ],
+  "independent_method": "scaled QR Fisher inverse + brentq MDC root; alpha=beta=0.05; positive pilot; no c",
+  "source_validation_mode": "full_source_audit",
+  "unavailable_source_checks": [],
+  "formal_batches": 68,
+  "poisson_vectors_checked": 68000,
+  "reused_null_vectors_checked": 20000,
+  "new_signal_vectors_checked": 48000,
+  "reused_fit_vectors_checked": 80000,
+  "refit_attempts": 352,
+  "refits_confirmed": 352,
+  "independent_MDC_roots_checked": 416,
+  "independent_roots_unavailable": 0,
+  "max_relative_MDC_root_difference": 1.2106716740234447e-09,
+  "compact_arrays_checked": 32,
+  "mdc_attempts_checked": 208000,
+  "valid_MDC": 208000,
+  "unavailable_MDC": 0,
+  "error_records": 0,
+  "summary_sha256": "0f14e3319f6366d88bd4f255914e0e27e7ba8bf575fb04a5f8bf2537bda0f412",
+  "values_sha256": "8c295535bdcef43b8510c2313c36a8f125bd812452d44b665430d439b1790865",
+  "covariance_diagnostics": [
+    {
+      "scenario": "null",
+      "family": "wls",
+      "n": 20000,
+      "unavailable": 0
+    },
+    {
+      "scenario": "null",
+      "family": "poisson",
+      "n": 20000,
+      "unavailable": 73
+    },
+    {
+      "scenario": "signal",
+      "family": "poisson",
+      "n": 24000,
+      "unavailable": 72
+    },
+    {
+      "scenario": "signal",
+      "family": "wls",
+      "n": 24000,
+      "unavailable": 0
+    }
+  ]
+}

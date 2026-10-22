@@ -1,0 +1,4 @@
+DONE may22_technical_i4_wls_c0 n 3 seconds 0.0 errors 0 valid_MDC {'wls': 3}
+DONE may26_technical_i4_wls_c0 n 3 seconds 0.0 errors 0 valid_MDC {'wls': 3}
+DONE may22_technical_i4_poisson_c0 n 3 seconds 0.1 errors 0 valid_MDC {'poisson': 3}
+DONE may26_technical_i4_poisson_c0 n 3 seconds 0.2 errors 0 valid_MDC {'poisson': 3}

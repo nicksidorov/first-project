@@ -1,0 +1,546 @@
+[
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 3
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 3
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 4
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 4
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 5
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 5
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 6
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 6
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 7
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 7
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 8
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 8
+  },
+  {
+    "dataset": "may22",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 9
+  },
+  {
+    "dataset": "may26",
+    "stage": "null",
+    "target": 0,
+    "family": "both",
+    "n": 1000,
+    "chunk": 9
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 1
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 1,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 2,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 3,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may22",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "wls",
+    "n": 1000,
+    "chunk": 2
+  },
+  {
+    "dataset": "may26",
+    "stage": "signal_ld",
+    "target": 4,
+    "family": "poisson",
+    "n": 1000,
+    "chunk": 2
+  }
+]

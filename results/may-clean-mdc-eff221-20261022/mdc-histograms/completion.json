@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "counts": {
+    "null": 20000,
+    "signal_ld": 48000
+  },
+  "batches": 68,
+  "MDC_values": 208000,
+  "invalid_MDC": 0,
+  "errors": 0,
+  "locked_hashes_unchanged": true
+}

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-10-22T10:02:46.431624+00:00",
+  "archive": "XeMat_MDC_histograms_eff221_20261022.zip",
+  "archive_bytes": 30771940,
+  "archive_sha256": "b8fd84beea77baea3995dbd0d068d941133b8fce959f70eeb376d6184d9c6056",
+  "members_checked": 165,
+  "payload_files_in_checksum_index": 164,
+  "zip_crc": "passed",
+  "all_member_sha256": "passed",
+  "locked_hashes_unchanged": true,
+  "full_scientific_audit": "verification.json",
+  "scientific_audit_sha256": "96ab15619c8cb7afab55c7f5113f58273b84c0b0a6d1b02d133d8a23a3dce44e",
+  "checksum_index_sha256": "89f526d624c78ac048872f1d94e3e3b21f792cb1fd785004598a3550a2d107aa"
+}

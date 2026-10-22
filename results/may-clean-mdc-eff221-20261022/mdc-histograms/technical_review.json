@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "excluded_technical_vectors": 12,
+  "Lc_matches_fixed_exactly": true,
+  "iterative_equation_residual_rtol": 1e-08,
+  "fit_errors": 0
+}

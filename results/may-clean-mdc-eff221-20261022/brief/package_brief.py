@@ -7,8 +7,12 @@ from zipfile import ZipFile, ZIP_DEFLATED
 ROOT=Path(__file__).resolve().parent
 NAMES=['README.md','requirements.txt','brief_data.json','content.json',
        'build_brief.py','render_pdf.py','package_brief.py',
-       'report_ru.md','report_ru.txt','report_ru.html','report_ru.pdf','results.csv']
+       'report_ru.md','report_ru.txt','report_ru.html','report_ru.pdf','results.csv',
+       'hist_report.py','histogram_summary.json','histogram_values.npz',
+       'histogram_statistics.csv','hist_blocks.json','histogram_verification.json']
 NAMES += [name+'.'+ext for name in ('alpha_standard','alpha_calibrated','power_may22','power_may26') for ext in ('png','pdf')]
+NAMES += [f'mdc_hist_{date}_{family}.{ext}' for date in ('may22','may26')
+          for family in ('wls','poisson') for ext in ('png','pdf')]
 
 
 def main():

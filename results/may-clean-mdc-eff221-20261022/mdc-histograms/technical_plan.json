@@ -1,0 +1,34 @@
+[
+  {
+    "dataset": "may22",
+    "stage": "technical",
+    "target": 4,
+    "family": "wls",
+    "n": 3,
+    "chunk": 0
+  },
+  {
+    "dataset": "may22",
+    "stage": "technical",
+    "target": 4,
+    "family": "poisson",
+    "n": 3,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "technical",
+    "target": 4,
+    "family": "wls",
+    "n": 3,
+    "chunk": 0
+  },
+  {
+    "dataset": "may26",
+    "stage": "technical",
+    "target": 4,
+    "family": "poisson",
+    "n": 3,
+    "chunk": 0
+  }
+]
