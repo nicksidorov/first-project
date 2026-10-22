@@ -1,0 +1,770 @@
+[
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 1,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 1,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 3,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 3,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 0.94,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.02,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.1,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.18,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "signal"
+  }
+]

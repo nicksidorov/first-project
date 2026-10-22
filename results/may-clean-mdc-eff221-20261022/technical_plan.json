@@ -1,0 +1,50 @@
+[
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0,
+    "n": 20,
+    "chunk": 0,
+    "stage": "tech"
+  },
+  {
+    "dataset": "may22",
+    "target": 2,
+    "factor": 1.1,
+    "n": 5,
+    "chunk": 0,
+    "stage": "tech"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.1,
+    "n": 5,
+    "chunk": 0,
+    "stage": "tech"
+  },
+  {
+    "dataset": "may26",
+    "target": 0,
+    "factor": 0,
+    "n": 20,
+    "chunk": 0,
+    "stage": "tech"
+  },
+  {
+    "dataset": "may26",
+    "target": 2,
+    "factor": 1.1,
+    "n": 5,
+    "chunk": 0,
+    "stage": "tech"
+  },
+  {
+    "dataset": "may26",
+    "target": 4,
+    "factor": 1.1,
+    "n": 5,
+    "chunk": 0,
+    "stage": "tech"
+  }
+]

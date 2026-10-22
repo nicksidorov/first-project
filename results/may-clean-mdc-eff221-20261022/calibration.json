@@ -1,0 +1,893 @@
+{
+  "schema_version": 1,
+  "datasets": {
+    "may22": {
+      "n": 20000,
+      "methods": {
+        "wls": [
+          {
+            "target": 1,
+            "isotope": "Xe135",
+            "c": 1.0194907422444777,
+            "ci95_c": [
+              1.00131106207422,
+              1.0401498125538355
+            ],
+            "ci975_c": [
+              0.9988681726230784,
+              1.041766810980046
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                1.00131106207422,
+                1.0401498125538355
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9988681726230784,
+                1.041766810980046
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 2,
+            "isotope": "Xe133",
+            "c": 1.0940989651504622,
+            "ci95_c": [
+              1.0762692727215377,
+              1.112717016736086
+            ],
+            "ci975_c": [
+              1.0737581946404362,
+              1.1150199114435653
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                1.0762692727215377,
+                1.112717016736086
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                1.0737581946404362,
+                1.1150199114435653
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 3,
+            "isotope": "Xe131m",
+            "c": 0.991471137656149,
+            "ci95_c": [
+              0.9716774105433116,
+              1.00787916279352
+            ],
+            "ci975_c": [
+              0.9696243997593229,
+              1.0112432487775975
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.9716774105433116,
+                1.00787916279352
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9696243997593229,
+                1.0112432487775975
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 4,
+            "isotope": "Xe133m",
+            "c": 1.029792365016992,
+            "ci95_c": [
+              1.0131523612022202,
+              1.0512542578463597
+            ],
+            "ci975_c": [
+              1.0104811520598491,
+              1.0530083348190777
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                1.0131523612022202,
+                1.0512542578463597
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                1.0104811520598491,
+                1.0530083348190777
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          }
+        ],
+        "poisson": [
+          {
+            "target": 1,
+            "isotope": "Xe135",
+            "c": 1.0166151838550652,
+            "ci95_c": [
+              0.9979408282413308,
+              1.0352677316056227
+            ],
+            "ci975_c": [
+              0.994833829958291,
+              1.0382738725311296
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.9979408282413308,
+                1.0352677316056227
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.994833829958291,
+                1.0382738725311296
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 2,
+            "isotope": "Xe133",
+            "c": 1.0281492752457424,
+            "ci95_c": [
+              1.0121011257077208,
+              1.0495668771785265
+            ],
+            "ci975_c": [
+              1.0099043040328997,
+              1.0521406743341788
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                1.0121011257077208,
+                1.0495668771785265
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                1.0099043040328997,
+                1.0521406743341788
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 3,
+            "isotope": "Xe131m",
+            "c": 0.9910295976853991,
+            "ci95_c": [
+              0.9706199147443418,
+              1.0066866533607297
+            ],
+            "ci975_c": [
+              0.9687216787881828,
+              1.0084932380379135
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.9706199147443418,
+                1.0066866533607297
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9687216787881828,
+                1.0084932380379135
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 4,
+            "isotope": "Xe133m",
+            "c": 1.0158492499909408,
+            "ci95_c": [
+              1.0004237354585013,
+              1.033612562262095
+            ],
+            "ci975_c": [
+              0.9978438538152598,
+              1.0350017477383844
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                1.0004237354585013,
+                1.033612562262095
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9978438538152598,
+                1.0350017477383844
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          }
+        ]
+      },
+      "calibration_batches": 20
+    },
+    "may26": {
+      "n": 20000,
+      "methods": {
+        "wls": [
+          {
+            "target": 1,
+            "isotope": "Xe135",
+            "c": 0.9984840556690422,
+            "ci95_c": [
+              0.9826312601310232,
+              1.0201005315780134
+            ],
+            "ci975_c": [
+              0.9791721996568573,
+              1.0220987514746473
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.9826312601310232,
+                1.0201005315780134
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9791721996568573,
+                1.0220987514746473
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 2,
+            "isotope": "Xe133",
+            "c": 1.097474737287018,
+            "ci95_c": [
+              1.0809171194569769,
+              1.1149409212850845
+            ],
+            "ci975_c": [
+              1.0772056277745414,
+              1.1198145162770867
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                1.0809171194569769,
+                1.1149409212850845
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                1.0772056277745414,
+                1.1198145162770867
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 3,
+            "isotope": "Xe131m",
+            "c": 0.9801452693277175,
+            "ci95_c": [
+              0.9626455699278059,
+              1.0056557194602547
+            ],
+            "ci975_c": [
+              0.9615479034314942,
+              1.0098465035791182
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.9626455699278059,
+                1.0056557194602547
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9615479034314942,
+                1.0098465035791182
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 4,
+            "isotope": "Xe133m",
+            "c": 1.0043209942906948,
+            "ci95_c": [
+              0.9851113145025306,
+              1.0233455852717852
+            ],
+            "ci975_c": [
+              0.9837363938779159,
+              1.0250042243613204
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.9851113145025306,
+                1.0233455852717852
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9837363938779159,
+                1.0250042243613204
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          }
+        ],
+        "poisson": [
+          {
+            "target": 1,
+            "isotope": "Xe135",
+            "c": 0.9975847727726807,
+            "ci95_c": [
+              0.9813723451941081,
+              1.0175064820146291
+            ],
+            "ci975_c": [
+              0.979117462965825,
+              1.0191066896381316
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.9813723451941081,
+                1.0175064820146291
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.979117462965825,
+                1.0191066896381316
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 2,
+            "isotope": "Xe133",
+            "c": 1.0254176183634003,
+            "ci95_c": [
+              1.0091778108664282,
+              1.0405989925226746
+            ],
+            "ci975_c": [
+              1.0077025556538206,
+              1.0427114266966715
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                1.0091778108664282,
+                1.0405989925226746
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                1.0077025556538206,
+                1.0427114266966715
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 3,
+            "isotope": "Xe131m",
+            "c": 0.9890271774038144,
+            "ci95_c": [
+              0.968480655875504,
+              1.0113291014727297
+            ],
+            "ci975_c": [
+              0.9659715021201869,
+              1.0128486824365044
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.968480655875504,
+                1.0113291014727297
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9659715021201869,
+                1.0128486824365044
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          },
+          {
+            "target": 4,
+            "isotope": "Xe133m",
+            "c": 0.9887832126248577,
+            "ci95_c": [
+              0.9715855097277363,
+              1.0047090562498435
+            ],
+            "ci975_c": [
+              0.9688533402811683,
+              1.006956077130304
+            ],
+            "n": 20000,
+            "k_order": 19001,
+            "achieved_training_rate": 0.04995,
+            "training_exceedances": 999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.04702009046424116,
+              0.05306014478394583
+            ],
+            "marginal_alpha_without_ties": 0.04999750012499375,
+            "ci95_rank_info": {
+              "interval": [
+                0.9715855097277363,
+                1.0047090562498435
+              ],
+              "order_ranks": [
+                18939,
+                19061
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9522088812273933
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9688533402811683,
+                1.006956077130304
+              ],
+              "order_ranks": [
+                18930,
+                19069
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9758447878345171
+            }
+          }
+        ]
+      },
+      "calibration_batches": 20
+    }
+  },
+  "target_alpha": 0.05,
+  "statistic": "R=A_hat_free/Lc_standard",
+  "decision": "R>c (strict)",
+  "calibration_rule": "c=R_(ceil((n+1)*.95)); order ranks are one-based",
+  "family_order": [
+    "wls",
+    "poisson"
+  ],
+  "target_order": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "validation_not_used": true,
+  "validation_note": "Only files named by calibration_plan.json were opened; validation outcomes were not read",
+  "alpha_interval_from_calibration_note": "Central 95% Beta(n+1-k,k) law across repeated calibration samples under continuous R; not an independent measurement of frozen-c alpha. Strict ties are conservative. Use held-out validation intervals to report achieved size.",
+  "source_sha256": {
+    "manifest.json": "cf113f69d167094d52b8aba56c71c0488ecc45d6f0760139143d412b64d9fba0",
+    "calibration_plan.json": "1df7ca06f3d38d8c570751e251799619c21bb6470ffc126c4da287b1736917a0",
+    "points/may22_calibration_i0_f00000_c0.json": "abec1b16b322559ef296fc96eb6064978b278a4544aedbcd8730e9eee1766df6",
+    "points/may22_calibration_i0_f00000_c0.npz": "4d7b216b8787c3b1a9bd21515b91da1dac89329ea5205feb54ca4073c34e356c",
+    "points/may26_calibration_i0_f00000_c0.json": "9bc3f418a7ce07aa869c5b41ce823d31342388a4515fd9990c0ba73238d81cbb",
+    "points/may26_calibration_i0_f00000_c0.npz": "6a4db3fa25ad1fe7c55e34d2d62d441a3de8bf2bb7e4746c3fd89030e223c5f8",
+    "points/may22_calibration_i0_f00000_c1.json": "2d4c91275a12c318fa4a52b27b133d030ffc39f780d39e4b32d2a8036f48f138",
+    "points/may22_calibration_i0_f00000_c1.npz": "60b4b06f99f991c09b67727ccbab1a57b5178a701631a377afac8e5bd64ea6c3",
+    "points/may26_calibration_i0_f00000_c1.json": "e8eaad147aa8848a76a0713fccf0168e54103da2e04af2c44fa10826f713a439",
+    "points/may26_calibration_i0_f00000_c1.npz": "25a03ea913b9c068c503c511d5d578b87bd8828e770722ce207252ed1ad1b18f",
+    "points/may22_calibration_i0_f00000_c2.json": "12090ed4230ebf014594b403d249e6891cd7b2e31956a9be50f6946b11750d12",
+    "points/may22_calibration_i0_f00000_c2.npz": "43510e042ea64f29fc529650cffd02006f222151b2b36add0cd885f7f0f321de",
+    "points/may26_calibration_i0_f00000_c2.json": "903ecbdb711533b8b68e760b5c9f2f8e918365817d539034a4e9e3356538c8d9",
+    "points/may26_calibration_i0_f00000_c2.npz": "a34a12a2988e18fc70b2b523544ae0eedd705dd2811c6e1fc7cccb91553e549f",
+    "points/may22_calibration_i0_f00000_c3.json": "00dbdc3c0d9dc47c37d4d33601c1390a73f74847336c2bc618f12200baa4a906",
+    "points/may22_calibration_i0_f00000_c3.npz": "ed880ff86f93ba5c9086deb3df8d63c3c9ce99b4de671953f23b0a35a5372083",
+    "points/may26_calibration_i0_f00000_c3.json": "ffdf53a69f1ef4026ac5526a9beb22c34945de4dd848784fa6eb5650d0d03360",
+    "points/may26_calibration_i0_f00000_c3.npz": "b4fb5082c0118e8e0a74572bf738ef3ffde9c5bcb18c41a3443992bc6b5e3f5a",
+    "points/may22_calibration_i0_f00000_c4.json": "1155bb487298115a67e03b1cb14cbf7f3b96f4ee65e14c822504d23de8398ba1",
+    "points/may22_calibration_i0_f00000_c4.npz": "7d656329f4ae2a20ba342218af5067de46a8c5b9dfd19466fb39d0e024baeade",
+    "points/may26_calibration_i0_f00000_c4.json": "7231a37d0fe36850cffb92e6dae9f9eb22f2f456aba6adb4e018d8845dee02b4",
+    "points/may26_calibration_i0_f00000_c4.npz": "6bc34c77ce43f8e8894fb5afe06cdac6ac2ad7db1068521c84459b59ef33d4f7",
+    "points/may22_calibration_i0_f00000_c5.json": "30cd0c338bc5e58d8120f772f98ee36d99d62567a108d8a4fbd5a14516729cb1",
+    "points/may22_calibration_i0_f00000_c5.npz": "37b597f82682874ebf949a8cb2cc848552f99aba739ca40a0a0dff731ecec7a3",
+    "points/may26_calibration_i0_f00000_c5.json": "c3d4279c219364730cb20421a8e56306bd9be4e509759681cda70ddfb1473035",
+    "points/may26_calibration_i0_f00000_c5.npz": "15c39e3bb5ee1ff2894555a07672b7cef9deb9e70389208f5d1e698363f16aa4",
+    "points/may22_calibration_i0_f00000_c6.json": "d174d4479d924bf0697ed44822877aee32914a37ef92e1350895b0a20dd74b9e",
+    "points/may22_calibration_i0_f00000_c6.npz": "6464cfd8ac5605ac887d61081bf240b95dd5976088929987d9286b458e97866c",
+    "points/may26_calibration_i0_f00000_c6.json": "096401e22c174fe8c57b111861594d6a749e5900d69cf31e3460101a19f3ae1f",
+    "points/may26_calibration_i0_f00000_c6.npz": "d49a92c19a7aaffae4364af558a5e30cebe05176b6a1ccab33f4c41357c744ea",
+    "points/may22_calibration_i0_f00000_c7.json": "fbfe1e09c9dd6cf60338da419b3c3c3bfc3cc77395500f1fbaa2ed5042021be7",
+    "points/may22_calibration_i0_f00000_c7.npz": "cadcdb1786444abb5803b719e338e89d51f8fa29db154af697b6107aaae93742",
+    "points/may26_calibration_i0_f00000_c7.json": "6b87a13367c87ab84457e3579f45b8dfe40117afb496046169a61b4a3615c26e",
+    "points/may26_calibration_i0_f00000_c7.npz": "cf50349e0a655dda617af5429d8a6fbe7a355cc210946e9421e15cfd54ca9678",
+    "points/may22_calibration_i0_f00000_c8.json": "1be846b8da8f92ee01b60cf304836b9404e5ecd2393a16e99a6607962eb011a3",
+    "points/may22_calibration_i0_f00000_c8.npz": "fcf2db189200341d5b3309eebbe71b9a4188029dd1b6ab779f8b2b8b9fb03f94",
+    "points/may26_calibration_i0_f00000_c8.json": "453883b041ea4fea868919a31d166a2c32e886e06900eb7a35181b66946e69b4",
+    "points/may26_calibration_i0_f00000_c8.npz": "96fcdff0a88880e3e6018232de26ba197806240def557eddaed9ca40a4e934d1",
+    "points/may22_calibration_i0_f00000_c9.json": "184843f761719f13b38f5aa5a9a9da103aedca2fabb1497ddb433a321bebaaab",
+    "points/may22_calibration_i0_f00000_c9.npz": "1d0ba1cee12759e0cd7061a3c32f546759f5fb79d2f40593bf2e4860856e6c61",
+    "points/may26_calibration_i0_f00000_c9.json": "112f7d7cc184fefe2db9c5ac0eb1ed75ef1c0f03ff8e205ec24e47085a346d1c",
+    "points/may26_calibration_i0_f00000_c9.npz": "b8d10438f1cc3e4c49864b51006162f1f56ba91bfdb5c4894b322b3765def647",
+    "points/may22_calibration_i0_f00000_c10.json": "7e2ce819a75708643e186b44e28d48e32efcc09c8a81b2b224c8c634c778fac5",
+    "points/may22_calibration_i0_f00000_c10.npz": "044ad1817ca3eab7e9cb20479c5d0990b09e7e125191b7580566ffc0901011bf",
+    "points/may26_calibration_i0_f00000_c10.json": "8d969f68be329ad5cfa312718811dc9d0b5a85f162370567d2a6b3aba3c2a064",
+    "points/may26_calibration_i0_f00000_c10.npz": "e8339f703339ac0ac06a1fdd75eddb35b33659b04360d9a3b09b1175aa52f6c9",
+    "points/may22_calibration_i0_f00000_c11.json": "1bf0bbaee7d07f31732fb04d21b4de5c39e3009326ee0f4497bc1c57a493dbaa",
+    "points/may22_calibration_i0_f00000_c11.npz": "59aad27501aa075935ef5766248412684f352e315fff7efc5c9c148fe29dd3f5",
+    "points/may26_calibration_i0_f00000_c11.json": "3bc3b50fc4d6eaf9f55eb658dc99ce43368630161f0d01b7ef07c30a9bba64c2",
+    "points/may26_calibration_i0_f00000_c11.npz": "a28aeee9ca4fd140141f8ac8bfebdb269b30f26b862b554f4aacce9fc058620c",
+    "points/may22_calibration_i0_f00000_c12.json": "6ca6669b22108b23be8032913cbbc572a3cda21fddc21f111520c8458bb2fe3d",
+    "points/may22_calibration_i0_f00000_c12.npz": "11c522de0f854b78be58dedd16f3975ba5a13676dc769f3a730373cd9f58107f",
+    "points/may26_calibration_i0_f00000_c12.json": "2aa14e8a903827f0f0c2ee1440ca1c19271dccedb0e7a2877027e94ba3d20380",
+    "points/may26_calibration_i0_f00000_c12.npz": "b9b64bca44dc4d81d6ab113ab31d8a0a93b4117e97358034b702f4de9c22951c",
+    "points/may22_calibration_i0_f00000_c13.json": "3f3b08d66b2b69afd4840aae5cf0d7c21b8e73bbc33fe4740ca39fb537c407bc",
+    "points/may22_calibration_i0_f00000_c13.npz": "79ed3a43fa770e4f6ba925dd2386486be62a48edc7e1be61584929d4ae47ae09",
+    "points/may26_calibration_i0_f00000_c13.json": "5c75cf39dac85afb2db40dfd384d0a05ae6cf5946b42ab69454cd248a4017915",
+    "points/may26_calibration_i0_f00000_c13.npz": "8533c691e1f23e665bdbdf46f19abb7eb8a0000b9f49711833715404ad1648a6",
+    "points/may22_calibration_i0_f00000_c14.json": "17729c55819454e3c798b879eb84e985b887d19936f2c3d35383c5a9d16a67d0",
+    "points/may22_calibration_i0_f00000_c14.npz": "9438b39d67cedf18b443430f7f93c14c41ee21d2f7c6469168fbf1df8b4b25b8",
+    "points/may26_calibration_i0_f00000_c14.json": "f4b0dcafc0a690a5e6b778fa22762b458fe2c69976b93511d7c265fa9e597e43",
+    "points/may26_calibration_i0_f00000_c14.npz": "4e9b63569283bf92a9dd33bf8f2a0d60bae172938ed8304bc219e1ae54408896",
+    "points/may22_calibration_i0_f00000_c15.json": "14f0c7c5d5ac71e1256c4d14dd0835fa1e63a1cc8f117e1f18f9134b13125aa5",
+    "points/may22_calibration_i0_f00000_c15.npz": "3f1798453612decee4dc86fd80380e891f2dd79f47493581816f5a771ae17820",
+    "points/may26_calibration_i0_f00000_c15.json": "9ed5a4516ab22d0880eb9a49ebcf6c484a65904133d6509e6a186f433b9c6724",
+    "points/may26_calibration_i0_f00000_c15.npz": "ffe8d60c88240aea8a88610519ede6723272166e059bb18399ef68dd301f4ae3",
+    "points/may22_calibration_i0_f00000_c16.json": "84022a50d6808f28c03c750e7b5c4986d0dee0fda1d07caf249b4ccf1d8485b5",
+    "points/may22_calibration_i0_f00000_c16.npz": "b493f8659d4be23220d360cb4f65f8396c60466af56547955cd77dfff7c17518",
+    "points/may26_calibration_i0_f00000_c16.json": "3e6af35f4c4d298026e54e06a821d388b5d842c7112512f4817a14ca34aa2fcc",
+    "points/may26_calibration_i0_f00000_c16.npz": "57fee2c8b227c1545f42a6679f2f9c92c8580128dab13b1b86f787157a21fa72",
+    "points/may22_calibration_i0_f00000_c17.json": "241ef94765eb5160ed399946833798c074739c17f305097aba2ec25eb60818f6",
+    "points/may22_calibration_i0_f00000_c17.npz": "205630211a70c143b1dbd1f17ba0a811eed5feac9a7a49a91fc7310789836b82",
+    "points/may26_calibration_i0_f00000_c17.json": "1bea6352277a16e71dce0f44c45cfff613f7b024cf55adc67b3d5c71bb99d004",
+    "points/may26_calibration_i0_f00000_c17.npz": "e9a8738853188c0d0bf670dd3886c283d9d8cdd9f9102ed0c13b1d3ad4c3adaf",
+    "points/may22_calibration_i0_f00000_c18.json": "5f4e51085ada4ab0e6b588aad59ea247595a2eb05615424772b3f6431e7e831e",
+    "points/may22_calibration_i0_f00000_c18.npz": "eb98663a3dad7880e08501f0351eb88ef4fa8845584e06b04d6572aa619931f1",
+    "points/may26_calibration_i0_f00000_c18.json": "55ada7e2472535eaa1ebf73183ab23e01fd5102090081695f4c4e6eb9459bcfa",
+    "points/may26_calibration_i0_f00000_c18.npz": "223814b73d9748f57d1804fc4b6a1030574226127eb80e278134aebd29dc7c05",
+    "points/may22_calibration_i0_f00000_c19.json": "6e8fc8f9bd1e92f0e47aaeb3f7390ba39b68ea6ea174362ed807b285d08e82d5",
+    "points/may22_calibration_i0_f00000_c19.npz": "d0af46fb349549cb32ad84a5864981af315ce40d70917f1b8e38c35855ae38ce",
+    "points/may26_calibration_i0_f00000_c19.json": "41944cce4b6b0ac5bf2e25fa2791f7be0e9eebc267cfd7cadc7fc6f7fb02fef8",
+    "points/may26_calibration_i0_f00000_c19.npz": "235374a23f531d44d702ab0184aa12ee4df45acd647627500905ef1f94365532",
+    "calibration.py": "cbf36e72aaefc286fb29909b59756e925804fa523673445e4b0de770491a1a1d"
+  },
+  "bootstrap": {
+    "repetitions": 2000,
+    "master_seed": 2026102409,
+    "seed_rule": "[master_seed,dataset_index,0]",
+    "shape": [
+      2000,
+      2,
+      4
+    ],
+    "paired": "Common null row resampling across both methods and all four targets",
+    "file": "calibration_bootstrap.npz",
+    "sha256": "1e76f2df260691b8ee9b862b85a73968aa60149f754017e847fccdbad288a80b"
+  },
+  "frozen_at_utc": "2026-10-22T07:11:12.782805+00:00"
+}

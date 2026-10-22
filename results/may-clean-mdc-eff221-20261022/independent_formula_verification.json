@@ -1,0 +1,64 @@
+{
+  "formula_checks": [
+    {
+      "dataset": "may22",
+      "target": 1,
+      "LC_Bq_m3": 0.0005855229456291052,
+      "MDC_Bq_m3": 0.001230262637098531,
+      "relative_equation_residual": 3.323295586774281e-13
+    },
+    {
+      "dataset": "may22",
+      "target": 2,
+      "LC_Bq_m3": 0.0002975190300374496,
+      "MDC_Bq_m3": 0.0006506853245177597,
+      "relative_equation_residual": 9.914166930182055e-15
+    },
+    {
+      "dataset": "may22",
+      "target": 3,
+      "LC_Bq_m3": 0.00014765587851912725,
+      "MDC_Bq_m3": 0.00032907696980882177,
+      "relative_equation_residual": 2.471007405460586e-16
+    },
+    {
+      "dataset": "may22",
+      "target": 4,
+      "LC_Bq_m3": 0.00012839663581228837,
+      "MDC_Bq_m3": 0.00029351492285762326,
+      "relative_equation_residual": 1.7545821075013152e-15
+    },
+    {
+      "dataset": "may26",
+      "target": 1,
+      "LC_Bq_m3": 0.0006151818818527142,
+      "MDC_Bq_m3": 0.0012923212590831336,
+      "relative_equation_residual": 3.4590203679920847e-13
+    },
+    {
+      "dataset": "may26",
+      "target": 2,
+      "LC_Bq_m3": 0.0003153186266985369,
+      "MDC_Bq_m3": 0.0006896256448530163,
+      "relative_equation_residual": 1.0140434980520456e-14
+    },
+    {
+      "dataset": "may26",
+      "target": 3,
+      "LC_Bq_m3": 0.00015650302674096288,
+      "MDC_Bq_m3": 0.0003487868622626538,
+      "relative_equation_residual": 0.0
+    },
+    {
+      "dataset": "may26",
+      "target": 4,
+      "LC_Bq_m3": 0.00013609810137016652,
+      "MDC_Bq_m3": 0.00031102711764035407,
+      "relative_equation_residual": 1.5686445005822085e-15
+    }
+  ],
+  "original_input_files_verified": 6,
+  "all_models_rank": 17,
+  "updated_efficiencies_verified": true,
+  "original_times_volumes_R_DETBK_preserved": true
+}

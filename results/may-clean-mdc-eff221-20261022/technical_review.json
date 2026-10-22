@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "vectors_excluded": 60,
+  "errors": [],
+  "all_counts_reproduced_from_seeds": true,
+  "all_estimates_finite": true,
+  "all_LC_finite_positive": true
+}
