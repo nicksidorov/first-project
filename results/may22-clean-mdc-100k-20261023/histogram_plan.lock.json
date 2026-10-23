@@ -1,0 +1,64 @@
+{
+  "manifest_sha256": "ce69c751391acf8b80fa690b3d901dae3162734848fdd2ca541d88696e20a2ae",
+  "summary_file": "summary.json",
+  "summary_sha256": "32f557198b3ad5f61b217874623c77669192bde61968548b292f93406438087c",
+  "cutoff_sha256": "7545adc4536be728129f3ae80fad5702d98f0e3f13faa0345e6caf7c1c17f024",
+  "created_at_utc": "2026-10-23T19:59:39.247610+00:00",
+  "planner_sha256": "b6589c85f2a04b1306bec8e3622ae5a9b7ad8de61731f146e231c9cdc9853d6c",
+  "plan_sha256": "59b1fc568dafe3b717e2bd62192e6d2a11b45650253731667ba7247715b3d648",
+  "vectors": 160000,
+  "truths": [
+    {
+      "target": 1,
+      "isotope": "Xe135",
+      "family": "wls",
+      "activity_Bq_m3": 0.0012466661386384386
+    },
+    {
+      "target": 1,
+      "isotope": "Xe135",
+      "family": "poisson",
+      "activity_Bq_m3": 0.001247270876032879
+    },
+    {
+      "target": 2,
+      "isotope": "Xe133",
+      "family": "wls",
+      "activity_Bq_m3": 0.0006840076178064188
+    },
+    {
+      "target": 2,
+      "isotope": "Xe133",
+      "family": "poisson",
+      "activity_Bq_m3": 0.0006724607342433866
+    },
+    {
+      "target": 3,
+      "isotope": "Xe131m",
+      "family": "wls",
+      "activity_Bq_m3": 0.000346646818354272
+    },
+    {
+      "target": 3,
+      "isotope": "Xe131m",
+      "family": "poisson",
+      "activity_Bq_m3": 0.0003444758824559024
+    },
+    {
+      "target": 4,
+      "isotope": "Xe133m",
+      "family": "wls",
+      "activity_Bq_m3": 0.00032043732607194475
+    },
+    {
+      "target": 4,
+      "isotope": "Xe133m",
+      "family": "poisson",
+      "activity_Bq_m3": 0.0003133000027893707
+    }
+  ],
+  "thresholds_retuned": false,
+  "signal_Ld_uncertainty_resampled": false,
+  "rule": "Exact calibrated Ld95 from frozen summary / 1000; no rounding",
+  "main_interval_extension_requests": []
+}

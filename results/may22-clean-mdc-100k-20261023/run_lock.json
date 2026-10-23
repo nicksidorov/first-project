@@ -1,0 +1,11 @@
+{
+  "manifest.json": "ce69c751391acf8b80fa690b3d901dae3162734848fdd2ca541d88696e20a2ae",
+  "calibration_plan.json": "39d1652617ab4e8b539b154b4a7759817a0008699104773811fb2c1ea42b6134",
+  "validation_plan.json": "795239c9a54be6becb027182d33558d244e9879ce9bf6f6863a26e4b3fe7bacb",
+  "signal_plan.json": "e878952d21fbfd516280bbe206c62cddb53e85198c1e097041c7d958314eaa46",
+  "technical_plan.json": "686e59771eb124b4dbafecca686d95896f2eb5379db27284a4eafb9e18f7a455",
+  "study.py": "1648158970f3ae029868b1e340c5a28926dd7b2c79fa4470efb4484ca2b42509",
+  "prepare.py": "62ac6dc6b6c888f0374f7f3d9d4014b5dbb8383f380b4e5c0bcc1c5609ff8f65",
+  "statistical_design.md": "2ea73ab5c5587d84c7dfa8d10a781210642fa86d122067d283eff7b7b165ed2f",
+  "statistical_design_review.md": "5ddca170fd72ff80d6e45e35154acfb8b2e77bad6958d3bd25e395c50d55d5b5"
+}

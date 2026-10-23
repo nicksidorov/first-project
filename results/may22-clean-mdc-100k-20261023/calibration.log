@@ -1,0 +1,3 @@
+may22 coefficients {'wls': [1.0042080328948237, 1.0792432940786907, 0.9869792812453995, 1.0121342867085132], 'poisson': [1.0029645688245559, 1.0134449800224066, 0.986964083407886, 0.9947240720398484]}
+may22 paired bootstrap complete
+Frozen calibration.json, calibration_bootstrap.npz and cutoff.json; validation was not used

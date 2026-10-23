@@ -1,0 +1,25 @@
+{
+  "frozen": true,
+  "frozen_at_utc": "2026-10-23T17:53:58.701968+00:00",
+  "validation_not_used": true,
+  "calibration_file": "calibration.json",
+  "calibration_sha256": "78726941cce9b48c59abda213059776417481b34776f0717c4f330525298b168",
+  "bootstrap_file": "calibration_bootstrap.npz",
+  "bootstrap_sha256": "1a86ed364c09ca2388c8366e4434105a3ad0729e1cb47d5dc1df5bf44699c1ea",
+  "coefficients": {
+    "may22": {
+      "wls": [
+        1.0042080328948237,
+        1.0792432940786907,
+        0.9869792812453995,
+        1.0121342867085132
+      ],
+      "poisson": [
+        1.0029645688245559,
+        1.0134449800224066,
+        0.986964083407886,
+        0.9947240720398484
+      ]
+    }
+  }
+}

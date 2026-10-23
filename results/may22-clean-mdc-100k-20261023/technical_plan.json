@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 32,
+    "chunk": 0,
+    "stage": "technical",
+    "mode": "fixed"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 32,
+    "chunk": 1,
+    "stage": "technical",
+    "mode": "iterative"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.1,
+    "n": 32,
+    "chunk": 2,
+    "stage": "technical",
+    "mode": "fixed"
+  },
+  {
+    "dataset": "may22",
+    "target": 4,
+    "factor": 1.1,
+    "n": 32,
+    "chunk": 3,
+    "stage": "technical",
+    "mode": "iterative"
+  }
+]

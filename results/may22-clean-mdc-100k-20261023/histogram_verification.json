@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "audited_at_utc": "2026-10-23T20:24:41.533028+00:00",
+  "manifest_sha256": "ce69c751391acf8b80fa690b3d901dae3162734848fdd2ca541d88696e20a2ae",
+  "run_lock_sha256": "1db0fff9a2d98b401e8fdc24355c15a0712ee1a112aebb9f4828b01f17079252",
+  "summary_sha256": "32f557198b3ad5f61b217874623c77669192bde61968548b292f93406438087c",
+  "histogram_summary_sha256": "cacbfd9127943126033f02ecb6a0aff77fa9d76ea9991ed07a804508a089de6b",
+  "histogram_values_sha256": "f3a7bcdb54cf9d37c20d1f76a80617adada54d7942b458242eaca20b6a9ee9c9",
+  "histogram_plan_sha256": "59b1fc568dafe3b717e2bd62192e6d2a11b45650253731667ba7247715b3d648",
+  "histogram_plan_lock_sha256": "7c168b4a581b03f4f768c75ec702eb0894ada6abe21697922f4aab8881c407fa",
+  "audit_file_sha256": "fc74c86813bd7838520173ef59ecf06c3119875d52445470a7be5c5e6be94c1f",
+  "audit_helper_sha256": "1bfca74d83eb27d9d1be8c315f6f8da8b40532d7a28eef6759a10ca0bc2b2063",
+  "main_verification_sha256": "9af26b79a9ef1bfb66e61d2e1c90714681357d28d06726226d66edc5de7d3856",
+  "selected_signal_refit_rows_per_batch": [
+    0,
+    999
+  ],
+  "independent_method": "Regenerated all x, all MDC values and summaries; selected new fits and scaled QR + brentq roots",
+  "poisson_vectors_checked": 260000,
+  "reused_null_vectors_checked": 100000,
+  "new_signal_vectors_checked": 160000,
+  "formal_batches": 260,
+  "unique_seeds_checked": 260,
+  "new_signal_refitted_models": 640,
+  "new_signal_independent_MDC_roots": 320,
+  "max_relative_MDC_root_difference": 1.2084721001670573e-09,
+  "null_fits_and_selected_roots_checked_by": "verification.json",
+  "compact_arrays_checked": 16,
+  "mdc_attempts_checked": 960000,
+  "valid_MDC": 960000,
+  "unavailable_MDC": 0,
+  "error_records": 0,
+  "covariance_diagnostics": [
+    {
+      "scenario": "null",
+      "family": "wls",
+      "n": 100000,
+      "unavailable": 0
+    },
+    {
+      "scenario": "null",
+      "family": "poisson",
+      "n": 100000,
+      "unavailable": 369
+    },
+    {
+      "scenario": "signal",
+      "family": "wls",
+      "n": 80000,
+      "unavailable": 0
+    },
+    {
+      "scenario": "signal",
+      "family": "poisson",
+      "n": 80000,
+      "unavailable": 294
+    }
+  ]
+}

@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 20,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 21,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 22,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 23,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 24,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 25,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 26,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 27,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 28,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 29,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 30,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 31,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 32,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 33,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 34,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 35,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 36,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 37,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 38,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 39,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 40,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 41,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 42,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 43,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 44,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 45,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 46,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 47,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 48,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 49,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 50,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 51,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 52,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 53,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 54,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 55,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 56,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 57,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 58,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 59,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 60,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 61,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 62,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 63,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 64,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 65,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 66,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 67,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 68,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 69,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 70,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 71,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 72,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 73,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 74,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 75,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 76,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 77,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 78,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 79,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 80,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 81,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 82,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 83,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 84,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 85,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 86,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 87,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 88,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 89,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 90,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 91,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 92,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 93,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 94,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 95,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 96,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 97,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 98,
+    "stage": "validation"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 99,
+    "stage": "validation"
+  }
+]

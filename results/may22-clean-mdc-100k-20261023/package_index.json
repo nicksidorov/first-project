@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "prefix": "XeMat_May22_clean_MDC_100k",
+  "archive_limit_bytes": 94371840,
+  "counts": {
+    "calibration": 100000,
+    "validation": 100000,
+    "signal": 320000,
+    "hist_signal": 160000,
+    "technical": 128
+  },
+  "checksum_index_sha256": "2b58b0233215ca758100c88ebcd8004b4c527cafb956baa173005365b0819918",
+  "archives": [
+    {
+      "name": "XeMat_May22_clean_MDC_100k_metadata.zip",
+      "bytes": 16856923,
+      "sha256": "0fb8d817dd1e4a07d0855e448fd0e66f755faebef109fd04a78843d3664dea88",
+      "payload_files": 75,
+      "part_manifest": "package_parts/metadata.json",
+      "kind": "metadata"
+    },
+    {
+      "name": "XeMat_May22_clean_MDC_100k_raw_01.zip",
+      "bytes": 83136141,
+      "sha256": "0c20ac738826e4acba0ad9f345ac7588a017b518b8b4e01c14d18e0a76f57aba",
+      "payload_files": 274,
+      "part_manifest": "package_parts/raw_01.json",
+      "kind": "raw_01",
+      "vectors_by_stage": {
+        "calibration": 100000,
+        "validation": 37000
+      }
+    },
+    {
+      "name": "XeMat_May22_clean_MDC_100k_raw_02.zip",
+      "bytes": 83019079,
+      "sha256": "136cefe403d3fae2c97c3a09ea7a2148ad3b8e4bf0ab25cd2fc6244200e77236",
+      "payload_files": 266,
+      "part_manifest": "package_parts/raw_02.json",
+      "kind": "raw_02",
+      "vectors_by_stage": {
+        "signal": 70000,
+        "validation": 63000
+      }
+    },
+    {
+      "name": "XeMat_May22_clean_MDC_100k_raw_03.zip",
+      "bytes": 83387454,
+      "sha256": "9d5ed12f1e18170f84c57f0ed969eb0ea8a4e3399a2a09ac6b9cd8fa1f3bd5e7",
+      "payload_files": 320,
+      "part_manifest": "package_parts/raw_03.json",
+      "kind": "raw_03",
+      "vectors_by_stage": {
+        "signal": 160000
+      }
+    },
+    {
+      "name": "XeMat_May22_clean_MDC_100k_raw_04.zip",
+      "bytes": 83194549,
+      "sha256": "b788d65cba968fb5076561f908ee5d077cfd855a168d78711855a5edb231b6da",
+      "payload_files": 422,
+      "part_manifest": "package_parts/raw_04.json",
+      "kind": "raw_04",
+      "vectors_by_stage": {
+        "hist_signal": 121000,
+        "signal": 90000
+      }
+    },
+    {
+      "name": "XeMat_May22_clean_MDC_100k_raw_05.zip",
+      "bytes": 11823165,
+      "sha256": "a1be31c96a5723ec0683539e03f9700d6780ed920acd783b65fe92d756fac636",
+      "payload_files": 86,
+      "part_manifest": "package_parts/raw_05.json",
+      "kind": "raw_05",
+      "vectors_by_stage": {
+        "hist_signal": 39000,
+        "technical": 128
+      }
+    }
+  ]
+}

@@ -1,0 +1,628 @@
+{
+  "schema_version": 1,
+  "datasets": {
+    "may22": {
+      "n": 100000,
+      "methods": {
+        "wls": [
+          {
+            "target": 1,
+            "isotope": "Xe135",
+            "c": 1.0042080328948237,
+            "ci95_c": [
+              0.9956074210633457,
+              1.0133914924185456
+            ],
+            "ci975_c": [
+              0.9945211355640338,
+              1.0142134859773904
+            ],
+            "n": 100000,
+            "k_order": 95001,
+            "achieved_training_rate": 0.04999,
+            "training_exceedances": 4999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.048657255207270746,
+              0.05135879320507162
+            ],
+            "marginal_alpha_without_ties": 0.04999950000499995,
+            "ci95_rank_info": {
+              "interval": [
+                0.9956074210633457,
+                1.0133914924185456
+              ],
+              "order_ranks": [
+                94864,
+                95136
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9515407240832293
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9945211355640338,
+                1.0142134859773904
+              ],
+              "order_ranks": [
+                94845,
+                95155
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9754896816048285
+            }
+          },
+          {
+            "target": 2,
+            "isotope": "Xe133",
+            "c": 1.0792432940786907,
+            "ci95_c": [
+              1.0715292861166115,
+              1.0884261469812109
+            ],
+            "ci975_c": [
+              1.0697446596483453,
+              1.0900083539914263
+            ],
+            "n": 100000,
+            "k_order": 95001,
+            "achieved_training_rate": 0.04999,
+            "training_exceedances": 4999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.048657255207270746,
+              0.05135879320507162
+            ],
+            "marginal_alpha_without_ties": 0.04999950000499995,
+            "ci95_rank_info": {
+              "interval": [
+                1.0715292861166115,
+                1.0884261469812109
+              ],
+              "order_ranks": [
+                94864,
+                95136
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9515407240832293
+            },
+            "ci975_rank_info": {
+              "interval": [
+                1.0697446596483453,
+                1.0900083539914263
+              ],
+              "order_ranks": [
+                94845,
+                95155
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9754896816048285
+            }
+          },
+          {
+            "target": 3,
+            "isotope": "Xe131m",
+            "c": 0.9869792812453995,
+            "ci95_c": [
+              0.9784592253282374,
+              0.9951902943885367
+            ],
+            "ci975_c": [
+              0.9768353201765229,
+              0.9962667963128419
+            ],
+            "n": 100000,
+            "k_order": 95001,
+            "achieved_training_rate": 0.04999,
+            "training_exceedances": 4999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.048657255207270746,
+              0.05135879320507162
+            ],
+            "marginal_alpha_without_ties": 0.04999950000499995,
+            "ci95_rank_info": {
+              "interval": [
+                0.9784592253282374,
+                0.9951902943885367
+              ],
+              "order_ranks": [
+                94864,
+                95136
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9515407240832293
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9768353201765229,
+                0.9962667963128419
+              ],
+              "order_ranks": [
+                94845,
+                95155
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9754896816048285
+            }
+          },
+          {
+            "target": 4,
+            "isotope": "Xe133m",
+            "c": 1.0121342867085132,
+            "ci95_c": [
+              1.003349627997697,
+              1.0201626829465311
+            ],
+            "ci975_c": [
+              1.002044838907187,
+              1.0213147438112073
+            ],
+            "n": 100000,
+            "k_order": 95001,
+            "achieved_training_rate": 0.04999,
+            "training_exceedances": 4999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.048657255207270746,
+              0.05135879320507162
+            ],
+            "marginal_alpha_without_ties": 0.04999950000499995,
+            "ci95_rank_info": {
+              "interval": [
+                1.003349627997697,
+                1.0201626829465311
+              ],
+              "order_ranks": [
+                94864,
+                95136
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9515407240832293
+            },
+            "ci975_rank_info": {
+              "interval": [
+                1.002044838907187,
+                1.0213147438112073
+              ],
+              "order_ranks": [
+                94845,
+                95155
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9754896816048285
+            }
+          }
+        ],
+        "poisson": [
+          {
+            "target": 1,
+            "isotope": "Xe135",
+            "c": 1.0029645688245559,
+            "ci95_c": [
+              0.9955378936033925,
+              1.01124738013481
+            ],
+            "ci975_c": [
+              0.9944799634496915,
+              1.012043389166488
+            ],
+            "n": 100000,
+            "k_order": 95001,
+            "achieved_training_rate": 0.04999,
+            "training_exceedances": 4999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.048657255207270746,
+              0.05135879320507162
+            ],
+            "marginal_alpha_without_ties": 0.04999950000499995,
+            "ci95_rank_info": {
+              "interval": [
+                0.9955378936033925,
+                1.01124738013481
+              ],
+              "order_ranks": [
+                94864,
+                95136
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9515407240832293
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9944799634496915,
+                1.012043389166488
+              ],
+              "order_ranks": [
+                94845,
+                95155
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9754896816048285
+            }
+          },
+          {
+            "target": 2,
+            "isotope": "Xe133",
+            "c": 1.0134449800224066,
+            "ci95_c": [
+              1.0051999418569062,
+              1.020126799465676
+            ],
+            "ci975_c": [
+              1.003715211682459,
+              1.0212349835734005
+            ],
+            "n": 100000,
+            "k_order": 95001,
+            "achieved_training_rate": 0.04999,
+            "training_exceedances": 4999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.048657255207270746,
+              0.05135879320507162
+            ],
+            "marginal_alpha_without_ties": 0.04999950000499995,
+            "ci95_rank_info": {
+              "interval": [
+                1.0051999418569062,
+                1.020126799465676
+              ],
+              "order_ranks": [
+                94864,
+                95136
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9515407240832293
+            },
+            "ci975_rank_info": {
+              "interval": [
+                1.003715211682459,
+                1.0212349835734005
+              ],
+              "order_ranks": [
+                94845,
+                95155
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9754896816048285
+            }
+          },
+          {
+            "target": 3,
+            "isotope": "Xe131m",
+            "c": 0.986964083407886,
+            "ci95_c": [
+              0.9788584452796244,
+              0.9941434797994739
+            ],
+            "ci975_c": [
+              0.9774778222503783,
+              0.9954041780150548
+            ],
+            "n": 100000,
+            "k_order": 95001,
+            "achieved_training_rate": 0.04999,
+            "training_exceedances": 4999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.048657255207270746,
+              0.05135879320507162
+            ],
+            "marginal_alpha_without_ties": 0.04999950000499995,
+            "ci95_rank_info": {
+              "interval": [
+                0.9788584452796244,
+                0.9941434797994739
+              ],
+              "order_ranks": [
+                94864,
+                95136
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9515407240832293
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9774778222503783,
+                0.9954041780150548
+              ],
+              "order_ranks": [
+                94845,
+                95155
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9754896816048285
+            }
+          },
+          {
+            "target": 4,
+            "isotope": "Xe133m",
+            "c": 0.9947240720398484,
+            "ci95_c": [
+              0.9870621797360752,
+              1.0024366834058858
+            ],
+            "ci975_c": [
+              0.9862190537228958,
+              1.0037183335041666
+            ],
+            "n": 100000,
+            "k_order": 95001,
+            "achieved_training_rate": 0.04999,
+            "training_exceedances": 4999,
+            "ties": 1,
+            "alpha_interval_from_calibration": [
+              0.048657255207270746,
+              0.05135879320507162
+            ],
+            "marginal_alpha_without_ties": 0.04999950000499995,
+            "ci95_rank_info": {
+              "interval": [
+                0.9870621797360752,
+                1.0024366834058858
+              ],
+              "order_ranks": [
+                94864,
+                95136
+              ],
+              "confidence": 0.95,
+              "binomial_coverage": 0.9515407240832293
+            },
+            "ci975_rank_info": {
+              "interval": [
+                0.9862190537228958,
+                1.0037183335041666
+              ],
+              "order_ranks": [
+                94845,
+                95155
+              ],
+              "confidence": 0.975,
+              "binomial_coverage": 0.9754896816048285
+            }
+          }
+        ]
+      },
+      "calibration_batches": 100
+    }
+  },
+  "target_alpha": 0.05,
+  "statistic": "R=A_hat_free/Lc_standard",
+  "decision": "R>c (strict)",
+  "calibration_rule": "c=R_(ceil((n+1)*.95)); order ranks are one-based",
+  "family_order": [
+    "wls",
+    "poisson"
+  ],
+  "target_order": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "validation_not_used": true,
+  "validation_note": "Only files named by calibration_plan.json were opened; validation outcomes were not read",
+  "alpha_interval_from_calibration_note": "Central 95% Beta(n+1-k,k) law across repeated calibration samples under continuous R; not an independent measurement of frozen-c alpha. Strict ties are conservative. Use held-out validation intervals to report achieved size.",
+  "source_sha256": {
+    "manifest.json": "ce69c751391acf8b80fa690b3d901dae3162734848fdd2ca541d88696e20a2ae",
+    "calibration_plan.json": "39d1652617ab4e8b539b154b4a7759817a0008699104773811fb2c1ea42b6134",
+    "run_lock.json": "1db0fff9a2d98b401e8fdc24355c15a0712ee1a112aebb9f4828b01f17079252",
+    "points/may22_calibration_i0_f00000_c0.json": "fddc6a6459e2a6e90d870bf1b82465083968713efd838d29933c71d54928dfdd",
+    "points/may22_calibration_i0_f00000_c0.npz": "84e325ec944e07f008cdc971772aee13cbccd3c777985699e1ef451fd6c28648",
+    "points/may22_calibration_i0_f00000_c1.json": "ee436a82ac7e4a84e33b9f86ed28afc59ac1c9bf6e2efadfd5a874a782900532",
+    "points/may22_calibration_i0_f00000_c1.npz": "154e9d7a94719a5c5a2bec510137b116fd3f31f85d7e7f128935178a31d2fddd",
+    "points/may22_calibration_i0_f00000_c2.json": "822b566321dac8437056bfb68acb8c65424ae9f9a4e9ef4be716b77add01afe1",
+    "points/may22_calibration_i0_f00000_c2.npz": "434fe00b3444a0608071e5c7f287fbd8fcd46a79b44e9789fbe35273dc83bd00",
+    "points/may22_calibration_i0_f00000_c3.json": "606b905fc1a46661578fd0190f59d4c972a0c8bdd321a5400dedfc1f5d0e28f5",
+    "points/may22_calibration_i0_f00000_c3.npz": "8b6a2d3c2818b9960dbed1355457b7b44b9b816491a84332a2137761e4ccd8a8",
+    "points/may22_calibration_i0_f00000_c4.json": "17274e3568c94aa732830b85d250e25e903df7cfe09d2fe80de8b9affaa965d1",
+    "points/may22_calibration_i0_f00000_c4.npz": "952bee415991ae0a3f37ff0112b1e1ebc66f4cc26e7d84fca44d7740887099eb",
+    "points/may22_calibration_i0_f00000_c5.json": "dc84b3c289e5f16931fbcb5e9c3215a7c2201418b0daf2e3339259de931cc314",
+    "points/may22_calibration_i0_f00000_c5.npz": "eb51a4df3a67717b8eb91c0ccb9a08c49d8ea4524359a6919a541bedad48d788",
+    "points/may22_calibration_i0_f00000_c6.json": "af109275d16a2d2fb301a8189c8580e7087d1b11cdca343b5561b34eb42b422e",
+    "points/may22_calibration_i0_f00000_c6.npz": "1d3eb228a214a1f2182ab711df27a82ff3c63afdeac5c764d6233b2745566644",
+    "points/may22_calibration_i0_f00000_c7.json": "33448ba7559daf2989a9e9026e0eb875c0b7a8947e85f7e2023f48c767bf2756",
+    "points/may22_calibration_i0_f00000_c7.npz": "cf5d327990656e4800f4dfe6ae6e355b09c6c802d4e729a964a68713d102e9e4",
+    "points/may22_calibration_i0_f00000_c8.json": "15ba4bfac75ee5735a3858e4bb8ead97b5f3d22e96233452b9c91fdc48a86997",
+    "points/may22_calibration_i0_f00000_c8.npz": "8006b854450a47413d6e27a0f13aa095f41a87a41f986cf3473bd4e5bc578f29",
+    "points/may22_calibration_i0_f00000_c9.json": "50213fa90d4ce7767c3ad92a66178bd96b57d0783b603e6b221cb7c435d0dbce",
+    "points/may22_calibration_i0_f00000_c9.npz": "3e417bc140290b2c1a25e7b82e43446f24c0f1ca3c66e91ea8483cddde10cd83",
+    "points/may22_calibration_i0_f00000_c10.json": "01e87ce573ccabe03f469419ea0edbb6a9fdbfc365ace68c9acf4567cf8f32a4",
+    "points/may22_calibration_i0_f00000_c10.npz": "2c5c270a5fef9b64847e7d4dcb57f7067daace110c2034e4c4a8fdf38ccb41a4",
+    "points/may22_calibration_i0_f00000_c11.json": "2198263fde14ec5e1034595930d35e9e89ba95e7d7d46eaa57f27c67eb5fdf09",
+    "points/may22_calibration_i0_f00000_c11.npz": "34da6114535e791070aac79d1f738bb31d7696f6fed3d784cf854e82a450375d",
+    "points/may22_calibration_i0_f00000_c12.json": "521c5d98fa7f2062bb0af6d7652ec494f357bbb75603b755fbb8f427cbf2e778",
+    "points/may22_calibration_i0_f00000_c12.npz": "50b13190cc49746c35c1e39225b9f0637b5f212ea326b6c459a6c6e438de594a",
+    "points/may22_calibration_i0_f00000_c13.json": "74fd3ed2b614fdd02057f9993863a4d0e634b8335cfadb20d1ea772b1a14725e",
+    "points/may22_calibration_i0_f00000_c13.npz": "ca352d2e6254b3f427812ce1c16d3ff70c2eefdada79435be95132dcdbdbb1a3",
+    "points/may22_calibration_i0_f00000_c14.json": "b51966a75210786820e5d221569a55437ca9b6c96711decf2e97733472f09d96",
+    "points/may22_calibration_i0_f00000_c14.npz": "f51eb11856c10e53961efe1614147a2a8db29855b86eb50424dd99046de85e23",
+    "points/may22_calibration_i0_f00000_c15.json": "0fe95efefe3ee2f28b2e7849ef1b2edac9797b894a93b9ba175c396f1d438967",
+    "points/may22_calibration_i0_f00000_c15.npz": "edb0cc89b8aa9380b6225d06a9a6722e21a8c11bc44a1227b3ee5fad6acd1173",
+    "points/may22_calibration_i0_f00000_c16.json": "73764a84b1a4f66beeab037d9b9801a9e8bd677bd129d5910b1adf33823bcfb2",
+    "points/may22_calibration_i0_f00000_c16.npz": "d74bc876174cebca7df7f3727ac6b08882730aeee10640cbc59c5082c1201f17",
+    "points/may22_calibration_i0_f00000_c17.json": "84f64c46cc72ed599458fb296bec5b6246cfb1f05754fd80c37f76f3f66125fb",
+    "points/may22_calibration_i0_f00000_c17.npz": "0ca6bd2397ebca28cc25f4df72057890384c6f405e1c02af2e3c42c424050844",
+    "points/may22_calibration_i0_f00000_c18.json": "b255ca24835062228ce0336d4d6d22a8484c6d75191b498cbb95f9715d2827d7",
+    "points/may22_calibration_i0_f00000_c18.npz": "074e64e12c7f32d1235a9789dd3918cbe62ff749c08e9d9a9207d78d49ec4d90",
+    "points/may22_calibration_i0_f00000_c19.json": "c5fd1b25228a3188713071f8c29a40c06810b84d81884123276373018ae2d0c9",
+    "points/may22_calibration_i0_f00000_c19.npz": "d8ea1ad4d64a337aadd11a34c89a3bd342b143c32113674e1e3a329038a244ff",
+    "points/may22_calibration_i0_f00000_c20.json": "7c3c80045f4fd703bd1b015be1cdd03d57a280c18081544a18a7440c5dc62d76",
+    "points/may22_calibration_i0_f00000_c20.npz": "6e54cb20a6602b239d69b2a01db27f9cf2380c4eaea919f08772b6552c745e2c",
+    "points/may22_calibration_i0_f00000_c21.json": "5c9a2bb896598a2c515212d7545b0acf0d9032ca378b2c205b19cbf955b8c5f4",
+    "points/may22_calibration_i0_f00000_c21.npz": "92500da1abc7c106fd19d7513c4d5fb3948664c08abe9d5e27bcc9eb8b270312",
+    "points/may22_calibration_i0_f00000_c22.json": "21999cddc2846880c0a9f0f73cd8793cd3d8f8111c999bc41dc8b4028c923df7",
+    "points/may22_calibration_i0_f00000_c22.npz": "db848f5f70b595340de627df35f0a76c4165e713ba9747de184a5068804a2dc7",
+    "points/may22_calibration_i0_f00000_c23.json": "07eb1ffcfad10e4c6e49c8960fa2f4afa5f73a3ddca653e3507c04c0b6a0c253",
+    "points/may22_calibration_i0_f00000_c23.npz": "d639e30cfcb6806ec7a01964a00fa404daae4327a6fdbae6fb8aefcaed08f060",
+    "points/may22_calibration_i0_f00000_c24.json": "690eff3c704ccbc7bc1b93782b0a787af3201d02e08ed709463e9c3c6764c268",
+    "points/may22_calibration_i0_f00000_c24.npz": "cd8dd247400d5e93647fb3bfcf352db8cd94ddfec1df7946790321b6aba44eb5",
+    "points/may22_calibration_i0_f00000_c25.json": "e1c373fffe9e4e887f432a45ad41c82ce8f19c2543421ff5671bd1ed3dabe985",
+    "points/may22_calibration_i0_f00000_c25.npz": "2a33bb5e6c907861c3a2b2a9ed6103e049af40665f4d2cd5342c1f663bbefc2d",
+    "points/may22_calibration_i0_f00000_c26.json": "6115d5d6b7aa9840f0acc7ccb26a6b796efd81b68dc2234938c079a842a0c380",
+    "points/may22_calibration_i0_f00000_c26.npz": "ea56655c72697aad12189845879bbe28edf3c9593762c2ec646548e5b42d9abc",
+    "points/may22_calibration_i0_f00000_c27.json": "1c00b4b64ae599340aebe0e24bff15717b02b37e3979040b6ac9d382f58488e8",
+    "points/may22_calibration_i0_f00000_c27.npz": "07c8529b698962ed6f712aaa85165aa80e27365ed75ba8500c52f9c8c64a58d3",
+    "points/may22_calibration_i0_f00000_c28.json": "a27b08714361d1678dc9a6dd122b0ac297f5f5be91155dfb02e18f196c1660b9",
+    "points/may22_calibration_i0_f00000_c28.npz": "6ac4d93f3543b410505450ab860198ed85dd29f663b74401733a931b284deb1f",
+    "points/may22_calibration_i0_f00000_c29.json": "59d9ca471f46b8018e219de67a3c704a610fa1e465b0f7eafacfe0320f204691",
+    "points/may22_calibration_i0_f00000_c29.npz": "50fa83b0c97f347a1e16a10f6e26b82ff496b11fd285ef569d51f01dc0e6add9",
+    "points/may22_calibration_i0_f00000_c30.json": "b18e9c513e9557910a5a2ec89df7b7a3ea5dc221cfeabfd7623c06f8637a05ce",
+    "points/may22_calibration_i0_f00000_c30.npz": "e1ba0288b126d365ad494b62c97b496bce64d53b2932d169b70160d94ff86a86",
+    "points/may22_calibration_i0_f00000_c31.json": "2f0f6047f2a08fea63939e0027f1275a2cd91f89576a2c69fc795d73fa210307",
+    "points/may22_calibration_i0_f00000_c31.npz": "f218d31ef32bcbf319e568b765303100466424cb02c8b1c9613fe744f2b90a05",
+    "points/may22_calibration_i0_f00000_c32.json": "a9fcb743870b6a3ec43e5dc3ec463c45ee43cf31ec21b52a8d743cb0f7f20f55",
+    "points/may22_calibration_i0_f00000_c32.npz": "9f6eaa14351427a1590ae41423f9709a945f5bfb6935249251e275d7e2172776",
+    "points/may22_calibration_i0_f00000_c33.json": "1039ba67b9c0defeac3086542788a22e5b7bc29e65cba24cca0b7ffab53a80bc",
+    "points/may22_calibration_i0_f00000_c33.npz": "14e751257c9a10740f26e3ee2186e1fda5cf1b2ceccadabeb9256a3e46581f0c",
+    "points/may22_calibration_i0_f00000_c34.json": "a3b92519bbb5a83bb8e6716e42721e51c8ecedd84062e03cfd8bbb1640a9b52e",
+    "points/may22_calibration_i0_f00000_c34.npz": "c3126511cc0fdffd13a28055ef3bf10360529df6d891d833151e446da244bded",
+    "points/may22_calibration_i0_f00000_c35.json": "0b970e9f7e4c0c9d074dbf246e4b2f3f4ce885df4e9efdc590db8cb2d9b31a26",
+    "points/may22_calibration_i0_f00000_c35.npz": "657204cdc48392235295e288e459c96b8bac0721f4e8619433ecd32ecb73974a",
+    "points/may22_calibration_i0_f00000_c36.json": "199b8e6d40f431dc9e98cf73346f102d8f12f32bd5c71291e313f17eaf5cafc9",
+    "points/may22_calibration_i0_f00000_c36.npz": "39fbed1c779b1c2e40ad88786e73d878fdac41e70dc357dbf9672fd32cc92ffe",
+    "points/may22_calibration_i0_f00000_c37.json": "dc3f08d8309b3eb3174229d5ac1e079a36dc67734686090cb8682113bd911e2d",
+    "points/may22_calibration_i0_f00000_c37.npz": "abe8d274fa6e5ea1754cd197dcc520095eb4db513204b16e42e47ec08107c1ea",
+    "points/may22_calibration_i0_f00000_c38.json": "7c0982e0854871090a5d16ce51ed5fb2851da47e8880c4380eb3b143fdec2438",
+    "points/may22_calibration_i0_f00000_c38.npz": "78efc8da3f1e2f5c90b98fb01e92da2abe747751ef554874c2e40be22b09b564",
+    "points/may22_calibration_i0_f00000_c39.json": "8f139cfa63adb8758736783dc9ffe6e7a1406288fd2b7bb5c0dbd5596167200b",
+    "points/may22_calibration_i0_f00000_c39.npz": "8f85172a94c411c2615b784a5fb945eb4b97c1a243fdceee412a4224bbe6e937",
+    "points/may22_calibration_i0_f00000_c40.json": "9273d5edfeab24c667b43ca45cf382d74e29896258b88c0ee514b22aa36b3d16",
+    "points/may22_calibration_i0_f00000_c40.npz": "8428aacbac5f1c612d2b19640d8a679e6e04a74ef6a2fbf623738084dc1e99b3",
+    "points/may22_calibration_i0_f00000_c41.json": "4aa220daccbd265e4f4ca52be2be756cf6b7831936d1a1eddb62903f318851dd",
+    "points/may22_calibration_i0_f00000_c41.npz": "55d67919e0b0128b15889f07fae2b92d2fe6b100619727da6d1c642e55ba4c57",
+    "points/may22_calibration_i0_f00000_c42.json": "fd9e59736ec9277a06c2f9c75ce2828a03818d607a4fe772005cfa110eda63d7",
+    "points/may22_calibration_i0_f00000_c42.npz": "7f6a8f3889082765239fad9bd018f0cabda1350bbf6455243bf5101dcfd58fd1",
+    "points/may22_calibration_i0_f00000_c43.json": "616830f33f8b2b79409bcfd6d00675f69cc3f6a317d8eb235c0823a84c589ff1",
+    "points/may22_calibration_i0_f00000_c43.npz": "355ea14d2df5fcc32dfada2352ada55fa46cc9bdf880cf6752c39ac8ca4a8598",
+    "points/may22_calibration_i0_f00000_c44.json": "6aa36f024eb7c6e4f8e84950f4165a409e4c97ffdcfd3e7f2d536d7812169bce",
+    "points/may22_calibration_i0_f00000_c44.npz": "4e780529ebd0f4508a239f48bda91338bf67552ab45b45cc3d02a9f2325eacf9",
+    "points/may22_calibration_i0_f00000_c45.json": "23cc2bc2cb96ba8b4effdab2a3e6d1b5fcfe8e56ed82136672443b8dad3f96d2",
+    "points/may22_calibration_i0_f00000_c45.npz": "a1a174bd8d037d0703b74c15848144ae76d9df4ca863ef1f62acc0a699057b25",
+    "points/may22_calibration_i0_f00000_c46.json": "5b6c9c1ad79f0a19c117d6c54540da9873a4fb814955d65c284518ca8421ef0d",
+    "points/may22_calibration_i0_f00000_c46.npz": "4a4d9575ab39f4f1902ee45bd82e5c06e93bf21a3295983dc87ea4a3e68b3040",
+    "points/may22_calibration_i0_f00000_c47.json": "185b7055ec2d70527c578f1d797b80e4f7b5fb2c2f2219708a2276fc185fc5e3",
+    "points/may22_calibration_i0_f00000_c47.npz": "b546ebbbb10b73d32c319678fbe8d29e1127a0dec0369842871e4e47b917a4d6",
+    "points/may22_calibration_i0_f00000_c48.json": "a01622ac93fc4972616425c6befa69c81f2d70b23661a2182ce139bbdedb1c35",
+    "points/may22_calibration_i0_f00000_c48.npz": "b651b496a1e10efed09c104a0757f5c77f182701237945f387836ead2ee30d22",
+    "points/may22_calibration_i0_f00000_c49.json": "3eea112420d4f87ee60d9089916c4e21202850e54dd3bbce7634c6498d3d4fa7",
+    "points/may22_calibration_i0_f00000_c49.npz": "6b937b5174a69c93f1ced75ac9a24133b7e31ef353b3e9dd3f8085cdfb3ac4a1",
+    "points/may22_calibration_i0_f00000_c50.json": "febbdb208c8ed0502bea5a8f9c82c514b96f6678791fa9a6a596ca00f013d63f",
+    "points/may22_calibration_i0_f00000_c50.npz": "95817b3918f615938ec782b11c10971567e34f8b88b97868193171d254b6015b",
+    "points/may22_calibration_i0_f00000_c51.json": "7408f23bb08be517ba52f5ef13ed560a19739507e0319a7dac145bf7f1552de6",
+    "points/may22_calibration_i0_f00000_c51.npz": "6cf774a2f78b21247bbd3e1bbdfaca40670c53271b25e399fc9cb091605fc556",
+    "points/may22_calibration_i0_f00000_c52.json": "421ca0dca9889d8373ef7ab298714d6d14588d8fe83805a239f33c3bc61b63b0",
+    "points/may22_calibration_i0_f00000_c52.npz": "d833bf138269d547ed7ef051a0d4d42f2c8a23cbd61bc6fc4ac443393f9ec932",
+    "points/may22_calibration_i0_f00000_c53.json": "a728a3fe7c7f90e85d903391db7e066e2068223dbb310a812aacafb557ca240b",
+    "points/may22_calibration_i0_f00000_c53.npz": "294924d68eb7ceae378520c6ac2589c6f3090c2f6d4da04d3388b767298d053d",
+    "points/may22_calibration_i0_f00000_c54.json": "6625ad3c6901aca303afa5f571b0be449d70fac86cd6d3d84857695d975a8f3b",
+    "points/may22_calibration_i0_f00000_c54.npz": "a4fc9c3894d34f203a9839f8847bed5d7bc24278fb0290970b0969410b8f50f5",
+    "points/may22_calibration_i0_f00000_c55.json": "91907d7adf260d913df37c76e2313d148f271bfd5a25161fae33d2aff2268a41",
+    "points/may22_calibration_i0_f00000_c55.npz": "43ffe87cd332f1c4ebe67c06b9dd3fe715ebb9e3221fc545a1a5203342f2c716",
+    "points/may22_calibration_i0_f00000_c56.json": "eeee3586be7a40b1015bd2abd7eb8da618e1e42dd7d9660d39e8aee34273be95",
+    "points/may22_calibration_i0_f00000_c56.npz": "6ce1ae651ee70e0125dabf3753519531f4b89062add0a90cdaa50fa510000212",
+    "points/may22_calibration_i0_f00000_c57.json": "ba23d23285744ea5ba1ae1d0157aa37e01825b124620fcc4ec8f3d38b008477f",
+    "points/may22_calibration_i0_f00000_c57.npz": "cf6edfa260646f1bb62913bc6e7ac1c14c705a036bf5d12fd3566c25d6ef36a3",
+    "points/may22_calibration_i0_f00000_c58.json": "16f6f11d51f443f4fdd9003268e6125a5afcac235119f5d359b544a4338d3c35",
+    "points/may22_calibration_i0_f00000_c58.npz": "5efa684ec0e178e7c6047e8ac8a5a7152633f35d6bd110c2c5ccb16e4b84fd33",
+    "points/may22_calibration_i0_f00000_c59.json": "ca18cca09ee97aa0c490ccb6c6709bd032871967c0f0f0df8e476d201a0fe5ec",
+    "points/may22_calibration_i0_f00000_c59.npz": "b09bbefaa31c467aabb19b328abe0cdaff1a66f0c82a9ef320f8216a4cdfafde",
+    "points/may22_calibration_i0_f00000_c60.json": "54dd633773c13fef6c4b0b35292585b28ad0457674e7102217161d3d835c6503",
+    "points/may22_calibration_i0_f00000_c60.npz": "d1a319a020a813ae7199471d8ec9682bd6840fa089eedb99ae9b502b53576d3b",
+    "points/may22_calibration_i0_f00000_c61.json": "730bc73db2c546c23cc28d0bb67d5f0e15a0569ff5374dd0ea7b43e57112b43c",
+    "points/may22_calibration_i0_f00000_c61.npz": "e923a6542c177b50b902ecc14bf767d0001023b327cbba152b2e3259e4511e97",
+    "points/may22_calibration_i0_f00000_c62.json": "361fc5a688c7c0e4fe0ebae380f538da11f17c53f6fdc680863a01f99517d6ad",
+    "points/may22_calibration_i0_f00000_c62.npz": "39eb60c44ca983a707a2a6044c5034ef6c920ca170fe73ed059fde37f0a73730",
+    "points/may22_calibration_i0_f00000_c63.json": "8a0c0bcf465e381a91dae9e06b161ad3f98decff481f7009ce579c6200e312e3",
+    "points/may22_calibration_i0_f00000_c63.npz": "b5106bfefeda2ef42ef1a71610bc154f81b1a20f7c497d81b0abcd4320d3460c",
+    "points/may22_calibration_i0_f00000_c64.json": "1830641e3152085c298bb055bd47517d6eb00ce29bae330dfa3720e153b242f5",
+    "points/may22_calibration_i0_f00000_c64.npz": "4a5ae35f8defe728f318845d64f2455557328afb9fab334d9e395df088a0b0d9",
+    "points/may22_calibration_i0_f00000_c65.json": "5304d269019bb0b5e4e9070b947c48404ba17fae88e064ad831b399d926bbe6e",
+    "points/may22_calibration_i0_f00000_c65.npz": "c29ad0ac7adb63027bb5e079c9160fa18d1f8116be060b93712712692cc2a3bc",
+    "points/may22_calibration_i0_f00000_c66.json": "e14b1162a2cc48a5765458879e259e6c65b752892fc38c7d4cc5af38615410d6",
+    "points/may22_calibration_i0_f00000_c66.npz": "a2658a0efd2b5570d0aa9214835c83bdb1d756ce64c9931e1d9d3331fa87d3dc",
+    "points/may22_calibration_i0_f00000_c67.json": "dea7909534e99f9fe74da81b4acc4ee22184e963455a210ca711979772a450d6",
+    "points/may22_calibration_i0_f00000_c67.npz": "80b187a7f4021ba4320f831c5a049b86bf94db1a5f07ff55f35e170257545d47",
+    "points/may22_calibration_i0_f00000_c68.json": "3876b35a139b2c1b8675a4ac621c242f9512d195007ed51e327ad8b4419d24db",
+    "points/may22_calibration_i0_f00000_c68.npz": "eed91d7aae507d233f0e7430c6b7fb03952feff13a610ff72a9c072aab6fb951",
+    "points/may22_calibration_i0_f00000_c69.json": "83dbed36fe45d0485b4c89cb18c8ad4f8161e9e41afcb4a33c07bf0343b29438",
+    "points/may22_calibration_i0_f00000_c69.npz": "4223bf18faf9758c64c2250c3811b3ae799e924a4f3d153ffe248fcc81b8a8f3",
+    "points/may22_calibration_i0_f00000_c70.json": "2e427bd6c6d3d7491728471f8a36e2770bc6d67f07f45e3c7083902cbcc2c33e",
+    "points/may22_calibration_i0_f00000_c70.npz": "d8ade6e123d249392ff66432c326e19bb1ec6f1f5d21f2e6faf5e5e4a72fc595",
+    "points/may22_calibration_i0_f00000_c71.json": "e27199f2b2ed808935e37c5b0185839b751b570436f259d7dbc99a32cf99b6dc",
+    "points/may22_calibration_i0_f00000_c71.npz": "d7ec304820773f87c00444ee67f778c3178a8acdad3509e7648f7610dfa453ac",
+    "points/may22_calibration_i0_f00000_c72.json": "8b4d9ce02f855c9328177455578a89696589bd83cb103dff8c0d0f11f3fc8e1c",
+    "points/may22_calibration_i0_f00000_c72.npz": "9d3ebc1d7b853d26158e793b02fa3846a8dea05bed0756b5e4a80d777c022985",
+    "points/may22_calibration_i0_f00000_c73.json": "a515756406ad40f4a0dc969182d27ab4c5a3a9c5e6285ea93f9aa49ba62d64bb",
+    "points/may22_calibration_i0_f00000_c73.npz": "3ae85484d5a6df27629aea26bf5e885dccad9d4b932a95e5b9a4dc08a287559c",
+    "points/may22_calibration_i0_f00000_c74.json": "8ae293bcb18d8c9b1f6a49f722e348f1c65c234f6d2cc6e770c2fd2535235c92",
+    "points/may22_calibration_i0_f00000_c74.npz": "a5de1277c13ec7277db24e40aa467f178b7c7dc7085125861790a6ed83e24df4",
+    "points/may22_calibration_i0_f00000_c75.json": "7eb86289e595ec6706d6e1fcc55add11491fa933f9c7efc27a5b0922ad55b062",
+    "points/may22_calibration_i0_f00000_c75.npz": "c74b86b4eb1e577cdf3e2676a27466e810edd196f8577d31eea38e8845bbfd0f",
+    "points/may22_calibration_i0_f00000_c76.json": "50faa2b5b93c1d572feebd823df7ff6e51f997d11149d9211998d90f2ba33328",
+    "points/may22_calibration_i0_f00000_c76.npz": "d94ed033cc06090c130fa69ae7d5b6c5e85da700dfe70528025ca67b68f56d57",
+    "points/may22_calibration_i0_f00000_c77.json": "f91f0089fa4e02c4cdf0d2107805d9acd2c48a24c572531728d9266fc6cd22a3",
+    "points/may22_calibration_i0_f00000_c77.npz": "07dd6cecd41ed3312c24bea7488ff4fb784de1697b2b78dd0374fa07887fdf8a",
+    "points/may22_calibration_i0_f00000_c78.json": "c0e2a8ee90d4b8def96bf9de738dfe462ee030734be3d59575e7f77dfccec229",
+    "points/may22_calibration_i0_f00000_c78.npz": "589524e7366feeeb3851396ed5887ee28d98027ff616e339fc0660a7cb8adec5",
+    "points/may22_calibration_i0_f00000_c79.json": "3f2569eb93fe93791dec00533ceefc1ae9f14543610f5b268842194bcff7cb5d",
+    "points/may22_calibration_i0_f00000_c79.npz": "70c9780a8f348d747c1730d9944fd2c4be8c17dd9ff34516812cfd6273bf4d76",
+    "points/may22_calibration_i0_f00000_c80.json": "30336cea0847fe3aa921df106ba4821a84cf19dea70f621db2368b306a4b7044",
+    "points/may22_calibration_i0_f00000_c80.npz": "8d96ee8576a74c439e8580ab2962c877daaa1eb0ef0baa2937e1247ecdaf2f11",
+    "points/may22_calibration_i0_f00000_c81.json": "69a00fa4589609ec3ed3f5c437b4158333f208d97a54d5fd1ee64a335ad12c5c",
+    "points/may22_calibration_i0_f00000_c81.npz": "1226be754ba7048105eda46bdfa97bb542e86fa591f92a5b60f972d4f6051522",
+    "points/may22_calibration_i0_f00000_c82.json": "395afc568bd6aee4bfd580592a67dbd2292a3ffd61f978f83cdbf977db318965",
+    "points/may22_calibration_i0_f00000_c82.npz": "386c1005954dfa4c0aa4296363befdb9020ed1f6bc1c881a873126d4df8feb1b",
+    "points/may22_calibration_i0_f00000_c83.json": "f8a9038a9943031367d77e8dc4764fb8053280ae7b73c5feaa1498bf34945c14",
+    "points/may22_calibration_i0_f00000_c83.npz": "f59616cf085ba623bbe7ebad3f6f533a6aced7044c0377b74a71f8a74b2b46ad",
+    "points/may22_calibration_i0_f00000_c84.json": "b37f961a5980adf588961d6deff8c8cb0ba2fcb3bb200e0f3a28012d12231906",
+    "points/may22_calibration_i0_f00000_c84.npz": "37a383cad41ba260eb265ac66e81285f48934e6cea287631c6427291e5af76ce",
+    "points/may22_calibration_i0_f00000_c85.json": "a24ce7c48f40084c6a2bf0fdba50ffa09a241105e7883b4165bf68fceda98445",
+    "points/may22_calibration_i0_f00000_c85.npz": "d715905d5744f7b11bd20b5082a55a3c31db1f2c1757320e800044159f30ceeb",
+    "points/may22_calibration_i0_f00000_c86.json": "d784f2544cca739ed29bdb41a277377832a2aa49b494aa1f24899c3eda7bd947",
+    "points/may22_calibration_i0_f00000_c86.npz": "f772eb675761df3bda40e36ff53b8ce6a7b836e956317562b3666eff732f6867",
+    "points/may22_calibration_i0_f00000_c87.json": "0f7ce4e6a27921991dc9cfe891a63963c3e25c0d946a8902077211075a4900cd",
+    "points/may22_calibration_i0_f00000_c87.npz": "ec06d3e30522bc1b644c0234a4137e039c9c3aaa51e7430ebec0d433ed172347",
+    "points/may22_calibration_i0_f00000_c88.json": "844a2e1baf2ab8793b31c91f67717af3d6fd057b45aa6490bd8708c2bb2e7a99",
+    "points/may22_calibration_i0_f00000_c88.npz": "d107084adb5e68ccdd0e802ff18fbaed45d447c579b5978b5e43ddeaf992c949",
+    "points/may22_calibration_i0_f00000_c89.json": "3006eabce3fe1b7770c3fc6ecee9fa4b15f2dc1cc43cafcf21ee201e9275be01",
+    "points/may22_calibration_i0_f00000_c89.npz": "f234b8b335a4077bcc1f6dc606f0af317f2f825e032d3dc255b1fe687d4ecbe7",
+    "points/may22_calibration_i0_f00000_c90.json": "17714308f9d84f2c67219ae4289c445e7ebf0f9dd8fec31c94342425e12b8bba",
+    "points/may22_calibration_i0_f00000_c90.npz": "98de52cd235b598d82d50767fd771f3ae06805dc12e81180697d09a63c116a71",
+    "points/may22_calibration_i0_f00000_c91.json": "4e5019cb8120d4e4625f3591b3b5ae01a88216b04fe3341cdb6bc0072009b09d",
+    "points/may22_calibration_i0_f00000_c91.npz": "3c51447e60813a2e439d201c9ecc7305e6f8fcd98dc6f9bec44d102581b4b17a",
+    "points/may22_calibration_i0_f00000_c92.json": "16e3d7b44ec549cab20b805d5607641b1f1881f5681bc37585b6ddcc08cc8a22",
+    "points/may22_calibration_i0_f00000_c92.npz": "22e32b3abba8d22b3b05309c646fc86ed624a3bc8d84500fa2e7835d51c96d90",
+    "points/may22_calibration_i0_f00000_c93.json": "631dc5a4042c25c553237ef00964671fc33447a93aac6ba0f5b06ccc1fe0a6cc",
+    "points/may22_calibration_i0_f00000_c93.npz": "e6eb09b1cf9c9016ad9bbfecccee69555dedb073c1b52bfd7d0fce5c36fe1ed5",
+    "points/may22_calibration_i0_f00000_c94.json": "1f9cbb2f0ba016fdf9946ba3b3eae73ae89fdfe78402c7c4be84981ff8ec7059",
+    "points/may22_calibration_i0_f00000_c94.npz": "3d1cb2e05dde9fc0caad57315fbcd21a4a5b6397c78813c4fdb6067ad436ec1d",
+    "points/may22_calibration_i0_f00000_c95.json": "fb8dade230a4b9be86aaf056d180b40909a59c1b15a20303915a54a82fee6445",
+    "points/may22_calibration_i0_f00000_c95.npz": "8ff6a4bb011a98669d3b3e1ccd2c1903a43276d9e376748ae6091220a3a9dbd0",
+    "points/may22_calibration_i0_f00000_c96.json": "06964f82adf394b3057af40d9354de5c263512ee5fbe066745bc933808b5ef5a",
+    "points/may22_calibration_i0_f00000_c96.npz": "dcc420118bb7c304dce1c270b3df7576cfe7008ddf6a8d3e4cec4ca07d2b0aa4",
+    "points/may22_calibration_i0_f00000_c97.json": "663dd6d2b38ef900a18a29f4666e40098bf695e53b33ae400968eb09292a57e1",
+    "points/may22_calibration_i0_f00000_c97.npz": "e2065432c54ccdc6ba58bbd6620420efd4f4891ed7d5344eab5507bf36962135",
+    "points/may22_calibration_i0_f00000_c98.json": "465ed7fc82b473bcb459de61bfd2206a5cc435e8d48bd1637cdfbccea9ff7933",
+    "points/may22_calibration_i0_f00000_c98.npz": "2db361ed226e81ad4ca0b9c9fc0dc6dfcb4109cdb642918f83bea79df26c82d8",
+    "points/may22_calibration_i0_f00000_c99.json": "b79fea19a99ec246cfee34336e18b2f86917e3b83248a60b1c47cba26afeb4cb",
+    "points/may22_calibration_i0_f00000_c99.npz": "1fec5269d629e722edc2a3b50cbd4eac2558828e9233f9fd5a0c68c41d964c88",
+    "calibration.py": "15e0104e7024a19bd9e3789c76c3e7acd490fc5bec0e8898663b8a21db3a711e"
+  },
+  "bootstrap": {
+    "repetitions": 2000,
+    "master_seed": 2026102709,
+    "seed_rule": "[master_seed,dataset_index,0]",
+    "shape": [
+      2000,
+      2,
+      4
+    ],
+    "paired": "Common null row resampling across both methods and all four targets",
+    "file": "calibration_bootstrap.npz",
+    "sha256": "1a86ed364c09ca2388c8366e4434105a3ad0729e1cb47d5dc1df5bf44699c1ea"
+  },
+  "frozen_at_utc": "2026-10-23T17:53:58.701968+00:00"
+}

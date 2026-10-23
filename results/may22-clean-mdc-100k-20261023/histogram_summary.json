@@ -1,0 +1,2075 @@
+{
+  "unit": "mBq/m3",
+  "mdc_mode": "standard_iterative_alpha_beta_0.05_without_c",
+  "signal_definition": "Fixed newly calibrated Ld95 for May22, separately by isotope and method",
+  "n_reused_null_vectors": 100000,
+  "n_new_signal_vectors": 160000,
+  "n_mdc_attempts": 960000,
+  "n_mdc_valid": 960000,
+  "n_mdc_missing": 0,
+  "technical_vectors_excluded": 128,
+  "curves": [
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "target": 1,
+      "isotope": "Xe135",
+      "nominal_MDC_mBq_m3": 1.230262636814249,
+      "signal_A_mBq_m3": 1.2466661386384386,
+      "cutoff_c": 1.0042080328948237,
+      "null": {
+        "n_attempted": 100000,
+        "n_valid": 100000,
+        "n_missing": 0,
+        "mean": 1.2357916758481367,
+        "median": 1.2348096570479683,
+        "sd": 0.01968116445578667,
+        "mean_mcse": 6.223730668463414e-05,
+        "q025": 1.1997100389818385,
+        "q25": 1.2223899762752868,
+        "q75": 1.2481955886299025,
+        "q975": 1.277513923718693,
+        "min": 1.158857917888473,
+        "max": 1.3440271472943128,
+        "detection": {
+          "standard": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5154,
+            "rate": 0.05154,
+            "ci95": [
+              0.05017767783995074,
+              0.05292840685685984
+            ],
+            "unconditional_rate_bounds": [
+              0.05154,
+              0.05154
+            ],
+            "conservative_ci95": [
+              0.05017767783995074,
+              0.05292840685685984
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5074,
+            "rate": 0.05074,
+            "ci95": [
+              0.04938780453230368,
+              0.05211832762845429
+            ],
+            "unconditional_rate_bounds": [
+              0.05074,
+              0.05074
+            ],
+            "conservative_ci95": [
+              0.04938780453230368,
+              0.05211832762845429
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.40539,
+        "fraction_below_signal_Ld95": 0.72566
+      },
+      "signal": {
+        "n_attempted": 20000,
+        "n_valid": 20000,
+        "n_missing": 0,
+        "mean": 1.2430289254138447,
+        "median": 1.2413969358240147,
+        "sd": 0.02270172908415453,
+        "mean_mcse": 0.00016052546580065538,
+        "q025": 1.2022106688613936,
+        "q25": 1.2275031465300101,
+        "q75": 1.2570547124041427,
+        "q975": 1.292616860446221,
+        "min": 1.171739995247215,
+        "max": 1.3457677421264753,
+        "detection": {
+          "standard": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18979,
+            "rate": 0.94895,
+            "ci95": [
+              0.9458087369874957,
+              0.9519599256507876
+            ],
+            "unconditional_rate_bounds": [
+              0.94895,
+              0.94895
+            ],
+            "conservative_ci95": [
+              0.9458087369874957,
+              0.9519599256507876
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18962,
+            "rate": 0.9481,
+            "ci95": [
+              0.9449349607099816,
+              0.9511339614592943
+            ],
+            "unconditional_rate_bounds": [
+              0.9481,
+              0.9481
+            ],
+            "conservative_ci95": [
+              0.9449349607099816,
+              0.9511339614592943
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.29385,
+        "fraction_below_signal_Ld95": 0.59635
+      }
+    },
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "target": 2,
+      "isotope": "Xe133",
+      "nominal_MDC_mBq_m3": 0.6506853243780615,
+      "signal_A_mBq_m3": 0.6840076178064188,
+      "cutoff_c": 1.0792432940786907,
+      "null": {
+        "n_attempted": 100000,
+        "n_valid": 100000,
+        "n_missing": 0,
+        "mean": 0.6485530339476939,
+        "median": 0.6492072898139998,
+        "sd": 0.017473656136573895,
+        "mean_mcse": 5.525655244215174e-05,
+        "q025": 0.6128316564428923,
+        "q25": 0.6374866119720126,
+        "q75": 0.6603467289934258,
+        "q975": 0.6811882346216234,
+        "min": 0.5315831642304812,
+        "max": 0.7174345043449118,
+        "detection": {
+          "standard": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 6337,
+            "rate": 0.06337,
+            "ci95": [
+              0.061867689936178125,
+              0.0648976953929543
+            ],
+            "unconditional_rate_bounds": [
+              0.06337,
+              0.06337
+            ],
+            "conservative_ci95": [
+              0.061867689936178125,
+              0.0648976953929543
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5034,
+            "rate": 0.05034,
+            "ci95": [
+              0.048992902930545874,
+              0.0517132529721567
+            ],
+            "unconditional_rate_bounds": [
+              0.05034,
+              0.05034
+            ],
+            "conservative_ci95": [
+              0.048992902930545874,
+              0.0517132529721567
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.53545,
+        "fraction_below_signal_Ld95": 0.98394
+      },
+      "signal": {
+        "n_attempted": 20000,
+        "n_valid": 20000,
+        "n_missing": 0,
+        "mean": 0.6558337908817085,
+        "median": 0.6559429100360449,
+        "sd": 0.019382975372075364,
+        "mean_mcse": 0.00013705833325166334,
+        "q025": 0.6175761729704091,
+        "q25": 0.6432459691318512,
+        "q75": 0.6687260005026807,
+        "q975": 0.6936531383742801,
+        "min": 0.5532678174253942,
+        "max": 0.7293294128498876,
+        "detection": {
+          "standard": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 19264,
+            "rate": 0.9632,
+            "ci95": [
+              0.9604975267889578,
+              0.9657667231160143
+            ],
+            "unconditional_rate_bounds": [
+              0.9632,
+              0.9632
+            ],
+            "conservative_ci95": [
+              0.9604975267889578,
+              0.9657667231160143
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 19059,
+            "rate": 0.95295,
+            "ci95": [
+              0.9499238703234067,
+              0.9558435664267799
+            ],
+            "unconditional_rate_bounds": [
+              0.95295,
+              0.95295
+            ],
+            "conservative_ci95": [
+              0.9499238703234067,
+              0.9558435664267799
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.38885,
+        "fraction_below_signal_Ld95": 0.9301
+      }
+    },
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "target": 3,
+      "isotope": "Xe131m",
+      "nominal_MDC_mBq_m3": 0.32907696971059336,
+      "signal_A_mBq_m3": 0.34664681835427197,
+      "cutoff_c": 0.9869792812453995,
+      "null": {
+        "n_attempted": 100000,
+        "n_valid": 100000,
+        "n_missing": 0,
+        "mean": 0.33013557497386403,
+        "median": 0.3293081723939507,
+        "sd": 0.014547678988605173,
+        "mean_mcse": 4.6003800272967055e-05,
+        "q025": 0.30321283186213677,
+        "q25": 0.3205921542973777,
+        "q75": 0.3386587010261272,
+        "q975": 0.3621435606624865,
+        "min": 0.26503376988610733,
+        "max": 0.41032446443931486,
+        "detection": {
+          "standard": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 4784,
+            "rate": 0.04784,
+            "ci95": [
+              0.04652531626891692,
+              0.049180988174349835
+            ],
+            "unconditional_rate_bounds": [
+              0.04784,
+              0.04784
+            ],
+            "conservative_ci95": [
+              0.04652531626891692,
+              0.049180988174349835
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 4997,
+            "rate": 0.04997,
+            "ci95": [
+              0.04862764006001616,
+              0.051338537809145775
+            ],
+            "unconditional_rate_bounds": [
+              0.04997,
+              0.04997
+            ],
+            "conservative_ci95": [
+              0.04862764006001616,
+              0.051338537809145775
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.49306,
+        "fraction_below_signal_Ld95": 0.87974
+      },
+      "signal": {
+        "n_attempted": 20000,
+        "n_valid": 20000,
+        "n_missing": 0,
+        "mean": 0.34186011772503755,
+        "median": 0.33759399368833953,
+        "sd": 0.02315901715212538,
+        "mean_mcse": 0.0001637589807388342,
+        "q025": 0.3066010749253032,
+        "q25": 0.32603892776599885,
+        "q75": 0.35316039890997064,
+        "q975": 0.39832430927805634,
+        "min": 0.2770287295257687,
+        "max": 0.46967277109275896,
+        "detection": {
+          "standard": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18839,
+            "rate": 0.94195,
+            "ci95": [
+              0.9386194504543708,
+              0.9451513409807174
+            ],
+            "unconditional_rate_bounds": [
+              0.94195,
+              0.94195
+            ],
+            "conservative_ci95": [
+              0.9386194504543708,
+              0.9451513409807174
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18881,
+            "rate": 0.94405,
+            "ci95": [
+              0.9407747324558465,
+              0.9471954222537332
+            ],
+            "unconditional_rate_bounds": [
+              0.94405,
+              0.94405
+            ],
+            "conservative_ci95": [
+              0.9407747324558465,
+              0.9471954222537332
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.31055,
+        "fraction_below_signal_Ld95": 0.65675
+      }
+    },
+    {
+      "dataset": "may22",
+      "family": "wls",
+      "target": 4,
+      "isotope": "Xe133m",
+      "nominal_MDC_mBq_m3": 0.29351492280753,
+      "signal_A_mBq_m3": 0.32043732607194475,
+      "cutoff_c": 1.0121342867085132,
+      "null": {
+        "n_attempted": 100000,
+        "n_valid": 100000,
+        "n_missing": 0,
+        "mean": 0.29496857919285974,
+        "median": 0.29397981250734007,
+        "sd": 0.017580984542698512,
+        "mean_mcse": 5.559595466314109e-05,
+        "q025": 0.26159754262126317,
+        "q25": 0.28385136917648357,
+        "q75": 0.3053038368441473,
+        "q975": 0.3336639628150299,
+        "min": 0.20400952687253263,
+        "max": 0.4094935424613818,
+        "detection": {
+          "standard": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5214,
+            "rate": 0.05214,
+            "ci95": [
+              0.05077014315035313,
+              0.05353590596556399
+            ],
+            "unconditional_rate_bounds": [
+              0.05214,
+              0.05214
+            ],
+            "conservative_ci95": [
+              0.05077014315035313,
+              0.05353590596556399
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5024,
+            "rate": 0.05024,
+            "ci95": [
+              0.04889418122522026,
+              0.05161198061342975
+            ],
+            "unconditional_rate_bounds": [
+              0.05024,
+              0.05024
+            ],
+            "conservative_ci95": [
+              0.04889418122522026,
+              0.05161198061342975
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.48836,
+        "fraction_below_signal_Ld95": 0.92333
+      },
+      "signal": {
+        "n_attempted": 20000,
+        "n_valid": 20000,
+        "n_missing": 0,
+        "mean": 0.3076116557743658,
+        "median": 0.3039306986309199,
+        "sd": 0.026607734520425735,
+        "mean_mcse": 0.00018814509511404427,
+        "q025": 0.2654710284835623,
+        "q25": 0.2898126541818334,
+        "q75": 0.321996597993263,
+        "q975": 0.3708963952638125,
+        "min": 0.23021332150765017,
+        "max": 0.43310471716629184,
+        "detection": {
+          "standard": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 19048,
+            "rate": 0.9524,
+            "ci95": [
+              0.9493577087802061,
+              0.9553098970086829
+            ],
+            "unconditional_rate_bounds": [
+              0.9524,
+              0.9524
+            ],
+            "conservative_ci95": [
+              0.9493577087802061,
+              0.9553098970086829
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 19017,
+            "rate": 0.95085,
+            "ci95": [
+              0.9477627403643295,
+              0.9538053409592115
+            ],
+            "unconditional_rate_bounds": [
+              0.95085,
+              0.95085
+            ],
+            "conservative_ci95": [
+              0.9477627403643295,
+              0.9538053409592115
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.3264,
+        "fraction_below_signal_Ld95": 0.7327
+      }
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "target": 1,
+      "isotope": "Xe135",
+      "nominal_MDC_mBq_m3": 1.230262636814249,
+      "signal_A_mBq_m3": 1.247270876032879,
+      "cutoff_c": 1.0029645688245559,
+      "null": {
+        "n_attempted": 100000,
+        "n_valid": 100000,
+        "n_missing": 0,
+        "mean": 1.2378905693152666,
+        "median": 1.2368986898652892,
+        "sd": 0.01977915499744231,
+        "mean_mcse": 6.254717998541956e-05,
+        "q025": 1.2016405416415514,
+        "q25": 1.2244277261464767,
+        "q75": 1.250383737982356,
+        "q975": 1.2797374788279297,
+        "min": 1.1602175223931799,
+        "max": 1.3473943455583057,
+        "detection": {
+          "standard": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5148,
+            "rate": 0.05148,
+            "ci95": [
+              0.0501184341339952,
+              0.05286765412241276
+            ],
+            "unconditional_rate_bounds": [
+              0.05148,
+              0.05148
+            ],
+            "conservative_ci95": [
+              0.0501184341339952,
+              0.05286765412241276
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5098,
+            "rate": 0.05098,
+            "ci95": [
+              0.04962475676852111,
+              0.05236136115042446
+            ],
+            "unconditional_rate_bounds": [
+              0.05098,
+              0.05098
+            ],
+            "conservative_ci95": [
+              0.04962475676852111,
+              0.05236136115042446
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.36191,
+        "fraction_below_signal_Ld95": 0.69933
+      },
+      "signal": {
+        "n_attempted": 20000,
+        "n_valid": 20000,
+        "n_missing": 0,
+        "mean": 1.2444477556064057,
+        "median": 1.2429512683248936,
+        "sd": 0.022824785007160703,
+        "mean_mcse": 0.00016139560257688373,
+        "q025": 1.2036944564688394,
+        "q25": 1.228721021309589,
+        "q75": 1.2585357658308334,
+        "q975": 1.2943243776069675,
+        "min": 1.160804447766273,
+        "max": 1.357022697949543,
+        "detection": {
+          "standard": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18997,
+            "rate": 0.94985,
+            "ci95": [
+              0.9467341675955375,
+              0.9528342198933297
+            ],
+            "unconditional_rate_bounds": [
+              0.94985,
+              0.94985
+            ],
+            "conservative_ci95": [
+              0.9467341675955375,
+              0.9528342198933297
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18985,
+            "rate": 0.94925,
+            "ci95": [
+              0.9461171843184576,
+              0.9522513866440947
+            ],
+            "unconditional_rate_bounds": [
+              0.94925,
+              0.94925
+            ],
+            "conservative_ci95": [
+              0.9461171843184576,
+              0.9522513866440947
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.27495,
+        "fraction_below_signal_Ld95": 0.57765
+      }
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "target": 2,
+      "isotope": "Xe133",
+      "nominal_MDC_mBq_m3": 0.6506853243780615,
+      "signal_A_mBq_m3": 0.6724607342433866,
+      "cutoff_c": 1.0134449800224066,
+      "null": {
+        "n_attempted": 100000,
+        "n_valid": 100000,
+        "n_missing": 0,
+        "mean": 0.6529649990896773,
+        "median": 0.6532864320643417,
+        "sd": 0.01657087072716566,
+        "mean_mcse": 5.240169431005411e-05,
+        "q025": 0.6194133918388405,
+        "q25": 0.6420352670243841,
+        "q75": 0.6641788135339313,
+        "q975": 0.6848059826919569,
+        "min": 0.5749423257536731,
+        "max": 0.7261810909811762,
+        "detection": {
+          "standard": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5284,
+            "rate": 0.05284,
+            "ci95": [
+              0.05146141679482304,
+              0.05424459082703645
+            ],
+            "unconditional_rate_bounds": [
+              0.05284,
+              0.05284
+            ],
+            "conservative_ci95": [
+              0.05146141679482304,
+              0.05424459082703645
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5058,
+            "rate": 0.05058,
+            "ci95": [
+              0.049229841062153355,
+              0.0519563005944577
+            ],
+            "unconditional_rate_bounds": [
+              0.05058,
+              0.05058
+            ],
+            "conservative_ci95": [
+              0.049229841062153355,
+              0.0519563005944577
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.4362,
+        "fraction_below_signal_Ld95": 0.88301
+      },
+      "signal": {
+        "n_attempted": 20000,
+        "n_valid": 20000,
+        "n_missing": 0,
+        "mean": 0.6602968866548394,
+        "median": 0.6601680336447542,
+        "sd": 0.018744579388013625,
+        "mean_mcse": 0.00013254419195754018,
+        "q025": 0.6238654537997445,
+        "q25": 0.6478757165713267,
+        "q75": 0.6725000189015597,
+        "q975": 0.6976256218300827,
+        "min": 0.586106927047077,
+        "max": 0.7421072298499217,
+        "detection": {
+          "standard": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 19086,
+            "rate": 0.9543,
+            "ci95": [
+              0.9513140108523418,
+              0.9571530102731364
+            ],
+            "unconditional_rate_bounds": [
+              0.9543,
+              0.9543
+            ],
+            "conservative_ci95": [
+              0.9513140108523418,
+              0.9571530102731364
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 19054,
+            "rate": 0.9527,
+            "ci95": [
+              0.9496665106096359,
+              0.9556010029969474
+            ],
+            "unconditional_rate_bounds": [
+              0.9527,
+              0.9527
+            ],
+            "conservative_ci95": [
+              0.9496665106096359,
+              0.9556010029969474
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.3034,
+        "fraction_below_signal_Ld95": 0.7491
+      }
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "target": 3,
+      "isotope": "Xe131m",
+      "nominal_MDC_mBq_m3": 0.32907696971059336,
+      "signal_A_mBq_m3": 0.34447588245590244,
+      "cutoff_c": 0.986964083407886,
+      "null": {
+        "n_attempted": 100000,
+        "n_valid": 100000,
+        "n_missing": 0,
+        "mean": 0.3343859415018772,
+        "median": 0.3332854985696585,
+        "sd": 0.013999615517611448,
+        "mean_mcse": 4.427067140228926e-05,
+        "q025": 0.3100260550242892,
+        "q25": 0.32478586571793616,
+        "q75": 0.3424116609507032,
+        "q975": 0.3661475953230464,
+        "min": 0.28498561976993403,
+        "max": 0.4117697141441004,
+        "detection": {
+          "standard": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 4772,
+            "rate": 0.04772,
+            "ci95": [
+              0.04640689659137027,
+              0.04905941498919521
+            ],
+            "unconditional_rate_bounds": [
+              0.04772,
+              0.04772
+            ],
+            "conservative_ci95": [
+              0.04640689659137027,
+              0.04905941498919521
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 4977,
+            "rate": 0.04977,
+            "ci95": [
+              0.048430209196396935,
+              0.05113598054946099
+            ],
+            "unconditional_rate_bounds": [
+              0.04977,
+              0.04977
+            ],
+            "conservative_ci95": [
+              0.048430209196396935,
+              0.05113598054946099
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.37129,
+        "fraction_below_signal_Ld95": 0.79111
+      },
+      "signal": {
+        "n_attempted": 20000,
+        "n_valid": 20000,
+        "n_missing": 0,
+        "mean": 0.34489667932261975,
+        "median": 0.34016787290852823,
+        "sd": 0.02245585618591828,
+        "mean_mcse": 0.00015878688186412698,
+        "q025": 0.3120300540443433,
+        "q25": 0.32922277889052476,
+        "q75": 0.355726270369252,
+        "q975": 0.4005655368783872,
+        "min": 0.2848335477933603,
+        "max": 0.46702971429022777,
+        "detection": {
+          "standard": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18870,
+            "rate": 0.9435,
+            "ci95": [
+              0.9402101349530688,
+              0.9466601866637047
+            ],
+            "unconditional_rate_bounds": [
+              0.9435,
+              0.9435
+            ],
+            "conservative_ci95": [
+              0.9402101349530688,
+              0.9466601866637047
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18898,
+            "rate": 0.9449,
+            "ci95": [
+              0.9416474623037467,
+              0.9480224342457811
+            ],
+            "unconditional_rate_bounds": [
+              0.9449,
+              0.9449
+            ],
+            "conservative_ci95": [
+              0.9416474623037467,
+              0.9480224342457811
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.2474,
+        "fraction_below_signal_Ld95": 0.5826
+      }
+    },
+    {
+      "dataset": "may22",
+      "family": "poisson",
+      "target": 4,
+      "isotope": "Xe133m",
+      "nominal_MDC_mBq_m3": 0.29351492280753,
+      "signal_A_mBq_m3": 0.3133000027893707,
+      "cutoff_c": 0.9947240720398484,
+      "null": {
+        "n_attempted": 100000,
+        "n_valid": 100000,
+        "n_missing": 0,
+        "mean": 0.2995142789120038,
+        "median": 0.29814871089719563,
+        "sd": 0.016785044181411586,
+        "mean_mcse": 5.307897023981709e-05,
+        "q025": 0.27003604596172476,
+        "q25": 0.28832994299907305,
+        "q75": 0.3089191812819069,
+        "q975": 0.3378338163776681,
+        "min": 0.24282219405654407,
+        "max": 0.41139093988324893,
+        "detection": {
+          "standard": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 4935,
+            "rate": 0.04935,
+            "ci95": [
+              0.048015624039728394,
+              0.050710590651826995
+            ],
+            "unconditional_rate_bounds": [
+              0.04935,
+              0.04935
+            ],
+            "conservative_ci95": [
+              0.048015624039728394,
+              0.050710590651826995
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 100000,
+            "n_valid": 100000,
+            "n_missing": 0,
+            "k": 5007,
+            "rate": 0.05007,
+            "ci95": [
+              0.04872635774120967,
+              0.05143981419039637
+            ],
+            "unconditional_rate_bounds": [
+              0.05007,
+              0.05007
+            ],
+            "conservative_ci95": [
+              0.04872635774120967,
+              0.05143981419039637
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.38239,
+        "fraction_below_signal_Ld95": 0.81957
+      },
+      "signal": {
+        "n_attempted": 20000,
+        "n_valid": 20000,
+        "n_missing": 0,
+        "mean": 0.31052797161454065,
+        "median": 0.3060765345130172,
+        "sd": 0.025388905821142664,
+        "mean_mcse": 0.00017952667473036587,
+        "q025": 0.2721870280680127,
+        "q25": 0.29262539568029955,
+        "q75": 0.3232061795811325,
+        "q975": 0.3726438955439837,
+        "min": 0.2371025009712331,
+        "max": 0.4526426671303985,
+        "detection": {
+          "standard": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18956,
+            "rate": 0.9478,
+            "ci95": [
+              0.94462662404995,
+              0.9508423896440378
+            ],
+            "unconditional_rate_bounds": [
+              0.9478,
+              0.9478
+            ],
+            "conservative_ci95": [
+              0.94462662404995,
+              0.9508423896440378
+            ]
+          },
+          "calibrated": {
+            "n_attempted": 20000,
+            "n_valid": 20000,
+            "n_missing": 0,
+            "k": 18966,
+            "rate": 0.9483,
+            "ci95": [
+              0.945140534321312,
+              0.9513283268102887
+            ],
+            "unconditional_rate_bounds": [
+              0.9483,
+              0.9483
+            ],
+            "conservative_ci95": [
+              0.945140534321312,
+              0.9513283268102887
+            ]
+          }
+        },
+        "fraction_below_nominal_formula": 0.26735,
+        "fraction_below_signal_Ld95": 0.644
+      }
+    }
+  ],
+  "errors": [],
+  "covariance_diagnostics": [
+    {
+      "scenario": "null",
+      "family": "wls",
+      "n": 100000,
+      "unavailable": 0
+    },
+    {
+      "scenario": "null",
+      "family": "poisson",
+      "n": 100000,
+      "unavailable": 369
+    },
+    {
+      "scenario": "signal",
+      "family": "wls",
+      "n": 80000,
+      "unavailable": 0
+    },
+    {
+      "scenario": "signal",
+      "family": "poisson",
+      "n": 80000,
+      "unavailable": 294
+    }
+  ],
+  "manifest_sha256": "ce69c751391acf8b80fa690b3d901dae3162734848fdd2ca541d88696e20a2ae",
+  "plan_sha256": "59b1fc568dafe3b717e2bd62192e6d2a11b45650253731667ba7247715b3d648",
+  "null_plan_sha256": "795239c9a54be6becb027182d33558d244e9879ce9bf6f6863a26e4b3fe7bacb",
+  "power_summary_sha256": "32f557198b3ad5f61b217874623c77669192bde61968548b292f93406438087c",
+  "values_sha256": "f3a7bcdb54cf9d37c20d1f76a80617adada54d7942b458242eaca20b6a9ee9c9",
+  "source_batches": {
+    "may22_validation_i0_f00000_c0": {
+      "json": "087e4f42fad11dbc84a21b4e95133d4a9b51315e51c1f78af43d6791771fa8a8",
+      "npz": "b0256b24f91b5446135ccd06e4ec4525e7e88e2465e880b50c4e9feded215792"
+    },
+    "may22_validation_i0_f00000_c1": {
+      "json": "8673d431ec6d888410d6b2f943515c2e3f7471ab9be4e3fde4a961be1b0c18b1",
+      "npz": "5607852277a2d61b99a4f86f6e4122daed3ced46b8c8e64a13fc8290111e8a69"
+    },
+    "may22_validation_i0_f00000_c2": {
+      "json": "1736921516cf1133b76d77a48fcbe714b0055587b4b48a14f8e9a21843bfcd6e",
+      "npz": "7e4d6f0c06e59763bc58d4179be62d3ae63e04981e9a880d4a6bd8edcf59714b"
+    },
+    "may22_validation_i0_f00000_c3": {
+      "json": "083b523c200d9a2264f6c13c062476a651b5893d7293a4675cb13ea6460c9b42",
+      "npz": "6b51062ec0592aeeeb0d8bb082d6d45920fc35ff7fb8233b8218b3c625c85a22"
+    },
+    "may22_validation_i0_f00000_c4": {
+      "json": "6d1c4e53cc1f76718017b60f5ffc181d6f850428c7040d908b36926099c0a3a4",
+      "npz": "bdb2918335bb918b3bf98401b5d5e0c0a3aa7e67936a78c1b40158f65ba57bba"
+    },
+    "may22_validation_i0_f00000_c5": {
+      "json": "aba249990cdb2ce36ae9a0f1a04b852aeeafd5ee6d7d7ba9cfc4094e5369874f",
+      "npz": "0c6bd8730780d2310886c217962d82f1389bb442e2f61aae421a6de482b2950b"
+    },
+    "may22_validation_i0_f00000_c6": {
+      "json": "306642cba0fab967ba741b0ce161c66b686b4758909f817ba38f4011bb44cfe8",
+      "npz": "994b526876e2a3d57b5430c77e6d9d1b78d50e33a6f3eabeea2ad0bb7e582df6"
+    },
+    "may22_validation_i0_f00000_c7": {
+      "json": "f25fdc335c50e1e6a5d9e57164296a240953897fd1940bdd694f6d6117fd93a9",
+      "npz": "c167dfa54b2fe2878156c2e393f3871d11c746dcbeac51e244ace2e7eb1cb1c8"
+    },
+    "may22_validation_i0_f00000_c8": {
+      "json": "573e264bd93b877b77bf9b5655f3a35e5311da1b80efbf1d22df1dbe5ac8526e",
+      "npz": "20282be109eec7a2338dde7a9d9b2e29b332aed931ae9eaa6a5dbb0db4c9d53a"
+    },
+    "may22_validation_i0_f00000_c9": {
+      "json": "ef5f666ef907575d61459b699df5d3f5ed27189c5243cb8421aeb64419f5ba76",
+      "npz": "2462a651bf643b8f2dfac68ff0e0f92016fedebb9876f3aa6e9016ceebfffefc"
+    },
+    "may22_validation_i0_f00000_c10": {
+      "json": "0508bed5b7cf2049804b2959c17c753ae7a3026996939fc90b97fb9c0bf30536",
+      "npz": "6123e1fcd4cb821aad84c2848fdc228625700f3fdcd4d7f01e085ae61c8c5993"
+    },
+    "may22_validation_i0_f00000_c11": {
+      "json": "234da44208270563544942764307214ee1c865e6553330b6830aca1fca6a2738",
+      "npz": "f7b49ba5be843abecf1f83ba3b8b5bd1cbcf2e22bbb01d9cac7fb6e9371cbc23"
+    },
+    "may22_validation_i0_f00000_c12": {
+      "json": "08f8b553095c7797c1253eea80ee0da4ae6beb7d54c9b930ba9d25b27fc78bfd",
+      "npz": "f2283efb2930daa73f7ede1a13bee86591e42f15be96465bf44cf52ada2e2f31"
+    },
+    "may22_validation_i0_f00000_c13": {
+      "json": "97fc3b06a4b8888b2d51b40420b1396b451e7cf04646021957e07f9dc00f8599",
+      "npz": "a7b900b59acb8db5806e5408de2b6b4f574c0b73c4b0e3c91b412a1ac5ddd172"
+    },
+    "may22_validation_i0_f00000_c14": {
+      "json": "6a279d33810bd3a40618a6c8da76a46f65d18b5c326d3385ceab44667aa05568",
+      "npz": "1422603c40243e1068a8b25f6bf0055cfb6a085096b003f7d79e6b0549db6936"
+    },
+    "may22_validation_i0_f00000_c15": {
+      "json": "a9ee301624089aa9239d5fe5c54d9ade8f609a6640c88381a971e9477a87caa1",
+      "npz": "1f4907d011196cccfe08b7ed5175c6d1dc3d0a6362be0278462245e81a0f2a42"
+    },
+    "may22_validation_i0_f00000_c16": {
+      "json": "0fe58d3ba1f3bbd9cf577f0065e0596075a81f8980253c63edcd25dcb6ba1341",
+      "npz": "2b417961b008443d216917f24489612998beb430b130ef7dd36f80913765c0e2"
+    },
+    "may22_validation_i0_f00000_c17": {
+      "json": "bab2b96c28d0cd9d066fbec6fb6fc15a94da28578891aa9a700c3b83f7f4342d",
+      "npz": "691d29ea8395598bae2b5ddceb132d2b42bafaf0585560f6d26da78426acbef9"
+    },
+    "may22_validation_i0_f00000_c18": {
+      "json": "b6ac261bace08bf3b45d73146796fc749e0526069aac9983ae9afcd3eb4a6a1c",
+      "npz": "e019c51f5684e40683e38914ea39ae9a944bf0d9fde43e59d44652a147135d23"
+    },
+    "may22_validation_i0_f00000_c19": {
+      "json": "0ac7c6ed24821311fae8b053b2f14fc9af6f70710be79478bf631a4236569ece",
+      "npz": "993cac451b55e515f944557a01a794ae77c9b74978d51466e932637f481374d7"
+    },
+    "may22_validation_i0_f00000_c20": {
+      "json": "5ed554757dd7df515fc886fb8f5b8cba5ec48d33e4e61396f2d9c9233e4eb89c",
+      "npz": "78518ded90e7e6bdf0a83015feddc13bab8042d44aa512019fb7016922e78426"
+    },
+    "may22_validation_i0_f00000_c21": {
+      "json": "2c996d51d20908efffaff4a6e618b501722bfdf77455121faa5fc8cb1dcbdb38",
+      "npz": "f15435f8197f550e0b9cae4c9fa461b4dab5c669c9e483bb717af8b5cc08af73"
+    },
+    "may22_validation_i0_f00000_c22": {
+      "json": "c2fda4c1b824bf1429f44790cacb62124c2bbc885f8929b0adfadd6e080b060c",
+      "npz": "ecf9958ef5cfd4901bebad11911b1de446fbf44f3ab84d6ca5c5e7b6c316aef1"
+    },
+    "may22_validation_i0_f00000_c23": {
+      "json": "a3e1cf861b33d1643295dc16f02fb61639fc94af0116806ee72ac44576c42e4b",
+      "npz": "560fcf19b25b47af4f4b8d814f5d9b1b58e5e6e456918d2b2663a20aea96478f"
+    },
+    "may22_validation_i0_f00000_c24": {
+      "json": "4d93394ce57169d3d91a4f186d572f014d04817379509f1cff114c7bed8ff636",
+      "npz": "33c75103e26a5d92ed26e81f4c99c9b72fcc60ef0fe0b393e46dd8c3e5c870cb"
+    },
+    "may22_validation_i0_f00000_c25": {
+      "json": "e2a52ae985d219ca81c9c1dbf22001537e1ef6f9872fc87ffb3d40abf8cb54ed",
+      "npz": "8d946778ad8a646dc421612d3d99d196312c58f32ea39c5d4d4c13a4905f709a"
+    },
+    "may22_validation_i0_f00000_c26": {
+      "json": "eb07d84fcf465c553e231fd50ded6df3c499915c464ccc67a8f91eca77ac8417",
+      "npz": "e021435a5e916204ecdcb2f13259fb34e7081a5dcfe826c9d2da4326e184f844"
+    },
+    "may22_validation_i0_f00000_c27": {
+      "json": "c3ee97bb1bee52c5326526f35dae1dcd9b985d28159c3e16a3a662e9b6abd130",
+      "npz": "89687f229ca6e4533e6a10eb6fd794495c593a792770445becddb31d6303bef5"
+    },
+    "may22_validation_i0_f00000_c28": {
+      "json": "bf257fdffada8ebb3e92c18b133ef6024e5d385d8f9cc34c23e0817cb266196b",
+      "npz": "bef9e4c07e33a79d3a4e85ee87303b0e1df24cc27dc9615a1e5b01798518c958"
+    },
+    "may22_validation_i0_f00000_c29": {
+      "json": "d988ff01026a74953f55ad1005d573bf3a7d83596fb82598ad3930a230fdfb49",
+      "npz": "a629513fe05b82c76684048478b2ac431209318c4b5add85b4169e268728e85b"
+    },
+    "may22_validation_i0_f00000_c30": {
+      "json": "fb4909ca34f5454d01f6e80ef5f1eeca87965ba99452347870f4125f01cee804",
+      "npz": "f6248b10bacb47b24c1158466b7611ce3fd50a36fdd743533cd0df6d8fa703bf"
+    },
+    "may22_validation_i0_f00000_c31": {
+      "json": "22261a92e9f9bbce064da43b4c16c900c4bbb844016eca7c328041192f7b82df",
+      "npz": "8bcffabb9cd0367a110df32aff26eceab9d47575daff8e2ea62afbc94daa5e47"
+    },
+    "may22_validation_i0_f00000_c32": {
+      "json": "e56aabb3ad0592cf317041e6399cc65ccbabc69cf5fd921051e78d9a71dd5d92",
+      "npz": "625b94495ccb31ec25f5ddd43e7619bfc842d4c5cefef7640f611a137ef00f16"
+    },
+    "may22_validation_i0_f00000_c33": {
+      "json": "7420ab3d96bf1a223bfb09d1ab96f5a2e84d215ceb60137e8cb46f10d97b545e",
+      "npz": "c55d0c1734a16a3de303c7eb8974c3f96f1ce545c1ac8d56be000580929ef746"
+    },
+    "may22_validation_i0_f00000_c34": {
+      "json": "a06aadfd0f060a96b9b31ce147b8b9c7df2076c0995fd0180a929d81df3a619f",
+      "npz": "938e559561f60bca74d241aa8a7e16c7d812075240eb0d05bf05c58aa300e05c"
+    },
+    "may22_validation_i0_f00000_c35": {
+      "json": "517e89425737155aa77a3b24febfe50ff68ca9601c78919ed202e10bb8866375",
+      "npz": "43fdf30e7d9466b7e43a53a6dd3cda77947f7553878c3681f0fd98014009d903"
+    },
+    "may22_validation_i0_f00000_c36": {
+      "json": "61dcaa285304c7dc2ca429825ad43ed668bba68c442e16274401d078ab4a3a56",
+      "npz": "4ee19e8855c160793b5f9a9affe3941f21063e470e90df3135bb6221ce6e9e59"
+    },
+    "may22_validation_i0_f00000_c37": {
+      "json": "ab0601e97f9bee654c52685a6c1df25a317d93010505390bfecc2f108da16117",
+      "npz": "b421c6c2289385497ecdcfc3e1952970ba1a7ee305d83992b2e4cbae0ba5d612"
+    },
+    "may22_validation_i0_f00000_c38": {
+      "json": "ccb248326c9018f26f9fe40139ca2fa8a2d0f44e68cb2b4be3ad0eb1802aaa70",
+      "npz": "7e09f73266eefce131774768fd6ba2add2a462d55a59d653d378daabf177d7bf"
+    },
+    "may22_validation_i0_f00000_c39": {
+      "json": "2f15d799808d058a918cf3e356c532a602e8d872c69d2e4be61bf6a36e8ef427",
+      "npz": "9b4d104a4f4069b76e08b7a9c3a90d69662d8f3f6d2afc794e7e9a009afef5e8"
+    },
+    "may22_validation_i0_f00000_c40": {
+      "json": "05e0a62af6ba4f3d69170a70cb1b832c7458acb235e005b0d35c1be3bb6c6563",
+      "npz": "0f145452acf5d1f232269b069b64b14706dc304ad15dba294139ecff1c48f823"
+    },
+    "may22_validation_i0_f00000_c41": {
+      "json": "c9d08029502318705f85a22a9b2ae222412a01d2a1497a67025db994626c3c13",
+      "npz": "cbe244aca037b5531f77157f850d6cc3bdd28a2d3ff50938b88c273238028230"
+    },
+    "may22_validation_i0_f00000_c42": {
+      "json": "0448487bdf3b5ee0d91bff4eed9510c48ec01c579c73ef7d2a9c9601d6cc9ea3",
+      "npz": "ded61786f86f386e554167f16bf6d9cb3f6f62de31ee93a2cf53cd143a66d27d"
+    },
+    "may22_validation_i0_f00000_c43": {
+      "json": "f4523401885284a1f19eafd68d90b677d3595870b20c996de4b73aee84d72b2b",
+      "npz": "ce5ebd13ca21fb780a0aa79fc8449ad29ba7cf4a813c08d6a9fe71f4c86ea29b"
+    },
+    "may22_validation_i0_f00000_c44": {
+      "json": "fcdfbdb15099dff94768ce87193c496f0a1259bd508d73a2460c9ec1c72853b6",
+      "npz": "87c4ba6becdb35d0c84f77102aa0f3487b933033afaae9ecf86b4e74672eac47"
+    },
+    "may22_validation_i0_f00000_c45": {
+      "json": "1a13eb1ca9034d95a402065d40c9fc67b2986f641215e66e0a4c0f73412f5f03",
+      "npz": "594d97d56509056e0611630104a575f8463f318490b74751df1144191e9449e3"
+    },
+    "may22_validation_i0_f00000_c46": {
+      "json": "88fcae3cfb75e722d8fd47d5107f244529345f53cda70bc0847161bf75a92ba2",
+      "npz": "2acbacba69ed2b11814fdca50d9b6b2c88cd9221ba43740bb1f07e3397febe59"
+    },
+    "may22_validation_i0_f00000_c47": {
+      "json": "a0679335510c51917e38e888c3d098ec9c7ca3f21299935b9ca826b9eb5d4a21",
+      "npz": "9873f42628ae13d77f30674966f31fb426267bda1097bc77bc9594747bc42bcb"
+    },
+    "may22_validation_i0_f00000_c48": {
+      "json": "2e84f22dec02a48b5b2277bc6c3e279ca340aadecbbbdf204dcb639161afbb0e",
+      "npz": "cd076e780ef41e79ad5881180d316be3ce3ffdf5dcf1811dd220bfcee82f8de4"
+    },
+    "may22_validation_i0_f00000_c49": {
+      "json": "ef53dbaf257e66571d090367dab69de626c330fe677524236d8afcb16f89055f",
+      "npz": "8414b157181d441276041e009f67ea902dd3469afedb4f3c857e613a4de201c8"
+    },
+    "may22_validation_i0_f00000_c50": {
+      "json": "562cac7c32f5bf874ffe172209d6209efa6bf59c8a087b26a77838bb95f2c5ae",
+      "npz": "ebe104a641d962790798b16404db7f64164e22b232470acda053eb81b0d3fdaf"
+    },
+    "may22_validation_i0_f00000_c51": {
+      "json": "ad8f1e6e2dd15389739407437312f60f42eea41dd3ee006910e9c83d025db87e",
+      "npz": "e56949d8307b6a62effa70f159792c3efa80b0fbd127a71a10fc0aecbe608180"
+    },
+    "may22_validation_i0_f00000_c52": {
+      "json": "87fbac43a260cfbaa606d6bfad49b4dd67a50f1dea05df92abda20eb1fada72e",
+      "npz": "d5dd02e9b068c16f5d12afca6b0098cabd7fb6815f63ff92c2830be66f5f6615"
+    },
+    "may22_validation_i0_f00000_c53": {
+      "json": "7019246703e1f77b95343b4b199cf3f0ebb8b28db59cafc7156d1edd11e41411",
+      "npz": "7dd91826ea9142645251f46568a6bffeb0f4b08c523cd46e899fd4f2157c8b2e"
+    },
+    "may22_validation_i0_f00000_c54": {
+      "json": "077a84e73e1a617b06cf82000f1c42ae24dfffaa70616602e15f6abfceb411af",
+      "npz": "5314c72c14be4ac899f3aa7c7460729c075b8fd5b0d209d0885b04a5d3cbb8b0"
+    },
+    "may22_validation_i0_f00000_c55": {
+      "json": "4430dc6ff37f8dfee0bfabcbc7e94ca37b97e142271e77f5697f3955de6624a7",
+      "npz": "a24c02abbfbc75f32332b8e20a5d14a0a32ee3fe8f5baa5300f92980a447380a"
+    },
+    "may22_validation_i0_f00000_c56": {
+      "json": "ace21e201bfd2af2c19a1ac7f743d73aed3a64a77833d8588a89a7d3a4f4f33c",
+      "npz": "519dfec64de37c642c53dce145b157b184dbe47ee9c717d219bb5d76c94de4dc"
+    },
+    "may22_validation_i0_f00000_c57": {
+      "json": "2bb432284f9f95c7d3c2b5a61a28000b6622cd8b7a18971699aa1f3fde27e4a3",
+      "npz": "fcfd9fd915ec7d2bf971c4a46799ceb48881a1e337245960aa66faf791a270a3"
+    },
+    "may22_validation_i0_f00000_c58": {
+      "json": "621b010513a5c510d054a27eda0b610a92157e3cab80da5defec160c7c0995c1",
+      "npz": "78e435086e2492e77a10576faf03c0a8757debdbfe5378d25e302d43e81be0ad"
+    },
+    "may22_validation_i0_f00000_c59": {
+      "json": "199b65c9b5d457e76825065fa91340c063d156328f557ab4febc1db502ddf3b5",
+      "npz": "0d783fa60cbd463530eac96defa0ef2f8bea083fbf7428e1a5151d0d8f5404aa"
+    },
+    "may22_validation_i0_f00000_c60": {
+      "json": "c7a255d171fb75d0e3e27e58405a370c5a791fc15476866273f0c40e0b4e32f0",
+      "npz": "ddbd4e8440b09657ec8cc71c29221a14b1560bfd3b567e3b6272900dcfaf6a48"
+    },
+    "may22_validation_i0_f00000_c61": {
+      "json": "271398c92ec8277bd4e96383d2a8fbb65614d85b1c8d3862d7016018bfce35a4",
+      "npz": "3aae0df760605c129647a1276d17a9369db3966fce9db7f47d99c043871585e3"
+    },
+    "may22_validation_i0_f00000_c62": {
+      "json": "2cb704bed9080b5b5d5c4299681a025f067ff8e476a46e62ebe16b63456d83bf",
+      "npz": "753a60f9296b737603cb0f44837845397ea5d00c7549ad7233c71df38a0fa2de"
+    },
+    "may22_validation_i0_f00000_c63": {
+      "json": "61b8337871996e77f8381bf2ad890b3f3a7236210c43be54b60447554e7c3774",
+      "npz": "3ba6852b7686a9f8187ad1889035b2bbb784500aa774f0a2bc528170991fc8ac"
+    },
+    "may22_validation_i0_f00000_c64": {
+      "json": "f66d7d49c583355b6116f6f445efe45105b60eccc23ec3c8ec9851e5e3043611",
+      "npz": "d204f73b592e7d77430bde39e61363f1094bb1923be9864eb08e042763f5639d"
+    },
+    "may22_validation_i0_f00000_c65": {
+      "json": "6e4dbf04dd9be7f5e9da652aec256c56d4641f4f4de1f0532e477f2581fc12a3",
+      "npz": "97b0b9ee91827bdd830f6858b2918acbba9b7cd718510a38d97e3dd84163e9fe"
+    },
+    "may22_validation_i0_f00000_c66": {
+      "json": "1743555402715219c6c72f319e631f9e261ee5bfc1dedf1e795c926ac24b8647",
+      "npz": "a68f821219d4e96aa95928b70e16e2fbfc13235c4f8730542467857db81292c5"
+    },
+    "may22_validation_i0_f00000_c67": {
+      "json": "3b5f4a0422c51d0f24d7879b9c07294699d98edbd2500cb62f8b03e4a050b27c",
+      "npz": "bbd220ed1afd57b9789d0f9cd31efe4cc660e8e4cbbc958cd19e395228cd475e"
+    },
+    "may22_validation_i0_f00000_c68": {
+      "json": "f082cf93690c04ecf58a1144ea75adeefcb5369f4bc0bdbd4f477015099fd768",
+      "npz": "815c097beaa0a99c3452916983c4bb563e1120430975740509cd74640c72327b"
+    },
+    "may22_validation_i0_f00000_c69": {
+      "json": "0955e247f1cff121ccabc39298f9d84fa9ab8dde62b1b9964e24aac929b96af1",
+      "npz": "cec719475842605c2f4b74cbdd276b0c566972fa914150f474908cb68ebd566e"
+    },
+    "may22_validation_i0_f00000_c70": {
+      "json": "7d4786c97b58e8e0c26879a9dca2c754e7114f138ffac5f22d372c9e3d343a3b",
+      "npz": "8da7dbe5a22b06371b4e52e5d5aa1ad5dd83526165d394820eb0ce7179a98fa9"
+    },
+    "may22_validation_i0_f00000_c71": {
+      "json": "90f87afc88d9a0f82f4f22b8ae349bf7117d3431cc55986f899d26c583c92667",
+      "npz": "cd8e761a7120f621dc061b560b0ccb6734ea38137b5300def520a5f0c5734497"
+    },
+    "may22_validation_i0_f00000_c72": {
+      "json": "67b1635eaac4dba1f08ed6abe96a4772866111cb83dfce718e57d3667e316960",
+      "npz": "b9aad13d415b773a68f2f0b21fa93bc98a08f6bf2d5d99c9b97dc0dc3d327d78"
+    },
+    "may22_validation_i0_f00000_c73": {
+      "json": "a240f7d4a0e53123f081223278a23ba7f836692bfc48bf6028c1672dc37b0942",
+      "npz": "4cf2bb744e1d15de893d45c54ce2dcf51c7fa1a8560ae5168381aa610fd1fade"
+    },
+    "may22_validation_i0_f00000_c74": {
+      "json": "018d4a705d838767f365da2de110a38aec8bb2474aa746c474e69b371f78c282",
+      "npz": "3da32071391cae0118bc3d728096415f701f9ff40e81a752c7cf685ba2e62e61"
+    },
+    "may22_validation_i0_f00000_c75": {
+      "json": "fd7a5416f7623ef9b0372eb2ed283d2c641d20e4d45343c5534c7e113425ef1d",
+      "npz": "2facc5a47b034a753581ea1e4d4ee771d3d24f6ca5ff2dd00a6a7e903d54ba95"
+    },
+    "may22_validation_i0_f00000_c76": {
+      "json": "5fd5f7a79462f86cab0bd52d9c3843c0dedfc0a3dc5c259f275d67ef33b8ed93",
+      "npz": "e0fef76dfd6430da380974fab5825ef2f2bab99af15d63690f151f23fb2b282e"
+    },
+    "may22_validation_i0_f00000_c77": {
+      "json": "9e5e9d502ebfa24f6c4e1207c1ecd5bcd32a708a9f3dea9b827c4332c5d9ddfb",
+      "npz": "c0e20a17698efea40bb09a415cdab5eef0112048587dd3a8bb84c2e8e25ddb5a"
+    },
+    "may22_validation_i0_f00000_c78": {
+      "json": "772e7bd7b35f4e802538cd015f579c36293dd00849be52d1911d03a27db8d62d",
+      "npz": "5f261075252ff786c4fe6e5f555825f4be9bc703874d285d7db8e1bae7ccf120"
+    },
+    "may22_validation_i0_f00000_c79": {
+      "json": "68d0309c1b46219ce06ebd2b9fedebb9ca29c152771f5d4368276eb7efc61e69",
+      "npz": "c0849cffbc54aae53c011d4bafbcf461b7467ea6a11bfab294f34b6bb79315f1"
+    },
+    "may22_validation_i0_f00000_c80": {
+      "json": "340a86939fcd006f7fcbd5de62988a5065939bf222ad6708a85002de0174b5e6",
+      "npz": "bae1a820321c63bf62d3239ce48d461719876638f7073fd23fe9a5d98ee5029c"
+    },
+    "may22_validation_i0_f00000_c81": {
+      "json": "d84881ed99ad8dc32fdb8c402ec10ec9bbe8d4f9ef433654f77aed593d3d6ab6",
+      "npz": "8dbbea5e906df041568756664dff08ddad817e1a3224ffb24d187d7c6577accb"
+    },
+    "may22_validation_i0_f00000_c82": {
+      "json": "8fabe216c178d88ec15544032a5968f14856429164f56765572cb92c464fc31f",
+      "npz": "3fea5770ecdc269624f35f5900e9d1aeedef6a925cb9cd240decd922f01ebe8b"
+    },
+    "may22_validation_i0_f00000_c83": {
+      "json": "d401f6e297b4417492f53feb7df715daebe663f555d65a9c2a6b0b7613a77f73",
+      "npz": "a9d293eb7245b348b6023ce97dd385183079de054115a81dc65b2918dd6bed6a"
+    },
+    "may22_validation_i0_f00000_c84": {
+      "json": "e3e76ead6f197ed00306484eb3726f410a71070b76c9379cbed87fafe8195db0",
+      "npz": "deca16ca44c6aef61c58f06208d3cf175f0c76f555818c31918a91be8cd319a1"
+    },
+    "may22_validation_i0_f00000_c85": {
+      "json": "5f25a9f4ee3680c8daf0a0f4a1e57ed607936bfdad050d08014754f2fd80bcee",
+      "npz": "29a095e366c8e3911bfc521801d283e0a2e07263fe2f6c92e8699a4f16fa3eb5"
+    },
+    "may22_validation_i0_f00000_c86": {
+      "json": "207f6c0a95ab06c4ae3e060c6bf33ba05fc39803737ab2d47472dab4703f8f7f",
+      "npz": "5eed7378f3da806e2192f36b5a5e4fc4b5a5877c39419fee13ad5f042ffaa632"
+    },
+    "may22_validation_i0_f00000_c87": {
+      "json": "4b3b8bb88921e05ea45ad763fdb919ba6a5a34d61de69207a75c4168b26ecd81",
+      "npz": "8ca74921f51238f43f778ca9648ee72b7aa2595fabfcb760111e5a76a51b99cb"
+    },
+    "may22_validation_i0_f00000_c88": {
+      "json": "e011de4dba4e6bbe2f2beded524e7abf8388c0bbc70a07f00f1ecea9cc94dfcf",
+      "npz": "11ec052e2fb89cc993b3e80be7c573056cc58f70ea5c87c5ae284be5dd519d30"
+    },
+    "may22_validation_i0_f00000_c89": {
+      "json": "78295c25b229fa3b8f23fd496e6f583f96efd5880663e9d393b36c004bbd1c6e",
+      "npz": "1d15d1884ef9bbfbc9b2e84759c5d077a74bfb5c001ac92ab9dcf25442c087de"
+    },
+    "may22_validation_i0_f00000_c90": {
+      "json": "4e51a35d1c655678c96e820bfa271303f3f2cc4479908fca9b3bbcd04afd53c7",
+      "npz": "53849049fc5376385a06050535861351a9160639f56ddb4fe26a89d913849ec6"
+    },
+    "may22_validation_i0_f00000_c91": {
+      "json": "9dd5d60fd3504d4a130e22179859cc1e7bf65d33709f7e254380e26ac2f62dff",
+      "npz": "4c22aaafcd188ee2efe0972be44f5174bb4b152bc09fbdf89d195e796e1c272d"
+    },
+    "may22_validation_i0_f00000_c92": {
+      "json": "e9f7d4c474f4e6128adb5acc51afcb450e9cb4b72635487d02857c5bea0d3450",
+      "npz": "9190d9e121f8fbaefe7c4ec25e62d3e97f93c0ee973c71048b876af640ca186e"
+    },
+    "may22_validation_i0_f00000_c93": {
+      "json": "87c47e4f11d67dc9a9f3ad0e7014fa315fe01283883c1078f4e2ac9147e950fc",
+      "npz": "84bc64fd15e5fa71f563e1d5ebc6cc525f6a8cde7ed530c92ee019e8ee07ebcd"
+    },
+    "may22_validation_i0_f00000_c94": {
+      "json": "388e1ab32c29f96072068ba082082cb07994b3d99efe266d3a51c62e9af043f1",
+      "npz": "23159b1872249fbf0bca5804b13ff46da502109b6df7706fb6a4994e2a0f243c"
+    },
+    "may22_validation_i0_f00000_c95": {
+      "json": "bfd8f620dfd3058b509f8eaa1451df04e0bc9549f922f13a5dea53901cf23711",
+      "npz": "3bf96b50842ce4a28ac7ff9e336eea52881e001fd1dc21339926714e6726c972"
+    },
+    "may22_validation_i0_f00000_c96": {
+      "json": "cac7ccac009f92eb1adf11c361162a8e7f0491c28084a4fdd77cc4d81afd3aad",
+      "npz": "993408206578d84012039fcc6bd5ad236a127e5d6a2ab5bdfc92302cd150c8ba"
+    },
+    "may22_validation_i0_f00000_c97": {
+      "json": "877f12f71420665a07892cbf5be92c786055a2febfafa543346b2dc18b4fa0ef",
+      "npz": "62683396f7e0f5a93cd0dec59f92a7af6f7d6b34ef22285e37407563dee67576"
+    },
+    "may22_validation_i0_f00000_c98": {
+      "json": "dec7a38450e445b75cb2d9ab4578bd503e01061fb8dd00c87dd6d8aa192f0333",
+      "npz": "7fde0db1f20b1665fe97816313aa7d4ae5d9a9d6d12659efadc848c4798efc4c"
+    },
+    "may22_validation_i0_f00000_c99": {
+      "json": "49d558077debfb1f2287ca0e0cea508119e51a4285da879e4e74d442eb58ce1c",
+      "npz": "8f224512687edf392f91ff5d5c2a7b7698ce96f0fbb614f4a2f7c863ecbcab41"
+    },
+    "may22_hist_signal_i1_f00000_c0_wls": {
+      "json": "f429f98e1f991955d7b2d94900bb3bdd7d67b2fb6df156dc07cc4020dfd2f009",
+      "npz": "82c64cd6aada5468045bac28bca29d08b0427b610f8298936118b0f5375d0322"
+    },
+    "may22_hist_signal_i1_f00000_c1_wls": {
+      "json": "93474cdb05551f849fa34948ca977609c4bb1464483bd6f4a6beda38dd5e7b35",
+      "npz": "11c29e83b2df547fca4701eaaef76d790c1897791c0cc88caf974aa8ecfcd579"
+    },
+    "may22_hist_signal_i1_f00000_c2_wls": {
+      "json": "a1fbd6ac33408dc4a707f6f29541be4e4ec0ff870d34b2930ce96ad455c3672e",
+      "npz": "0ab3364ad54110b62af1334951c28b6f9ee437870ffacc590bd6606f6a72df9a"
+    },
+    "may22_hist_signal_i1_f00000_c3_wls": {
+      "json": "82ee78d4d1a706eb502b6eb15c83381fa29ef6b3b922b3a157277d3a86974dc4",
+      "npz": "5debcf054980df5b4f4dd6a8d2eda1d556be2dd13d78c80993edf2aeabd3760b"
+    },
+    "may22_hist_signal_i1_f00000_c4_wls": {
+      "json": "b038566c382fb08bcaa209b93f9216b944af7c836377b7eb6bd517492a91abf8",
+      "npz": "7ea245fa1ba4b91ae76dce8d2917cbe3d3bee574c19e1743237519b1d663956a"
+    },
+    "may22_hist_signal_i1_f00000_c5_wls": {
+      "json": "53404a03da17ad07991d8444e0246a3ca30dc4b465fdbdc21ba3ed1ebededd8d",
+      "npz": "eb2f5fe315735330fdd2e1196b52723dd6c4af0856ff2fe84dd9fbb609f626a9"
+    },
+    "may22_hist_signal_i1_f00000_c6_wls": {
+      "json": "1cca23490e05fc42f3325c70d420c913f64455844a136d806d6f466d50b6ddfd",
+      "npz": "3f3bc9f72e688e0133dc8166e5b527ac691d32ecb04dc58428625340a784233d"
+    },
+    "may22_hist_signal_i1_f00000_c7_wls": {
+      "json": "129dd48827c9043cb3d285a15b689ffd367f04ab1ae6dc391674712830cb4a82",
+      "npz": "41c5a18a06c4995b855e8c25f1e28909b1fae5591e414e8fc8c2a9dbc654e8e8"
+    },
+    "may22_hist_signal_i1_f00000_c8_wls": {
+      "json": "8b7080d28125798b7023d67633ee3680baf4771836208f64999c3786d8bfd5b9",
+      "npz": "ea92c3ed6deae728b346035719c4ba48e295fd8ade1730e3b42c1bf87e1e5f38"
+    },
+    "may22_hist_signal_i1_f00000_c9_wls": {
+      "json": "6c047b8c6187ce021f2a11c07b549937f1cb7669ccdd05d9dd2a95542b2f244b",
+      "npz": "8762e4f6714d93747f6cced459dabd3cef7811af2bbb9625e3431dff7341eb75"
+    },
+    "may22_hist_signal_i1_f00000_c10_wls": {
+      "json": "06194294078b735dd3bb0b08b24643a58db5aec494d4acf7047e926ac678a39e",
+      "npz": "553273f56754288712d6715abbf056c91846eb2a33b82f4af653648e0b1a4882"
+    },
+    "may22_hist_signal_i1_f00000_c11_wls": {
+      "json": "f0dda7038ceee92b1b4c8513a571bbfa8780673114fef733abf7d5fecbbce1e2",
+      "npz": "f5e6b5743701c65b2ac14c4e9635cc1a3811f120ed03e761a32e633d040e23f5"
+    },
+    "may22_hist_signal_i1_f00000_c12_wls": {
+      "json": "990412092fdc677ce4ef92f300bfb36749c70e4893ed7a8edec076e4eae11bbf",
+      "npz": "6c6da7398cf8663dc29579580bab6ec09929f5a2d8aba02c3ffc102d71d72d22"
+    },
+    "may22_hist_signal_i1_f00000_c13_wls": {
+      "json": "d7b096d9132bb64aaf3ec938eea49e87766ab1458998b733cb29380b3bcd6c50",
+      "npz": "4809fa18adc15d49c4b4816789a068f33ca6813e7b9e5850e6714faa57c5fa6e"
+    },
+    "may22_hist_signal_i1_f00000_c14_wls": {
+      "json": "d6005e1ba9bd74525e6f2daa5ee1ebb78858ada7961db7deea591023b18f3925",
+      "npz": "f8b7762b248bd6c30169ed850497a501266eb106fb95d0e1ec1b1520f20d9114"
+    },
+    "may22_hist_signal_i1_f00000_c15_wls": {
+      "json": "fa57f8446fc6249a391c5127164bae913903abca4a65ee4ec27dcd6439a01cf7",
+      "npz": "2c976a09f56bcb372329b96f81f43d1304110962daa21d0c413c9757c21ab784"
+    },
+    "may22_hist_signal_i1_f00000_c16_wls": {
+      "json": "4ed0ee094f3ffdecef4f19b11dc9c297bd9c5c267c026f2dfd0fb717814c2fff",
+      "npz": "a220110accb9750c868d870aa68d194b269b6553fd1c15c7b0cd5345715f4783"
+    },
+    "may22_hist_signal_i1_f00000_c17_wls": {
+      "json": "1a061ad7f49d48d1b09a38ce6578b9cf716e8c5624a0ca6b3d7a02ad84cddfd3",
+      "npz": "b57f9cdfc8e4af027fb3421f1ab306b0c3a3358abbbdcc852d3ae79afb7ea43f"
+    },
+    "may22_hist_signal_i1_f00000_c18_wls": {
+      "json": "ff175536286cd956e238a43da8808622649fceacbb1b1a8f1f8cb9702ff3dfc8",
+      "npz": "ab5c12ba8a8dfbd78c8e12293317988fb2a7810df3fb218e8c7dd5d920afc498"
+    },
+    "may22_hist_signal_i1_f00000_c19_wls": {
+      "json": "420aaa6e63d614c04b53833a35f6fa645e40c95c2e868886ba8af1ab3c3d9636",
+      "npz": "58e20516dc35ab4c49d0be6bf80afad3be229976508d3d6b2f4eb1d68b1bd993"
+    },
+    "may22_hist_signal_i1_f00000_c0_poisson": {
+      "json": "718f82bf74463b26d4d7282c257b545146cf2df5fb3b9e677ca6d773c0545605",
+      "npz": "5a00214b2cdabc4eeb57dece599169070cb520b9ce1a37dc14bf06cd98e9aa99"
+    },
+    "may22_hist_signal_i1_f00000_c1_poisson": {
+      "json": "39d2c7e80f68aad855ce4568edc5b825547936736515650d17120bb9824bb3cc",
+      "npz": "894ba04dfe3485e46b5bdfb24ed621aebf0df7d47bc24a327c8b714c6d7a60a5"
+    },
+    "may22_hist_signal_i1_f00000_c2_poisson": {
+      "json": "4a3c0e8a7ec6650fa8d7cb1828e7675510551884c6219b92cdad74299d65aa07",
+      "npz": "d0bef317baf29dba45192631a14b226193c1e5734f2c5a9d87c3ddad8190c8fb"
+    },
+    "may22_hist_signal_i1_f00000_c3_poisson": {
+      "json": "72d7836720e240751b456662631338b197e12559417460f42e08510b399aef8f",
+      "npz": "ed9a8d6af5efc0ed5844021abc09e6de77f6bd3d94e10e2a4b68877d2eb7ddec"
+    },
+    "may22_hist_signal_i1_f00000_c4_poisson": {
+      "json": "0646fd2ed7602ae872afc724fdc42d805dc8f31136a20076659236e402158269",
+      "npz": "0e31bf8b40e2e37402416945e951cc98230256bcbfef60f3b8049efb308063cc"
+    },
+    "may22_hist_signal_i1_f00000_c5_poisson": {
+      "json": "d6784b70d9a48890c189a61bf67787cfc68f0c8d21c8c71758a5deef2bc9eb4a",
+      "npz": "a25bdf9c974d408643ded39f0be1d76ef0f20b8e98df13701358be278ea2d185"
+    },
+    "may22_hist_signal_i1_f00000_c6_poisson": {
+      "json": "72094b4bd3335b7ff7bfecafff36bc0604f415cffac82f7d616f98d1afa5190e",
+      "npz": "055db88f444cadddf97d28771c94d2608ba70de0efea3151a8e4db54fa843698"
+    },
+    "may22_hist_signal_i1_f00000_c7_poisson": {
+      "json": "51e870b675a07ecfeb0602fcc315fcd500e7875cd7eb184e0a3834fadee1a98a",
+      "npz": "c041550fc8f7d3f36c399f1da32a115b8e8048a965de2b61851281f33be6e2c0"
+    },
+    "may22_hist_signal_i1_f00000_c8_poisson": {
+      "json": "0c95d3c071e36c08e66c211b0f780185edd10c797af329214ad387beed8040db",
+      "npz": "85ced738f83c406eabf68c7b79b952c059b7e166b2c00b3073e03e3ca3e1b91a"
+    },
+    "may22_hist_signal_i1_f00000_c9_poisson": {
+      "json": "98c888340715e1c15c3d38215c8060e25510c2e6ac144fbf2cf1d52a26142155",
+      "npz": "1986e7c1caa8fecb467e033a68a252a7cbc58e457b1a76ca78a9ed45926cde19"
+    },
+    "may22_hist_signal_i1_f00000_c10_poisson": {
+      "json": "5cfc4496a1d00ba9504799f79139d1ef5d06d1a88b8c604f4b5f28f7c1651e94",
+      "npz": "408c32e1f023aebb98bde30d5bcc945c6671d3f44c1d300ed1783c809eac1d51"
+    },
+    "may22_hist_signal_i1_f00000_c11_poisson": {
+      "json": "ec01afe5beb18fae6fc6b289d62f10ad1216cd38fb98c31869324ba2188f217a",
+      "npz": "df57d6fd9260e6b5861d82417bc833a957ea74e5655b03f13aa93e23a6c9641d"
+    },
+    "may22_hist_signal_i1_f00000_c12_poisson": {
+      "json": "8ceb8c523e842ec2e07cf88cf7efd2ead58f371660d2bb731a5a0626d505532a",
+      "npz": "7e12e188b0fc7f9637b393cc75bc32ed3bff810e961f24e125aec9454033dba2"
+    },
+    "may22_hist_signal_i1_f00000_c13_poisson": {
+      "json": "3b87987102097719f2cbd58fdaac4afa5b02e74e418024fdc16b59c4adc0b4b4",
+      "npz": "b3d5500b478cf0e6c8dc0b75756f6908ee9194295d4a43a821281a882e7951aa"
+    },
+    "may22_hist_signal_i1_f00000_c14_poisson": {
+      "json": "c3a2a9dbcf70c1c45954f8fe9707760ff9cc60964719d9178a9ce96dd8ed9338",
+      "npz": "0aea81619d4b35fbede09e1a4293335cf253514710e6ca33231b027d3cf26e9c"
+    },
+    "may22_hist_signal_i1_f00000_c15_poisson": {
+      "json": "de38b7c06baca629a6770209db428876434b466e5f66e26db027788b6e44a63e",
+      "npz": "456a873d6aed088d185fc633d5e8a3c9db75baac1f161feaa2f0ee3f8043b228"
+    },
+    "may22_hist_signal_i1_f00000_c16_poisson": {
+      "json": "295ab0d3e73ff08b4fddc13aeef849382860850841d14304af4d80dceec03c64",
+      "npz": "32dbd85b6bc16c8a7144127ac41ef4913479c87578aeca3c41fe01c7b306e9c4"
+    },
+    "may22_hist_signal_i1_f00000_c17_poisson": {
+      "json": "266352726140e2ef680e0e907ee3398b41e5bf64a9848a0cdbf9b9b021e66be2",
+      "npz": "dd2962d942ed8ea60a813edd5c18b038fdeffa60b9259faef7694726badabce9"
+    },
+    "may22_hist_signal_i1_f00000_c18_poisson": {
+      "json": "a0c48c01b556bac4eb2a5aed17d9df0066a63971bf06c8b3153eae701596564f",
+      "npz": "9492cb43b0d6f612f771e92e4571e7be08e5e3a963c0fdf282eb9b658de2e738"
+    },
+    "may22_hist_signal_i1_f00000_c19_poisson": {
+      "json": "892334c70c2587d20f0061e63cef7e2e5d4dc766d5247700b9170b3158905946",
+      "npz": "4786eb10b86b5868b656c8f703043036a33ff010ec28bd617f1d5f959f6f632c"
+    },
+    "may22_hist_signal_i2_f00000_c0_wls": {
+      "json": "9f97b570784de2755ceefc11576f38a95e6d02b1065d114c93e0da294ea809d7",
+      "npz": "078184810f490201129b71955eecde4b2607bc1bcb8001d9b26ee2f42096e7ce"
+    },
+    "may22_hist_signal_i2_f00000_c1_wls": {
+      "json": "0a6c66ccfeaa0ada7116a18d16422465e022352f62aee32e321c231a25a802b6",
+      "npz": "2fa08ce0ec035f25a4931677571f5f4da2865f40fd5d0e3e330d865acf74d6f5"
+    },
+    "may22_hist_signal_i2_f00000_c2_wls": {
+      "json": "1c5c91184107f60ad8aef223ca3afae65cbcf97b6a26001249f1b87884b0769c",
+      "npz": "fbed13e5eb18dc2a32874dcbe474c669647d39de41379d31c430d11cad0bd3c0"
+    },
+    "may22_hist_signal_i2_f00000_c3_wls": {
+      "json": "031e564aa8301a908638743c754a0f73418927353263507c23533072f4cf789a",
+      "npz": "17c74c37ae4ec836f015ea8fecdc8e6e4cc8df9b4de73f205897a2da5ee52646"
+    },
+    "may22_hist_signal_i2_f00000_c4_wls": {
+      "json": "0d11c0dea14cd87c0f8468f426b9d2e01f563444e5b5b451d4280d4661abb4d9",
+      "npz": "24b708a725c6b5f4e4f8f922c6622ca7703c9ef14dd2eff89b80ee4f2609ee3d"
+    },
+    "may22_hist_signal_i2_f00000_c5_wls": {
+      "json": "de84ae4b55c0b6376f14b24801704afe81e563cf7ab3198f42cf352a24c9dd79",
+      "npz": "a18483fa65ac4aa9cd1d9079077dde4d0712ebd039046b1523276f70b6c5924c"
+    },
+    "may22_hist_signal_i2_f00000_c6_wls": {
+      "json": "df880dcbf71c0266d6a687a288b6f86f83e9007008875c17ab0033b18da85af7",
+      "npz": "170749efb84b8273c8aa80fbadc5a83ec3149f7cbcfda9d031654aad61891b91"
+    },
+    "may22_hist_signal_i2_f00000_c7_wls": {
+      "json": "64f68cf11d7d084fd639d6c1003dbe8ad9582428eeb2533b5c42619ff3947ec2",
+      "npz": "579a2d28b95519f22cc65ef8825cd737fda8854afa94579ee78cc10ff2dd0656"
+    },
+    "may22_hist_signal_i2_f00000_c8_wls": {
+      "json": "e0a3f3aabb8132bc62376296118fae99748e92dbc346d3aa6bf6941d851816b2",
+      "npz": "0ae6c8d49818d4f02d385730e5d8a77bc51eb9656b65f38b3e83cdf3047d0106"
+    },
+    "may22_hist_signal_i2_f00000_c9_wls": {
+      "json": "4e4d357f7ae700c8e7b9d1bf33b94775560cc512e4945c927c34227725673249",
+      "npz": "cff764de6c7c17b842ba500ddaf6e56b03bcc8b6b1be876d9508cccdb23f17a0"
+    },
+    "may22_hist_signal_i2_f00000_c10_wls": {
+      "json": "b7ff68d22e4e0c3a9f642f6d27306dbb828befed16a9150a39d0a605b10dedf7",
+      "npz": "4f378ac50b49d5c715b77d14b65c0a38cc9cc5ae7ccd2ac25f75ba5fcc489d4b"
+    },
+    "may22_hist_signal_i2_f00000_c11_wls": {
+      "json": "1670ca310a0496dfc737e7c25b412091f3ff7849aa0d9db9c3a6af60317c466a",
+      "npz": "e7f3d2bc8c8085202f08375be3cfc33f96c291c5e6eb34b6acce4f9ff26650db"
+    },
+    "may22_hist_signal_i2_f00000_c12_wls": {
+      "json": "df836cdb395e5423556891702be8f276042b2ec63060db7bc70801063c335cb3",
+      "npz": "1d5aa8ac18ad83f5daef095c615ebf85052d2a140dcd8a401fc58e12f33571b9"
+    },
+    "may22_hist_signal_i2_f00000_c13_wls": {
+      "json": "85abab89edbb812a8be08590d55bb366ff4882da70c7067392bef463e127e2c0",
+      "npz": "0870fbc470af729d68281b9025a3641e2c9622747886c614b6adc45fd69f356e"
+    },
+    "may22_hist_signal_i2_f00000_c14_wls": {
+      "json": "427690bac59ef4b53161e1848eb0409c3c1a94c7b7c9bce2b897548bd186ead5",
+      "npz": "fcad53e33392932ad182e07204fb5898f365432dcb0fd45151299fb0ae9d93d4"
+    },
+    "may22_hist_signal_i2_f00000_c15_wls": {
+      "json": "ab8206ef247b9bc59b9e964daf52ac16914719090ca9206a737d7c9d54c27d91",
+      "npz": "77a195a9b17fd30053bbb3f0ce2860fe91033db757ab644bbac11cba37b8039a"
+    },
+    "may22_hist_signal_i2_f00000_c16_wls": {
+      "json": "76bf48a6834a7a3db8d69147be38ed29617e0ed8b9778bb91a4ba8162a72f5ba",
+      "npz": "b288e12d0d4b72e560d3a83539e552a5a201c9916cb331c8854b86c43168ee0a"
+    },
+    "may22_hist_signal_i2_f00000_c17_wls": {
+      "json": "e204ce7aad2a21fe04a194b40c34a8803642853029545487e035fa034a3ff157",
+      "npz": "6998460fc4f429b8918bf8189b70409942cb27b0ff3f02df08fc47f91e5c68f2"
+    },
+    "may22_hist_signal_i2_f00000_c18_wls": {
+      "json": "6e6c3744f8945479285974a15d8e23816fa43819cca9eb8c32c8b6841c3aa330",
+      "npz": "ffa6e406bf8a005c434c52806060d84685d683785797079b90e835004c752a9a"
+    },
+    "may22_hist_signal_i2_f00000_c19_wls": {
+      "json": "1eacb32d48b57008d4ca17a1852434717854bf3a5d5d6b16edbff243ebb5ba1d",
+      "npz": "bbf77d9754dd51f212f28839d76a185b430d3cb9c5084c06fcc6e1248ab3d260"
+    },
+    "may22_hist_signal_i2_f00000_c0_poisson": {
+      "json": "1830728d9b904a4b02451a24d0b8748d97fbe7d669764a4c1641d9c9be8ca325",
+      "npz": "0227975b04ec48a40cda2304e18cf39ef3f799534f7d15d0b60739f8590a639e"
+    },
+    "may22_hist_signal_i2_f00000_c1_poisson": {
+      "json": "3d6422ab20786f311928bee8e50ccf3aa4c330debe49656fc5a51cec8a5548ed",
+      "npz": "53c89e40c3500699e1f132c8785d97bb07458f1658413f4dee062e2bf655cc98"
+    },
+    "may22_hist_signal_i2_f00000_c2_poisson": {
+      "json": "f80288454e9e7a2a443f239cc2fddfd1c5073104c4926b53ecb70d1aea9d47ea",
+      "npz": "127686abc63963059dba9827a0747a566a4cd5d13e72a8facb55fbdec387f500"
+    },
+    "may22_hist_signal_i2_f00000_c3_poisson": {
+      "json": "8bad7d442d991fec238e964b9bb0e480926c5e4cc6e13f30aec08fe0ad60595a",
+      "npz": "3738e4aadf5d5a183a2fb110ab8a4bb146c3ad2c7a2d7010e93d23a8f3839590"
+    },
+    "may22_hist_signal_i2_f00000_c4_poisson": {
+      "json": "16d9b24781200dfd75fd7e8e70c466ff0eea919e0fae985a06de0e440be24e27",
+      "npz": "91999480945616990794187cc6c68171f67b2453580e412ccad4fdaa90c6a582"
+    },
+    "may22_hist_signal_i2_f00000_c5_poisson": {
+      "json": "6f6f8f85b783512fe06874b050d309f6bf0d3e67505ac555590ecee5b3b8b9c1",
+      "npz": "be57f8029000ddbd22fbb2f156370a71de445ec0eaeb44aea0cf6a09d5a6a3c6"
+    },
+    "may22_hist_signal_i2_f00000_c6_poisson": {
+      "json": "e55332cc3221512897e3257714fba41e3a815aa58d916f6bab078fb24d7f4871",
+      "npz": "98b74dcaaef81c2d6a63d05ba8c719332c8cc4889c68db2667355bb9ffa9f65a"
+    },
+    "may22_hist_signal_i2_f00000_c7_poisson": {
+      "json": "a9aa29eff4a747ad9f4ca52f5ecb844f207f289bb18d460b61186094476f0e82",
+      "npz": "cdfd76386b2b6453c43e875f12de7a180e2c125bac26cf5bbd9ad7dccad46407"
+    },
+    "may22_hist_signal_i2_f00000_c8_poisson": {
+      "json": "9a32c3e21f73fff7cff1dc17b2053201abdffaa2476cdbebdbaa1148885ac938",
+      "npz": "8c6b3da86f7d4a949a0bb93b528fbae871de236f28eb53e531568f685e50cc5b"
+    },
+    "may22_hist_signal_i2_f00000_c9_poisson": {
+      "json": "ab0b7447950ff97f9a92b101eccbdada1457aa6763b50aae73a794b2df709cdb",
+      "npz": "fb7f87e335b1cf8115f6a3180c40d3293635d0e7f05273ed3f001f99dd39c2c9"
+    },
+    "may22_hist_signal_i2_f00000_c10_poisson": {
+      "json": "4d25ea8144c160e0726ba5b2a1f719e3f4dab665499b8b288c8554e9734c016c",
+      "npz": "996a8b0e436f2a5ce32ccec4ee33c57ede82f521da3cac671b07ea48543de14e"
+    },
+    "may22_hist_signal_i2_f00000_c11_poisson": {
+      "json": "f3aeabd576c47beea81727115dde365fa98732c98fefc6af193115cb3d09dd2b",
+      "npz": "72c9205c9f72e65e32ff67070d0e0d2c2e089db160ba701994fefab64c958b22"
+    },
+    "may22_hist_signal_i2_f00000_c12_poisson": {
+      "json": "8a8fecafb3a3a627b14e8f7df9bb899a09c5cea5b80e07a8f512fccdeeac6d12",
+      "npz": "70a0260f6046a70b2f9df344ac5533ae3f1e6a557d8be96061855283f805bdfe"
+    },
+    "may22_hist_signal_i2_f00000_c13_poisson": {
+      "json": "3f3e2dab9dcbdaed244af6f6b044763fcf578416c3c3bf2644c27b5e820b92ef",
+      "npz": "f3146d2910f48e866e835c85ef247429012a81e132241f67bd9fab869d77a357"
+    },
+    "may22_hist_signal_i2_f00000_c14_poisson": {
+      "json": "87246510c9d992d79d3d109e152b1d6fd5cebbd09b86368ca17b5168039c1caf",
+      "npz": "b44fcdf9f6d17dd043c19cd7bad47f0a252f30326a1c0e9230f94bb8caada687"
+    },
+    "may22_hist_signal_i2_f00000_c15_poisson": {
+      "json": "13f21efec25778d143912e6ee7fe5d5dab7679f74efe29639be1f041c48ca3be",
+      "npz": "602687411de1205d938db7ec63880cc0b2c3ba4aa0a340eaf159e74cb47778d7"
+    },
+    "may22_hist_signal_i2_f00000_c16_poisson": {
+      "json": "19770a96f29c46c1de5d76508f1fd33b5d572b86710b68efe941782bb69a48e8",
+      "npz": "e664d197b3bcc078107ccfd74982616de0276bac54c1cb81442e47820d92a46b"
+    },
+    "may22_hist_signal_i2_f00000_c17_poisson": {
+      "json": "9f99683048e5bfea194f0e0eb4f84d46acca85f5b3268a497ba9a17d07a74135",
+      "npz": "6369fc970be37ca51efc9ef83add5427ff1ad88566d6859009d9b5dbca0c5510"
+    },
+    "may22_hist_signal_i2_f00000_c18_poisson": {
+      "json": "9dfea72f9e47a8bff680856b41c68d5aaec4821b5429cd42435479291eebe001",
+      "npz": "d39d4d6a1ef0c3f3908c1686501f51092e256639f1f78827e303bc26cf247c54"
+    },
+    "may22_hist_signal_i2_f00000_c19_poisson": {
+      "json": "c36486075833d7edfbff4c184ce827e31c4d09f531ee716228db7d4f0627b4bf",
+      "npz": "ebf67d4048e91d3363fef77e3754f5121986032294acda26f41b9003a56545a0"
+    },
+    "may22_hist_signal_i3_f00000_c0_wls": {
+      "json": "14bb78b8a85a1980e3728d64b23cb3783fe8f0a869d317992018f75a17453ba6",
+      "npz": "dc11331373d81c13de89b7316a2563798f056f54bb5020fa29b0cf0506d8ef8f"
+    },
+    "may22_hist_signal_i3_f00000_c1_wls": {
+      "json": "083617b5fd9801d8c844065b438edfc4777d3fcfcb050b56affb26334fc27958",
+      "npz": "2e8e1a3866a616d9979a8467cadb88184a4a22c8426505f72503cdd6e082d9ca"
+    },
+    "may22_hist_signal_i3_f00000_c2_wls": {
+      "json": "8b13029563388205025c2ecaa63736c2cc74c6d28b782638354df967915da15f",
+      "npz": "73f305f7b32a997692a8b1405c0fa9335d8ad917ec6aeeed713267b4da88d66a"
+    },
+    "may22_hist_signal_i3_f00000_c3_wls": {
+      "json": "f613ad7dc5e2748c32e0835515acc0f9bac4facdcad2a47d35ea4c3ed7ee51bf",
+      "npz": "85bde66d954dbc327187b02bac115459830a48bfc2bb4e06df8490397106f5b8"
+    },
+    "may22_hist_signal_i3_f00000_c4_wls": {
+      "json": "4167131c2d50f234e5056ede28128d487330643ab16bf44535d47e756a769d27",
+      "npz": "704823abb59be04e680bfb449edb275941c080c2d155cd06a3d2217fce898eb4"
+    },
+    "may22_hist_signal_i3_f00000_c5_wls": {
+      "json": "672001d6c65f6f7d92730a389ad360e63f6a50488383db2e813a2dca3549e15d",
+      "npz": "4b8639e0e35817ff98924c1c23dc68df0d05acf35e2c0a50be1dcdd4e40af26e"
+    },
+    "may22_hist_signal_i3_f00000_c6_wls": {
+      "json": "9b669e581f3dcfd08b0c963d9424488dbab4a745ee22f7ba062b2db5d17864fa",
+      "npz": "62c35eedede9e6b03f19e6466fe2d97e53a4ddd4450a3df3dd9877816c0f0f46"
+    },
+    "may22_hist_signal_i3_f00000_c7_wls": {
+      "json": "e43157e654b0832142b26bf74b0a8e39cf71a6e19e2c253bb66b6b88d4814357",
+      "npz": "003a4b94b6f62e630fa7ce8ce2785c4ddd78de2b55ceb0ab6c0d1c00258f69e8"
+    },
+    "may22_hist_signal_i3_f00000_c8_wls": {
+      "json": "f8e83fe6f83691c6967a3a50ab41885919a41e8745f01c24dd7af27ee9d745d3",
+      "npz": "efaad04a6f76aabfe0bb1ef15b083f4890ea03c0607377f0abe8827bdcda8919"
+    },
+    "may22_hist_signal_i3_f00000_c9_wls": {
+      "json": "1145af02efebb60f022621cfcfd618ac4f8d45e211c4279ac39ba88754af1bcc",
+      "npz": "d4ce52ee7e1aef15819cb23007a9147a09d601958c7a6dacaeb0f37b6dbc5ed8"
+    },
+    "may22_hist_signal_i3_f00000_c10_wls": {
+      "json": "3be628005415ca8ad33d645b6b0ef174fd8da66e90f4a21b6d35ece968c3a956",
+      "npz": "f00c726cd9fd1b6c9dd371dda5d2dcec6823ca29730f00c4cc0a67f56c86be09"
+    },
+    "may22_hist_signal_i3_f00000_c11_wls": {
+      "json": "548851adce5e5c36b72b92b20f4e354c288036a129f7e02e4e8373663ece8fe4",
+      "npz": "03e697a50a2ca45682553537c4516283e9438c01ebdbfe2811f30c8be4369320"
+    },
+    "may22_hist_signal_i3_f00000_c12_wls": {
+      "json": "4b45e0486162cdf8ba682553b1c683aa1a988ddcfed094cd4d9dcecc4699df16",
+      "npz": "ef7ee422630091e940dc81dca4a888239ff270c617168efac590d713b195156a"
+    },
+    "may22_hist_signal_i3_f00000_c13_wls": {
+      "json": "86950b6225bc77887b56961e0bfaec27490474d9cc037431f412c22689c67a50",
+      "npz": "029af44f9819b4f14056c9830fb43e97149f1912191af011581c3c14333d6a51"
+    },
+    "may22_hist_signal_i3_f00000_c14_wls": {
+      "json": "9c08be8386af1fd066115111f22f737848c11591ab976a4572dc2656603795ad",
+      "npz": "c6fc87f31eea8e501d819303cf3cd544e233f13cfe7152ac638297612b3bedbf"
+    },
+    "may22_hist_signal_i3_f00000_c15_wls": {
+      "json": "b1811a9630ab5f226638a04ed6f6a68a11993ba80a0ad8e901bee6068d5d60be",
+      "npz": "be7ff2125fff2d83909a5663cf5ea12c8ee6410587ba2713878f9e86c767af57"
+    },
+    "may22_hist_signal_i3_f00000_c16_wls": {
+      "json": "0df681742eda4fdbac61d773506718b3c170f5edfd8898f369f3cb22fbf229a1",
+      "npz": "ac202ed5fba30f52fef6a9d83a6733155e742b443f407631e6c2ccb01a86b833"
+    },
+    "may22_hist_signal_i3_f00000_c17_wls": {
+      "json": "f1ce3b6a8a39adf002c2484ae166255e44f2136bbfaf8a29c7cd93d66c667fd3",
+      "npz": "6fc9010e795ec1bad478459f7482d583a8cb792ab5c9a53a4213bc987bfeaf48"
+    },
+    "may22_hist_signal_i3_f00000_c18_wls": {
+      "json": "36031854fe087252129d6b62de1d0e984d773d417c6997fe2c41b59c70d8abf3",
+      "npz": "61a8e4399cbf029d2db45475b7eff4fb88c1dc15c7a5d757c3d7064eb92300db"
+    },
+    "may22_hist_signal_i3_f00000_c19_wls": {
+      "json": "a8d3c00896ff7ef0c64504a48939d6df2de21ae9f92891f0b3481030649b2ab7",
+      "npz": "9a2db886c6c9983cf0872d73585718679fc08f267d772bda8490b6da8caa2b57"
+    },
+    "may22_hist_signal_i3_f00000_c0_poisson": {
+      "json": "7fb8aadd15f7be27d8e9d0d9372f4419e70fceefc28cb3982f53f66847844b12",
+      "npz": "f7ecf4d5b993b4d8c8b9aac0119555df9a6ac2689a9a454d88a2a28123530bc1"
+    },
+    "may22_hist_signal_i3_f00000_c1_poisson": {
+      "json": "9fd1638f6d7ddf265769b1c5b0c66c2919f238a6077d108d2ffc87e6d36388ee",
+      "npz": "3204a583cfc59927486f2f71b0afefc6a17bf589a5c867b63ce76f577855392c"
+    },
+    "may22_hist_signal_i3_f00000_c2_poisson": {
+      "json": "32ab9d9dd3b6ab908b90248b649ae70c08e3581b89b45de4d63ab49ae8210b00",
+      "npz": "4131bf84c3f48ec397d62cf1654c42cdd2688bca37ac197626374dd8ffad775c"
+    },
+    "may22_hist_signal_i3_f00000_c3_poisson": {
+      "json": "6dacef399f2802393398815858100ae60dca9e7f66caa2ca9fc3e4bf5e069d84",
+      "npz": "59f508a6574ca971220df7785a40817dfc507c90b7e9556244f9e3a567086dd6"
+    },
+    "may22_hist_signal_i3_f00000_c4_poisson": {
+      "json": "dcf430dc0250a35badb3a42e7546303e7f2b343be95fb778fdd8edb4cb73422a",
+      "npz": "c0a3e19caf6c4b1bc2ee6435e502a93ae91c0cc81d7224dc52a4aa4b73ac3e5b"
+    },
+    "may22_hist_signal_i3_f00000_c5_poisson": {
+      "json": "33315947937d944f9836263c420172f74e6f5f1c0e18818e50522942a574aabd",
+      "npz": "40885f88cc71344d89b43490e761d8f26889cff1bfabc646828f1d21088443e5"
+    },
+    "may22_hist_signal_i3_f00000_c6_poisson": {
+      "json": "8a1f39c8bad26f15e0c4c217255cb927ffa0c02657dac275ba106a56096e2549",
+      "npz": "a1ba694abd2547b108a17060aab3c2cd2825b34108370c3857b3fa59f09929e7"
+    },
+    "may22_hist_signal_i3_f00000_c7_poisson": {
+      "json": "b4eddb04e32fe4e4505ddfe413873944a4a7f6fa5869265598330b81bf4859cb",
+      "npz": "41cbfaca5d97aa19631e666e4efae5138364780125915aa2fdb9583f3d981ddf"
+    },
+    "may22_hist_signal_i3_f00000_c8_poisson": {
+      "json": "b90fbc648a10a45d9d2d06579c2ca1fc4ffe765af29ee14284874667170a3a8e",
+      "npz": "b1ab8eb81a78d10da135202533215afbcbe4bd6e451842fc6e322c5f6ad6b17c"
+    },
+    "may22_hist_signal_i3_f00000_c9_poisson": {
+      "json": "8f3a58a92b37b267556e12a14632b52a04ef30bf4999774e964cc2aed6c19b5a",
+      "npz": "66b01157b33d6efa4a11aad605074e2eaccaa2af404afb5a8d7c1f3853adf703"
+    },
+    "may22_hist_signal_i3_f00000_c10_poisson": {
+      "json": "e8b727465e23ddc5825e1954f8c482adcca8013a8fa9946b5a1790e70b16a159",
+      "npz": "6184e7ff84f55c26992f68e477555742fd4c5f6f196097412e03e2f89d748402"
+    },
+    "may22_hist_signal_i3_f00000_c11_poisson": {
+      "json": "9c1e9ddefbd06499dbceebcaee3c8b42127185903e5702f5d8cbc13ae2f1d559",
+      "npz": "7f0eda1f886ac0c1941bc2a196fd8b88c893dfa6fc57b83ebddc1d14c4df41ba"
+    },
+    "may22_hist_signal_i3_f00000_c12_poisson": {
+      "json": "5e59d577b1a30daef19cb37d5431bae31e4c5eac9c83af13b2f981ac5670e60f",
+      "npz": "6bcb2561b58fcdd6e422abbe6b11f32a9649bc8c0ce72b6f98b35bfdd09f58e6"
+    },
+    "may22_hist_signal_i3_f00000_c13_poisson": {
+      "json": "0466b581a79a8689a749895892df244af0bd2597f27335a7262f46a814f3f451",
+      "npz": "bc162ebf2d38be84518bf4b6472eb84f3462f3f9d319b43156ad1910fe331b6b"
+    },
+    "may22_hist_signal_i3_f00000_c14_poisson": {
+      "json": "1832febc6f85604819fbc4d5b5c3399dd5b9944ae943d6dd0d2710dbb8865f53",
+      "npz": "7df2cdd2625aedf349f806a18e105b1fe31904a172575419f3ad8b4d29e6e453"
+    },
+    "may22_hist_signal_i3_f00000_c15_poisson": {
+      "json": "b55b125552c153004ebf5e520a79163b92037f361f9509c87a92b23db142605e",
+      "npz": "ec4ddedb9fb8f2948c28da1a1aecd621479f983b89370af301d440588d787e5d"
+    },
+    "may22_hist_signal_i3_f00000_c16_poisson": {
+      "json": "404fc078719c8f44f4573a2d02dc8c3c9b0ab78141daa024755f3f841dcdac40",
+      "npz": "6e87e612553a8460f068741a5426244e59bb8ec18fa6c61559deb9a8a74169e6"
+    },
+    "may22_hist_signal_i3_f00000_c17_poisson": {
+      "json": "985112b81fc62e1a11cf556a95bc97d28d9470fe488b137620a318002fb924c6",
+      "npz": "55c83c386cc2c041dc0e98aacb0c245b42c485845a2b320144c4d42d2d8258a0"
+    },
+    "may22_hist_signal_i3_f00000_c18_poisson": {
+      "json": "4b2727e996212c2045978b8bec4abff103b866f9cbe83b6886a25ab0c16af7bc",
+      "npz": "e1da4dbd8323246b34d91ff4c459bdc2376d9f6c2474b5ce36f86193bba91156"
+    },
+    "may22_hist_signal_i3_f00000_c19_poisson": {
+      "json": "5928d7eb208d54cb1f89abbbb5fe6937562d23ec2c52133e577959eeb8436f1f",
+      "npz": "ef71356a14df386ad9e839178cfb6f6bca336b98fcb5932c9f29b2955c0a0a76"
+    },
+    "may22_hist_signal_i4_f00000_c0_wls": {
+      "json": "deeed63108d009f46bae06e12ab9fff8a718159131a5d8264db68e048ea99cc7",
+      "npz": "5ed46b70480049709ec2c025e2e168815d06554513e5d83c24ed449b186d3491"
+    },
+    "may22_hist_signal_i4_f00000_c1_wls": {
+      "json": "25d491066882bf58bb996d71ab6a094a743578e002088ab547b45c8b0c9dc65f",
+      "npz": "e03539ab4b504760ae256cf2309daa4e7bc9776c680bd59f20c73bddffac2c8a"
+    },
+    "may22_hist_signal_i4_f00000_c2_wls": {
+      "json": "13463fb2451351785fe1bf034fd7ab047581235856f2d36584b20c9125d97bc0",
+      "npz": "302ed8417b27d8b787a8e7479521d78c1214484ffb1dba6a7ff3e5f48e4e787a"
+    },
+    "may22_hist_signal_i4_f00000_c3_wls": {
+      "json": "f4711dfce9cc5c2aa3ed35645cff07cfde4bc3832caa707433d4091ce56620b4",
+      "npz": "31f5486902df87ad8284e7132b08cc9920c6c802d0b07beec0565fd847757b58"
+    },
+    "may22_hist_signal_i4_f00000_c4_wls": {
+      "json": "eda4d485ae654d9172ba3ef7bc232d0a12dbaf99d6c0df64e112f5822ea26dae",
+      "npz": "72c1e2514aaf6a2cf628dd479893aeb69684efed8355ba0c4015b1a5f5c7f287"
+    },
+    "may22_hist_signal_i4_f00000_c5_wls": {
+      "json": "27f4e758fb454535c05113ac0f16fa1d6932a7c58558b0353b30297d9f47cfa4",
+      "npz": "97382c153d68a1d726f1c9c4554a93e7aa1ddb2ad73a4a29e4c92a6b6134306c"
+    },
+    "may22_hist_signal_i4_f00000_c6_wls": {
+      "json": "44b5da2a0af77b8cbb6430cd754690de2eade2bd4204c83618690642f970f3c1",
+      "npz": "7aafc65312f8a564204ec6f8283a4060c74243f0ca9d29d4401263e73d759d69"
+    },
+    "may22_hist_signal_i4_f00000_c7_wls": {
+      "json": "545c6720c1ff0f2c018b7ea51927dda3f39b1442fea3fd6348fe4c4c05e772d2",
+      "npz": "4ba45c357a8ac41b35dcc5b5354a6a5833c41875d59b61b99131011f9aa3ff23"
+    },
+    "may22_hist_signal_i4_f00000_c8_wls": {
+      "json": "6aedfbeccef564e0149612c6e42c6d003775abe3940514969fce17a034ce4ccd",
+      "npz": "7f999c2860535e11c808fa1d5be6cf8fdf8254cd6477f6d730ff0d97a2b4c3e2"
+    },
+    "may22_hist_signal_i4_f00000_c9_wls": {
+      "json": "0a56d6fa628e8db2f4e65f9dd3b12799bb55498f6aa244b1a32c4d91a5b12341",
+      "npz": "fa0ee50002b01b1a16cd7c54582710e846288b9b2d111c3560c8e672e44fea54"
+    },
+    "may22_hist_signal_i4_f00000_c10_wls": {
+      "json": "cb5f76b3cd5b2514e79db7127d7ab058575830f6476c2544421fbfa1edfd6287",
+      "npz": "92eeb877cc99b927148dd83507e450e5c4078893f7fce445e2f2950684db2789"
+    },
+    "may22_hist_signal_i4_f00000_c11_wls": {
+      "json": "f37fc4d536eeb392d126a511ae710482ab5c0eb9dae271e52266d6346de3fe26",
+      "npz": "f803fe077f858d287b4dadf0e22d6eda7f11fda414a813d0b828cf564a10d6e7"
+    },
+    "may22_hist_signal_i4_f00000_c12_wls": {
+      "json": "9acfffab8b290fe87ac8141f23c9ad6332ecadb5bd0bb955d00a54c9c6277ab0",
+      "npz": "976b5bee073cc32e9af0eaec98c3c7fcec16fec50cee873bf7233dd9cdfe4f78"
+    },
+    "may22_hist_signal_i4_f00000_c13_wls": {
+      "json": "45488865eebdb99fad75d2400362635f01ad6b3203d8a25d9d93b6f45ecfa44f",
+      "npz": "daa64063a00db9c6003fb098dee14b0ca7521cd6883757c947b8b219e4556c91"
+    },
+    "may22_hist_signal_i4_f00000_c14_wls": {
+      "json": "e4dc990e01e252bf130552d139dea0799e7bf5fa4a736b0e598f8f3939c987e9",
+      "npz": "edab1befd4bff831143bcfa3fcb8ae3877acabac5d8dab96603c4993f032d815"
+    },
+    "may22_hist_signal_i4_f00000_c15_wls": {
+      "json": "46da4ab55c7b60596c1a3a8b561152310793dfc70c1acbc87ba356f850679931",
+      "npz": "5aa51befd46c3942b0fdc2e4b9c5d8bb3396239e4091b9b5e51a47a8dfe069be"
+    },
+    "may22_hist_signal_i4_f00000_c16_wls": {
+      "json": "1cf2bafc7a9eb1eb805b4e540f51322e30851eb3a572687e165cc661a12be4e0",
+      "npz": "0aa65c3421f73d7a1b95f014042f5ad1795cfe8517fe1904d2448ae4018670ff"
+    },
+    "may22_hist_signal_i4_f00000_c17_wls": {
+      "json": "d972382609cc13e6b3cc1e188363146584b3775b1654f63b0adf1389f715bfab",
+      "npz": "4b54d1a6fc7518686e282664c3f4882497270334a4f12b0ab09d928c7e0539be"
+    },
+    "may22_hist_signal_i4_f00000_c18_wls": {
+      "json": "657fdb30f0f0414d440d91d4f630380157b6f0e51910a5a9ea523a42cc7de51b",
+      "npz": "727ded73ebaf5f8c0849916cc4c972d157e9a3187f207bdfae2171dc089aaf91"
+    },
+    "may22_hist_signal_i4_f00000_c19_wls": {
+      "json": "b06d0c8a0af17e818871323ce5ab4c3c90fd824d06f063c9d67917d04e664312",
+      "npz": "8a18be865d7b8fa68d5d2d52de267fd7f512caa781e6d1e0f1f713cb3657f627"
+    },
+    "may22_hist_signal_i4_f00000_c0_poisson": {
+      "json": "cb484a92153c0f0a8f905ff8e1894c4f79f0edfa3388d67ecdfe09ba815497f7",
+      "npz": "1bd36b813d724071be76f0d5000a32a822ad34696bdfbccbee73533cb889d9da"
+    },
+    "may22_hist_signal_i4_f00000_c1_poisson": {
+      "json": "3ff9a2bcb2bd159795393878567ab1c704a44e6109cc67ab3d996fdd096370f1",
+      "npz": "0416fe2c0ebb5faf534ccca0165a005d8ba23437a71c6fbd6fb047170e1ba046"
+    },
+    "may22_hist_signal_i4_f00000_c2_poisson": {
+      "json": "66c8c63ad87f2e0a44e1b06cdc96b25a2853455217bb7acef7e863225cc50800",
+      "npz": "6beaca2c0062b9a9993067100a49cfc0ec41c86dc9c6204cc29ef86ad0a1da8f"
+    },
+    "may22_hist_signal_i4_f00000_c3_poisson": {
+      "json": "01f7e4be95b9ceb0fd15d610791f178e4f4e65c2a50123fb001640dc1a44221f",
+      "npz": "58d9c15d129be468267aaaa4bf17aac4e9c3adb4b94219bae2abd0a522bb92e2"
+    },
+    "may22_hist_signal_i4_f00000_c4_poisson": {
+      "json": "ef7946befb59cb3d5d9e79e85ea79b4183f01147603df653bc9858138f19b14e",
+      "npz": "020f253a268aca58ba3c6c31fbf9fd6871ca61fc69592721e8c8db9b9d86294e"
+    },
+    "may22_hist_signal_i4_f00000_c5_poisson": {
+      "json": "232deacc74128d1bf5ce52680a61de25d8dd3218d5d054d73a157a60008b3a14",
+      "npz": "41d46100c284059808d19187097fe3a4abf3b65307a77b6a99c6072df17b4ab0"
+    },
+    "may22_hist_signal_i4_f00000_c6_poisson": {
+      "json": "589cc15a5a14b6eac853f2de49dc110c4712312a99c52d9a7f5d0a82cb30f304",
+      "npz": "b695d1b893ba376ca726069fc35164e4f7c127627ab4998250ac04563cd570e2"
+    },
+    "may22_hist_signal_i4_f00000_c7_poisson": {
+      "json": "23e496c8cc5b3a42285941baebc7fd780f870e372749dd5fa1f72281c8707136",
+      "npz": "394c425b5f3d7c1f5c8806e5a3f8aea5d4b44f31801e6dc68e87637d6bb1f994"
+    },
+    "may22_hist_signal_i4_f00000_c8_poisson": {
+      "json": "4d9035dffdd7e14e8d53165f644df4be686fa01fc16c08d3eff3b663d17607e0",
+      "npz": "3e6fe7a3fb6a6e1ab7e9639bc9429fa75bad0b5af4205941c1d96fa6f70798e9"
+    },
+    "may22_hist_signal_i4_f00000_c9_poisson": {
+      "json": "60f7dfbc1fd96f1dd3ccca5bc42a17c560b6065421877ae903e587c0588f0126",
+      "npz": "a5d929e9c5b8747b8017dfc30000e356f4407f0dfb5a5636871885f5811516ce"
+    },
+    "may22_hist_signal_i4_f00000_c10_poisson": {
+      "json": "4505f65f079c1b7808d474387df92bb967d1b2e63f2cfa7477a02604deba3a69",
+      "npz": "2e97c9cb5853506bf69167275105c5c8ecd81ff412bdd8d1a92b952bb6bcac0e"
+    },
+    "may22_hist_signal_i4_f00000_c11_poisson": {
+      "json": "fabebb8e0d36f2764a4df6ee867e86f702311b136726bb666c46170161f50bb3",
+      "npz": "3db166c423eada896fa7495597837ca4b37181a5b574ed109b24914d72256358"
+    },
+    "may22_hist_signal_i4_f00000_c12_poisson": {
+      "json": "d9b8a13498878da61347b346d49e75cbd2785ebfb2cf2e6a9a7e5ee629159635",
+      "npz": "0857ba26cb12258f7516b3afb45225b2e1e1dddde01944ae67cccda0f6df92ef"
+    },
+    "may22_hist_signal_i4_f00000_c13_poisson": {
+      "json": "262890c4f0d31d05f3e49acfa0646bfc0e34d198ebe8eff06e170655093f8c2c",
+      "npz": "bb8e805682c54bddf791dec8539abf1aab79c4c6b57dabeb2b99ba551d1cbbeb"
+    },
+    "may22_hist_signal_i4_f00000_c14_poisson": {
+      "json": "39da83a21ab4b4c4269f2a0201e574bd892b687e7901954f40082c85308c486b",
+      "npz": "beca8548cadd54b1fa1922c9df0d948016fdcdfc253d76c606f527bad17c8b24"
+    },
+    "may22_hist_signal_i4_f00000_c15_poisson": {
+      "json": "1a7b73e1f439d11fb52d26dad9162c04f2f31a76f489b0e9f3709ca941a2c703",
+      "npz": "c22f1076be0499e96e71edf441bf87c9aa514076e14de07afc153f56ef4d9e26"
+    },
+    "may22_hist_signal_i4_f00000_c16_poisson": {
+      "json": "1203f9a103d1d4bd4cb79bc9acad1e217782c994fcdec3f5e3c62ff4594819a2",
+      "npz": "3ecb4eaa8203cb720dae29f2cedce29dd1fd97b01cabfcd4152ae72282447401"
+    },
+    "may22_hist_signal_i4_f00000_c17_poisson": {
+      "json": "c1ffd7c848d2f19f6c507213361921b3db11c18088f0defd5a761b58148a7c63",
+      "npz": "0e2dde900b0c4e6d5d8174ef2a1226d33348e7437ccb4c83434beccae9e7f07a"
+    },
+    "may22_hist_signal_i4_f00000_c18_poisson": {
+      "json": "3855d45dc7ff9ecff627c70dd0ec343210850e2dba55edbea7098f5055bfe9b8",
+      "npz": "5476841eb08a6fd66c92265671c736704e92e3b8329464e317f472bde90f637b"
+    },
+    "may22_hist_signal_i4_f00000_c19_poisson": {
+      "json": "0baed3547f19620ead6ee38a6fbdbf518f87b3488d1c39111692dd9553a674e2",
+      "npz": "c50bc8ae6e19e2b54715bc3bfceb0273c3d5852829c08aab4b7529638beab42a"
+    }
+  },
+  "interpretation": "q025/q975 are central 95% of per-trial MDC estimates, not a confidence interval for true Ld95; no conditioning on detection",
+  "signal_Ld_uncertainty_resampled": false,
+  "thresholds_retuned": false,
+  "systematics": false
+}

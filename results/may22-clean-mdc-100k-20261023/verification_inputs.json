@@ -1,0 +1,44 @@
+{
+  "independent_formula_checks": [
+    {
+      "target": 1,
+      "LC": 0.000585522945629105,
+      "MDC": 0.001230262637098959,
+      "sigma0": 0.0003559726750363177,
+      "sigma_at_MDC": 0.000391973900233784
+    },
+    {
+      "target": 2,
+      "LC": 0.00029751903003744947,
+      "MDC": 0.0006506853245177595,
+      "sigma0": 0.00018087872693503025,
+      "sigma_at_MDC": 0.00021470986153027217
+    },
+    {
+      "target": 3,
+      "LC": 0.00014765587851912716,
+      "MDC": 0.00032907696980882155,
+      "sigma0": 8.97684001176376e-05,
+      "sigma_at_MDC": 0.0001102961919024585
+    },
+    {
+      "target": 4,
+      "LC": 0.0001283966358122883,
+      "MDC": 0.00029351492285762315,
+      "sigma0": 7.8059611936568e-05,
+      "sigma_at_MDC": 0.00010038479068278019
+    }
+  ],
+  "all_production_hashes_unchanged": true,
+  "status": "passed",
+  "audited_at_utc": "2026-10-23T17:24:31.114076+00:00",
+  "manifest_sha256": "ce69c751391acf8b80fa690b3d901dae3162734848fdd2ca541d88696e20a2ae",
+  "run_lock_sha256": "1db0fff9a2d98b401e8fdc24355c15a0712ee1a112aebb9f4828b01f17079252",
+  "audit_file_sha256": "29edf94bd4fb773c24bae9c20aa685afb66265b3f774bdea2044d31289c1d6f1",
+  "selected_refit_rows_per_batch": [
+    0,
+    999
+  ],
+  "audit_scope": "inputs",
+  "independent_method": "All x/decisions/counts/summary; repeated fits; scaled QR Fisher and brentq MDC roots"
+}

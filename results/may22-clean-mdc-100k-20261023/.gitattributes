@@ -1,0 +1,5 @@
+# Preserve the bytes of the audited snapshots, including Windows CSV endings.
+* -text
+*.pdf binary
+*.csv whitespace=cr-at-eol
+verify_*.py whitespace=-blank-at-eof

@@ -1,0 +1,6 @@
+# Analysis and report reproduction; Python 3.11+ (original: Python 3.12.14).
+# Numerical refits additionally need the XeMat commit recorded in manifest.json.
+numpy==2.3.5
+scipy==1.17.0
+matplotlib==3.10.8
+reportlab==4.4.9

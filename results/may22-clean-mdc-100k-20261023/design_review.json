@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "reviewed_at_utc": "2026-10-23T17:19:01.124776+00:00",
+  "manifest_sha256": "ce69c751391acf8b80fa690b3d901dae3162734848fdd2ca541d88696e20a2ae",
+  "run_lock_sha256": "1db0fff9a2d98b401e8fdc24355c15a0712ee1a112aebb9f4828b01f17079252",
+  "audit_file_sha256": "1f304ba1c30454aff87e2d7dc5643240cfaea7671f7550503ef456b6b3557416",
+  "method": "Independent locked plan comparison and scaled QR + brentq formula roots",
+  "source_model_exact_match": true,
+  "seeds_checked": 524,
+  "stage_counts": {
+    "calibration": {
+      "vectors": 100000,
+      "batches": 100
+    },
+    "validation": {
+      "vectors": 100000,
+      "batches": 100
+    },
+    "signal": {
+      "vectors": 320000,
+      "batches": 320
+    },
+    "technical": {
+      "vectors": 128,
+      "batches": 4
+    }
+  },
+  "calibration_order_rank": 95001,
+  "expected_training_exceedances_without_ties": 4999,
+  "nominal_formula_checks": [
+    {
+      "target": 1,
+      "LC": 0.000585522945629105,
+      "MDC": 0.001230262637098959,
+      "sigma0": 0.0003559726750363177,
+      "sigma_at_MDC": 0.00039197390023378405
+    },
+    {
+      "target": 2,
+      "LC": 0.0002975190300374495,
+      "MDC": 0.0006506853245177596,
+      "sigma0": 0.00018087872693503028,
+      "sigma_at_MDC": 0.0002147098615302721
+    },
+    {
+      "target": 3,
+      "LC": 0.0001476558785191272,
+      "MDC": 0.0003290769698088216,
+      "sigma0": 8.976840011763762e-05,
+      "sigma_at_MDC": 0.00011029619190245851
+    },
+    {
+      "target": 4,
+      "LC": 0.0001283966358122883,
+      "MDC": 0.0002935149228576232,
+      "sigma0": 7.8059611936568e-05,
+      "sigma_at_MDC": 0.00010038479068278019
+    }
+  ],
+  "planned_formal_vectors_before_histograms": 520000,
+  "planned_histogram_signal_vectors": 160000,
+  "planned_iterative_MDC_attempts": 960000,
+  "max_signal_points_per_isotope": 8,
+  "systematics": false,
+  "wald": false
+}

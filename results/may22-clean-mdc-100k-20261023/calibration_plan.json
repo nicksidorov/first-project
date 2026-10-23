@@ -1,0 +1,802 @@
+[
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 20,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 21,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 22,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 23,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 24,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 25,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 26,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 27,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 28,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 29,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 30,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 31,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 32,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 33,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 34,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 35,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 36,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 37,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 38,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 39,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 40,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 41,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 42,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 43,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 44,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 45,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 46,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 47,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 48,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 49,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 50,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 51,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 52,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 53,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 54,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 55,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 56,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 57,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 58,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 59,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 60,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 61,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 62,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 63,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 64,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 65,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 66,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 67,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 68,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 69,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 70,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 71,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 72,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 73,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 74,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 75,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 76,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 77,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 78,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 79,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 80,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 81,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 82,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 83,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 84,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 85,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 86,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 87,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 88,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 89,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 90,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 91,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 92,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 93,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 94,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 95,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 96,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 97,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 98,
+    "stage": "calibration"
+  },
+  {
+    "dataset": "may22",
+    "target": 0,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 99,
+    "stage": "calibration"
+  }
+]

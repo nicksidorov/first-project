@@ -1,0 +1,1602 @@
+[
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "family": "wls",
+    "activity_Bq_m3": 0.0012466661386384386
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 1,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "family": "poisson",
+    "activity_Bq_m3": 0.001247270876032879
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "family": "wls",
+    "activity_Bq_m3": 0.0006840076178064188
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 2,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0006724607342433866
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "family": "wls",
+    "activity_Bq_m3": 0.000346646818354272
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 3,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003444758824559024
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "family": "wls",
+    "activity_Bq_m3": 0.00032043732607194475
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 0,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 1,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 2,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 3,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 4,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 5,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 6,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 7,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 8,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 9,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 10,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 11,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 12,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 13,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 14,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 15,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 16,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 17,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 18,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  },
+  {
+    "dataset": "may22",
+    "stage": "hist_signal",
+    "target": 4,
+    "factor": 0.0,
+    "n": 1000,
+    "chunk": 19,
+    "family": "poisson",
+    "activity_Bq_m3": 0.0003133000027893707
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-10-23T20:30:04.274021+00:00",
+  "zip_count": 6,
+  "payload_files": 1442,
+  "all_archives_below_limit": true,
+  "crc": "passed",
+  "member_sha256": "passed",
+  "sources_unchanged": true,
+  "package_index_sha256": "990a764bb7f38afebd48b2bc48f2f6a8ee058e2dbae87d032899c16a41a2b5b8",
+  "verification_sha256": "9af26b79a9ef1bfb66e61d2e1c90714681357d28d06726226d66edc5de7d3856",
+  "histogram_verification_sha256": "c714e7c8608adf0a2357c00210d11c094599a043e83138fbf3793b65cbe69a43"
+}

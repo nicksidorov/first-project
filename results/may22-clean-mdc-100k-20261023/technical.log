@@ -1,0 +1,5 @@
+PLAN technical_plan.json pending_batches 4 pending_vectors 128 workers 4
+DONE may22_technical_i4_f11000_c3 n 32 seconds 1.8 errors 0 mode iterative
+DONE may22_technical_i4_f11000_c2 n 32 seconds 2.2 errors 0 mode fixed
+DONE may22_technical_i0_f00000_c0 n 32 seconds 3.2 errors 0 mode fixed
+DONE may22_technical_i0_f00000_c1 n 32 seconds 3.8 errors 0 mode iterative
