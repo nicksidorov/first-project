@@ -1,0 +1,1518 @@
+{
+  "A": {
+    "diagnostic_catalogue": [
+      {
+        "message": "No diagnostic"
+      },
+      {
+        "message": "Решена взвешенная линейная задача",
+        "method": "wls",
+        "python_warnings": [],
+        "success": true,
+        "warnings": []
+      },
+      {
+        "message": "Решена взвешенная линейная задача",
+        "method": "nnls",
+        "python_warnings": [],
+        "success": true,
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ]
+      },
+      {
+        "message": "Optimization terminated successfully",
+        "method": "poisson",
+        "python_warnings": [],
+        "success": true,
+        "warnings": []
+      },
+      {
+        "message": "`gtol` termination condition is satisfied.",
+        "method": "poisson_nonnegative",
+        "python_warnings": [],
+        "success": true,
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ]
+      },
+      {
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "method": "poisson_nonnegative",
+        "python_warnings": [],
+        "success": true,
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ]
+      },
+      {
+        "message": "`xtol` termination condition is satisfied.",
+        "method": "poisson_nonnegative",
+        "python_warnings": [],
+        "success": true,
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ]
+      },
+      {
+        "message": "The maximum number of function evaluations is exceeded.",
+        "method": "poisson_nonnegative",
+        "python_warnings": [],
+        "success": true,
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ]
+      },
+      {
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "method": "poisson_nonnegative",
+        "python_warnings": [],
+        "success": false,
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 9.44e-06",
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ]
+      },
+      {
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "method": "poisson_nonnegative",
+        "python_warnings": [],
+        "success": false,
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 4.03e-06",
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ]
+      },
+      {
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "method": "poisson_nonnegative",
+        "python_warnings": [],
+        "success": false,
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.89e-05",
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ]
+      }
+    ],
+    "errors": [
+      {
+        "chunk": 46,
+        "replicate_id": 46012,
+        "row_in_batch": 12,
+        "family": "poisson",
+        "phase": "auxiliary",
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 46,
+        "replicate_id": 46549,
+        "row_in_batch": 549,
+        "family": "poisson",
+        "phase": "auxiliary",
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 82,
+        "replicate_id": 82763,
+        "row_in_batch": 763,
+        "family": "poisson",
+        "phase": "auxiliary",
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "status": 0,
+        "invalid_physical_estimate": false
+      }
+    ],
+    "status_legends": {
+      "decision_legend": {
+        "-1": "unavailable decision; never count as nondetection",
+        "0": "available: free estimate <= LC",
+        "1": "available: free estimate > LC"
+      },
+      "fit_status_legend": {
+        "-1": "exception",
+        "-2": "not attempted",
+        "0": "solver returned success=False",
+        "1": "successful finite physical estimate",
+        "2": "missing/nonfinite/wrong-size physical estimate"
+      },
+      "lc_status_legend": {
+        "-1": "LC exception",
+        "-2": "not attempted: required fit estimate unavailable",
+        "0": "nonfinite/negative LC",
+        "1": "available LC"
+      }
+    },
+    "fit_diagnostics": {
+      "wls": {
+        "free": {
+          "status_counts": {
+            "1": 100000
+          },
+          "diagnostic_counts": [
+            {
+              "code": 1,
+              "n": 100000,
+              "diagnostic": {
+                "message": "Решена взвешенная линейная задача",
+                "method": "wls",
+                "python_warnings": [],
+                "success": true,
+                "warnings": []
+              }
+            }
+          ],
+          "messages": {
+            "Решена взвешенная линейная задача": 100000
+          },
+          "warnings": {},
+          "python_warnings": {}
+        },
+        "auxiliary": {
+          "status_counts": {
+            "1": 100000
+          },
+          "diagnostic_counts": [
+            {
+              "code": 2,
+              "n": 100000,
+              "diagnostic": {
+                "message": "Решена взвешенная линейная задача",
+                "method": "nnls",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            }
+          ],
+          "messages": {
+            "Решена взвешенная линейная задача": 100000
+          },
+          "warnings": {
+            "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией": 100000
+          },
+          "python_warnings": {}
+        }
+      },
+      "poisson": {
+        "free": {
+          "status_counts": {
+            "1": 100000
+          },
+          "diagnostic_counts": [
+            {
+              "code": 3,
+              "n": 100000,
+              "diagnostic": {
+                "message": "Optimization terminated successfully",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": true,
+                "warnings": []
+              }
+            }
+          ],
+          "messages": {
+            "Optimization terminated successfully": 100000
+          },
+          "warnings": {},
+          "python_warnings": {}
+        },
+        "auxiliary": {
+          "status_counts": {
+            "1": 99997,
+            "0": 3
+          },
+          "diagnostic_counts": [
+            {
+              "code": 4,
+              "n": 61921,
+              "diagnostic": {
+                "message": "`gtol` termination condition is satisfied.",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            },
+            {
+              "code": 5,
+              "n": 37148,
+              "diagnostic": {
+                "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            },
+            {
+              "code": 6,
+              "n": 926,
+              "diagnostic": {
+                "message": "`xtol` termination condition is satisfied.",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            },
+            {
+              "code": 7,
+              "n": 2,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            },
+            {
+              "code": 8,
+              "n": 1,
+              "diagnostic": {
+                "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 9.44e-06",
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            },
+            {
+              "code": 9,
+              "n": 1,
+              "diagnostic": {
+                "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 4.03e-06",
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            },
+            {
+              "code": 10,
+              "n": 1,
+              "diagnostic": {
+                "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.89e-05",
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            }
+          ],
+          "messages": {
+            "`gtol` termination condition is satisfied.": 61921,
+            "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH": 37151,
+            "`xtol` termination condition is satisfied.": 926,
+            "The maximum number of function evaluations is exceeded.": 2
+          },
+          "warnings": {
+            "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией": 100000,
+            "Условия оптимальности ККТ не подтверждены: невязка 9.44e-06": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 4.03e-06": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 2.89e-05": 1
+          },
+          "python_warnings": {}
+        }
+      }
+    }
+  },
+  "B": {
+    "diagnostic_catalogue": [
+      {
+        "message": "No diagnostic"
+      },
+      {
+        "method": "wls",
+        "success": true,
+        "message": "Решена взвешенная линейная задача",
+        "warnings": [],
+        "python_warnings": []
+      },
+      {
+        "method": "nnls",
+        "success": true,
+        "message": "Решена взвешенная линейная задача",
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "warnings": [],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson_nonnegative",
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson_nonnegative",
+        "success": true,
+        "message": "`gtol` termination condition is satisfied.",
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "warnings": [],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.14"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": true,
+        "message": "`gtol` termination condition is satisfied.",
+        "warnings": [],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson_nonnegative",
+        "success": true,
+        "message": "`xtol` termination condition is satisfied.",
+        "warnings": [
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.07"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "`xtol` termination condition is satisfied.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.98"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.91"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.54"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.56"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.93"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.87"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.57"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.84"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.55"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.68"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.2"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.17"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.7"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.81"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.29"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.12"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.12"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.18"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.89"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.05"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 2.38"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 7.22e+06",
+          "Граничный mu=0: обычная асимптотическая ковариация неприменима"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.98"
+        ],
+        "python_warnings": []
+      },
+      {
+        "method": "poisson",
+        "success": false,
+        "message": "The maximum number of function evaluations is exceeded.",
+        "warnings": [
+          "Условия оптимальности ККТ не подтверждены: невязка 1.27"
+        ],
+        "python_warnings": []
+      }
+    ],
+    "errors": [
+      {
+        "chunk": 0,
+        "replicate_id": 339,
+        "row_in_batch": 339,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 1,
+        "replicate_id": 1679,
+        "row_in_batch": 679,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 3,
+        "replicate_id": 3074,
+        "row_in_batch": 74,
+        "family": "poisson",
+        "phase": "free",
+        "message": "`xtol` termination condition is satisfied.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 4,
+        "replicate_id": 4743,
+        "row_in_batch": 743,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 10,
+        "replicate_id": 10586,
+        "row_in_batch": 586,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 13,
+        "replicate_id": 13152,
+        "row_in_batch": 152,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 15,
+        "replicate_id": 15229,
+        "row_in_batch": 229,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 15,
+        "replicate_id": 15460,
+        "row_in_batch": 460,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 15,
+        "replicate_id": 15777,
+        "row_in_batch": 777,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 17,
+        "replicate_id": 17986,
+        "row_in_batch": 986,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 19,
+        "replicate_id": 19373,
+        "row_in_batch": 373,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 22,
+        "replicate_id": 22561,
+        "row_in_batch": 561,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 24,
+        "replicate_id": 24664,
+        "row_in_batch": 664,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 24,
+        "replicate_id": 24758,
+        "row_in_batch": 758,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 30,
+        "replicate_id": 30591,
+        "row_in_batch": 591,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 53,
+        "replicate_id": 53697,
+        "row_in_batch": 697,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 56,
+        "replicate_id": 56037,
+        "row_in_batch": 37,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 56,
+        "replicate_id": 56855,
+        "row_in_batch": 855,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 57,
+        "replicate_id": 57330,
+        "row_in_batch": 330,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 59,
+        "replicate_id": 59995,
+        "row_in_batch": 995,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 60,
+        "replicate_id": 60474,
+        "row_in_batch": 474,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 62,
+        "replicate_id": 62359,
+        "row_in_batch": 359,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 63,
+        "replicate_id": 63550,
+        "row_in_batch": 550,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 67,
+        "replicate_id": 67837,
+        "row_in_batch": 837,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 69,
+        "replicate_id": 69396,
+        "row_in_batch": 396,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 70,
+        "replicate_id": 70958,
+        "row_in_batch": 958,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 72,
+        "replicate_id": 72257,
+        "row_in_batch": 257,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 79,
+        "replicate_id": 79501,
+        "row_in_batch": 501,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 81,
+        "replicate_id": 81964,
+        "row_in_batch": 964,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 83,
+        "replicate_id": 83331,
+        "row_in_batch": 331,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 86,
+        "replicate_id": 86581,
+        "row_in_batch": 581,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      },
+      {
+        "chunk": 91,
+        "replicate_id": 91355,
+        "row_in_batch": 355,
+        "family": "poisson",
+        "phase": "free",
+        "message": "The maximum number of function evaluations is exceeded.",
+        "status": 0,
+        "invalid_physical_estimate": false
+      }
+    ],
+    "status_legends": {
+      "fit_status_legend": {
+        "-2": "not attempted",
+        "-1": "exception",
+        "0": "solver returned success=False",
+        "1": "successful finite physical estimate",
+        "2": "missing/nonfinite/wrong-size physical estimate"
+      },
+      "lc_status_legend": {
+        "-2": "not attempted: required fit estimate unavailable",
+        "-1": "LC exception",
+        "0": "nonfinite/negative LC",
+        "1": "available LC"
+      },
+      "decision_legend": {
+        "-1": "unavailable decision; never count as nondetection",
+        "0": "available: free estimate <= LC",
+        "1": "available: free estimate > LC"
+      }
+    },
+    "fit_diagnostics": {
+      "wls": {
+        "free": {
+          "status_counts": {
+            "1": 100000
+          },
+          "diagnostic_counts": [
+            {
+              "code": 1,
+              "n": 100000,
+              "diagnostic": {
+                "message": "Решена взвешенная линейная задача",
+                "method": "wls",
+                "python_warnings": [],
+                "success": true,
+                "warnings": []
+              }
+            }
+          ],
+          "messages": {
+            "Решена взвешенная линейная задача": 100000
+          },
+          "warnings": {},
+          "python_warnings": {}
+        },
+        "auxiliary": {
+          "status_counts": {
+            "1": 100000
+          },
+          "diagnostic_counts": [
+            {
+              "code": 2,
+              "n": 100000,
+              "diagnostic": {
+                "message": "Решена взвешенная линейная задача",
+                "method": "nnls",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            }
+          ],
+          "messages": {
+            "Решена взвешенная линейная задача": 100000
+          },
+          "warnings": {
+            "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией": 100000
+          },
+          "python_warnings": {}
+        }
+      },
+      "poisson": {
+        "free": {
+          "status_counts": {
+            "1": 99968,
+            "0": 32
+          },
+          "diagnostic_counts": [
+            {
+              "code": 3,
+              "n": 99691,
+              "diagnostic": {
+                "message": "Optimization terminated successfully",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": true,
+                "warnings": []
+              }
+            },
+            {
+              "code": 6,
+              "n": 174,
+              "diagnostic": {
+                "message": "`xtol` termination condition is satisfied.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": true,
+                "warnings": []
+              }
+            },
+            {
+              "code": 7,
+              "n": 2,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.14"
+                ]
+              }
+            },
+            {
+              "code": 8,
+              "n": 103,
+              "diagnostic": {
+                "message": "`gtol` termination condition is satisfied.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": true,
+                "warnings": []
+              }
+            },
+            {
+              "code": 10,
+              "n": 2,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.07"
+                ]
+              }
+            },
+            {
+              "code": 11,
+              "n": 1,
+              "diagnostic": {
+                "message": "`xtol` termination condition is satisfied.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.98"
+                ]
+              }
+            },
+            {
+              "code": 12,
+              "n": 2,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.91"
+                ]
+              }
+            },
+            {
+              "code": 13,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.54"
+                ]
+              }
+            },
+            {
+              "code": 14,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.56"
+                ]
+              }
+            },
+            {
+              "code": 15,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.93"
+                ]
+              }
+            },
+            {
+              "code": 16,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.87"
+                ]
+              }
+            },
+            {
+              "code": 17,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.57"
+                ]
+              }
+            },
+            {
+              "code": 18,
+              "n": 2,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.84"
+                ]
+              }
+            },
+            {
+              "code": 19,
+              "n": 2,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.55"
+                ]
+              }
+            },
+            {
+              "code": 20,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.68"
+                ]
+              }
+            },
+            {
+              "code": 21,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.2"
+                ]
+              }
+            },
+            {
+              "code": 22,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.17"
+                ]
+              }
+            },
+            {
+              "code": 23,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.7"
+                ]
+              }
+            },
+            {
+              "code": 24,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.81"
+                ]
+              }
+            },
+            {
+              "code": 25,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.29"
+                ]
+              }
+            },
+            {
+              "code": 26,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.12"
+                ]
+              }
+            },
+            {
+              "code": 27,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.12"
+                ]
+              }
+            },
+            {
+              "code": 28,
+              "n": 2,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.18"
+                ]
+              }
+            },
+            {
+              "code": 29,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.89"
+                ]
+              }
+            },
+            {
+              "code": 30,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.05"
+                ]
+              }
+            },
+            {
+              "code": 31,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 2.38"
+                ]
+              }
+            },
+            {
+              "code": 32,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 7.22e+06",
+                  "Граничный mu=0: обычная асимптотическая ковариация неприменима"
+                ]
+              }
+            },
+            {
+              "code": 33,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.98"
+                ]
+              }
+            },
+            {
+              "code": 34,
+              "n": 1,
+              "diagnostic": {
+                "message": "The maximum number of function evaluations is exceeded.",
+                "method": "poisson",
+                "python_warnings": [],
+                "success": false,
+                "warnings": [
+                  "Условия оптимальности ККТ не подтверждены: невязка 1.27"
+                ]
+              }
+            }
+          ],
+          "messages": {
+            "Optimization terminated successfully": 99691,
+            "`xtol` termination condition is satisfied.": 175,
+            "The maximum number of function evaluations is exceeded.": 31,
+            "`gtol` termination condition is satisfied.": 103
+          },
+          "warnings": {
+            "Условия оптимальности ККТ не подтверждены: невязка 2.14": 2,
+            "Условия оптимальности ККТ не подтверждены: невязка 2.07": 2,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.98": 2,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.91": 2,
+            "Условия оптимальности ККТ не подтверждены: невязка 2.54": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.56": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.93": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.87": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.57": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.84": 2,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.55": 2,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.68": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 2.2": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.17": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.7": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.81": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.29": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.12": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 2.12": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 2.18": 2,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.89": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 2.05": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 2.38": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 7.22e+06": 1,
+            "Граничный mu=0: обычная асимптотическая ковариация неприменима": 1,
+            "Условия оптимальности ККТ не подтверждены: невязка 1.27": 1
+          },
+          "python_warnings": {}
+        },
+        "auxiliary": {
+          "status_counts": {
+            "1": 100000
+          },
+          "diagnostic_counts": [
+            {
+              "code": 4,
+              "n": 94666,
+              "diagnostic": {
+                "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            },
+            {
+              "code": 5,
+              "n": 5285,
+              "diagnostic": {
+                "message": "`gtol` termination condition is satisfied.",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            },
+            {
+              "code": 9,
+              "n": 49,
+              "diagnostic": {
+                "message": "`xtol` termination condition is satisfied.",
+                "method": "poisson_nonnegative",
+                "python_warnings": [],
+                "success": true,
+                "warnings": [
+                  "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+                ]
+              }
+            }
+          ],
+          "messages": {
+            "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH": 94666,
+            "`gtol` termination condition is satisfied.": 5285,
+            "`xtol` termination condition is satisfied.": 49
+          },
+          "warnings": {
+            "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией": 100000
+          },
+          "python_warnings": {}
+        }
+      }
+    }
+  }
+}

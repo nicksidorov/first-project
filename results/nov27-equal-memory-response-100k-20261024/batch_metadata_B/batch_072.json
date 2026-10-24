@@ -1,0 +1,194 @@
+{
+  "chunk": 72,
+  "variant": "B",
+  "n_observations": 1000,
+  "n_reused": 1000,
+  "n_generated": 0,
+  "seed": [
+    2026102801,
+    72
+  ],
+  "seed_role": "Original A seed retained only for provenance; no generation in B",
+  "sampling": "Existing observations.npz x[1000*chunk:1000*(chunk+1)], same x for both families and variants",
+  "observations_sha256": "87e2803ca3ed3ee88ea1bde35bcf850d07e4729fc44a9d30a84b4868db6abfd4",
+  "source_replicates_sha256": "ede7d13cb1c7d3893550088b7b5ddc1232660f8831a780ac637cd05405da7804",
+  "runner_lock_sha256": "e1d43b2cedf2afeeb53d61d07397630499b370f7ca018e07de79a4ffa03647f2",
+  "npz_sha256": "76b449f7b5c34989b198e3158251a86b506e5fca05d5390b66b333e0ca92d5ae",
+  "elapsed_seconds": 48.22455060004722,
+  "diagnostic_catalogue": [
+    {
+      "message": "No diagnostic"
+    },
+    {
+      "method": "wls",
+      "success": true,
+      "message": "Решена взвешенная линейная задача",
+      "warnings": [],
+      "python_warnings": []
+    },
+    {
+      "method": "nnls",
+      "success": true,
+      "message": "Решена взвешенная линейная задача",
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson",
+      "success": true,
+      "message": "Optimization terminated successfully",
+      "warnings": [],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson_nonnegative",
+      "success": true,
+      "message": "`gtol` termination condition is satisfied.",
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson_nonnegative",
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson",
+      "success": true,
+      "message": "`xtol` termination condition is satisfied.",
+      "warnings": [],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson",
+      "success": false,
+      "message": "The maximum number of function evaluations is exceeded.",
+      "warnings": [
+        "Условия оптимальности ККТ не подтверждены: невязка 2.38"
+      ],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson_nonnegative",
+      "success": true,
+      "message": "`xtol` termination condition is satisfied.",
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson",
+      "success": true,
+      "message": "`gtol` termination condition is satisfied.",
+      "warnings": [],
+      "python_warnings": []
+    }
+  ],
+  "errors": [
+    {
+      "replicate_id": 72257,
+      "row_in_batch": 257,
+      "family": "poisson",
+      "phase": "free",
+      "message": "The maximum number of function evaluations is exceeded.",
+      "status": 0,
+      "invalid_physical_estimate": false
+    }
+  ],
+  "summaries": {
+    "wls": {
+      "free_status_counts": {
+        "1": 1000
+      },
+      "auxiliary_status_counts": {
+        "1": 1000
+      },
+      "n_available": [
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "n_false_detections": [
+        11,
+        58,
+        57,
+        98
+      ],
+      "n_failed_decisions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "n_successful_free_covariance_unavailable": 0,
+      "n_covariance_unavailable_but_decision_available": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "poisson": {
+      "free_status_counts": {
+        "1": 999,
+        "0": 1
+      },
+      "auxiliary_status_counts": {
+        "1": 1000
+      },
+      "n_available": [
+        999,
+        999,
+        999,
+        999
+      ],
+      "n_false_detections": [
+        15,
+        42,
+        54,
+        83
+      ],
+      "n_failed_decisions": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "n_successful_free_covariance_unavailable": 0,
+      "n_covariance_unavailable_but_decision_available": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "fit_status_legend": {
+    "-2": "not attempted",
+    "-1": "exception",
+    "0": "solver returned success=False",
+    "1": "successful finite physical estimate",
+    "2": "missing/nonfinite/wrong-size physical estimate"
+  },
+  "lc_status_legend": {
+    "-2": "not attempted: required fit estimate unavailable",
+    "-1": "LC exception",
+    "0": "nonfinite/negative LC",
+    "1": "available LC"
+  },
+  "decision_legend": {
+    "-1": "unavailable decision; never count as nondetection",
+    "0": "available: free estimate <= LC",
+    "1": "available: free estimate > LC"
+  }
+}

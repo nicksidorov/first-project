@@ -1,0 +1,32 @@
+% Standalone insertion fragment; no changes to the main manuscript.
+\begin{table*}[t]
+\centering\small
+\caption{False-detection frequencies under the original response model A and the equal-base-response processing model B. Rates and exact marginal 95\% Clopper--Pearson intervals are calculated separately among the available decisions of each variant.}
+\label{tab:xemat-equal-memory-responses}
+\begin{tabular}{lllrr}
+\hline
+Variant & Method & Isotope & False / available & Rate (\%) [95\% CI] \\
+\hline
+A & LS & $^{135}\mathrm{Xe}$ & 4954 / 100000 & 4.954 [4.820, 5.090] \\
+A & LS & $^{133}\mathrm{Xe}$ & 5378 / 100000 & 5.378 [5.239, 5.520] \\
+A & LS & $^{131\mathrm{m}}\mathrm{Xe}$ & 5189 / 100000 & 5.189 [5.052, 5.328] \\
+A & LS & $^{133\mathrm{m}}\mathrm{Xe}$ & 5039 / 100000 & 5.039 [4.904, 5.176] \\
+A & Poisson ML & $^{135}\mathrm{Xe}$ & 4947 / 99997 & 4.947 [4.814, 5.083] \\
+A & Poisson ML & $^{133}\mathrm{Xe}$ & 5247 / 99997 & 5.247 [5.110, 5.387] \\
+A & Poisson ML & $^{131\mathrm{m}}\mathrm{Xe}$ & 5207 / 99997 & 5.207 [5.070, 5.347] \\
+A & Poisson ML & $^{133\mathrm{m}}\mathrm{Xe}$ & 5037 / 99997 & 5.037 [4.902, 5.175] \\
+B & LS & $^{135}\mathrm{Xe}$ & 1010 / 100000 & 1.010 [0.949, 1.074] \\
+B & LS & $^{133}\mathrm{Xe}$ & 6598 / 100000 & 6.598 [6.445, 6.754] \\
+B & LS & $^{131\mathrm{m}}\mathrm{Xe}$ & 4611 / 100000 & 4.611 [4.482, 4.743] \\
+B & LS & $^{133\mathrm{m}}\mathrm{Xe}$ & 9065 / 100000 & 9.065 [8.888, 9.245] \\
+B & Poisson ML & $^{135}\mathrm{Xe}$ & 1338 / 99968 & 1.338 [1.268, 1.412] \\
+B & Poisson ML & $^{133}\mathrm{Xe}$ & 4454 / 99968 & 4.455 [4.328, 4.585] \\
+B & Poisson ML & $^{131\mathrm{m}}\mathrm{Xe}$ & 4774 / 99968 & 4.776 [4.644, 4.910] \\
+B & Poisson ML & $^{133\mathrm{m}}\mathrm{Xe}$ & 8008 / 99968 & 8.011 [7.843, 8.181] \\
+\hline
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\textwidth}\footnotesize
+The same 100\,000 observation vectors generated with A are used for both variants. Each variant uses its own auxiliary fit and $L_C$, without threshold rescaling. All four true fresh-xenon concentrations are zero. Failed decisions are retained as unavailable and are not counted as non-detections.
+\end{minipage}
+\end{table*}

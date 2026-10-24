@@ -1,0 +1,150 @@
+{
+  "status": "passed",
+  "no_random_number_generation": true,
+  "no_fits": true,
+  "source_observations_reused": 100000,
+  "source_replicates_sha256": "ede7d13cb1c7d3893550088b7b5ddc1232660f8831a780ac637cd05405da7804",
+  "unchanged_radon_base_column": true,
+  "unchanged_fresh_and_detector_model_columns": true,
+  "no_column_renormalization": true,
+  "model_rank_B": 17,
+  "changed_base_entries": [
+    {
+      "row_index": 3,
+      "roi": 5,
+      "column_index": 2,
+      "isotope": "Xe133",
+      "A": 0.33,
+      "B": 0.32
+    },
+    {
+      "row_index": 4,
+      "roi": 6,
+      "column_index": 2,
+      "isotope": "Xe133",
+      "A": 0.18,
+      "B": 0.17
+    },
+    {
+      "row_index": 4,
+      "roi": 6,
+      "column_index": 3,
+      "isotope": "Xe131m",
+      "A": 0.049,
+      "B": 0.043
+    },
+    {
+      "row_index": 5,
+      "roi": 7,
+      "column_index": 1,
+      "isotope": "Xe135",
+      "A": 0.01,
+      "B": 0.02
+    },
+    {
+      "row_index": 5,
+      "roi": 7,
+      "column_index": 2,
+      "isotope": "Xe133",
+      "A": 0.18,
+      "B": 0.34
+    }
+  ],
+  "daughter_checks": {
+    "sample_memory": {
+      "coefficient": 0.040514290035636925,
+      "formula": "r_g,133m(T)=r_g,133m^(0)+C[2,4]*r_g,133^(0)",
+      "corrected_Xe133m_A": [
+        0.0,
+        0.0,
+        0.040514290035636925,
+        0.06336971571176019,
+        1.0072925722064145,
+        0.007292572206414646,
+        0.05233362310605269
+      ],
+      "corrected_Xe133m_B": [
+        0.0,
+        0.0,
+        0.040514290035636925,
+        0.06296457281140382,
+        1.0068874293060583,
+        0.013774858612116556,
+        0.05233362310605269
+      ],
+      "expected_change_due_to_daughter": [
+        0.0,
+        0.0,
+        0.0,
+        -0.00040514290035636964,
+        -0.0004051429003563685,
+        0.006482286405701909,
+        0.0
+      ]
+    },
+    "gasbk": {
+      "coefficient": 0.020220370847523664,
+      "formula": "r_g,133m(T)=r_g,133m^(0)+C[2,4]*r_g,133^(0)",
+      "corrected_Xe133m_A": [
+        0.0,
+        0.0,
+        0.020220370847523664,
+        0.056672722379682815,
+        1.0036396667525542,
+        0.0036396667525542595,
+        0.051164693360817366
+      ],
+      "corrected_Xe133m_B": [
+        0.0,
+        0.0,
+        0.020220370847523664,
+        0.05647051867120757,
+        1.003437463044079,
+        0.006874926088158046,
+        0.051164693360817366
+      ],
+      "expected_change_due_to_daughter": [
+        0.0,
+        0.0,
+        0.0,
+        -0.0002022037084752368,
+        -0.00020220370847523624,
+        0.003235259335603787,
+        0.0
+      ]
+    }
+  },
+  "maximum_absolute_mean_mismatch": 348.02742392760666,
+  "mean_mismatch_B_at_A_truth_minus_generating_A": [
+    0.0,
+    0.0,
+    0.0,
+    -21.74964234568904,
+    -21.816454491149386,
+    348.02742392760666,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -11.637853667691843,
+    -11.672272427634795,
+    186.24649937161735,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "generating_mean_A_preserved": true,
+  "files_sha256": {
+    "prepare_scenario.py": "0091cdbfc4de43297b5ebf576fa4d1e81b979a9f6dea38e70fe3106a971ed7a6",
+    "scenario_A.json": "dc9a36b02585731a8cc1d1e6144e25201421d8e9b9199b9bc1ae6a64cbe2a669",
+    "scenario_arrays_A.npz": "803607a1de329605590dbee552263c2c71d6d71ee64d151118d77c5ead9df609",
+    "scenario_B.json": "8bfedcf9cb9360cf66b4a2e2e75f45092f97fc89ae8c5fc5af7497f0ccb6ded5",
+    "scenario_arrays_B.npz": "44a417e37c2bab88991f4aef272af33ce550319d7c57fbf95232d85fcd264f39",
+    "observations.npz": "87e2803ca3ed3ee88ea1bde35bcf850d07e4729fc44a9d30a84b4868db6abfd4"
+  }
+}

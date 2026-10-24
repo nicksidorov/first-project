@@ -1,0 +1,24 @@
+{
+  "production_commit": "69ff5a62ccaaddeb6372f7f003109ce5ff6cf333",
+  "sha256": {
+    "constants.py": "bb266e2ab8e2683c00be0cb5a53b942c5e724744201e15bb7a4636019cacfd35",
+    "ims_parser.py": "988bbaa63b52d1bc52190f0e500a764ff583a7c021e2cc93339054c097f0c0eb",
+    "process_measurement.py": "a9b5aa2adf83a9748ad92515cb61536a8e8f8f0cb0edc673936b49b425521059",
+    "xemat/__init__.py": "b0225236bb7a16cd88a6a2877e4e545061585ddff278ec842cd0a8998c06d441",
+    "xemat/activities.py": "bddbba2fcb1ae73f05c38ec73fc37b89050925d0dd0482e2a8957bdcfc14def4",
+    "xemat/calibration.py": "728120e21dee13f3528a4d814b22c22042c4dbbe0200dd7876d4b6f9f139d067",
+    "xemat/cli.py": "67326899203814c412a1a8c1c7ce2efa0be830d39d8e7284d1f1c18e2b5ca6dd",
+    "xemat/detection.py": "90411c39a8aac1000809bcc9eb15bd7693c6a631ac75e8e397c6bf74b208a80b",
+    "xemat/detectors.py": "aa7f03aa0cf9b8d2dd0d6978f18e9769e1bd9fcb070be6d8ffe8186e60bf522d",
+    "xemat/diagnostics.py": "d7c6155d8ee1d7de16357dac0c764041a494c6dbf8c4e76d4b87a078a97063af",
+    "xemat/distribution_dialog.py": "eb0e58d24e428a1548f6fbb32e6f2cb8351b48f94355790e14583929509ddc2a",
+    "xemat/distribution_mc.py": "30f847deb569c701d80030ee0a2a66ae325fcf915366ddddd3d8063e77393ee0",
+    "xemat/distribution_pairs.py": "b0f0ef520b98bfc04bc0a6af4c296d26fa1bd439a40f54dd736c48adb1643126",
+    "xemat/distribution_plot.py": "9415ac2f42e5f83577c37fa19e0d468da05128ee16874ab2e14eb0680d310de0",
+    "xemat/io.py": "a09f2feb3eba5b289a9370e8397c27bc2b48e7fd5856c939ec25131443516bf3",
+    "xemat/model.py": "8113837e2b350a00eea3bab4acdda24d5cdfa0198cbc6c0ec515f93299326299",
+    "xemat/monte_carlo.py": "5e68d1914061aad8ddb676da00c1e02ca4a81cca930859e224d27fa282842ad7",
+    "xemat/monte_carlo_dialog.py": "b39de566ef766c80a8b53fc3ab8f0bb64af76993ea07102a04f440b5ee291922",
+    "xemat/solvers.py": "03a48d1b3daee1d7b0a8c5a0a60c2b71e4934e26b7a051738c280dcbd7fd05fe"
+  }
+}

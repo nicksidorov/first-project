@@ -1,0 +1,8 @@
+{
+  "file": "full_free_parameters.npz",
+  "bytes": 52552674,
+  "sha256": "ea881faa959359635e93438bc9c8d6dcb8cff6c1335c10086a0ec3628005ce7c",
+  "included_in_main_zip": false,
+  "description": "All four A/B × LS/Poisson native full free-parameter arrays, 100000x17 each; no rounding or dropped rows. Four Xe concentrations and all auxiliary vectors are already in the main ZIP.",
+  "use": "Place full_free_parameters.npz beside replicates.npz to enable optional complete native-vector verification."
+}

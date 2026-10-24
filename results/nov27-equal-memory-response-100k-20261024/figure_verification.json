@@ -1,0 +1,207 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-24T16:37:54.892640+00:00",
+  "n_axes": 2,
+  "n_points_verified": 16,
+  "n_confidence_intervals_verified": 16,
+  "shared_ylim": [
+    0.2023389018309537,
+    9.991251117650593
+  ],
+  "target_line_percent": 5,
+  "serif_font": true,
+  "mathtext_fontset": "cm",
+  "png_pixels": [
+    3720,
+    1740
+  ],
+  "png_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "pdf_pages": 1,
+  "pdf_page_points": [
+    892.8,
+    417.6
+  ],
+  "saved_png_exactly_matches_current_script_render": true,
+  "all_visible_text_inside_canvas": true,
+  "results_table_rows_verified": 16,
+  "results_table_numeric_values_verified": 80,
+  "latex_fragments_compiled": true,
+  "latex_engine": "pdflatex",
+  "latex_overfull_boxes": [],
+  "latex_test_directory": "/tmp/xemat-equal-response-latex-i22gb4qu",
+  "original_files_unchanged": true,
+  "no_fitting_or_simulation": true,
+  "point_checks": [
+    {
+      "variant": "A",
+      "method": "LS",
+      "isotope": "Xe135",
+      "rate_percent": 4.954,
+      "ci_percent": [
+        4.820317115512344,
+        5.090303225038802
+      ]
+    },
+    {
+      "variant": "A",
+      "method": "LS",
+      "isotope": "Xe133",
+      "rate_percent": 5.378,
+      "ci_percent": [
+        5.23898050004462,
+        5.519614692916193
+      ]
+    },
+    {
+      "variant": "A",
+      "method": "LS",
+      "isotope": "Xe131m",
+      "rate_percent": 5.189,
+      "ci_percent": [
+        5.05232763861872,
+        5.328278755354451
+      ]
+    },
+    {
+      "variant": "A",
+      "method": "LS",
+      "isotope": "Xe133m",
+      "rate_percent": 5.039,
+      "ci_percent": [
+        4.904226433870003,
+        5.176388859553901
+      ]
+    },
+    {
+      "variant": "B",
+      "method": "LS",
+      "isotope": "Xe135",
+      "rate_percent": 1.01,
+      "ci_percent": [
+        0.9489508504951635,
+        1.073915177760687
+      ]
+    },
+    {
+      "variant": "B",
+      "method": "LS",
+      "isotope": "Xe133",
+      "rate_percent": 6.598,
+      "ci_percent": [
+        6.444898060728281,
+        6.753625093101621
+      ]
+    },
+    {
+      "variant": "B",
+      "method": "LS",
+      "isotope": "Xe131m",
+      "rate_percent": 4.611,
+      "ci_percent": [
+        4.481832539112946,
+        4.742808201329389
+      ]
+    },
+    {
+      "variant": "B",
+      "method": "LS",
+      "isotope": "Xe133m",
+      "rate_percent": 9.065,
+      "ci_percent": [
+        8.88773918830907,
+        9.244639168986383
+      ]
+    },
+    {
+      "variant": "A",
+      "method": "Poisson ML",
+      "isotope": "Xe135",
+      "rate_percent": 4.947148414452434,
+      "ci_percent": [
+        4.8135519283309725,
+        5.083365726908798
+      ]
+    },
+    {
+      "variant": "A",
+      "method": "Poisson ML",
+      "isotope": "Xe133",
+      "rate_percent": 5.247157414722442,
+      "ci_percent": [
+        5.109755479599254,
+        5.387162374009459
+      ]
+    },
+    {
+      "variant": "A",
+      "method": "Poisson ML",
+      "isotope": "Xe131m",
+      "rate_percent": 5.2071562146864405,
+      "ci_percent": [
+        5.070254173148787,
+        5.34666365194345
+      ]
+    },
+    {
+      "variant": "A",
+      "method": "Poisson ML",
+      "isotope": "Xe133m",
+      "rate_percent": 5.037151114533437,
+      "ci_percent": [
+        4.902399148590827,
+        5.174518562255775
+      ]
+    },
+    {
+      "variant": "B",
+      "method": "Poisson ML",
+      "isotope": "Xe135",
+      "rate_percent": 1.3384282970550576,
+      "ci_percent": [
+        1.2681083445096017,
+        1.4115920949334069
+      ]
+    },
+    {
+      "variant": "B",
+      "method": "Poisson ML",
+      "isotope": "Xe133",
+      "rate_percent": 4.455425736235595,
+      "ci_percent": [
+        4.328350096000457,
+        4.585152239536444
+      ]
+    },
+    {
+      "variant": "B",
+      "method": "Poisson ML",
+      "isotope": "Xe131m",
+      "rate_percent": 4.775528169014084,
+      "ci_percent": [
+        4.644150449291671,
+        4.909537681181756
+      ]
+    },
+    {
+      "variant": "B",
+      "method": "Poisson ML",
+      "isotope": "Xe133m",
+      "rate_percent": 8.01056338028169,
+      "ci_percent": [
+        7.843008701597622,
+        8.180558983539033
+      ]
+    }
+  ],
+  "files_sha256": {
+    "false_detection_comparison.pdf": "699a9b89bd9fcfeb7a0a333a43da696821833ca390eb3602740d059ffd761b10",
+    "false_detection_comparison.png": "d95144b50c896fb823e24b04b430ec0800a18881297de9e500f1b9c0026833f0",
+    "plot_comparison.py": "36a9de6918d7dd50e82c33010c1bd82e807f01a9fc8ba7e9f41c3a1952d808b3",
+    "summary.csv": "03f3d48e54d6a17c292affb4cc2497f8ac680541311c9c61bf65d9adbdbabb03",
+    "figures.tex": "cde0d28abe4319a0e3ba431a38b6a0fc633f5022a662bb6aa698fd9ca918976e",
+    "results_table.tex": "eb58366fb525287024f53fffbf4b72730c263a52003899267e4f617c36c2f7b6"
+  }
+}
