@@ -1,0 +1,34 @@
+{
+  "study_sha256": "9339bd749982d5b20bf8c7b58030d2aafaeba48146670c2feead110f030482fc",
+  "scenario_sha256": "dc9a36b02585731a8cc1d1e6144e25201421d8e9b9199b9bc1ae6a64cbe2a669",
+  "scenario_arrays_sha256": "803607a1de329605590dbee552263c2c71d6d71ee64d151118d77c5ead9df609",
+  "core_sha256": {
+    "constants.py": "bb266e2ab8e2683c00be0cb5a53b942c5e724744201e15bb7a4636019cacfd35",
+    "ims_parser.py": "988bbaa63b52d1bc52190f0e500a764ff583a7c021e2cc93339054c097f0c0eb",
+    "process_measurement.py": "a9b5aa2adf83a9748ad92515cb61536a8e8f8f0cb0edc673936b49b425521059",
+    "xemat/model.py": "8113837e2b350a00eea3bab4acdda24d5cdfa0198cbc6c0ec515f93299326299",
+    "xemat/solvers.py": "03a48d1b3daee1d7b0a8c5a0a60c2b71e4934e26b7a051738c280dcbd7fd05fe",
+    "xemat/detection.py": "90411c39a8aac1000809bcc9eb15bd7693c6a631ac75e8e397c6bf74b208a80b",
+    "xemat/calibration.py": "728120e21dee13f3528a4d814b22c22042c4dbbe0200dd7876d4b6f9f139d067",
+    "xemat/activities.py": "bddbba2fcb1ae73f05c38ec73fc37b89050925d0dd0482e2a8957bdcfc14def4",
+    "xemat/detectors.py": "aa7f03aa0cf9b8d2dd0d6978f18e9769e1bd9fcb070be6d8ffe8186e60bf522d"
+  },
+  "n": 100000,
+  "batch_size": 1000,
+  "target_indices": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "families": {
+    "wls": "nnls",
+    "poisson": "poisson_nonnegative"
+  },
+  "fit_calls": "fit(trial, method), all default settings",
+  "lc_call": "compute_detection_limits(S, b, free, auxiliary, component_indices=[1,2,3,4], mode='fixed')",
+  "no_mdc_output": true,
+  "no_null_fit": true,
+  "no_threshold_multiplier": true,
+  "no_replacement": true
+}

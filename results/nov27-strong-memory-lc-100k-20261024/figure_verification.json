@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "eight_points_match_csv": true,
+  "eight_exact_intervals_match_csv": true,
+  "all_figure_text_inside_canvas": true,
+  "png_pixels": [
+    2400,
+    1560
+  ],
+  "png_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "serif_font": true,
+  "mathtext_fontset": "cm",
+  "manually_reviewed_final_png": true,
+  "files_sha256": {
+    "false_detections.png": "1fb15194e0f964ec2c8fcd342dd0fef82551207ac009d42a8b73fa0c888edba4",
+    "false_detections.pdf": "e16a33fcef392cdadca2b9b17bb890035d5e80178f90a5fe8e2950fe6124784b",
+    "plot_false_detections.py": "c2228356a6b3d66490f2b2be90ce23635eeccdc2b944370eac2175a3431a962d",
+    "summary.csv": "b5f01e64c75294140aeb0923528bffdc432c355417e7bc38cc669287b6ec7b34"
+  }
+}

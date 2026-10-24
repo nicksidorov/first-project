@@ -1,0 +1,2 @@
+PLAN 1 pending formal batches, 1000 draws, workers=1; all selected batches belong to the same 100000-draw plan
+DONE batch 000: n=1000, seconds=69.0, error_records=0, failed_decisions=0

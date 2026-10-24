@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "fit_diagnostics": {
+    "wls": {
+      "free": {
+        "n_attempted": 100000,
+        "status_counts": {
+          "1": 100000
+        },
+        "diagnostic_counts": [
+          {
+            "code": 1,
+            "n": 100000,
+            "diagnostic": {
+              "message": "Решена взвешенная линейная задача",
+              "method": "wls",
+              "python_warnings": [],
+              "success": true,
+              "warnings": []
+            }
+          }
+        ],
+        "messages": {
+          "Решена взвешенная линейная задача": 100000
+        },
+        "warnings": {},
+        "python_warnings": {}
+      },
+      "auxiliary": {
+        "n_attempted": 100000,
+        "status_counts": {
+          "1": 100000
+        },
+        "diagnostic_counts": [
+          {
+            "code": 2,
+            "n": 100000,
+            "diagnostic": {
+              "message": "Решена взвешенная линейная задача",
+              "method": "nnls",
+              "python_warnings": [],
+              "success": true,
+              "warnings": [
+                "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+              ]
+            }
+          }
+        ],
+        "messages": {
+          "Решена взвешенная линейная задача": 100000
+        },
+        "warnings": {
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией": 100000
+        },
+        "python_warnings": {}
+      }
+    },
+    "poisson": {
+      "free": {
+        "n_attempted": 100000,
+        "status_counts": {
+          "1": 100000
+        },
+        "diagnostic_counts": [
+          {
+            "code": 3,
+            "n": 100000,
+            "diagnostic": {
+              "message": "Optimization terminated successfully",
+              "method": "poisson",
+              "python_warnings": [],
+              "success": true,
+              "warnings": []
+            }
+          }
+        ],
+        "messages": {
+          "Optimization terminated successfully": 100000
+        },
+        "warnings": {},
+        "python_warnings": {}
+      },
+      "auxiliary": {
+        "n_attempted": 100000,
+        "status_counts": {
+          "0": 3,
+          "1": 99997
+        },
+        "diagnostic_counts": [
+          {
+            "code": 4,
+            "n": 61921,
+            "diagnostic": {
+              "message": "`gtol` termination condition is satisfied.",
+              "method": "poisson_nonnegative",
+              "python_warnings": [],
+              "success": true,
+              "warnings": [
+                "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+              ]
+            }
+          },
+          {
+            "code": 5,
+            "n": 37148,
+            "diagnostic": {
+              "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+              "method": "poisson_nonnegative",
+              "python_warnings": [],
+              "success": true,
+              "warnings": [
+                "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+              ]
+            }
+          },
+          {
+            "code": 6,
+            "n": 926,
+            "diagnostic": {
+              "message": "`xtol` termination condition is satisfied.",
+              "method": "poisson_nonnegative",
+              "python_warnings": [],
+              "success": true,
+              "warnings": [
+                "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+              ]
+            }
+          },
+          {
+            "code": 7,
+            "n": 2,
+            "diagnostic": {
+              "message": "The maximum number of function evaluations is exceeded.",
+              "method": "poisson_nonnegative",
+              "python_warnings": [],
+              "success": true,
+              "warnings": [
+                "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+              ]
+            }
+          },
+          {
+            "code": 8,
+            "n": 1,
+            "diagnostic": {
+              "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+              "method": "poisson_nonnegative",
+              "python_warnings": [],
+              "success": false,
+              "warnings": [
+                "Условия оптимальности ККТ не подтверждены: невязка 9.44e-06",
+                "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+              ]
+            }
+          },
+          {
+            "code": 9,
+            "n": 1,
+            "diagnostic": {
+              "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+              "method": "poisson_nonnegative",
+              "python_warnings": [],
+              "success": false,
+              "warnings": [
+                "Условия оптимальности ККТ не подтверждены: невязка 4.03e-06",
+                "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+              ]
+            }
+          },
+          {
+            "code": 10,
+            "n": 1,
+            "diagnostic": {
+              "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+              "method": "poisson_nonnegative",
+              "python_warnings": [],
+              "success": false,
+              "warnings": [
+                "Условия оптимальности ККТ не подтверждены: невязка 2.89e-05",
+                "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+              ]
+            }
+          }
+        ],
+        "messages": {
+          "`gtol` termination condition is satisfied.": 61921,
+          "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH": 37151,
+          "`xtol` termination condition is satisfied.": 926,
+          "The maximum number of function evaluations is exceeded.": 2
+        },
+        "warnings": {
+          "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией": 100000,
+          "Условия оптимальности ККТ не подтверждены: невязка 9.44e-06": 1,
+          "Условия оптимальности ККТ не подтверждены: невязка 4.03e-06": 1,
+          "Условия оптимальности ККТ не подтверждены: невязка 2.89e-05": 1
+        },
+        "python_warnings": {}
+      }
+    }
+  },
+  "errors": [
+    {
+      "chunk": 46,
+      "replicate_id": 46012,
+      "row_in_batch": 12,
+      "family": "poisson",
+      "phase": "auxiliary",
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "status": 0,
+      "invalid_physical_estimate": false
+    },
+    {
+      "chunk": 46,
+      "replicate_id": 46549,
+      "row_in_batch": 549,
+      "family": "poisson",
+      "phase": "auxiliary",
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "status": 0,
+      "invalid_physical_estimate": false
+    },
+    {
+      "chunk": 82,
+      "replicate_id": 82763,
+      "row_in_batch": 763,
+      "family": "poisson",
+      "phase": "auxiliary",
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "status": 0,
+      "invalid_physical_estimate": false
+    }
+  ],
+  "diagnostic_catalogue": [
+    {
+      "message": "No diagnostic"
+    },
+    {
+      "message": "Решена взвешенная линейная задача",
+      "method": "wls",
+      "python_warnings": [],
+      "success": true,
+      "warnings": []
+    },
+    {
+      "message": "Решена взвешенная линейная задача",
+      "method": "nnls",
+      "python_warnings": [],
+      "success": true,
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ]
+    },
+    {
+      "message": "Optimization terminated successfully",
+      "method": "poisson",
+      "python_warnings": [],
+      "success": true,
+      "warnings": []
+    },
+    {
+      "message": "`gtol` termination condition is satisfied.",
+      "method": "poisson_nonnegative",
+      "python_warnings": [],
+      "success": true,
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ]
+    },
+    {
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "method": "poisson_nonnegative",
+      "python_warnings": [],
+      "success": true,
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ]
+    },
+    {
+      "message": "`xtol` termination condition is satisfied.",
+      "method": "poisson_nonnegative",
+      "python_warnings": [],
+      "success": true,
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ]
+    },
+    {
+      "message": "The maximum number of function evaluations is exceeded.",
+      "method": "poisson_nonnegative",
+      "python_warnings": [],
+      "success": true,
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ]
+    },
+    {
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "method": "poisson_nonnegative",
+      "python_warnings": [],
+      "success": false,
+      "warnings": [
+        "Условия оптимальности ККТ не подтверждены: невязка 9.44e-06",
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ]
+    },
+    {
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "method": "poisson_nonnegative",
+      "python_warnings": [],
+      "success": false,
+      "warnings": [
+        "Условия оптимальности ККТ не подтверждены: невязка 4.03e-06",
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ]
+    },
+    {
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "method": "poisson_nonnegative",
+      "python_warnings": [],
+      "success": false,
+      "warnings": [
+        "Условия оптимальности ККТ не подтверждены: невязка 2.89e-05",
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ]
+    }
+  ],
+  "status_legends": {
+    "decision_legend": {
+      "-1": "unavailable decision; never count as nondetection",
+      "0": "available: free estimate <= LC",
+      "1": "available: free estimate > LC"
+    },
+    "fit_status_legend": {
+      "-1": "exception",
+      "-2": "not attempted",
+      "0": "solver returned success=False",
+      "1": "successful finite physical estimate",
+      "2": "missing/nonfinite/wrong-size physical estimate"
+    },
+    "lc_status_legend": {
+      "-1": "LC exception",
+      "-2": "not attempted: required fit estimate unavailable",
+      "0": "nonfinite/negative LC",
+      "1": "available LC"
+    }
+  }
+}

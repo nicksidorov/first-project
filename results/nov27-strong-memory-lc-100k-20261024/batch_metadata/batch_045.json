@@ -1,0 +1,155 @@
+{
+  "chunk": 45,
+  "n_generated": 1000,
+  "seed": [
+    2026102801,
+    45
+  ],
+  "bit_generator": "PCG64 via numpy.random.default_rng(seed)",
+  "sampling": "rng.poisson(mu0, size=(1000, 21)); same x for both families",
+  "runner_lock_sha256": "31e38e19cbb064ef1e5dc1c5b2d05976bd1a612cf1602a7a310901651c5e4316",
+  "npz_sha256": "b04ebe7a5bf225252925898264824216273a9c19871d5fb10cdf2606700b3cba",
+  "elapsed_seconds": 106.35219201503787,
+  "diagnostic_catalogue": [
+    {
+      "message": "No diagnostic"
+    },
+    {
+      "method": "wls",
+      "success": true,
+      "message": "Решена взвешенная линейная задача",
+      "warnings": [],
+      "python_warnings": []
+    },
+    {
+      "method": "nnls",
+      "success": true,
+      "message": "Решена взвешенная линейная задача",
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson",
+      "success": true,
+      "message": "Optimization terminated successfully",
+      "warnings": [],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson_nonnegative",
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson_nonnegative",
+      "success": true,
+      "message": "`gtol` termination condition is satisfied.",
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ],
+      "python_warnings": []
+    },
+    {
+      "method": "poisson_nonnegative",
+      "success": true,
+      "message": "`xtol` termination condition is satisfied.",
+      "warnings": [
+        "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+      ],
+      "python_warnings": []
+    }
+  ],
+  "errors": [],
+  "summaries": {
+    "wls": {
+      "free_status_counts": {
+        "1": 1000
+      },
+      "auxiliary_status_counts": {
+        "1": 1000
+      },
+      "n_available": [
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "n_false_detections": [
+        53,
+        51,
+        40,
+        52
+      ],
+      "n_failed_decisions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "n_successful_free_covariance_unavailable": 0,
+      "n_covariance_unavailable_but_decision_available": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "poisson": {
+      "free_status_counts": {
+        "1": 1000
+      },
+      "auxiliary_status_counts": {
+        "1": 1000
+      },
+      "n_available": [
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "n_false_detections": [
+        53,
+        52,
+        40,
+        53
+      ],
+      "n_failed_decisions": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "n_successful_free_covariance_unavailable": 0,
+      "n_covariance_unavailable_but_decision_available": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "fit_status_legend": {
+    "-2": "not attempted",
+    "-1": "exception",
+    "0": "solver returned success=False",
+    "1": "successful finite physical estimate",
+    "2": "missing/nonfinite/wrong-size physical estimate"
+  },
+  "lc_status_legend": {
+    "-2": "not attempted: required fit estimate unavailable",
+    "-1": "LC exception",
+    "0": "nonfinite/negative LC",
+    "1": "available LC"
+  },
+  "decision_legend": {
+    "-1": "unavailable decision; never count as nondetection",
+    "0": "available: free estimate <= LC",
+    "1": "available: free estimate > LC"
+  }
+}
