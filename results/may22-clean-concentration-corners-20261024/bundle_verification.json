@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "archive": "XeMat_clean_concentration_cornerplots.zip",
+  "bytes": 39041705,
+  "sha256": "786788085daf68aeae008c738d121100f249f6217df18fd2ae7442221fc581a8",
+  "payload_files": 27,
+  "crc": "passed",
+  "member_sha256": "passed",
+  "verification_sha256": "3dc4c1b9848e99718073f1a5901b4cfdb6f49d7392c7c82d1b6e6b3c4eb16afe"
+}

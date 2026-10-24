@@ -1,0 +1,5 @@
+# Preserve audited artifact bytes, including CSV line endings.
+* -text
+*.pdf binary
+*.csv whitespace=cr-at-eol
+*.py whitespace=-blank-at-eof

@@ -1,0 +1,3 @@
+﻿method,n_attempted,n_fit_success,n_valid,n_fit_failures,n_success_nonfinite,n_fit_covariance_unavailable,n_retained_without_fit_covariance
+ls,100000,100000,100000,0,0,0,0
+poisson_ml,100000,100000,100000,0,0,369,369

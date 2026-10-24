@@ -1,0 +1,17 @@
+XeMat clean-sample concentration-estimate distributions
+Scenario: May 22 configuration, detector 221; the fixed responses, times, volume and true background are unchanged from the saved study.
+N = 100,000 saved null observations, shared between LS and free Poisson ML. No new simulation or fitting.
+Fresh sample and memory truth, including radon: all zero. DETBK means: [522.0, 854.0, 494.0, 66.0, 64.0, 89.0, 97.0]
+All 21 SAMPLE/GASBK/DETBK counts were independently Poisson; all 17 parameters were fitted in the source run.
+Concentration order: Xe135, Xe133, Xe131m, Xe133m; units: mBq/m^3
+Source observation seeds: [2026102701, 0, 0, 0, 11, chunk], chunk = 0,...,99; 1,000 rows per chunk.
+Scatter seed: 2026102401; 5,000 shared random rows. Statistics use all valid rows, not this display subset.
+Live times (s): SAMPLE 50,400; GASBK 25,200; DETBK 259,200. Effective air volume (m^3): 14.382643678160921
+Efficiencies (SAMPLE = GASBK): [0.241169, 0.367784, 0.233937, 0.233937]; branching is separate.
+Covariance: centered at each empirical mean, divisor N_valid - 1. Negative estimates and outliers are retained.
+Reference: one existing full-model covariance evaluation at true mu0; extract the xenon block only after retaining all nuisance columns.
+The reference is approximate for LS with observed-count weights, and is not an exact finite-sample guarantee for ML.
+Systematic uncertainties: not included. Per-fit covariance unavailability does not invalidate saved point estimates.
+Detailed model, provenance, hashes and status definitions: scenario.json and estimates.npz.
+ls: n_valid = 100,000; fit failures = 0; nonfinite successful fits = 0; point estimates retained despite unavailable fit covariance = 0.
+poisson_ml: n_valid = 100,000; fit failures = 0; nonfinite successful fits = 0; point estimates retained despite unavailable fit covariance = 369.
