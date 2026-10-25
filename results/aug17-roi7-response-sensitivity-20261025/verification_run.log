@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T07:31:12.710148+00:00",
+  "verifier_sha256": "aeb4f9c79cc1928361bf88067c3527a4afedcad684aadbd31c9d0129a1a3ef9c",
+  "no_fits": true,
+  "no_simulation": true,
+  "all_twelve_results_checked": true,
+  "all_observations_unchanged": true,
+  "all_memory_matrices_unchanged": true,
+  "source_kernel_hashes_unchanged": true,
+  "local_production_kernel_checked_unchanged": true,
+  "baseline_results_reused_exactly": true,
+  "n_summary_rows": 12,
+  "n_roi_rows": 252,
+  "n_concentration_rows": 48,
+  "n_independent_QR_null_and_MDC_checks": 24
+}

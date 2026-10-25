@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "variant": "original_034",
+      "method": "wls",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "original_034",
+      "method": "nnls",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "original_034",
+      "method": "poisson",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "original_034",
+      "method": "poisson_nonnegative",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "test_035",
+      "method": "wls",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "test_035",
+      "method": "nnls",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "test_035",
+      "method": "poisson",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "test_035",
+      "method": "poisson_nonnegative",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "test_036",
+      "method": "wls",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "test_036",
+      "method": "nnls",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "test_036",
+      "method": "poisson",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    },
+    {
+      "variant": "test_036",
+      "method": "poisson_nonnegative",
+      "only_expected_fresh_M_row_changed": true,
+      "all_memory_matrices_unchanged": true,
+      "x_b_TV_times_efficiencies_unchanged": true
+    }
+  ],
+  "no_new_observations": true,
+  "baseline_fits_reused": true,
+  "memory_response_unchanged": true,
+  "constants_files_unchanged": true
+}
