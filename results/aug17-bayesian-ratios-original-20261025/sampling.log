@@ -1,0 +1,19 @@
+/workspace/scratch/xemat-bayes-venv/lib/python3.12/site-packages/pytensor/link/c/cmodule.py:2968: UserWarning: PyTensor could not link to a BLAS installation. Operations that might benefit from BLAS will be severely degraded.
+This usually happens when PyTensor is installed via pip. We recommend it be installed via conda/mamba/pixi instead.
+Alternatively, you can use an experimental backend such as Numba or JAX that perform their own BLAS optimizations, by setting `pytensor.config.mode == 'NUMBA'` or passing `mode='NUMBA'` when compiling a PyTensor function.
+For more options and details see https://pytensor.readthedocs.io/en/latest/troubleshooting.html#how-do-i-configure-test-my-blas-library
+  warnings.warn(
+Initializing NUTS using adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [u]
+Sampling 4 chains for 2_000 tune and 5_000 draw iterations (8_000 + 20_000 draws total) took 14 seconds.
+{
+  "posterior_shape": [
+    4,
+    5000,
+    17
+  ],
+  "wall_seconds": 23.158831562963314,
+  "posterior_divergences": 0,
+  "warmup_divergences": 12
+}

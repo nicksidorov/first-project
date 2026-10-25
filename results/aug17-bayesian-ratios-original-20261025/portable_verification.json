@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "extracted_directory": "/tmp/xemat-bayes-portable-v9i1q7b9/XeMat_Aug17_Bayesian_ratios_original",
+  "archive_sha256": "d1856d44e8156a84bfab725ccad0a09db2919f3cbb4660f2ba1ef6a6cdf7f681",
+  "verification": {
+    "status": "PASS",
+    "source_sha256_files_checked": 25,
+    "original_Rs_ROI7_Xe133": 0.34,
+    "original_Rg_ROI7_Xe133": 0.18,
+    "original_observations": 21,
+    "parameters": 17,
+    "shape_chain_draw_parameter": [
+      4,
+      5000,
+      17
+    ],
+    "all_chain_draws_retained": true,
+    "no_refits_or_observation_simulation": true,
+    "full_nuisance_Fisher_covariance_verified": true,
+    "csv_tables_checked": 11,
+    "posterior_summary_quantities_checked": 19,
+    "max_log_density_jacobian_error": 4.5488945943361614e-10,
+    "max_rank_normalized_rhat": 1.00064844560159,
+    "min_bulk_ess_all19": 11458.122897052688,
+    "min_tail_ess_all19": 6021.623280312449,
+    "posterior_divergences": 0,
+    "BFMI_per_chain": [
+      0.9230418585659775,
+      0.910599713699889,
+      0.967804419551206,
+      0.9348601499376389
+    ],
+    "delta_ratios": [
+      0.020376786850344934,
+      0.003891498705247605
+    ],
+    "delta_ratio_sd": [
+      0.0023852562233601525,
+      0.0018662833606292993
+    ],
+    "ellipse_contours_checked": 2,
+    "posterior_and_normal_ratio_curves_checked": 2
+  }
+}
