@@ -1,0 +1,5 @@
+﻿method,method_key,statistic_name,statistic,n_observations,rank,degrees_of_freedom,reduced_statistic,nominal_dof,success,solver_message,solver_iterations
+LS,wls,chi2,46.041725704063666,21,17,4,11.510431426015916,False,True,Решена взвешенная линейная задача,0
+NNLS,nnls,chi2,49.61399392311488,21,17,4,12.40349848077872,True,True,Решена взвешенная линейная задача,0
+Poisson ML,poisson,poisson_deviance,46.779129370257486,21,17,4,11.694782342564372,False,True,`gtol` termination condition is satisfied.,56
+Nonnegative Poisson ML,poisson_nonnegative,poisson_deviance,50.22533287633817,21,17,4,12.556333219084543,True,True,`gtol` termination condition is satisfied.,52

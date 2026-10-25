@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "archive_sha256": "b45d7c933aef1227c21cf976a0df67f74923491b59d5a0ce48eb8c892384eb28",
+  "independent_extracted_path": "/tmp/xemat-aug17-portable-2tyy77mz/XeMat_Aug17_Xe133_Xe131m_ellipse",
+  "no_refitting": true,
+  "no_simulation": true,
+  "checked": [
+    "numerical_results",
+    "full_covariance",
+    "ellipse_geometry",
+    "figure_and_LaTeX"
+  ]
+}

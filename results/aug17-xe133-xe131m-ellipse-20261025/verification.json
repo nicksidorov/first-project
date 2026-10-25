@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T07:07:41.359090+00:00",
+  "verifier_sha256": "c06d7b5d3dde72163a1c07c8f06aa70bcbd5f82aad5e675fdf4b3ff42220d320",
+  "no_refitting": true,
+  "no_simulation": true,
+  "n_methods": 4,
+  "n_joint_observations": 21,
+  "n_joint_parameters": 17,
+  "n_csv_rows": 16,
+  "full_nuisance_covariance_checked": true,
+  "chi2_quantile": 5.991464547107979,
+  "isotope_pair": [
+    "Xe133",
+    "Xe131m"
+  ],
+  "concentration_units": "mBq/m3",
+  "methods": {
+    "wls": {
+      "success": true,
+      "covariance_method": "independent scaled QR of all 17 physical columns",
+      "max_absolute_full_covariance_difference": 1.3642420526593924e-12,
+      "statistical_and_systematic_propagation_checked": true
+    },
+    "nnls": {
+      "success": true,
+      "constrained_covariance_not_used": true
+    },
+    "poisson": {
+      "success": true,
+      "covariance_method": "independent scaled QR of all 17 physical columns",
+      "max_absolute_full_covariance_difference": 4.238276396506535e-13,
+      "statistical_and_systematic_propagation_checked": true
+    },
+    "poisson_nonnegative": {
+      "success": true,
+      "constrained_covariance_not_used": true
+    }
+  },
+  "ellipses": [
+    {
+      "method": "wls",
+      "uncertainty": "statistical",
+      "correlation": -0.4302336466863435,
+      "n_contour_points": 721,
+      "max_mahalanobis_error": 3.552713678800501e-15
+    },
+    {
+      "method": "wls",
+      "uncertainty": "total",
+      "correlation": -0.3894455441439934,
+      "n_contour_points": 721,
+      "max_mahalanobis_error": 3.552713678800501e-15
+    },
+    {
+      "method": "poisson",
+      "uncertainty": "statistical",
+      "correlation": -0.430580538498031,
+      "n_contour_points": 721,
+      "max_mahalanobis_error": 3.552713678800501e-15
+    },
+    {
+      "method": "poisson",
+      "uncertainty": "total",
+      "correlation": -0.3897523178498206,
+      "n_contour_points": 721,
+      "max_mahalanobis_error": 3.552713678800501e-15
+    }
+  ],
+  "files_sha256": {
+    "scenario.json": "a4d6986bb5ddab9f159c4fbf6869bfa768bb5ead12e763472f4f40f879d9f882",
+    "measurement_arrays.npz": "8697ba7792d8e82552ef7f3d84faae3ec0393a5e283f9cd2cb5e7cb870d5d909",
+    "concentrations.csv": "44fc6ff268b30aff9f493676774c4e7e1fb244c4116121b96829b019cb62d873",
+    "ellipses.json": "5a7b2b0f46246d964f2d85be3e1858b2d84293d4c2dfa19a0e9059699017f522",
+    "fit_quality.csv": "448fbc713851cdbe7586437ba6f0797a11e704abeccfe4bf2753eccb9a69ddde",
+    "fit_diagnostics.json": "30fe73a68ca83120800d61c6b055aac3b91e55de771bf7879692ccf72f362420",
+    "analyze_measurement.py": "943a4b1925243df9a11bbd0ad05e06ab813078af40d3ad03174cd657ca1c4d4e",
+    "result_wls.json": "31b9760da0955243c2b27a43f39c144cde19d04d7c39fda8f1f662c87b776059",
+    "result_wls.txt": "1782ebea1e9ffac19540904d6af7c0fa4ad6063067653ea656008d6331307588",
+    "result_nnls.json": "f4501bf20663a7514f5d31359f5a5cd1ac5dc8246bbdef054b1ebf95a0202b76",
+    "result_nnls.txt": "218f4528fd090b7580ee2b1483e4d308ce8c80d522788b44c9f905f7177babb7",
+    "result_poisson.json": "ceea92247895abd9b57479bcbc95c574d205aabd22700032546ece7b506ca6f4",
+    "result_poisson.txt": "8c4c582e2534eec6a9b9bb9fc6db8d54e310991c53230ccb8dc36090900917d9",
+    "result_poisson_nonnegative.json": "20bed503b356ff139a232a610e461a304322b3dadf86b363a6653da52191bd06",
+    "result_poisson_nonnegative.txt": "6a0266464b4e1a4111404cda51431153672654b10b9a23e30eca65b985da8223"
+  }
+}

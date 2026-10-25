@@ -1,0 +1,210 @@
+{
+  "analysis.log": {
+    "bytes": 4133,
+    "sha256": "a3fe6f70fae48e7086d45556bd46839b92f27bce24dfeb6391b422b0ddd594cc"
+  },
+  "analyze_measurement.py": {
+    "bytes": 8261,
+    "sha256": "943a4b1925243df9a11bbd0ad05e06ab813078af40d3ad03174cd657ca1c4d4e"
+  },
+  "build_report.py": {
+    "bytes": 12703,
+    "sha256": "6b16580c8054934c2ed40ba5c5d150a95f77901acbd3d94a86687a811e7c0a1f"
+  },
+  "concentrations.csv": {
+    "bytes": 1925,
+    "sha256": "44fc6ff268b30aff9f493676774c4e7e1fb244c4116121b96829b019cb62d873"
+  },
+  "ellipses.json": {
+    "bytes": 2439,
+    "sha256": "5a7b2b0f46246d964f2d85be3e1858b2d84293d4c2dfa19a0e9059699017f522"
+  },
+  "figure_verification.json": {
+    "bytes": 1990,
+    "sha256": "4691c4e35e30e213732e9fe2d980477e618ac1a4a900a8d2a1bcbcf8f7ab7fe6"
+  },
+  "figure_verification.log": {
+    "bytes": 1310,
+    "sha256": "93e207cc73a22d51e47fd3feae836b4ea06e423ede7886f43204f963cbe927a9"
+  },
+  "figures.tex": {
+    "bytes": 1498,
+    "sha256": "37aadeef345c922cc7c05c808b81fd003255e53a8bc33d86326fce32ff597889"
+  },
+  "fit_diagnostics.json": {
+    "bytes": 4922,
+    "sha256": "30fe73a68ca83120800d61c6b055aac3b91e55de771bf7879692ccf72f362420"
+  },
+  "fit_quality.csv": {
+    "bytes": 726,
+    "sha256": "448fbc713851cdbe7586437ba6f0797a11e704abeccfe4bf2753eccb9a69ddde"
+  },
+  "inputs/DETBK20250610213044796.PHD": {
+    "bytes": 143386,
+    "sha256": "ca567f1b071fa29bba04b1c3ce9cfdc96ac7e5aa9bc3ec75cfb44b0ca39be950"
+  },
+  "inputs/GASBK20250816152938777.PHD": {
+    "bytes": 143378,
+    "sha256": "5d368556cbce733b32339f68cb9d72c983158fe0565116c306baba0c11f5b589"
+  },
+  "inputs/SAMPLE20250817072414190.PHD": {
+    "bytes": 145594,
+    "sha256": "15d00e1cd5214512bbd2433f9c8b5de3acb172e41b2748099467e71d43e53309"
+  },
+  "kernel_snapshot/constants.py": {
+    "bytes": 6884,
+    "sha256": "bb266e2ab8e2683c00be0cb5a53b942c5e724744201e15bb7a4636019cacfd35"
+  },
+  "kernel_snapshot/ims_parser.py": {
+    "bytes": 16276,
+    "sha256": "988bbaa63b52d1bc52190f0e500a764ff583a7c021e2cc93339054c097f0c0eb"
+  },
+  "kernel_snapshot/process_measurement.py": {
+    "bytes": 26716,
+    "sha256": "a9b5aa2adf83a9748ad92515cb61536a8e8f8f0cb0edc673936b49b425521059"
+  },
+  "kernel_snapshot/results_saver.py": {
+    "bytes": 29398,
+    "sha256": "a8afd59702ff406db4f3230995eb43350aac4962b6ae154fff025acc6a445c24"
+  },
+  "kernel_snapshot/xemat/__init__.py": {
+    "bytes": 212,
+    "sha256": "b0225236bb7a16cd88a6a2877e4e545061585ddff278ec842cd0a8998c06d441"
+  },
+  "kernel_snapshot/xemat/activities.py": {
+    "bytes": 10927,
+    "sha256": "bddbba2fcb1ae73f05c38ec73fc37b89050925d0dd0482e2a8957bdcfc14def4"
+  },
+  "kernel_snapshot/xemat/calibration.py": {
+    "bytes": 22799,
+    "sha256": "728120e21dee13f3528a4d814b22c22042c4dbbe0200dd7876d4b6f9f139d067"
+  },
+  "kernel_snapshot/xemat/cli.py": {
+    "bytes": 1966,
+    "sha256": "67326899203814c412a1a8c1c7ce2efa0be830d39d8e7284d1f1c18e2b5ca6dd"
+  },
+  "kernel_snapshot/xemat/detection.py": {
+    "bytes": 14292,
+    "sha256": "90411c39a8aac1000809bcc9eb15bd7693c6a631ac75e8e397c6bf74b208a80b"
+  },
+  "kernel_snapshot/xemat/detectors.py": {
+    "bytes": 2646,
+    "sha256": "aa7f03aa0cf9b8d2dd0d6978f18e9769e1bd9fcb070be6d8ffe8186e60bf522d"
+  },
+  "kernel_snapshot/xemat/diagnostics.py": {
+    "bytes": 5228,
+    "sha256": "d7c6155d8ee1d7de16357dac0c764041a494c6dbf8c4e76d4b87a078a97063af"
+  },
+  "kernel_snapshot/xemat/distribution_mc.py": {
+    "bytes": 18247,
+    "sha256": "30f847deb569c701d80030ee0a2a66ae325fcf915366ddddd3d8063e77393ee0"
+  },
+  "kernel_snapshot/xemat/distribution_pairs.py": {
+    "bytes": 11710,
+    "sha256": "b0f0ef520b98bfc04bc0a6af4c296d26fa1bd439a40f54dd736c48adb1643126"
+  },
+  "kernel_snapshot/xemat/distribution_plot.py": {
+    "bytes": 9596,
+    "sha256": "9415ac2f42e5f83577c37fa19e0d468da05128ee16874ab2e14eb0680d310de0"
+  },
+  "kernel_snapshot/xemat/io.py": {
+    "bytes": 6165,
+    "sha256": "a09f2feb3eba5b289a9370e8397c27bc2b48e7fd5856c939ec25131443516bf3"
+  },
+  "kernel_snapshot/xemat/model.py": {
+    "bytes": 10058,
+    "sha256": "8113837e2b350a00eea3bab4acdda24d5cdfa0198cbc6c0ec515f93299326299"
+  },
+  "kernel_snapshot/xemat/monte_carlo.py": {
+    "bytes": 22511,
+    "sha256": "5e68d1914061aad8ddb676da00c1e02ca4a81cca930859e224d27fa282842ad7"
+  },
+  "kernel_snapshot/xemat/solvers.py": {
+    "bytes": 31202,
+    "sha256": "03a48d1b3daee1d7b0a8c5a0a60c2b71e4934e26b7a051738c280dcbd7fd05fe"
+  },
+  "measurement_arrays.npz": {
+    "bytes": 25821,
+    "sha256": "8697ba7792d8e82552ef7f3d84faae3ec0393a5e283f9cd2cb5e7cb870d5d909"
+  },
+  "package.py": {
+    "bytes": 1974,
+    "sha256": "05b5d928fc9f7f2a5e762bd9f33c190ceb9831abdb403b467ad81372fafcdcc0"
+  },
+  "plot.log": {
+    "bytes": 610,
+    "sha256": "ebde5388798cc2d2977829514e136613f5a822852956f3aa0e3dcaccde66cae4"
+  },
+  "plot_ellipse.py": {
+    "bytes": 9243,
+    "sha256": "ddd27ea33947019c28a7d1cd9b63a49f4236beca31db0a0c9d390703dc630630"
+  },
+  "report.md": {
+    "bytes": 11849,
+    "sha256": "2d04048638ab180eb37e2a45df683446bc040c50c55324504f6483916e490560"
+  },
+  "requirements.txt": {
+    "bytes": 46,
+    "sha256": "815360a00e0e1d7a128cade3de11b66d3fe997cbd6e2c69f8081eb9bc8b88197"
+  },
+  "result_nnls.json": {
+    "bytes": 69904,
+    "sha256": "f4501bf20663a7514f5d31359f5a5cd1ac5dc8246bbdef054b1ebf95a0202b76"
+  },
+  "result_nnls.txt": {
+    "bytes": 51383,
+    "sha256": "218f4528fd090b7580ee2b1483e4d308ce8c80d522788b44c9f905f7177babb7"
+  },
+  "result_poisson.json": {
+    "bytes": 92471,
+    "sha256": "ceea92247895abd9b57479bcbc95c574d205aabd22700032546ece7b506ca6f4"
+  },
+  "result_poisson.txt": {
+    "bytes": 57894,
+    "sha256": "8c4c582e2534eec6a9b9bb9fc6db8d54e310991c53230ccb8dc36090900917d9"
+  },
+  "result_poisson_nonnegative.json": {
+    "bytes": 70381,
+    "sha256": "20bed503b356ff139a232a610e461a304322b3dadf86b363a6653da52191bd06"
+  },
+  "result_poisson_nonnegative.txt": {
+    "bytes": 51416,
+    "sha256": "6a0266464b4e1a4111404cda51431153672654b10b9a23e30eca65b985da8223"
+  },
+  "result_wls.json": {
+    "bytes": 92434,
+    "sha256": "31b9760da0955243c2b27a43f39c144cde19d04d7c39fda8f1f662c87b776059"
+  },
+  "result_wls.txt": {
+    "bytes": 57785,
+    "sha256": "1782ebea1e9ffac19540904d6af7c0fa4ad6063067653ea656008d6331307588"
+  },
+  "scenario.json": {
+    "bytes": 8430,
+    "sha256": "a4d6986bb5ddab9f159c4fbf6869bfa768bb5ead12e763472f4f40f879d9f882"
+  },
+  "verification.json": {
+    "bytes": 3462,
+    "sha256": "caec9c0952aa1e3c843a9cee0976d88b338025870d6d0aeaf80f66823a3c5792"
+  },
+  "verification_run.log": {
+    "bytes": 3462,
+    "sha256": "caec9c0952aa1e3c843a9cee0976d88b338025870d6d0aeaf80f66823a3c5792"
+  },
+  "verify_ellipse_plot.py": {
+    "bytes": 5277,
+    "sha256": "00bfd039603f900860dd097d1dd76160eb3df095485ad44a05b6c4d8cda36665"
+  },
+  "verify_measurement.py": {
+    "bytes": 8897,
+    "sha256": "c06d7b5d3dde72163a1c07c8f06aa70bcbd5f82aad5e675fdf4b3ff42220d320"
+  },
+  "xe133_xe131m_ellipse.pdf": {
+    "bytes": 58962,
+    "sha256": "4bb380fc6064f0ed5fa059aacd12fccdc4f3320b1442a0f24d46be18098fbf81"
+  },
+  "xe133_xe131m_ellipse.png": {
+    "bytes": 379512,
+    "sha256": "4cd97ff7f349bb71028418a4cfbb348161d5cbad00a7fb33983a2f4cb5883a1f"
+  }
+}

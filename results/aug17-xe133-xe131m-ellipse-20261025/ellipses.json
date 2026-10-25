@@ -1,0 +1,114 @@
+[
+  {
+    "method": "LS",
+    "method_key": "wls",
+    "uncertainty": "statistical",
+    "center_mBq_m3": [
+      1338.1857984312305,
+      27.41611364734684
+    ],
+    "covariance_mBq2_m6": [
+      [
+        17.514664035310783,
+        -5.676030391313593
+      ],
+      [
+        -5.676030391313593,
+        9.937539544604276
+      ]
+    ],
+    "correlation": -0.4302336466863435,
+    "semi_axes_mBq_m3": [
+      11.09625000822776,
+      6.430562980327403
+    ],
+    "major_axis_angle_degrees": 151.86089847952724,
+    "confidence_level": 0.95,
+    "chi2_df": 2,
+    "chi2_quantile": 5.991464547107979
+  },
+  {
+    "method": "LS",
+    "method_key": "wls",
+    "uncertainty": "total",
+    "center_mBq_m3": [
+      1338.1857984312305,
+      27.41611364734684
+    ],
+    "covariance_mBq2_m6": [
+      [
+        21.096912852160575,
+        -5.639342537382537
+      ],
+      [
+        -5.639342537382537,
+        9.939042831179325
+      ]
+    ],
+    "correlation": -0.3894455441439934,
+    "semi_axes_mBq_m3": [
+      11.853417913307629,
+      6.741462151108113
+    ],
+    "major_axis_angle_degrees": 157.345740004402,
+    "confidence_level": 0.95,
+    "chi2_df": 2,
+    "chi2_quantile": 5.991464547107979
+  },
+  {
+    "method": "Poisson ML",
+    "method_key": "poisson",
+    "uncertainty": "statistical",
+    "center_mBq_m3": [
+      1338.6698347240574,
+      27.277789885158597
+    ],
+    "covariance_mBq2_m6": [
+      [
+        17.514619248254977,
+        -5.686073194957112
+      ],
+      [
+        -5.686073194957112,
+        9.9566994563705
+      ]
+    ],
+    "correlation": -0.430580538498031,
+    "semi_axes_mBq_m3": [
+      11.099649365963293,
+      6.433600549749612
+    ],
+    "major_axis_angle_degrees": 151.80399093792371,
+    "confidence_level": 0.95,
+    "chi2_df": 2,
+    "chi2_quantile": 5.991464547107979
+  },
+  {
+    "method": "Poisson ML",
+    "method_key": "poisson",
+    "uncertainty": "total",
+    "center_mBq_m3": [
+      1338.6698347240574,
+      27.277789885158597
+    ],
+    "covariance_mBq2_m6": [
+      [
+        21.099448756549087,
+        -5.6495572404799095
+      ],
+      [
+        -5.6495572404799095,
+        9.958187612012537
+      ]
+    ],
+    "correlation": -0.3897523178498206,
+    "semi_axes_mBq_m3": [
+      11.856519127526074,
+      6.745641659458105
+    ],
+    "major_axis_angle_degrees": 157.2984841934626,
+    "confidence_level": 0.95,
+    "chi2_df": 2,
+    "chi2_quantile": 5.991464547107979
+  }
+]

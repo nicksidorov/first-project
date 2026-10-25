@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T07:09:39.708443+00:00",
+  "no_fits": true,
+  "no_monte_carlo": true,
+  "n_axes": 2,
+  "shared_limits": true,
+  "equal_axis_scale": true,
+  "contour_checks": [
+    {
+      "method": "wls",
+      "uncertainty": "statistical",
+      "n_contour_points": 1001,
+      "max_absolute_quadratic_form_error": 1.4654943925052066e-13
+    },
+    {
+      "method": "wls",
+      "uncertainty": "total",
+      "n_contour_points": 1001,
+      "max_absolute_quadratic_form_error": 1.3233858453531866e-13
+    },
+    {
+      "method": "poisson",
+      "uncertainty": "statistical",
+      "n_contour_points": 1001,
+      "max_absolute_quadratic_form_error": 1.5187850976872141e-13
+    },
+    {
+      "method": "poisson",
+      "uncertainty": "total",
+      "n_contour_points": 1001,
+      "max_absolute_quadratic_form_error": 1.3322676295501878e-13
+    }
+  ],
+  "centers_checked": true,
+  "visible_text_elements_checked": 26,
+  "clipped_text": [],
+  "png_pixels": [
+    3540,
+    2100
+  ],
+  "png_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "png_matches_current_script_pixelwise": true,
+  "pdf_pages": 1,
+  "serif_font": true,
+  "mathtext_fontset": "cm",
+  "latex_compiled": true,
+  "latex_overfull_boxes": false,
+  "latex_check_directory": "/tmp/xemat-ellipse-latex-wtd_mxm7"
+}

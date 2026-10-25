@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T07:09:39.708443+00:00",
+  "no_fits": true,
+  "no_monte_carlo": true,
+  "n_axes": 2,
+  "shared_limits": true,
+  "equal_axis_scale": true,
+  "contour_checks": [
+    {
+      "method": "wls",
+      "uncertainty": "statistical",
+      "n_contour_points": 1001,
+      "max_absolute_quadratic_form_error": 1.4654943925052066e-13
+    },
+    {
+      "method": "wls",
+      "uncertainty": "total",
+      "n_contour_points": 1001,
+      "max_absolute_quadratic_form_error": 1.3233858453531866e-13
+    },
+    {
+      "method": "poisson",
+      "uncertainty": "statistical",
+      "n_contour_points": 1001,
+      "max_absolute_quadratic_form_error": 1.5187850976872141e-13
+    },
+    {
+      "method": "poisson",
+      "uncertainty": "total",
+      "n_contour_points": 1001,
+      "max_absolute_quadratic_form_error": 1.3322676295501878e-13
+    }
+  ],
+  "centers_checked": true,
+  "visible_text_elements_checked": 26,
+  "clipped_text": [],
+  "png_pixels": [
+    3540,
+    2100
+  ],
+  "png_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "png_matches_current_script_pixelwise": true,
+  "pdf_pages": 1,
+  "serif_font": true,
+  "mathtext_fontset": "cm",
+  "latex_compiled": true,
+  "latex_overfull_boxes": false,
+  "latex_check_directory": "/tmp/xemat-ellipse-latex-wtd_mxm7",
+  "files_sha256": {
+    "plot_ellipse.py": "ddd27ea33947019c28a7d1cd9b63a49f4236beca31db0a0c9d390703dc630630",
+    "verify_ellipse_plot.py": "00bfd039603f900860dd097d1dd76160eb3df095485ad44a05b6c4d8cda36665",
+    "ellipses.json": "5a7b2b0f46246d964f2d85be3e1858b2d84293d4c2dfa19a0e9059699017f522",
+    "fit_quality.csv": "448fbc713851cdbe7586437ba6f0797a11e704abeccfe4bf2753eccb9a69ddde",
+    "figures.tex": "37aadeef345c922cc7c05c808b81fd003255e53a8bc33d86326fce32ff597889",
+    "xe133_xe131m_ellipse.pdf": "4bb380fc6064f0ed5fa059aacd12fccdc4f3320b1442a0f24d46be18098fbf81",
+    "xe133_xe131m_ellipse.png": "4cd97ff7f349bb71028418a4cfbb348161d5cbad00a7fb33983a2f4cb5883a1f"
+  }
+}

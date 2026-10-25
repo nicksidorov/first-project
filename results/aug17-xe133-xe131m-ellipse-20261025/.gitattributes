@@ -1,0 +1,7 @@
+* -text
+*.pdf binary
+*.png binary
+*.npz binary
+*.zip binary
+*.PHD binary
+kernel_snapshot/** -whitespace
