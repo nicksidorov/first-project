@@ -1,0 +1,301 @@
+{
+  "production_commit": "69ff5a62ccaaddeb6372f7f003109ce5ff6cf333",
+  "input_files": {
+    "sample_file": {
+      "file": "SPIKE20260425010733595.PHD",
+      "sha256": "a06053e3f8758cc29b4a8bbc90c1976ca244084aa707b213241ec42174d18b30"
+    },
+    "background_file": {
+      "file": "GASBK20260424152856639.PHD",
+      "sha256": "6d45ec9d9e704149d0796a47c00c938adc7c47a79b9ad4728ae5551395e2e071"
+    },
+    "detector_file": {
+      "file": "DETBK20250610213044796.PHD",
+      "sha256": "ca567f1b071fa29bba04b1c3ce9cfdc96ac7e5aa9bc3ec75cfb44b0ca39be950"
+    }
+  },
+  "kernel_sha256": {
+    "constants.py": "bb266e2ab8e2683c00be0cb5a53b942c5e724744201e15bb7a4636019cacfd35",
+    "ims_parser.py": "988bbaa63b52d1bc52190f0e500a764ff583a7c021e2cc93339054c097f0c0eb",
+    "process_measurement.py": "a9b5aa2adf83a9748ad92515cb61536a8e8f8f0cb0edc673936b49b425521059",
+    "results_saver.py": "a8afd59702ff406db4f3230995eb43350aac4962b6ae154fff025acc6a445c24",
+    "xemat/__init__.py": "b0225236bb7a16cd88a6a2877e4e545061585ddff278ec842cd0a8998c06d441",
+    "xemat/activities.py": "bddbba2fcb1ae73f05c38ec73fc37b89050925d0dd0482e2a8957bdcfc14def4",
+    "xemat/calibration.py": "728120e21dee13f3528a4d814b22c22042c4dbbe0200dd7876d4b6f9f139d067",
+    "xemat/cli.py": "67326899203814c412a1a8c1c7ce2efa0be830d39d8e7284d1f1c18e2b5ca6dd",
+    "xemat/detection.py": "90411c39a8aac1000809bcc9eb15bd7693c6a631ac75e8e397c6bf74b208a80b",
+    "xemat/detectors.py": "aa7f03aa0cf9b8d2dd0d6978f18e9769e1bd9fcb070be6d8ffe8186e60bf522d",
+    "xemat/diagnostics.py": "d7c6155d8ee1d7de16357dac0c764041a494c6dbf8c4e76d4b87a078a97063af",
+    "xemat/distribution_mc.py": "30f847deb569c701d80030ee0a2a66ae325fcf915366ddddd3d8063e77393ee0",
+    "xemat/distribution_pairs.py": "b0f0ef520b98bfc04bc0a6af4c296d26fa1bd439a40f54dd736c48adb1643126",
+    "xemat/distribution_plot.py": "9415ac2f42e5f83577c37fa19e0d468da05128ee16874ab2e14eb0680d310de0",
+    "xemat/io.py": "a09f2feb3eba5b289a9370e8397c27bc2b48e7fd5856c939ec25131443516bf3",
+    "xemat/model.py": "8113837e2b350a00eea3bab4acdda24d5cdfa0198cbc6c0ec515f93299326299",
+    "xemat/monte_carlo.py": "5e68d1914061aad8ddb676da00c1e02ca4a81cca930859e224d27fa282842ad7",
+    "xemat/solvers.py": "03a48d1b3daee1d7b0a8c5a0a60c2b71e4934e26b7a051738c280dcbd7fd05fe"
+  },
+  "fixed_roi": true,
+  "fixed_efficiencies": true,
+  "radon_mode": "legacy",
+  "detector": 221,
+  "response_model": "Original detector 221 Rs/Rg; Rs[5,2]=0.34",
+  "metadata": {
+    "sample_temporal": {
+      "start_time": "2026-04-24T17:21:31.600000",
+      "collection_start": "2026-04-24T01:00:26",
+      "collection_end": "2026-04-24T12:59:59",
+      "real_time": 27961.92,
+      "live_time": 27844.14,
+      "air_volume": 19.1223278,
+      "xenon_volume": 0.76337
+    },
+    "background_temporal": {
+      "start_time": "2026-04-24T08:27:15.900000",
+      "collection_start": null,
+      "collection_end": null,
+      "real_time": 25300.73,
+      "live_time": 25200.0,
+      "air_volume": null,
+      "xenon_volume": null
+    },
+    "detector_temporal": {
+      "start_time": "2025-06-07T21:22:30.500000",
+      "collection_start": null,
+      "collection_end": null,
+      "real_time": 259694.2,
+      "live_time": 259200.0,
+      "air_volume": null,
+      "xenon_volume": null
+    },
+    "sample_roi_counts": {
+      "1": 48.0,
+      "2": 77.0,
+      "3": 30833.0,
+      "4": 27750.0,
+      "5": 10188.0,
+      "6": 5252.0,
+      "7": 10449.0,
+      "8": 1585.0,
+      "9": 6837.0,
+      "10": 20637.0
+    },
+    "background_roi_counts": {
+      "1": 39.0,
+      "2": 91.0,
+      "3": 83.0,
+      "4": 44.0,
+      "5": 14.0,
+      "6": 6.0,
+      "7": 11.0,
+      "8": 11.0,
+      "9": 17.0,
+      "10": 25.0
+    },
+    "detector_roi_counts": {
+      "1": 522.0,
+      "2": 854.0,
+      "3": 494.0,
+      "4": 320.0,
+      "5": 66.0,
+      "6": 64.0,
+      "7": 89.0,
+      "8": 97.0,
+      "9": 161.0,
+      "10": 155.0
+    },
+    "detector_info": {
+      "sample": {
+        "id": 221,
+        "name": "MIX58_221"
+      },
+      "background": {
+        "id": 221,
+        "name": "MIX58_221"
+      },
+      "detector": {
+        "id": 221,
+        "name": "MIX58_221"
+      }
+    },
+    "input_detector_id": 221,
+    "sample_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "gasbk_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "detector_background_mode": "joint",
+    "kappa_s": 0.10742337962962963,
+    "kappa_g": 0.09722222222222222,
+    "detector_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "background_source": "DETBK: исходные отсчёты включены в x; ζ оценивается совместно с пробой и памятью (V86)",
+    "calibration_detector_id": 221,
+    "calibration_source": "constants.py: Rs_221, Rg_221, ROI_INFO, XENON_ISOTOPES; времена и объём из IMS; ε — constants.py: FIXED_EFFICIENCIES_SAMPLE/GASBK[221]",
+    "radon_mode": "legacy",
+    "radon_h": {
+      "sample": 0.0003331355644985795,
+      "gasbk": 0.0003670735239042576,
+      "sample_memory": 0.0003331355644985795
+    },
+    "time_parameters": {
+      "t_sr": 27961.92,
+      "t_sl": 27844.14,
+      "t_gr": 25300.73,
+      "t_gl": 25200.0,
+      "t_a": 43173.0,
+      "t_p": 15692.6,
+      "tau": 32055.7,
+      "t_bl": 259200.0
+    },
+    "xenon_volume_cm3": 0.76337,
+    "effective_air_volume_m3": 8.774367816091955,
+    "efficiency_source": "constants.py: FIXED_EFFICIENCIES_SAMPLE/GASBK[221]",
+    "efficiency_isotope_names": [
+      "Xe135",
+      "Xe133",
+      "Xe131m",
+      "Xe133m"
+    ],
+    "sample_efficiencies": [
+      0.241169,
+      0.367784,
+      0.233937,
+      0.233937
+    ],
+    "gasbk_efficiencies": [
+      0.241169,
+      0.367784,
+      0.233937,
+      0.233937
+    ],
+    "efficiency_convention": "I=epsilon×BR; epsilon без branching, BR из constants.ROI_INFO",
+    "memory_calibration": "Эффективности GASBK относятся к памяти и сохраняются при SAMPLE",
+    "base_response_convention": "Rs=R_c^(0), Rg=R_g1^(0)=R_g2^(0); без повторной нормировки после C",
+    "radon_concentration": "Первая координата a_V вспомогательная; не атмосферная активность Rn222",
+    "relative_uncertainty_source": "Числа DELTA_EFF/DELTA_V_XE, без использования старых комментариев: 0.001=0.1%",
+    "delta_I": [
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001
+    ],
+    "delta_V0": 0.001,
+    "radon_sensitivity_audit": "В режиме calibrated I_c[0]=I_g[0]=0 служебные; радон задаётся коэффициентами H_11",
+    "detector_background_model": "V86: совместные SAMPLE/GASBK/DETBK; zeta — ожидаемые отсчёты DETBK",
+    "observation_blocks": [
+      "SAMPLE",
+      "GASBK",
+      "DETBK"
+    ]
+  },
+  "fixed_roi_bounds": {
+    "1": [
+      38.69,
+      600.0,
+      319.35,
+      384.78
+    ],
+    "2": [
+      38.69,
+      735.2,
+      224.65,
+      275.32
+    ],
+    "3": [
+      38.69,
+      346.4,
+      69.15,
+      96.83
+    ],
+    "4": [
+      38.69,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "5": [
+      82.36,
+      159.23,
+      19.25,
+      41.03
+    ],
+    "6": [
+      163.43,
+      245.55,
+      19.25,
+      41.03
+    ],
+    "7": [
+      38.69,
+      79.36,
+      19.25,
+      41.03
+    ],
+    "8": [
+      247.55,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "9": [
+      163.431,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "10": [
+      38.69,
+      159.23,
+      19.25,
+      41.03
+    ]
+  },
+  "branching": {
+    "Rn222": 0.37,
+    "Xe135": 0.902,
+    "Xe133": 0.37,
+    "Xe131m": 0.54,
+    "Xe133m": 0.5577
+  },
+  "concentration_units": "mBq/m3",
+  "isotope_order": [
+    "Rn222",
+    "Xe135",
+    "Xe133",
+    "Xe131m",
+    "Xe133m"
+  ],
+  "sample_header_status": "PREL",
+  "sample_data_type": "SPIKEPHD",
+  "baseline_origin": "Computed for the current April pair by prepare_baseline.py",
+  "n_current_baseline_fits": 4,
+  "no_monte_carlo": true,
+  "no_ellipses": true,
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "preparation_script_sha256": "e83146fd191662221ff1fc02bb87c53675d10b6400eb8dcbe39876473ae82db9"
+}

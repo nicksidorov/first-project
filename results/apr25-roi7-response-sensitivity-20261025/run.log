@@ -1,0 +1,36 @@
+original_034 wls criterion 6.478438243678609 ROI7res 17.51189627644999 ROI7D 0.029381718718262367 activities [-8.86336282e-01  9.94568084e+02  1.31173580e+01 -6.70147813e-02]
+original_034 nnls criterion 8.913781667525866 ROI7res 18.984157147924634 ROI7D 0.03453300240682405 activities [  0.         994.655062    13.05706411   0.        ]
+original_034 poisson criterion 5.973641765581835 ROI7res 12.909489432831833 ROI7D 0.015962514132906124 activities [-8.97649260e-01  9.94977602e+02  1.29601031e+01 -1.67043088e-02]
+original_034 poisson_nonnegative criterion 8.138714900296574 ROI7res 14.33584619989233 ROI7D 0.019686540013463826 activities [2.17298231e-12 9.95076029e+02 1.28740441e+01 1.52210852e-12]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+test_035 wls criterion 7.916807027087803 ROI7res -213.97123460658258 ROI7D 4.322720350668464 activities [-9.08813162e-01  9.87306150e+02  1.50757491e+01  1.32803315e+00]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+test_035 nnls criterion 10.351887428519015 ROI7res -214.20183904778423 ROI7D 4.331980203513038 activities [  0.         987.57644807  14.98611683   1.1373016 ]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+test_035 poisson criterion 7.466242978588575 ROI7res -220.13207386062095 ROI7D 4.573463288186538 activities [-9.20634913e-01  9.87855269e+02  1.48806950e+01  1.33804955e+00]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+test_035 poisson_nonnegative criterion 9.62963241008138 ROI7res -220.23857053652137 ROI7D 4.577858938684456 activities [2.17298231e-12 9.88119518e+02 1.47674789e+01 1.12712008e+00]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+test_036 wls criterion 12.646865661171214 ROI7res -438.78305618569175 ROI7D 17.925627224273235 activities [-9.31990290e-01  9.79825926e+02  1.71134851e+01  2.76342518e+00]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+test_036 nnls criterion 15.088707231974993 ROI7res -439.3096431125887 ROI7D 17.96809509399568 activities [  0.         980.12263531  17.01418884   2.56910409]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+test_036 poisson criterion 12.163889421992204 ROI7res -449.7867604421208 ROI7D 18.823202198419665 activities [-9.44028213e-01  9.80818673e+02  1.67939988e+01  2.67586009e+00]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+test_036 poisson_nonnegative criterion 14.33201871502297 ROI7res -450.1980670711346 ROI7D 18.85716586317832 activities [2.17298231e-12 9.81111349e+02 1.66706032e+01 2.46094240e+00]

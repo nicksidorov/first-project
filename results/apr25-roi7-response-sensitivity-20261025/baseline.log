@@ -1,0 +1,16 @@
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+wls success True reduced criterion 6.478438243678609 concentrations mBq/m3 [-8.86336282e-01  9.94568084e+02  1.31173580e+01 -6.70147813e-02]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+nnls success True reduced criterion 8.913781667525866 concentrations mBq/m3 [  0.         994.655062    13.05706411   0.        ]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+poisson success True reduced criterion 5.973641765581835 concentrations mBq/m3 [-8.97649260e-01  9.94977602e+02  1.29601031e+01 -1.67043088e-02]
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/SPIKE20260425010733595.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/GASBK20260424152856639.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/apr25-roi7-response-sensitivity-20261025/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+poisson_nonnegative success True reduced criterion 8.138714900296574 concentrations mBq/m3 [2.17298231e-12 9.95076029e+02 1.28740441e+01 1.52210852e-12]

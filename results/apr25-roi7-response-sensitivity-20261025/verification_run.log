@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T07:51:57.490136+00:00",
+  "verifier_sha256": "6734548e5f28dcf66acf27790315d87df39595584eba8d03f9d48591c27861aa",
+  "no_fits": true,
+  "no_simulation": true,
+  "all_twelve_results_checked": true,
+  "all_observations_unchanged": true,
+  "all_memory_matrices_unchanged": true,
+  "source_kernel_hashes_unchanged": true,
+  "local_production_kernel_checked_unchanged": true,
+  "current_April_baseline_computed_then_reused_exactly": true,
+  "no_August_observations_or_times_reused": true,
+  "source_PHD_identities_and_known_ROI_counts_checked": true,
+  "no_ellipses_computed": true,
+  "n_summary_rows": 12,
+  "n_roi_rows": 252,
+  "n_concentration_rows": 48,
+  "n_independent_QR_null_and_MDC_checks": 24
+}
