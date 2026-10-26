@@ -1,0 +1,50 @@
+{
+  "poisson": {
+    "success": true,
+    "message": "Optimization terminated successfully",
+    "iterations": 26,
+    "warnings": [],
+    "concentration_mBq_m3": [
+      0.26614436837087974,
+      436.6494296890126,
+      5.1916506761739845,
+      3.3959839437050787
+    ],
+    "fit_quality": {
+      "statistic_name": "poisson_deviance",
+      "statistic": 3.9588163686367794,
+      "n_observations": 21,
+      "rank": 17,
+      "degrees_of_freedom": 4,
+      "reduced_statistic": 0.9897040921591949,
+      "nominal_dof": false,
+      "warnings": []
+    }
+  },
+  "poisson_nonnegative": {
+    "success": true,
+    "message": "`gtol` termination condition is satisfied.",
+    "iterations": 38,
+    "warnings": [
+      "Ограниченная оценка: обычная обратная информационная матрица не является её ковариацией"
+    ],
+    "concentration_mBq_m3": [
+      1.1633136924216791e-12,
+      436.66032207076495,
+      5.059553822692058,
+      3.3250290276208125
+    ],
+    "fit_quality": {
+      "statistic_name": "poisson_deviance",
+      "statistic": 9.002468557275641,
+      "n_observations": 21,
+      "rank": 17,
+      "degrees_of_freedom": 4,
+      "reduced_statistic": 2.2506171393189103,
+      "nominal_dof": true,
+      "warnings": [
+        "Для ограниченного метода ν=N−ранг — номинальное число степеней свободы; при активных ограничениях стандартное χ²-распределение неприменимо."
+      ]
+    }
+  }
+}

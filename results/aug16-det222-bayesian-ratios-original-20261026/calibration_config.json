@@ -1,0 +1,14 @@
+{
+  "detector_id": 222,
+  "source": "User-provided fixed calibration, 2026-10-26",
+  "isotope_order": ["Xe135", "Xe133", "Xe131m", "Xe133m"],
+  "sample_efficiencies": [0.251173, 0.3850, 0.244096, 0.244096],
+  "gasbk_efficiencies": [0.251173, 0.3850, 0.244096, 0.244096],
+  "efficiency_convention": "epsilon without branching; sensitivity I = epsilon * branching",
+  "branching": {"Rn222": 0.3700, "Xe135": 0.9020, "Xe133": 0.3700, "Xe131m": 0.5400, "Xe133m": 0.5577},
+  "response_source": "Unmodified Rs_222 and Rg_222 from constants.py",
+  "fixed_roi": true,
+  "radon_mode": "legacy",
+  "radon_efficiency": 0.3,
+  "calibration_uncertainty_included": false
+}

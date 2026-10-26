@@ -1,0 +1,10 @@
+pymc==5.25.1
+arviz==0.22.0
+pytensor==2.31.7
+numpy==2.3.5
+scipy==1.17.0
+matplotlib==3.10.8
+pandas==2.2.3
+xarray==2026.9.0
+h5netcdf==1.8.1
+h5py==3.16.0

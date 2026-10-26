@@ -1,0 +1,6 @@
+[ПАРСЕР] /workspace/scratch/aug16-det222-bayesian-ratios-original-20261026/source/inputs/SAMPLE20250816192330864.PHD: детектор MIX58_222 (ID: 222)
+[ПАРСЕР] /workspace/scratch/aug16-det222-bayesian-ratios-original-20261026/source/inputs/GASBK20250816032815.phd: детектор MIX58_222 (ID: 222)
+[ПАРСЕР] /workspace/scratch/aug16-det222-bayesian-ratios-original-20261026/source/inputs/DETBK2025061021311249.PHD: детектор MIX58_222 (ID: 222)
+poisson success True concentrations mBq/m3 [2.66144368e-01 4.36649430e+02 5.19165068e+00 3.39598394e+00]
+poisson_nonnegative success True concentrations mBq/m3 [1.16331369e-12 4.36660322e+02 5.05955382e+00 3.32502903e+00]
+Model, two original estimates, metadata and source hashes saved.

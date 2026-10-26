@@ -1,0 +1,249 @@
+{
+  "status": "input_preflight_passed; supplied fixed calibration recorded in calibration_config.json",
+  "detector": 222,
+  "input_files": {
+    "SAMPLE20250816192330864.PHD": "47e5c24addf2a5fbf6a32fe2e14c4bd4117bbbb70102251c88dea5d0fba8f3b4",
+    "GASBK20250816032815.phd": "d16a863936a42efc029cb67be9ea327faf5a366d1d7dc3a470cdd76f795da2f6",
+    "DETBK2025061021311249.PHD": "5b60d5726e285721fe07be35a7d868363e13a0579c644c640321613875872be3"
+  },
+  "production_commit": "69ff5a62ccaaddeb6372f7f003109ce5ff6cf333",
+  "metadata": {
+    "sample_temporal": {
+      "start_time": "2025-08-16T05:20:17.600000",
+      "collection_start": "2025-08-15T13:00:26",
+      "collection_end": "2025-08-16T00:59:59",
+      "real_time": 50593.17,
+      "live_time": 50400.0,
+      "air_volume": 17.4274749,
+      "xenon_volume": 1.13655
+    },
+    "background_temporal": {
+      "start_time": "2025-08-15T20:26:35.100000",
+      "collection_start": null,
+      "collection_end": null,
+      "real_time": 25300.73,
+      "live_time": 25200.0,
+      "air_volume": null,
+      "xenon_volume": null
+    },
+    "detector_temporal": {
+      "start_time": "2025-06-07T21:22:55.800000",
+      "collection_start": null,
+      "collection_end": null,
+      "real_time": 259696.2,
+      "live_time": 259200.0,
+      "air_volume": null,
+      "xenon_volume": null
+    },
+    "sample_roi_counts": {
+      "1": 91.0,
+      "2": 146.0,
+      "3": 37519.0,
+      "4": 34481.0,
+      "5": 12772.0,
+      "6": 6632.0,
+      "7": 12975.0,
+      "8": 2102.0,
+      "9": 8734.0,
+      "10": 25747.0
+    },
+    "background_roi_counts": {
+      "1": 54.0,
+      "2": 64.0,
+      "3": 98.0,
+      "4": 65.0,
+      "5": 17.0,
+      "6": 13.0,
+      "7": 21.0,
+      "8": 14.0,
+      "9": 27.0,
+      "10": 38.0
+    },
+    "detector_roi_counts": {
+      "1": 496.0,
+      "2": 765.0,
+      "3": 452.0,
+      "4": 332.0,
+      "5": 71.0,
+      "6": 77.0,
+      "7": 93.0,
+      "8": 91.0,
+      "9": 168.0,
+      "10": 164.0
+    },
+    "detector_info": {
+      "sample": {
+        "id": 222,
+        "name": "MIX58_222"
+      },
+      "background": {
+        "id": 222,
+        "name": "MIX58_222"
+      },
+      "detector": {
+        "id": 222,
+        "name": "MIX58_222"
+      }
+    },
+    "input_detector_id": 222,
+    "sample_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "gasbk_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "detector_background_mode": "joint",
+    "kappa_s": 0.19444444444444445,
+    "kappa_g": 0.09722222222222222,
+    "detector_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "background_source": "DETBK: исходные отсчёты включены в x; ζ оценивается совместно с пробой и памятью (V86)"
+  },
+  "file_efficiencies": {
+    "sample": {
+      "2": 0.21,
+      "3": 0.38,
+      "4": 0.28,
+      "5": 0.27,
+      "6": 0.27,
+      "7": 0.11,
+      "8": 0.021,
+      "9": 0.078,
+      "10": 0.2
+    },
+    "background": {
+      "2": 0.21,
+      "3": 0.38,
+      "4": 0.28,
+      "5": 0.27,
+      "6": 0.27,
+      "7": 0.11,
+      "8": 0.021,
+      "9": 0.078,
+      "10": 0.2
+    },
+    "detector": {
+      "2": 0.21,
+      "3": 0.38,
+      "4": 0.28,
+      "5": 0.27,
+      "6": 0.27,
+      "7": 0.11,
+      "8": 0.021,
+      "9": 0.078,
+      "10": 0.2
+    }
+  },
+  "fixed_roi": true,
+  "fixed_roi_bounds": {
+    "1": [
+      38.69,
+      600.0,
+      319.35,
+      384.78
+    ],
+    "2": [
+      38.69,
+      735.2,
+      224.65,
+      275.32
+    ],
+    "3": [
+      38.69,
+      346.4,
+      69.15,
+      96.83
+    ],
+    "4": [
+      38.69,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "5": [
+      82.36,
+      159.23,
+      19.25,
+      41.03
+    ],
+    "6": [
+      163.43,
+      245.55,
+      19.25,
+      41.03
+    ],
+    "7": [
+      38.69,
+      79.36,
+      19.25,
+      41.03
+    ],
+    "8": [
+      247.55,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "9": [
+      163.431,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "10": [
+      38.69,
+      159.23,
+      19.25,
+      41.03
+    ]
+  },
+  "branching": {
+    "Rn222": 0.37,
+    "Xe135": 0.902,
+    "Xe133": 0.37,
+    "Xe131m": 0.54,
+    "Xe133m": 0.5577
+  },
+  "fixed_efficiencies_222_available": true,
+  "calibration_order": [
+    "Xe135",
+    "Xe133",
+    "Xe131m",
+    "Xe133m"
+  ],
+  "assumed_radon_mode": "legacy",
+  "planned_analysis": "same joint Poisson Bayesian analysis: 4 chains,2000 warmup,5000 draws,flat physical orthant prior; original free ML statistical covariance comparison; no Lc,Ld,MDC or observation simulation",
+  "user_fixed_efficiencies_sample": [
+    0.251173,
+    0.385,
+    0.244096,
+    0.244096
+  ],
+  "user_fixed_efficiencies_gasbk": [
+    0.251173,
+    0.385,
+    0.244096,
+    0.244096
+  ],
+  "stage": "Input preflight only. Final fits and posterior diagnostics are in baseline_diagnostics.json and diagnostics.json.",
+  "preflight_did_not_run_fits_or_mcmc": true
+}

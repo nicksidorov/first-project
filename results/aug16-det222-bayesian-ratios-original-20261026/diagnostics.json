@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "all_17_parameters_and_2_ratios_checked": true,
+  "posterior_draws": 20000,
+  "chains": 4,
+  "saved_draws_per_chain": 5000,
+  "max_rhat": 1.0008870986053249,
+  "min_bulk_ess_all": 14624.826264136522,
+  "min_tail_ess_all": 7161.586781216104,
+  "min_bulk_ess_published": 14624.826264136522,
+  "min_tail_ess_published": 7161.586781216104,
+  "divergences": 0,
+  "max_treedepth_hits": 0,
+  "bfmi": [
+    0.9641000104724543,
+    0.8994125658180877,
+    0.9191266910397197,
+    0.9283408040793258
+  ],
+  "warmup_discarded_from_summaries": true,
+  "draws_excluded": 0,
+  "prior_positive_probability_not_used_for_detection": true
+}

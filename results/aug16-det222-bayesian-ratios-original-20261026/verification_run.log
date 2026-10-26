@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "source_sha256_files_checked": 25,
+  "original_Rs_ROI7_Xe133": 0.347,
+  "original_Rg_ROI7_Xe133": 0.18,
+  "original_observations": 21,
+  "parameters": 17,
+  "shape_chain_draw_parameter": [
+    4,
+    5000,
+    17
+  ],
+  "all_chain_draws_retained": true,
+  "audit_does_not_refit_or_simulate": true,
+  "observation_simulation_performed": false,
+  "original_free_ML_and_nonnegative_MAP_prepared_for_this_dataset": true,
+  "full_nuisance_Fisher_covariance_verified": true,
+  "csv_tables_checked": 11,
+  "posterior_summary_quantities_checked": 19,
+  "max_log_density_jacobian_error": 1.7563195342518156e-10,
+  "max_rank_normalized_rhat": 1.0008870986053249,
+  "min_bulk_ess_all19": 14624.826264136522,
+  "min_tail_ess_all19": 7161.586781216104,
+  "posterior_divergences": 0,
+  "BFMI_per_chain": [
+    0.9641000104724543,
+    0.8994125658180877,
+    0.9191266910397197,
+    0.9283408040793258
+  ],
+  "delta_ratios": [
+    0.011889745693407972,
+    0.00777736947034087
+  ],
+  "delta_ratio_sd": [
+    0.003512801634545731,
+    0.002769735629451459
+  ],
+  "ellipse_contours_checked": 2,
+  "posterior_and_normal_ratio_curves_checked": 2
+}

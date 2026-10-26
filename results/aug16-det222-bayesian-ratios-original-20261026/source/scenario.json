@@ -1,0 +1,339 @@
+{
+  "production_commit": "69ff5a62ccaaddeb6372f7f003109ce5ff6cf333",
+  "input_files": {
+    "sample_file": {
+      "file": "SAMPLE20250816192330864.PHD",
+      "sha256": "47e5c24addf2a5fbf6a32fe2e14c4bd4117bbbb70102251c88dea5d0fba8f3b4"
+    },
+    "background_file": {
+      "file": "GASBK20250816032815.phd",
+      "sha256": "d16a863936a42efc029cb67be9ea327faf5a366d1d7dc3a470cdd76f795da2f6"
+    },
+    "detector_file": {
+      "file": "DETBK2025061021311249.PHD",
+      "sha256": "5b60d5726e285721fe07be35a7d868363e13a0579c644c640321613875872be3"
+    }
+  },
+  "kernel_sha256": {
+    "constants.py": "bb266e2ab8e2683c00be0cb5a53b942c5e724744201e15bb7a4636019cacfd35",
+    "ims_parser.py": "988bbaa63b52d1bc52190f0e500a764ff583a7c021e2cc93339054c097f0c0eb",
+    "process_measurement.py": "a9b5aa2adf83a9748ad92515cb61536a8e8f8f0cb0edc673936b49b425521059",
+    "results_saver.py": "a8afd59702ff406db4f3230995eb43350aac4962b6ae154fff025acc6a445c24",
+    "xemat/__init__.py": "b0225236bb7a16cd88a6a2877e4e545061585ddff278ec842cd0a8998c06d441",
+    "xemat/activities.py": "bddbba2fcb1ae73f05c38ec73fc37b89050925d0dd0482e2a8957bdcfc14def4",
+    "xemat/calibration.py": "728120e21dee13f3528a4d814b22c22042c4dbbe0200dd7876d4b6f9f139d067",
+    "xemat/cli.py": "67326899203814c412a1a8c1c7ce2efa0be830d39d8e7284d1f1c18e2b5ca6dd",
+    "xemat/detection.py": "90411c39a8aac1000809bcc9eb15bd7693c6a631ac75e8e397c6bf74b208a80b",
+    "xemat/detectors.py": "aa7f03aa0cf9b8d2dd0d6978f18e9769e1bd9fcb070be6d8ffe8186e60bf522d",
+    "xemat/diagnostics.py": "d7c6155d8ee1d7de16357dac0c764041a494c6dbf8c4e76d4b87a078a97063af",
+    "xemat/distribution_mc.py": "30f847deb569c701d80030ee0a2a66ae325fcf915366ddddd3d8063e77393ee0",
+    "xemat/distribution_pairs.py": "b0f0ef520b98bfc04bc0a6af4c296d26fa1bd439a40f54dd736c48adb1643126",
+    "xemat/distribution_plot.py": "9415ac2f42e5f83577c37fa19e0d468da05128ee16874ab2e14eb0680d310de0",
+    "xemat/io.py": "a09f2feb3eba5b289a9370e8397c27bc2b48e7fd5856c939ec25131443516bf3",
+    "xemat/model.py": "8113837e2b350a00eea3bab4acdda24d5cdfa0198cbc6c0ec515f93299326299",
+    "xemat/monte_carlo.py": "5e68d1914061aad8ddb676da00c1e02ca4a81cca930859e224d27fa282842ad7",
+    "xemat/solvers.py": "03a48d1b3daee1d7b0a8c5a0a60c2b71e4934e26b7a051738c280dcbd7fd05fe"
+  },
+  "fixed_roi": true,
+  "fixed_efficiencies": true,
+  "radon_mode": "legacy",
+  "detector": 222,
+  "response_model": "Original constants.py Rs_222/Rg_222; no response modifications",
+  "metadata": {
+    "sample_temporal": {
+      "start_time": "2025-08-16T05:20:17.600000",
+      "collection_start": "2025-08-15T13:00:26",
+      "collection_end": "2025-08-16T00:59:59",
+      "real_time": 50593.17,
+      "live_time": 50400.0,
+      "air_volume": 17.4274749,
+      "xenon_volume": 1.13655
+    },
+    "background_temporal": {
+      "start_time": "2025-08-15T20:26:35.100000",
+      "collection_start": null,
+      "collection_end": null,
+      "real_time": 25300.73,
+      "live_time": 25200.0,
+      "air_volume": null,
+      "xenon_volume": null
+    },
+    "detector_temporal": {
+      "start_time": "2025-06-07T21:22:55.800000",
+      "collection_start": null,
+      "collection_end": null,
+      "real_time": 259696.2,
+      "live_time": 259200.0,
+      "air_volume": null,
+      "xenon_volume": null
+    },
+    "sample_roi_counts": {
+      "1": 91.0,
+      "2": 146.0,
+      "3": 37519.0,
+      "4": 34481.0,
+      "5": 12772.0,
+      "6": 6632.0,
+      "7": 12975.0,
+      "8": 2102.0,
+      "9": 8734.0,
+      "10": 25747.0
+    },
+    "background_roi_counts": {
+      "1": 54.0,
+      "2": 64.0,
+      "3": 98.0,
+      "4": 65.0,
+      "5": 17.0,
+      "6": 13.0,
+      "7": 21.0,
+      "8": 14.0,
+      "9": 27.0,
+      "10": 38.0
+    },
+    "detector_roi_counts": {
+      "1": 496.0,
+      "2": 765.0,
+      "3": 452.0,
+      "4": 332.0,
+      "5": 71.0,
+      "6": 77.0,
+      "7": 93.0,
+      "8": 91.0,
+      "9": 168.0,
+      "10": 164.0
+    },
+    "detector_info": {
+      "sample": {
+        "id": 222,
+        "name": "MIX58_222"
+      },
+      "background": {
+        "id": 222,
+        "name": "MIX58_222"
+      },
+      "detector": {
+        "id": 222,
+        "name": "MIX58_222"
+      }
+    },
+    "input_detector_id": 222,
+    "sample_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "gasbk_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "detector_background_mode": "joint",
+    "kappa_s": 0.19444444444444445,
+    "kappa_g": 0.09722222222222222,
+    "detector_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "background_source": "DETBK: исходные отсчёты включены в x; ζ оценивается совместно с пробой и памятью (V86)",
+    "calibration_detector_id": 222,
+    "calibration_source": "Unmodified constants.py Rs_222/Rg_222 and ROI_INFO; fixed epsilon from calibration_config.json; original IMS times and volume",
+    "radon_mode": "legacy",
+    "radon_h": {
+      "sample": 0.00018840566605035113,
+      "gasbk": 0.0003670735239042576,
+      "sample_memory": 0.00018840566605035113
+    },
+    "time_parameters": {
+      "t_sr": 50593.17,
+      "t_sl": 50400.0,
+      "t_gr": 25300.73,
+      "t_gl": 25200.0,
+      "t_a": 43173.0,
+      "t_p": 15618.6,
+      "tau": 32022.5,
+      "t_bl": 259200.0
+    },
+    "xenon_volume_cm3": 1.13655,
+    "effective_air_volume_m3": 13.063793103448276,
+    "efficiency_source": "calibration_config.json: user fixed epsilon for detector 222, 2026-10-26",
+    "efficiency_isotope_names": [
+      "Xe135",
+      "Xe133",
+      "Xe131m",
+      "Xe133m"
+    ],
+    "sample_efficiencies": [
+      0.251173,
+      0.385,
+      0.244096,
+      0.244096
+    ],
+    "gasbk_efficiencies": [
+      0.251173,
+      0.385,
+      0.244096,
+      0.244096
+    ],
+    "efficiency_convention": "I=epsilon×BR; epsilon без branching, BR из constants.ROI_INFO",
+    "memory_calibration": "Эффективности GASBK относятся к памяти и сохраняются при SAMPLE",
+    "base_response_convention": "Rs=R_c^(0), Rg=R_g1^(0)=R_g2^(0); без повторной нормировки после C",
+    "radon_concentration": "Первая координата a_V вспомогательная; не атмосферная активность Rn222",
+    "relative_uncertainty_source": "Числа DELTA_EFF/DELTA_V_XE, без использования старых комментариев: 0.001=0.1%",
+    "delta_I": [
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001
+    ],
+    "delta_V0": 0.001,
+    "radon_sensitivity_audit": "В режиме calibrated I_c[0]=I_g[0]=0 служебные; радон задаётся коэффициентами H_11",
+    "detector_background_model": "V86: совместные SAMPLE/GASBK/DETBK; zeta — ожидаемые отсчёты DETBK",
+    "observation_blocks": [
+      "SAMPLE",
+      "GASBK",
+      "DETBK"
+    ],
+    "calibration_uncertainties_included_in_analysis": false
+  },
+  "fixed_roi_bounds": {
+    "1": [
+      38.69,
+      600.0,
+      319.35,
+      384.78
+    ],
+    "2": [
+      38.69,
+      735.2,
+      224.65,
+      275.32
+    ],
+    "3": [
+      38.69,
+      346.4,
+      69.15,
+      96.83
+    ],
+    "4": [
+      38.69,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "5": [
+      82.36,
+      159.23,
+      19.25,
+      41.03
+    ],
+    "6": [
+      163.43,
+      245.55,
+      19.25,
+      41.03
+    ],
+    "7": [
+      38.69,
+      79.36,
+      19.25,
+      41.03
+    ],
+    "8": [
+      247.55,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "9": [
+      163.431,
+      391.4,
+      19.25,
+      41.03
+    ],
+    "10": [
+      38.69,
+      159.23,
+      19.25,
+      41.03
+    ]
+  },
+  "branching": {
+    "Rn222": 0.37,
+    "Xe135": 0.902,
+    "Xe133": 0.37,
+    "Xe131m": 0.54,
+    "Xe133m": 0.5577
+  },
+  "concentration_units": "mBq/m3",
+  "isotope_order": [
+    "Rn222",
+    "Xe135",
+    "Xe133",
+    "Xe131m",
+    "Xe133m"
+  ],
+  "calibration_config": {
+    "detector_id": 222,
+    "source": "User-provided fixed calibration, 2026-10-26",
+    "isotope_order": [
+      "Xe135",
+      "Xe133",
+      "Xe131m",
+      "Xe133m"
+    ],
+    "sample_efficiencies": [
+      0.251173,
+      0.385,
+      0.244096,
+      0.244096
+    ],
+    "gasbk_efficiencies": [
+      0.251173,
+      0.385,
+      0.244096,
+      0.244096
+    ],
+    "efficiency_convention": "epsilon without branching; sensitivity I = epsilon * branching",
+    "branching": {
+      "Rn222": 0.37,
+      "Xe135": 0.902,
+      "Xe133": 0.37,
+      "Xe131m": 0.54,
+      "Xe133m": 0.5577
+    },
+    "response_source": "Unmodified Rs_222 and Rg_222 from constants.py",
+    "fixed_roi": true,
+    "radon_mode": "legacy",
+    "radon_efficiency": 0.3,
+    "calibration_uncertainty_included": false
+  },
+  "no_observation_simulation": true,
+  "no_LC_LD_MDC_calculation": true,
+  "covariance_rescaled_by_reduced_chi2": false,
+  "statistical_uncertainty_only": true,
+  "baseline_methods": [
+    "poisson",
+    "poisson_nonnegative"
+  ],
+  "baseline_fits_new_for_this_measurement": true,
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "axes": [
+    "chain",
+    "draw",
+    "parameter"
+  ],
+  "shape": [
+    4,
+    5000,
+    17
+  ],
+  "parameters": [
+    {
+      "index": 0,
+      "name": "a_V_aux:Rn222",
+      "native_units": "Bq/m3 (legacy auxiliary, not atmospheric Rn)",
+      "summary_units": "mBq/m3 (legacy auxiliary)"
+    },
+    {
+      "index": 1,
+      "name": "a_V:Xe135",
+      "native_units": "Bq/m3",
+      "summary_units": "mBq/m3"
+    },
+    {
+      "index": 2,
+      "name": "a_V:Xe133",
+      "native_units": "Bq/m3",
+      "summary_units": "mBq/m3"
+    },
+    {
+      "index": 3,
+      "name": "a_V:Xe131m",
+      "native_units": "Bq/m3",
+      "summary_units": "mBq/m3"
+    },
+    {
+      "index": 4,
+      "name": "a_V:Xe133m",
+      "native_units": "Bq/m3",
+      "summary_units": "mBq/m3"
+    },
+    {
+      "index": 5,
+      "name": "gamma:Rn222",
+      "native_units": "expected reference GASBK counts",
+      "summary_units": "expected reference GASBK counts"
+    },
+    {
+      "index": 6,
+      "name": "gamma:Xe135",
+      "native_units": "expected reference GASBK counts",
+      "summary_units": "expected reference GASBK counts"
+    },
+    {
+      "index": 7,
+      "name": "gamma:Xe133",
+      "native_units": "expected reference GASBK counts",
+      "summary_units": "expected reference GASBK counts"
+    },
+    {
+      "index": 8,
+      "name": "gamma:Xe131m",
+      "native_units": "expected reference GASBK counts",
+      "summary_units": "expected reference GASBK counts"
+    },
+    {
+      "index": 9,
+      "name": "gamma:Xe133m",
+      "native_units": "expected reference GASBK counts",
+      "summary_units": "expected reference GASBK counts"
+    },
+    {
+      "index": 10,
+      "name": "zeta:ROI1",
+      "native_units": "expected DETBK counts",
+      "summary_units": "expected DETBK counts"
+    },
+    {
+      "index": 11,
+      "name": "zeta:ROI2",
+      "native_units": "expected DETBK counts",
+      "summary_units": "expected DETBK counts"
+    },
+    {
+      "index": 12,
+      "name": "zeta:ROI3",
+      "native_units": "expected DETBK counts",
+      "summary_units": "expected DETBK counts"
+    },
+    {
+      "index": 13,
+      "name": "zeta:ROI5",
+      "native_units": "expected DETBK counts",
+      "summary_units": "expected DETBK counts"
+    },
+    {
+      "index": 14,
+      "name": "zeta:ROI6",
+      "native_units": "expected DETBK counts",
+      "summary_units": "expected DETBK counts"
+    },
+    {
+      "index": 15,
+      "name": "zeta:ROI7",
+      "native_units": "expected DETBK counts",
+      "summary_units": "expected DETBK counts"
+    },
+    {
+      "index": 16,
+      "name": "zeta:ROI8",
+      "native_units": "expected DETBK counts",
+      "summary_units": "expected DETBK counts"
+    }
+  ],
+  "concentration_order": [
+    "Xe135",
+    "Xe133",
+    "Xe131m",
+    "Xe133m"
+  ],
+  "concentration_units": "mBq/m3",
+  "ratio_order": [
+    "Xe131m/Xe133",
+    "Xe133m/Xe133"
+  ],
+  "ratio_units": "dimensionless",
+  "note": "First radon coordinate is the original legacy auxiliary parameter, not an atmospheric radon concentration"
+}

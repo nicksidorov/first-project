@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "detector": 222,
+  "posterior_draws": 20000,
+  "all_draws_used_for_histograms_and_summaries": true,
+  "scatter_draws": 20000,
+  "ellipse_chi2_df2_95": 5.991464547107979,
+  "ellipse_max_mahalanobis_errors": [
+    7.638334409421077e-14,
+    7.815970093361102e-14
+  ],
+  "normal_tail_truncated_at_zero": false,
+  "normal_negative_probability": [
+    0.00035629299584501384,
+    0.0024926459720262125
+  ],
+  "figures": [
+    {
+      "name": "bayesian_joint_concentrations",
+      "png_pixels": [
+        2220,
+        1260
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pdf_pages": 1,
+      "pdf_image_objects": 0,
+      "pdf_sha256": "f956555452828b64c188cdcbe62ea8090add665af69edbda043113ed9337a212",
+      "png_sha256": "f07f43e05db41e382f3975f8ab97165fdeec717e552c7983a75abd670fda10a3"
+    },
+    {
+      "name": "bayesian_ratios",
+      "png_pixels": [
+        2220,
+        1260
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ],
+      "pdf_pages": 1,
+      "pdf_image_objects": 0,
+      "pdf_sha256": "a3118dd4313eeec686b5b154159eecdd2430d239f42927bafa4cd2a65f69cbed",
+      "png_sha256": "33497ceaea89fd244daa509d7b4a6d6d47d7f27dbfc5d25289cec99b4338eae0"
+    }
+  ],
+  "latex_compilation": "passed",
+  "latex_pages": 2,
+  "latex_overfull_boxes": false,
+  "visual_review": "Both PNGs inspected: readable labels and legends, complete ML ellipses, no clipping; serif and Computer Modern math"
+}
