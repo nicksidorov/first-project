@@ -1,0 +1,2 @@
+PLAN 1 pending formal batches, 1000 observations, workers=1; fixed 100000-draw plan; no MDC
+DONE batch 000: n=1000, seconds=25.4, errors=0, failed_decisions=0

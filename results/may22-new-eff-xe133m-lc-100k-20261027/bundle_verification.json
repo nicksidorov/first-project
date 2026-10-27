@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "archive": "XeMat_May22_Xe133m_LC_new_eff_100k.zip",
+  "bytes": 66808034,
+  "sha256": "7ea8d21c969149975376959f8ecd9ad8ad8118fddf8e83154515d5b9c9356ff9",
+  "member_count": 155,
+  "all_member_checksums_verified": true,
+  "raw_batch_npz_omitted": "All rows and fields are retained in merged replicates.npz; metadata retained for each batch",
+  "no_MDC_or_LD_calculated": true,
+  "production_code_unchanged": true,
+  "article_unchanged": true
+}

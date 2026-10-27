@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "n_rows_verified": 100000,
+  "n_counts_verified": 2100000,
+  "all_observations_identical_to_seed_replay": true,
+  "replay_only": true,
+  "no_new_experiment": true,
+  "no_fits_or_detection_calculations": true,
+  "numpy_version": "2.3.5",
+  "replicates_sha256": "17956377f8787f04e09a0b1c9a74edffbe6c14f52d9cf30ef111eab623f23886",
+  "verifier_sha256": "8edba0962ba223c8d5c161522962408058c4103a5792de35104cae7eea3df7de"
+}

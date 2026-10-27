@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "archive_sha256": "7ea8d21c969149975376959f8ecd9ad8ad8118fddf8e83154515d5b9c9356ff9",
+  "checked_in_fresh_extraction": true,
+  "all_member_sha256_passed": true,
+  "verified_member_count": 154,
+  "portable_audit_status": "PASS",
+  "n_rows": 100000,
+  "analysis_rebuilt_without_raw_batches": true,
+  "rebuilt_csv_identical": true,
+  "rebuilt_report_identical": true,
+  "figure_size_pixels": [
+    2040,
+    1125
+  ],
+  "figure_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "no_new_observations_or_fits": true,
+  "analysis_output": "LS: 6949/100000 = 6.9490% [6.7921, 7.1084]%; 0 unavailable; corr=-0.380516\nPoisson ML: 6911/100000 = 6.9110% [6.7545, 7.0700]%; 0 unavailable; corr=-0.461425"
+}

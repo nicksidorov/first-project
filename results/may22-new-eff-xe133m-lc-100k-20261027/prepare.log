@@ -1,0 +1,239 @@
+[ПАРСЕР] /workspace/scratch/may22-new-eff-xe133m-lc-100k-20261027/inputs/SAMPLE20260522073631203.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/may22-new-eff-xe133m-lc-100k-20261027/inputs/GASBK20260521152531814.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/may22-new-eff-xe133m-lc-100k-20261027/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/may22-new-eff-xe133m-lc-100k-20261027/inputs/SAMPLE20260522073631203.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/may22-new-eff-xe133m-lc-100k-20261027/inputs/GASBK20260521152531814.PHD: детектор MIX58_221 (ID: 221)
+[ПАРСЕР] /workspace/scratch/may22-new-eff-xe133m-lc-100k-20261027/inputs/DETBK20250610213044796.PHD: детектор MIX58_221 (ID: 221)
+{
+  "source_fit": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+  "reference_fresh_mBq_m3": [
+    1.5890848697382403e-14,
+    0.17290080612176958,
+    0.3368295286140304,
+    2.3493643420843472e-14,
+    0.05456690508411605
+  ],
+  "null_fresh_mBq_m3": [
+    1.5890848697382403e-14,
+    0.17290080612176958,
+    0.3368295286140304,
+    2.3493643420843472e-14,
+    0.0
+  ],
+  "mu0": [
+    102.28596133231798,
+    176.2295483298126,
+    127.21618314994538,
+    107.91649087649277,
+    28.222558136960224,
+    32.094462725448246,
+    20.049290772405435,
+    51.147640172702204,
+    86.02094614142361,
+    48.280664317079456,
+    50.40313125856798,
+    12.111993770125874,
+    10.876378581665293,
+    9.17088057591051,
+    525.5630733568594,
+    853.7635520063949,
+    492.98973181943217,
+    65.92656383656788,
+    64.17353717675334,
+    90.87578632570569,
+    92.3451560691594
+  ],
+  "observed": [
+    105.0,
+    176.0,
+    128.0,
+    107.0,
+    33.0,
+    34.0,
+    13.0,
+    52.0,
+    86.0,
+    47.0,
+    51.0,
+    12.0,
+    12.0,
+    11.0,
+    522.0,
+    854.0,
+    494.0,
+    66.0,
+    64.0,
+    89.0,
+    97.0
+  ],
+  "metadata": {
+    "sample_temporal": {
+      "start_time": "2026-05-21T17:33:20.100000",
+      "collection_start": "2026-05-21T01:00:26",
+      "collection_end": "2026-05-21T12:59:59",
+      "real_time": 50591.18,
+      "live_time": 50400.0,
+      "air_volume": 18.1309795,
+      "xenon_volume": 1.25129
+    },
+    "background_temporal": {
+      "start_time": "2026-05-21T08:23:50.100000",
+      "collection_start": null,
+      "collection_end": null,
+      "real_time": 25301.71,
+      "live_time": 25200.0,
+      "air_volume": null,
+      "xenon_volume": null
+    },
+    "detector_temporal": {
+      "start_time": "2025-06-07T21:22:30.500000",
+      "collection_start": null,
+      "collection_end": null,
+      "real_time": 259694.2,
+      "live_time": 259200.0,
+      "air_volume": null,
+      "xenon_volume": null
+    },
+    "sample_roi_counts": {
+      "1": 105.0,
+      "2": 176.0,
+      "3": 128.0,
+      "4": 190.0,
+      "5": 107.0,
+      "6": 33.0,
+      "7": 34.0,
+      "8": 13.0,
+      "9": 46.0,
+      "10": 141.0
+    },
+    "background_roi_counts": {
+      "1": 52.0,
+      "2": 86.0,
+      "3": 47.0,
+      "4": 87.0,
+      "5": 51.0,
+      "6": 12.0,
+      "7": 12.0,
+      "8": 11.0,
+      "9": 23.0,
+      "10": 63.0
+    },
+    "detector_roi_counts": {
+      "1": 522.0,
+      "2": 854.0,
+      "3": 494.0,
+      "4": 320.0,
+      "5": 66.0,
+      "6": 64.0,
+      "7": 89.0,
+      "8": 97.0,
+      "9": 161.0,
+      "10": 155.0
+    },
+    "detector_info": {
+      "sample": {
+        "id": 221,
+        "name": "MIX58_221"
+      },
+      "background": {
+        "id": 221,
+        "name": "MIX58_221"
+      },
+      "detector": {
+        "id": 221,
+        "name": "MIX58_221"
+      }
+    },
+    "input_detector_id": 221,
+    "sample_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "gasbk_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "detector_background_mode": "joint",
+    "kappa_s": 0.19444444444444445,
+    "kappa_g": 0.09722222222222222,
+    "detector_roi_numbers": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
+    ],
+    "background_source": "DETBK: исходные отсчёты включены в x; ζ оценивается совместно с пробой и памятью (V86)",
+    "calibration_detector_id": 221,
+    "calibration_source": "constants.py: Rs_221, Rg_221, ROI_INFO, XENON_ISOTOPES; времена и объём из IMS; ε — constants.py: FIXED_EFFICIENCIES_SAMPLE/GASBK[221]",
+    "radon_mode": "legacy",
+    "radon_h": {
+      "sample": 0.0001884052796689044,
+      "gasbk": 0.0003670738979635675,
+      "sample_memory": 0.0001884052796689044
+    },
+    "time_parameters": {
+      "t_sr": 50591.18,
+      "t_sl": 50400.0,
+      "t_gr": 25301.71,
+      "t_gl": 25200.0,
+      "t_a": 43173.0,
+      "t_p": 16401.1,
+      "tau": 32970.0,
+      "t_bl": 259200.0
+    },
+    "xenon_volume_cm3": 1.25129,
+    "effective_air_volume_m3": 14.382643678160921,
+    "efficiency_source": "constants.py: FIXED_EFFICIENCIES_SAMPLE/GASBK[221]",
+    "efficiency_isotope_names": [
+      "Xe135",
+      "Xe133",
+      "Xe131m",
+      "Xe133m"
+    ],
+    "sample_efficiencies": [
+      0.241169,
+      0.367784,
+      0.233937,
+      0.233937
+    ],
+    "gasbk_efficiencies": [
+      0.241169,
+      0.367784,
+      0.233937,
+      0.233937
+    ],
+    "efficiency_convention": "I=epsilon×BR; epsilon без branching, BR из constants.ROI_INFO",
+    "memory_calibration": "Эффективности GASBK относятся к памяти и сохраняются при SAMPLE",
+    "base_response_convention": "Rs=R_c^(0), Rg=R_g1^(0)=R_g2^(0); без повторной нормировки после C",
+    "radon_concentration": "Первая координата a_V вспомогательная; не атмосферная активность Rn222",
+    "relative_uncertainty_source": "Числа DELTA_EFF/DELTA_V_XE, без использования старых комментариев: 0.001=0.1%",
+    "delta_I": [
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001
+    ],
+    "delta_V0": 0.001,
+    "radon_sensitivity_audit": "В режиме calibrated I_c[0]=I_g[0]=0 служебные; радон задаётся коэффициентами H_11",
+    "detector_background_model": "V86: совместные SAMPLE/GASBK/DETBK; zeta — ожидаемые отсчёты DETBK",
+    "observation_blocks": [
+      "SAMPLE",
+      "GASBK",
+      "DETBK"
+    ]
+  }
+}
