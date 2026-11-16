@@ -6,7 +6,9 @@
 
 ## Переносная версия для Windows
 
-[Скачать GammaSpectrum-Windows-x64.zip](https://github.com/nicksidorov/first-project/releases/download/gamma-spectrum-v0.2.0/GammaSpectrum-Windows-x64.zip)
+[Скачать GammaSpectrum-Windows-x64.zip](https://github.com/nicksidorov/first-project/raw/refs/heads/main/gamma-spectrum-viewer/portable/GammaSpectrum-Windows-x64.zip)
+
+**Размер архива: 11,2 МБ. Размер EXE: 11,4 МБ.**
 
 1. Распакуйте архив в любую доступную папку или на флешку.
 2. Запустите **GammaSpectrum.exe**.
@@ -131,5 +133,12 @@ Python; совместимость с конкретным компьютеро�
 Все исходники программы и архив находятся в `gamma-spectrum-viewer`.
 Сборочный workflow — `.github/workflows/gamma-spectrum-portable.yml`.
 Чтобы убрать проект из текущей версии репозитория, удалите эту папку и workflow
-и сохраните изменение коммитом. История Git и опубликованный релиз сохраняются
-отдельно.
+и сохраните изменение коммитом. Предыдущие версии остаются в истории Git.
+
+## Готовая сборка 0.2.0
+
+Файлы для скачивания находятся в `portable/`. Сборка выполнена из коммита
+`a2cf7e87f0602e75e3446211bf3b9623f9a18b00`.
+[Успешный запуск сборки и проверок](https://github.com/nicksidorov/first-project/actions/runs/43884079010).
+Все 13 модульных проверок и проверка EXE прошли.
+SHA-256 ZIP: `29b15d324c956928d46cbbdd7b79dbe995415a947ef1517125fbf4e9cebf056b`.
