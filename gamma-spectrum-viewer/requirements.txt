@@ -1,3 +1,1 @@
-plotly>=5.18,<7
-PyQt5>=5.15.9,<6
-PyQtWebEngine>=5.15.6,<6
+# No third-party runtime dependencies. Uses Python's standard library and Tkinter.

@@ -4,17 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gamma-spectrum-viewer"
-version = "0.1.0"
-description = "Desktop gamma spectrum viewer with PyQt5 and offline Plotly charts"
+version = "0.2.0"
+description = "Compact offline gamma spectrum viewer using only Tkinter"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = [
-    "plotly>=5.18,<7",
-    "PyQt5>=5.15.9,<6",
-    "PyQtWebEngine>=5.15.6,<6",
-]
+dependencies = []
 
-[project.scripts]
+[project.gui-scripts]
 gamma-spectrum-viewer = "spectrum_viewer:main"
 
 [tool.setuptools]

@@ -1,0 +1,71 @@
+name: Build Gamma Spectrum Portable
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: gamma-spectrum-viewer
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: x64
+      - name: Build and test in a clean Python environment
+        run: ./build_windows.ps1
+      - name: Test the portable EXE without Python on PATH
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $testRoot = Join-Path $env:RUNNER_TEMP 'Gamma portable тест'
+          New-Item -ItemType Directory -Force $testRoot | Out-Null
+          Copy-Item 'dist/GammaSpectrum.exe' $testRoot
+          $exe = Join-Path $testRoot 'GammaSpectrum.exe'
+          $report = Join-Path $testRoot 'smoke.json'
+          $savedPath = $env:PATH
+          $env:PATH = "$env:SystemRoot\System32;$env:SystemRoot"
+          Remove-Item Env:PYTHONHOME -ErrorAction SilentlyContinue
+          Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
+          try {
+            $process = Start-Process -FilePath $exe -ArgumentList @('--self-test', ('"' + $report + '"')) -WorkingDirectory $testRoot -PassThru
+            if (-not $process.WaitForExit(60000)) {
+              $process.Kill()
+              throw 'Portable GUI test timed out.'
+            }
+            if ($process.ExitCode -ne 0) { throw "Portable test exit code: $($process.ExitCode)" }
+            $result = Get-Content $report -Raw | ConvertFrom-Json
+            if (-not $result.ok -or -not $result.frozen) { throw 'Portable test failed.' }
+            Copy-Item $report 'dist/smoke.json'
+            Get-Content $report
+          } finally {
+            $env:PATH = $savedPath
+          }
+      - name: Create portable ZIP
+        run: |
+          New-Item -ItemType Directory -Force 'dist/portable' | Out-Null
+          Copy-Item 'dist/GammaSpectrum.exe' 'dist/portable/'
+          Copy-Item 'portable.txt' 'dist/portable/README.txt'
+          Compress-Archive -Path 'dist/portable/*' -DestinationPath 'dist/GammaSpectrum-Windows-x64.zip' -Force
+          $zip = Get-Item 'dist/GammaSpectrum-Windows-x64.zip'
+          $exe = Get-Item 'dist/GammaSpectrum.exe'
+          Write-Host "EXE bytes: $($exe.Length); ZIP bytes: $($zip.Length)"
+          $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+          "$hash  GammaSpectrum-Windows-x64.zip" | Set-Content -Encoding ascii 'dist/SHA256SUMS.txt'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gamma-spectrum-windows-x64
+          path: |
+            gamma-spectrum-viewer/dist/GammaSpectrum-Windows-x64.zip
+            gamma-spectrum-viewer/dist/SHA256SUMS.txt
+            gamma-spectrum-viewer/dist/smoke.json
+          compression-level: 0
+          retention-days: 30
+          if-no-files-found: error

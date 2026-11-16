@@ -12,3 +12,6 @@ dist/
 spectrum.html
 spectrum.csv
 examples/demo.bin
+.build-venv/
+*.spec
+smoke.json
