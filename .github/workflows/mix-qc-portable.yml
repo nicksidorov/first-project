@@ -1,0 +1,120 @@
+name: Build MIX QC Portable
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: mix-qc-analyzer
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: x64
+      - name: Build and run unit tests
+        run: ./build_windows.ps1
+      - name: Test portable application and both fit modes
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $testRoot = Join-Path $env:RUNNER_TEMP 'QC portable тест'
+          New-Item -ItemType Directory -Force $testRoot | Out-Null
+          Copy-Item 'dist/MIX_QC.exe' $testRoot
+          $exe = Join-Path $testRoot 'MIX_QC.exe'
+          $report = Join-Path $testRoot 'smoke.json'
+          $savedPath = $env:PATH
+          $env:PATH = "$env:SystemRoot\System32;$env:SystemRoot"
+          Remove-Item Env:PYTHONHOME -ErrorAction SilentlyContinue
+          Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
+          try {
+            $process = Start-Process -FilePath $exe -ArgumentList @('--self-test', ('"' + $report + '"')) -WorkingDirectory $testRoot -PassThru
+            if (-not $process.WaitForExit(240000)) {
+              $process.Kill()
+              throw 'Portable GUI test timed out.'
+            }
+            if (Test-Path $report) {
+              Get-Content $report
+              Copy-Item $report 'dist/smoke.json'
+            }
+            if ($process.ExitCode -ne 0) { throw "Portable test exit code: $($process.ExitCode)" }
+            $result = Get-Content $report -Raw | ConvertFrom-Json
+            if (-not $result.ok -or -not $result.frozen) { throw 'Portable test failed.' }
+          } finally {
+            $env:PATH = $savedPath
+          }
+      - name: Package ZIP
+        run: |
+          New-Item -ItemType Directory -Force 'dist/portable' | Out-Null
+          Copy-Item 'dist/MIX_QC.exe' 'dist/portable/'
+          Copy-Item 'portable.txt' 'dist/portable/README.txt'
+          Compress-Archive -Path 'dist/portable/*' -DestinationPath 'dist/MIX-QC-Windows-x64.zip' -Force
+          $zip = Get-Item 'dist/MIX-QC-Windows-x64.zip'
+          $exe = Get-Item 'dist/MIX_QC.exe'
+          Write-Host "EXE bytes: $($exe.Length); ZIP bytes: $($zip.Length)"
+          $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+          "$hash  MIX-QC-Windows-x64.zip" | Set-Content -Encoding ascii 'dist/SHA256SUMS.txt'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mix-qc-windows-x64
+          path: |
+            mix-qc-analyzer/dist/MIX-QC-Windows-x64.zip
+            mix-qc-analyzer/dist/SHA256SUMS.txt
+            mix-qc-analyzer/dist/smoke.json
+          compression-level: 0
+          retention-days: 30
+          if-no-files-found: error
+
+  publish:
+    needs: windows
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: mix-qc-windows-x64
+          path: package
+      - name: Verify package and prepare release notes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          package = Path('package/MIX-QC-Windows-x64.zip')
+          expected = Path('package/SHA256SUMS.txt').read_text().split()[0]
+          assert hashlib.sha256(package.read_bytes()).hexdigest() == expected
+          result = json.loads(Path('package/smoke.json').read_text(encoding='utf-8'))
+          assert result['ok'] and result['frozen'] and len(result['modes']) == 2
+          notes = f'''Переносная версия QC MIX для Windows 10/11 x64.
+
+          Скачайте **MIX-QC-Windows-x64.zip**, распакуйте и запустите **MIX_QC.exe**.
+          Python и Excel для расчёта и создания XLSX не требуются.
+
+          Сохранены фиксированные веса и пуассоновское перевзвешивание IRLS для
+          бета-подгонки по шаблону. Галочка IRLS пересчитывает sigma = sqrt(mu)
+          на каждой итерации. Гамма-пик подгоняется как в исходном скрипте.
+
+          Excel сохраняется по выбранному пути, HTML-графики — рядом с ним.
+          Проверены оба режима, Excel, HTML и запуск EXE с Python, убранным из PATH.
+          Это проверка переноса программы, не независимая валидация методики QC.
+
+          Размер архива: {package.stat().st_size / 1_000_000:.1f} МБ.
+          [Исходники и инструкция](https://github.com/nicksidorov/first-project/tree/main/mix-qc-analyzer).
+          '''
+          Path('release-notes.md').write_text(notes, encoding='utf-8')
+          PY
+      - name: Publish the verified portable build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QC_RELEASE_TAG: mix-qc-v1.0.0
+        run: |
+          gh release create "$QC_RELEASE_TAG" package/MIX-QC-Windows-x64.zip package/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title 'QC MIX 1.0 — переносная версия Windows' --notes-file release-notes.md --draft --latest=false
+          gh release edit "$QC_RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --draft=false --latest=false

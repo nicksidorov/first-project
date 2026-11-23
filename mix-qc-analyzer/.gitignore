@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.build-venv/
+build/
+dist/
+*.spec
+*.xlsx
+*_plots/
+smoke.json
