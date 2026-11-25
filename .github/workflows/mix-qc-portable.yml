@@ -1,4 +1,4 @@
-name: Build MIX QC Portable
+name: Build MIX QC 1.1 Portable
 
 on:
   workflow_dispatch:
@@ -22,13 +22,13 @@ jobs:
           architecture: x64
       - name: Build and run unit tests
         run: ./build_windows.ps1
-      - name: Test portable application and both fit modes
+      - name: Test EXE, both fit modes and four graph export combinations
         run: |
           $ErrorActionPreference = 'Stop'
           $testRoot = Join-Path $env:RUNNER_TEMP 'QC portable тест'
           New-Item -ItemType Directory -Force $testRoot | Out-Null
-          Copy-Item 'dist/MIX_QC.exe' $testRoot
-          $exe = Join-Path $testRoot 'MIX_QC.exe'
+          Copy-Item 'dist/MIX_QC_1.1.exe' $testRoot
+          $exe = Join-Path $testRoot 'MIX_QC_1.1.exe'
           $report = Join-Path $testRoot 'smoke.json'
           $savedPath = $env:PATH
           $env:PATH = "$env:SystemRoot\System32;$env:SystemRoot"
@@ -53,19 +53,19 @@ jobs:
       - name: Package ZIP
         run: |
           New-Item -ItemType Directory -Force 'dist/portable' | Out-Null
-          Copy-Item 'dist/MIX_QC.exe' 'dist/portable/'
+          Copy-Item 'dist/MIX_QC_1.1.exe' 'dist/portable/'
           Copy-Item 'portable.txt' 'dist/portable/README.txt'
-          Compress-Archive -Path 'dist/portable/*' -DestinationPath 'dist/MIX-QC-Windows-x64.zip' -Force
-          $zip = Get-Item 'dist/MIX-QC-Windows-x64.zip'
-          $exe = Get-Item 'dist/MIX_QC.exe'
+          Compress-Archive -Path 'dist/portable/*' -DestinationPath 'dist/MIX-QC-1.1-Windows-x64.zip' -Force
+          $zip = Get-Item 'dist/MIX-QC-1.1-Windows-x64.zip'
+          $exe = Get-Item 'dist/MIX_QC_1.1.exe'
           Write-Host "EXE bytes: $($exe.Length); ZIP bytes: $($zip.Length)"
           $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
-          "$hash  MIX-QC-Windows-x64.zip" | Set-Content -Encoding ascii 'dist/SHA256SUMS.txt'
+          "$hash  MIX-QC-1.1-Windows-x64.zip" | Set-Content -Encoding ascii 'dist/SHA256SUMS.txt'
       - uses: actions/upload-artifact@v4
         with:
-          name: mix-qc-windows-x64
+          name: mix-qc-1.1-windows-x64
           path: |
-            mix-qc-analyzer/dist/MIX-QC-Windows-x64.zip
+            mix-qc-analyzer/dist/MIX-QC-1.1-Windows-x64.zip
             mix-qc-analyzer/dist/SHA256SUMS.txt
             mix-qc-analyzer/dist/smoke.json
           compression-level: 0
@@ -81,29 +81,39 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: mix-qc-windows-x64
+          name: mix-qc-1.1-windows-x64
           path: package
       - name: Verify package and prepare release notes
         run: |
           python - <<'PY'
           from pathlib import Path
           import hashlib, json
-          package = Path('package/MIX-QC-Windows-x64.zip')
+          package = Path('package/MIX-QC-1.1-Windows-x64.zip')
           expected = Path('package/SHA256SUMS.txt').read_text().split()[0]
           assert hashlib.sha256(package.read_bytes()).hexdigest() == expected
           result = json.loads(Path('package/smoke.json').read_text(encoding='utf-8'))
-          assert result['ok'] and result['frozen'] and len(result['modes']) == 2
-          notes = f'''Переносная версия QC MIX для Windows 10/11 x64.
+          assert result['ok'] and result['frozen'] and result['version'] == '1.1.0' and len(result['modes']) == 4
+          notes = f'''MIX QC 1.1 — отдельная переносная версия для Windows 10/11 x64.
 
-          Скачайте **MIX-QC-Windows-x64.zip**, распакуйте и запустите **MIX_QC.exe**.
+          Скачайте **MIX-QC-1.1-Windows-x64.zip**, распакуйте и запустите **MIX_QC_1.1.exe**.
           Python и Excel для расчёта и создания XLSX не требуются.
 
           Сохранены фиксированные веса и пуассоновское перевзвешивание IRLS для
           бета-подгонки по шаблону. Галочка IRLS пересчитывает sigma = sqrt(mu)
           на каждой итерации. Гамма-пик подгоняется как в исходном скрипте.
 
+          Новое в 1.1:
+          - Отдельная галочка сохранения полного гамма-спектра в HTML.
+          - Кривые подгонки Cs-137 (662 кэВ) и Ba (~81 кэВ), фон и центроиды.
+          - Выбираемый диапазон Ba (по умолчанию 28–36 включительно).
+          - FWHM Ba и её погрешность в каналах на графике и в Excel.
+          - Лист «Гамма-пики» для всех файлов, включая ошибки бета-подгонки.
+          - Версия указана в окне и Excel; старый релиз 1.0 сохранён.
+
+          Расчёт Ba выполняется независимо от галочек сохранения графиков.
           Excel сохраняется по выбранному пути, HTML-графики — рядом с ним.
-          Проверены оба режима, Excel, HTML и запуск EXE с Python, убранным из PATH.
+          Проверены оба режима, все четыре сочетания галочек графиков, Excel, HTML
+          и запуск EXE с Python, убранным из PATH.
           Это проверка переноса программы, не независимая валидация методики QC.
 
           Размер архива: {package.stat().st_size / 1_000_000:.1f} МБ.
@@ -114,7 +124,7 @@ jobs:
       - name: Publish the verified portable build
         env:
           GH_TOKEN: ${{ github.token }}
-          QC_RELEASE_TAG: mix-qc-v1.0.0
+          QC_RELEASE_TAG: mix-qc-v1.1.0
         run: |
-          gh release create "$QC_RELEASE_TAG" package/MIX-QC-Windows-x64.zip package/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title 'QC MIX 1.0 — переносная версия Windows' --notes-file release-notes.md --draft --latest=false
+          gh release create "$QC_RELEASE_TAG" package/MIX-QC-1.1-Windows-x64.zip package/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title 'MIX QC 1.1 — гамма-графики и FWHM бария' --notes-file release-notes.md --draft --latest=false
           gh release edit "$QC_RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --draft=false --latest=false

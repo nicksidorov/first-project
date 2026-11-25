@@ -1,9 +1,10 @@
 import sys
 import argparse
 import os
+from html import escape
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, 
                              QPushButton, QLabel, QTextEdit, QFileDialog, QWidget,
-                             QProgressBar, QMessageBox, QGroupBox, QCheckBox)
+                             QProgressBar, QMessageBox, QGroupBox, QCheckBox, QSpinBox)
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
 import plotly.graph_objects as go
 import numpy as np
@@ -16,14 +17,21 @@ import openpyxl
 from openpyxl.styles import Font, Alignment
 from datetime import datetime
 
+APP_VERSION = '1.1.0'
+APP_NAME = 'MIX QC 1.1'
+FWHM_FACTOR = 2 * np.sqrt(2 * np.log(2))
+
 class SpectrumAnalysisThread(QThread):
     progress = pyqtSignal(int)
     message = pyqtSignal(str)
     finished_signal = pyqtSignal(str)
     error_signal = pyqtSignal(str)
 
-    def __init__(self, template_file, spectra_folder, plots_folder, save_spectra, use_poisson_mle, output_file=None):
+    def __init__(self, template_file, spectra_folder, plots_folder, save_spectra, use_poisson_mle,
+                 output_file=None, save_gamma=False, ba_fit_start=28, ba_fit_end=36):
         super().__init__()
+        if not (0 <= ba_fit_start < ba_fit_end <= 255) or ba_fit_end - ba_fit_start < 5:
+            raise ValueError('Диапазон Ba должен содержать не менее 6 каналов в пределах 0–255.')
         self.template_file = template_file
         self.output_file = output_file or str(Path(spectra_folder) / (
             'QC_results_' + datetime.now().strftime('%Y%m%d_%H%M%S_%f') + '.xlsx'))
@@ -32,6 +40,8 @@ class SpectrumAnalysisThread(QThread):
         self.spectra_folder = spectra_folder
         self.plots_folder = plots_folder
         self.save_spectra = save_spectra
+        self.save_gamma = save_gamma
+        self.ba_fit_start, self.ba_fit_end = ba_fit_start, ba_fit_end
         self.use_poisson_mle = use_poisson_mle  # Новый параметр
         self.lowess_params = {'bandwidth': 0.19, 'poly_order': 2, 'it': 3}
 
@@ -105,7 +115,7 @@ class SpectrumAnalysisThread(QThread):
             self.message.emit("=== ОБРАБОТКА ШАБЛОННОГО СПЕКТРА ===")
             
             # Создаем папку для сохранения графиков ТОЛЬКО если чекбокс отмечен
-            if self.save_spectra:
+            if self.save_spectra or self.save_gamma:
                 os.makedirs(self.plots_folder, exist_ok=True)
                 self.message.emit(f"Создана папка для графиков: {self.plots_folder}")
             else:
@@ -152,6 +162,7 @@ class SpectrumAnalysisThread(QThread):
             
             # Обрабатываем каждый файл
             results = []
+            beta_plots = gamma_plots = 0
             for i, file_path in enumerate(spectrum_files, 1):
                 self.message.emit(f"Обработка {i}/{len(spectrum_files)}: {os.path.basename(file_path)}")
                 self.progress.emit(int((i / len(spectrum_files)) * 100))
@@ -160,7 +171,9 @@ class SpectrumAnalysisThread(QThread):
                 if result:
                     # Сохраняем график для успешной подгонки ТОЛЬКО если чекбокс отмечен
                     if result.get('success', False) and self.save_spectra:
-                        self.save_fitting_plot(file_path, result)
+                        beta_plots += bool(self.save_fitting_plot(file_path, result))
+                    if self.save_gamma and result.get('gamma_spectrum') is not None:
+                        gamma_plots += bool(self.save_gamma_plot(file_path, result))
                     results.append(result)
             
             # 3. СОЗДАНИЕ EXCEL ФАЙЛА С РЕЗУЛЬТАТАМИ
@@ -175,15 +188,18 @@ class SpectrumAnalysisThread(QThread):
             
             summary = f"""
 === РЕЗЮМЕ ===
+Программа: {APP_NAME} ({APP_VERSION})
 Шаблон: {os.path.basename(self.template_file)}
 Папка со спектрами: {self.spectra_folder}
 Метод фитинга: {'Пуассоновский MLE (итеративный)' if self.use_poisson_mle else 'Обычный (фиксированные веса)'}
-Сохранение спектров: {'Включено' if self.save_spectra else 'Отключено'}
-Папка с графиками: {self.plots_folder if self.save_spectra else 'Не создавалась'}
+Сохранение бета-графиков: {'Включено' if self.save_spectra else 'Отключено'}
+Сохранение гамма-графиков: {'Включено' if self.save_gamma else 'Отключено'}
+Диапазон Ba (~81 кэВ): {self.ba_fit_start}–{self.ba_fit_end} каналов; FWHM в каналах
+Папка с графиками: {self.plots_folder if self.save_spectra or self.save_gamma else 'Не создавалась'}
 Всего обработано: {len(spectrum_files)} файлов
 Успешных подгонок: {len(successful_results)}
 Неудачных подгонок: {len(failed_results)}
-Сохранено графиков: {len(successful_results) if self.save_spectra else 0}
+Сохранено бета-графиков: {beta_plots}; гамма-графиков: {gamma_plots}
 """
 
             summary += f"\nРезультаты сохранены в файл: {output_file}"
@@ -263,9 +279,74 @@ class SpectrumAnalysisThread(QThread):
             fig.write_html(output_path)
             
             self.message.emit(f"  Сохранен график: {file_name}_fitting.html")
+            return output_path
             
         except Exception as e:
             self.message.emit(f"  Ошибка при сохранении графика: {str(e)}")
+            return None
+
+    @staticmethod
+    def peak_status(fit):
+        if not fit.get('success'):
+            return 'Не удалось: ' + fit.get('error', 'нет результата')
+        return 'OK' + ('; ' + fit['warning'] if fit.get('warning') else '')
+
+    def make_gamma_figure(self, file_path, result):
+        """Use the stored fits: drawing never reruns or changes an estimator."""
+        fig = go.Figure(go.Scatter(
+            x=np.arange(256), y=result['gamma_spectrum'], mode='lines+markers',
+            line=dict(color='#334155', width=1), marker=dict(size=3),
+            name='Гамма-спектр', hovertemplate='Канал %{x}<br>Отсчёты %{y}<extra></extra>'))
+        statuses = []
+        for label, key, color in [('Cs-137, 662 кэВ', 'cs_fit', '#dc2626'),
+                                  ('Ba, ~81 кэВ', 'ba_fit', '#7c3aed')]:
+            fit = result[key]
+            statuses.append(f'{label}: {escape(self.peak_status(fit))}')
+            if not fit['success']:
+                continue
+            x = np.linspace(fit['fit_start'], fit['fit_end'], 500)
+            A, mu, sigma, a, b = fit['parameters']
+            fig.add_trace(go.Scatter(x=x, y=self.gauss_with_linear(x, A, mu, sigma, a, b),
+                mode='lines', line=dict(color=color, width=2), name=f'{label}: гаусс + фон'))
+            fig.add_trace(go.Scatter(x=x, y=a*x+b, mode='lines',
+                line=dict(color=color, dash='dash'), name=f'{label}: линейный фон'))
+            fig.add_vline(x=mu, line_color=color, line_dash='dot', line_width=1)
+            fig.add_annotation(x=mu, y=A+a*mu+b,
+                text=f'{label}<br>Центроид: {mu:.3f} ± {fit["peak_center_err"]:.3f} кан.',
+                showarrow=True, arrowcolor=color, ax=45 if key == 'ba_fit' else -70, ay=-65)
+            if key == 'ba_fit':
+                width = fit['fwhm']
+                left, right = mu-width/2, mu+width/2
+                if fit['fit_start'] <= left < right <= fit['fit_end']:
+                    # Half of the GAUSSIAN height above the local sloping background.
+                    ends = np.array([left, right])
+                    fig.add_trace(go.Scatter(x=ends, y=a*ends+b+A/2, mode='lines+markers',
+                        line=dict(color='#059669', width=2),
+                        marker=dict(symbol='line-ns', size=13, line=dict(width=2)),
+                        name=f'Ba FWHM: {width:.3f} ± {fit["fwhm_err"]:.3f} кан.'))
+                fig.add_annotation(x=mu, y=a*mu+b+A/2, showarrow=False,
+                    text=f'FWHM Ba = {width:.3f} ± {fit["fwhm_err"]:.3f} кан.',
+                    xanchor='left', xshift=35, bgcolor='rgba(255,255,255,0.85)')
+        fig.update_layout(
+            title=dict(text=f'{APP_NAME} — гамма-спектр: {escape(Path(file_path).name)}', font_size=18),
+            xaxis_title='Канал', yaxis_title='Отсчёты', template='plotly_white',
+            xaxis=dict(range=[0, 255]), yaxis=dict(rangemode='tozero'),
+            legend=dict(orientation='h', y=-0.12), margin=dict(t=130, b=130),
+            hovermode='closest')
+        fig.add_annotation(x=0, y=1, yshift=40, xref='paper', yref='paper', xanchor='left',
+            yanchor='bottom', showarrow=False, align='left', text='<br>'.join(statuses), font_size=11)
+        return fig
+
+    def save_gamma_plot(self, file_path, result):
+        try:
+            output_path = str(Path(self.plots_folder) / (Path(file_path).stem + '_gamma.html'))
+            self.make_gamma_figure(file_path, result).write_html(
+                output_path, include_plotlyjs=True, config={'displaylogo': False, 'scrollZoom': True})
+            self.message.emit(f'  Сохранен гамма-график: {Path(output_path).name}')
+            return output_path
+        except Exception as error:
+            self.message.emit(f'  Ошибка при сохранении гамма-графика: {error}')
+            return None
 
     def parse_spectrum(self, file_path):
         date_str, matrix, gamma_spectrum = "Не найдена", None, None
@@ -283,12 +364,16 @@ class SpectrumAnalysisThread(QThread):
                     break
             for i, line in enumerate(lines):
                 if line.strip() == '#Histogram':
-                    rows = lines[i + 2:i + 2 + 256]
-                    matrix = np.array([[float(x) for x in row.split()] for row in rows])
-                    if matrix.shape != (256, 256):
-                        raise ValueError('Блок #Histogram должен содержать матрицу 256 × 256.')
-                    if not np.all(np.isfinite(matrix)) or np.any(matrix < 0):
-                        raise ValueError('Матрица содержит отрицательные или неконечные значения.')
+                    try:
+                        rows = lines[i + 2:i + 2 + 256]
+                        matrix = np.array([[float(x) for x in row.split()] for row in rows])
+                        if matrix.shape != (256, 256):
+                            raise ValueError('Блок #Histogram должен содержать матрицу 256 × 256.')
+                        if not np.all(np.isfinite(matrix)) or np.any(matrix < 0):
+                            raise ValueError('Матрица содержит отрицательные или неконечные значения.')
+                    except (ValueError, OverflowError) as error:
+                        matrix = None
+                        self.message.emit(f'  Матрица не использована: {error}')
                     break
             for i, line in enumerate(lines):
                 if line.strip() != '#g_Spectrum':
@@ -433,6 +518,8 @@ class SpectrumAnalysisThread(QThread):
                 'peak_area': peak_area,
                 'peak_amplitude': popt[0], 'peak_amplitude_err': perr[0],
                 'peak_sigma': popt[2], 'peak_sigma_err': perr[2],
+                'parameters': popt.tolist(),
+                'fit_start': fit_start, 'fit_end': fit_end,
                 'success': True
             }
             
@@ -448,17 +535,50 @@ class SpectrumAnalysisThread(QThread):
         
         return results
 
+    def analyze_gamma(self, gamma_spectrum):
+        """Gamma fits are independent of beta fitting and HTML export switches."""
+        fits = {}
+        for key, start, end in [('cs_fit', 209, 251),
+                                ('ba_fit', self.ba_fit_start, self.ba_fit_end)]:
+            if gamma_spectrum is None:
+                fit = {'success': False, 'error': 'Гамма-спектр отсутствует или поврежден'}
+            else:
+                try:
+                    fit = self.fit_peak_in_region(gamma_spectrum, start, end)
+                    if fit['success']:
+                        values = fit['parameters'] + [fit['peak_center_err'], fit['peak_sigma_err']]
+                        if (not np.all(np.isfinite(values)) or fit['peak_amplitude'] <= 0
+                                or not start <= fit['peak_center'] <= end or fit['peak_sigma'] == 0):
+                            fit = {'success': False, 'error': 'Параметры пика или их погрешности недостоверны'}
+                    if key == 'ba_fit' and fit['success']:
+                        fit['fwhm'] = FWHM_FACTOR * abs(fit['peak_sigma'])
+                        fit['fwhm_err'] = FWHM_FACTOR * fit['peak_sigma_err']
+                        if not (start <= fit['peak_center']-fit['fwhm']/2
+                                and fit['peak_center']+fit['fwhm']/2 <= end):
+                            fit['warning'] = 'Полувысота выходит за диапазон подгонки; проверьте диапазон'
+                except Exception as error:
+                    fit = {'success': False, 'error': str(error)}
+            fit.update(fit_start=start, fit_end=end)
+            fits[key] = fit
+        cs = fits['cs_fit']
+        fits.update(gamma_spectrum=gamma_spectrum, peak_success=cs['success'],
+                    peak_center=cs.get('peak_center') if cs['success'] else None,
+                    peak_center_err=cs.get('peak_center_err') if cs['success'] else None,
+                    peak_area=cs.get('peak_area') if cs['success'] else None)
+        return fits
+
     def fit_spectrum_to_template(self, new_file_path, spectrum_func, lowess_params):
+        result = {'file': Path(new_file_path).name, 'date': 'Ошибка чтения', 'success': False}
+        result.update(self.analyze_gamma(None))
         try:
             date_str, matrix, gamma_spectrum = self.parse_spectrum(new_file_path)
+            result['date'] = date_str
+            result.update(self.analyze_gamma(gamma_spectrum))
+            self.message.emit(f"  → Ba ({self.ba_fit_start}–{self.ba_fit_end}): {self.peak_status(result['ba_fit'])}")
             
             if matrix is None:
-                return {
-                    'file': Path(new_file_path).name,
-                    'date': date_str,
-                    'success': False,
-                    'error': "Не найдена матрица в файле"
-                }
+                result['error'] = 'Матрица отсутствует или повреждена'
+                return result
             
             filtered_new = self.apply_filters(matrix)
             x_new = np.sum(filtered_new, axis=0)
@@ -488,48 +608,33 @@ class SpectrumAnalysisThread(QThread):
             A_fit, k_fit = popt
             A_err, k_err = np.sqrt(np.diag(pcov))
             
-            peak_results = None
-            if gamma_spectrum is not None:
-                peak_results = self.fit_peak_in_region(gamma_spectrum, 209, 251)
-            else:
-                peak_results = {'success': False, 'error': "Гамма-спектр не найден"}
-            
-            return {
-                'file': Path(new_file_path).name,
-                'date': date_str,
+            result.update({
                 'A': A_fit,
                 'A_err': A_err,
                 'k': k_fit,
                 'k_err': k_err,
-                'peak_center': peak_results['peak_center'] if peak_results['success'] else 0,
-                'peak_center_err': peak_results['peak_center_err'] if peak_results['success'] else 0,
-                'peak_area': peak_results['peak_area'] if peak_results['success'] else 0,
-                'peak_success': peak_results['success'],
                 'irls_converged': bool(self.mle_converged) if self.use_poisson_mle else None,
                 'success': True
-            }
+            })
             
         except Exception as e:
-            return {
-                'file': Path(new_file_path).name,
-                'date': "Ошибка чтения",
-                'A': 0,
-                'A_err': 0,
-                'k': 0,
-                'k_err': 0,
-                'peak_center': 0,
-                'peak_center_err': 0,
-                'peak_area': 0,
-                'peak_success': False,
-                'success': False,
-                'error': str(e)
-            }
+            result.update(success=False, error=str(e))
+        return result
+
+    def ba_excel_values(self, fit):
+        values = [round(float(fit[key]), 4) if fit['success'] else None
+                  for key in ('peak_center', 'peak_center_err', 'fwhm', 'fwhm_err')]
+        return values + [fit['fit_start'], fit['fit_end'], self.peak_status(fit)]
 
     def save_to_excel(self, results, template_file, spectra_folder, output_file="fitting_results.xlsx"):
         successful_results = [r for r in results if r.get('success', False)]
         failed_results = [r for r in results if not r.get('success', False)]
         
         wb = openpyxl.Workbook()
+        wb.properties.title = f'{APP_NAME} — отчет QC'
+        ba_headers = ['Центроид Ba (кан.)', 'Погрешность центроида Ba (кан.)',
+                      'FWHM Ba (кан.)', 'Погрешность FWHM Ba (кан.)',
+                      'Ba: первый канал', 'Ba: последний канал', 'Статус Ba']
         
         if successful_results:
             ws_success = wb.active
@@ -538,7 +643,7 @@ class SpectrumAnalysisThread(QThread):
             df_success = pd.DataFrame(successful_results)
             headers = ['Файл', 'Дата', 'Амплитуда (A)', 'Погрешность A', 
                       'Коэффициент масштаба (k)', 'Погрешность k',
-                      'Центр пика', 'Погрешность центра', 'Площадь пика', 'Сходимость IRLS']
+                      'Центр пика', 'Погрешность центра', 'Площадь пика', 'Сходимость IRLS'] + ba_headers
             ws_success.append(headers)
             
             for _, row in df_success.iterrows():
@@ -553,7 +658,7 @@ class SpectrumAnalysisThread(QThread):
                     round(row['peak_center_err'], 2) if row['peak_success'] else "Не удалось",
                     round(row['peak_area'], 2) if row['peak_success'] else "Не удалось",
                     ("Да" if row['irls_converged'] else "Лимит итераций") if self.use_poisson_mle else "—"
-                ])
+                ] + self.ba_excel_values(row['ba_fit']))
             
             for cell in ws_success[1]:
                 cell.font = Font(bold=True)
@@ -598,14 +703,39 @@ class SpectrumAnalysisThread(QThread):
                 adjusted_width = (max_length + 2)
                 ws_failed.column_dimensions[column_letter].width = adjusted_width
         
+        ws_gamma = wb.create_sheet('Гамма-пики')
+        ws_gamma.append(['Файл', 'Дата', 'Центроид Cs (кан.)', 'Погрешность центроида Cs (кан.)',
+                         'Статус Cs'] + ba_headers)
+        for result in results:
+            cs = result['cs_fit']
+            ws_gamma.append([result['file'], result['date'],
+                round(float(cs['peak_center']), 4) if cs['success'] else None,
+                round(float(cs['peak_center_err']), 4) if cs['success'] else None,
+                self.peak_status(cs)] + self.ba_excel_values(result['ba_fit']))
+        ws_gamma.freeze_panes = 'C2'
+        ws_gamma.auto_filter.ref = ws_gamma.dimensions
+        for cell in ws_gamma[1]:
+            cell.font = Font(bold=True)
+            cell.alignment = Alignment(wrap_text=True)
+        for column in ws_gamma.columns:
+            ws_gamma.column_dimensions[column[0].column_letter].width = min(60, max(
+                18, max(len(str(cell.value or '')) for cell in column) + 2))
+
         ws_info = wb.create_sheet("Информация")
         info_data = [
             ["ОТЧЕТ О ПОДГОНКЕ СПЕКТРОВ"],
+            ['Программа:', APP_NAME],
+            ['Версия:', APP_VERSION],
             [""],
             ["Шаблонный спектр:", template_file],
             ["Папка со спектрами:", spectra_folder],
-            ["Папка с графиками:", self.plots_folder if self.save_spectra else "Сохранение отключено"],
-            ["Сохранение спектров:", "Включено" if self.save_spectra else "Отключено"],
+            ["Папка с графиками:", self.plots_folder if self.save_spectra or self.save_gamma else "Сохранение отключено"],
+            ["Сохранение бета-графиков:", "Включено" if self.save_spectra else "Отключено"],
+            ['Сохранение гамма-графиков:', 'Включено' if self.save_gamma else 'Отключено'],
+            ['Диапазон Ba (включительно):', f'{self.ba_fit_start}–{self.ba_fit_end}'],
+            ['FWHM Ba:', '2·sqrt(2·ln(2))·abs(sigma), в каналах; ширина гауссовой составляющей над фоном'],
+            ['Погрешность FWHM Ba:', '2·sqrt(2·ln(2))·SE(sigma), ковариационная оценка 1σ'],
+            ['Подгонка гамма-пиков:', 'Гаусс + линейный фон; sigma весов = sqrt(y+1); Cs: 209–251'],
             ["Метод фитинга:", "Пуассоновский MLE (итеративный)" if self.use_poisson_mle else "Обычный (фиксированные веса)"],
             ["Дата обработки:", pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S")],
             [""],
@@ -668,12 +798,13 @@ class SpectrumAnalyzerApp(QMainWindow):
         self.spectra_folder = ""
         self.plots_folder = ""
         self.save_spectra = True
+        self.save_gamma = False
         self.use_poisson_mle = False  # По умолчанию используем обычный метод
         self.initUI()
         
     def initUI(self):
-        self.setWindowTitle("QC analyzer")
-        self.setGeometry(100, 100, 800, 600)
+        self.setWindowTitle(APP_NAME)
+        self.setGeometry(100, 100, 900, 680)
         
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
@@ -704,10 +835,13 @@ class SpectrumAnalyzerApp(QMainWindow):
         
         # Чекбокс для сохранения спектров
         checkbox_layout = QHBoxLayout()
-        self.save_checkbox = QCheckBox("Save spectra to folder")
+        self.save_checkbox = QCheckBox("Save beta fitting plots / Бета-подгонка")
         self.save_checkbox.setChecked(True)
         self.save_checkbox.stateChanged.connect(self.on_checkbox_changed)
         checkbox_layout.addWidget(self.save_checkbox)
+        self.gamma_checkbox = QCheckBox('Save gamma spectra / Гамма-спектры')
+        self.gamma_checkbox.setToolTip('Полный гамма-спектр, подгонки Cs и Ba, центроиды и FWHM Ba')
+        checkbox_layout.addWidget(self.gamma_checkbox)
         checkbox_layout.addStretch()
         files_layout.addLayout(checkbox_layout)
         
@@ -719,6 +853,23 @@ class SpectrumAnalyzerApp(QMainWindow):
         mle_layout.addWidget(self.mle_checkbox)
         mle_layout.addStretch()
         files_layout.addLayout(mle_layout)
+
+        ba_layout = QHBoxLayout()
+        ba_layout.addWidget(QLabel('Ba (~81 кэВ): диапазон каналов'))
+        self.ba_start_spin = QSpinBox()
+        self.ba_end_spin = QSpinBox()
+        for spin, value in [(self.ba_start_spin, 28), (self.ba_end_spin, 36)]:
+            spin.setRange(0, 255)
+            spin.setValue(value)
+            spin.setToolTip('Границы включительно; минимум 6 каналов. FWHM вычисляется в каналах.')
+        self.ba_start_spin.setAccessibleName('Первый канал Ba')
+        self.ba_end_spin.setAccessibleName('Последний канал Ba')
+        ba_layout.addWidget(self.ba_start_spin)
+        ba_layout.addWidget(QLabel('—'))
+        ba_layout.addWidget(self.ba_end_spin)
+        ba_layout.addWidget(QLabel('FWHM → Excel (каналы)'))
+        ba_layout.addStretch()
+        files_layout.addLayout(ba_layout)
         
         layout.addWidget(files_group)
         
@@ -764,8 +915,13 @@ class SpectrumAnalyzerApp(QMainWindow):
     def run_analysis(self):
         if hasattr(self, 'analysis_thread') and self.analysis_thread.isRunning():
             return
+        ba_start, ba_end = self.ba_start_spin.value(), self.ba_end_spin.value()
+        if ba_end - ba_start < 5:
+            QMessageBox.warning(self, 'Диапазон Ba',
+                'Выберите не менее 6 каналов включительно. Первый канал должен быть меньше последнего.')
+            return
         # Choose a persistent destination, never PyInstaller's temporary __file__ folder.
-        default_name = os.path.join(self.spectra_folder, 'QC_results_' +
+        default_name = os.path.join(self.spectra_folder, 'MIX_QC_1.1_results_' +
                                     datetime.now().strftime('%Y%m%d_%H%M%S_%f') + '.xlsx')
         output_file, _ = QFileDialog.getSaveFileName(
             self, "Сохранить Excel-отчет", default_name, "Excel (*.xlsx)")
@@ -776,9 +932,11 @@ class SpectrumAnalyzerApp(QMainWindow):
         output_file = os.path.abspath(output_file)
         # Получаем состояние чекбокса MLE
         self.use_poisson_mle = self.mle_checkbox.isChecked()
+        self.save_spectra = self.save_checkbox.isChecked()
+        self.save_gamma = self.gamma_checkbox.isChecked()
         
         # Создаем папку для графиков ТОЛЬКО если чекбокс отмечен
-        if self.save_spectra:
+        if self.save_spectra or self.save_gamma:
             self.plots_folder = str(Path(output_file).with_suffix('')) + '_plots' 
         else:
             self.plots_folder = ""
@@ -795,7 +953,10 @@ class SpectrumAnalyzerApp(QMainWindow):
             self.plots_folder, 
             self.save_spectra,
             self.use_poisson_mle,
-            output_file=output_file
+            output_file=output_file,
+            save_gamma=self.save_gamma,
+            ba_fit_start=ba_start,
+            ba_fit_end=ba_end
         )
         self.analysis_thread.progress.connect(self.progress_bar.setValue)
         self.analysis_thread.message.connect(self.append_message)
@@ -835,7 +996,8 @@ class SpectrumAnalyzerApp(QMainWindow):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='QC MIX analyzer')
+    parser = argparse.ArgumentParser(description=APP_NAME)
+    parser.add_argument('--version', action='version', version=APP_VERSION)
     parser.add_argument('--self-test', metavar='REPORT', help=argparse.SUPPRESS)
     args = parser.parse_args()
     app = QApplication(sys.argv[:1])
