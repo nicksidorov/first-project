@@ -333,7 +333,7 @@ class SpectrumAnalysisThread(QThread):
             xaxis=dict(range=[0, 255]), yaxis=dict(rangemode='tozero'),
             legend=dict(orientation='h', y=-0.12), margin=dict(t=130, b=130),
             hovermode='closest')
-        fig.add_annotation(x=0, y=1, yshift=40, xref='paper', yref='paper', xanchor='left',
+        fig.add_annotation(x=0, y=1, yshift=12, xref='paper', yref='paper', xanchor='left',
             yanchor='bottom', showarrow=False, align='left', text='<br>'.join(statuses), font_size=11)
         return fig
 
